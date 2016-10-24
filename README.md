@@ -1,4 +1,4 @@
-# ExtraAlchemyIssues
+# Extra Alchemy Issue Tracker
 Issue Collector for [Extra Alchemy](https://minecraft.curseforge.com/projects/extra-alchemy)
 
 
