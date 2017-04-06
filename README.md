@@ -13,6 +13,8 @@ If you encounter any bugs, crash or you just simply want to contribute to the mo
 
 - Please, read the following quick tutorials 
 
+Click here to [open a new issue](https://github.com/zabi94/ExtraAlchemyIssues/issues/new)
+
 ---
 
 ### Get your mod list 101
