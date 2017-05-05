@@ -2,7 +2,7 @@ Compile the following template. Fields marked with (*) are mandatory, Fields wit
 
 ---
 
-#### Type of Issue (Bug / Crash / Suggestion / Translation / ...):
+#### Type of Issue/Request (Bug / Crash / Suggestion / Translation / ...):
 >(*)
 
 ---
@@ -12,12 +12,17 @@ Compile the following template. Fields marked with (*) are mandatory, Fields wit
 
 ---
 
-#### Minecraft Version (1.9.4, 1.10, 1.10.2...):
+#### Are you a Single Player, a Multiplayer Client (You are a player in a server) or Server Side?:
 >(*)
 
 ---
 
-#### Description of the issue (or what were you doing when it crashed):
+#### Minecraft Version (1.9.4, 1.10, 1.10.2, 1.11.2...):
+>(*)
+
+---
+
+#### Description (or what were you doing when it crashed):
 >(*)
 
 ---
