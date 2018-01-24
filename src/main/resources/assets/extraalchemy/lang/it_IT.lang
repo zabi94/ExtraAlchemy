@@ -1,0 +1,254 @@
+potion.effect.dislocation=Pozione di spostamento
+lingering_potion.effect.dislocation=Pozione persistente di spostamento
+splash_potion.effect.dislocation=Pozione da lancio di spostamento
+tipped_arrow.effect.dislocation=Freccia di spostamento
+effect.dislocation=Spostamento
+funny.effect.dislocation=Posizione di Schrodinger
+description.effect.dislocation=Teletrasporta il giocatore a caso
+
+potion.effect.dispel=Pozione di rimozione
+lingering_potion.effect.dispel=Pozione persistente di rimozione
+splash_potion.effect.dispel=Pozione da lancio di rimozione
+tipped_arrow.effect.dispel=Freccia di rimozione
+effect.dispel=Rimozione
+funny.effect.dispel=E' di nuovo Torvald, vero?
+description.effect.dispel=La creatura che viene afflitta da questa pozione ha\nuna possibilita' di perdere dei livelli di\nincantesimo dai suoi strumenti
+
+potion.effect.piper=Pozione dell'ammaliatore
+lingering_potion.effect.piper=Pozione persistente dell'ammaliatore
+splash_potion.effect.piper=Pozione da lancio dell'ammaliatore
+tipped_arrow.effect.piper=Freccia dell'ammaliatore
+effect.piper=Ammaliamento
+funny.effect.piper=Ci son due coccodrilli...
+description.effect.piper=Attira gli animali come se stessi\ntenendo il loro cibo preferito
+
+potion.effect.fuse=Pozione della miccia
+lingering_potion.effect.fuse=Pozione persistente della miccia
+splash_potion.effect.fuse=Pozione da lancio della miccia
+tipped_arrow.effect.fuse=Freccia della miccia
+effect.fuse=Miccia
+funny.effect.fuse=Un pizzico di Creeper
+description.effect.fuse=Quando la pozione finisce crea un esplosione
+
+potion.effect.beheading=Pozione della decapitazione
+lingering_potion.effect.beheading=Pozione persistente della decapitazione
+splash_potion.effect.beheading=Pozione da lancio della decapitazione
+tipped_arrow.effect.beheading=Freccia da decapitazione
+effect.beheading=Decapitazione
+funny.effect.beheading=Preferisco Sir Nicholas, se non ti dispiace
+description.effect.beheading=Una creatura che muore con decapitazione attiva\nha piu' probabilita' di lasciar cadere la sua testa\nche sara' pero' estremamente fragile e svanira'\nmolto velocemente se lasciata a terra
+
+potion.effect.learning=Pozione dello studio
+lingering_potion.effect.learning=Pozione persistente dello studio
+splash_potion.effect.learning=Pozione da lancio dello studio
+tipped_arrow.effect.learning=Freccia dello studio
+effect.learning=Studio
+funny.effect.learning=Eureka!
+description.effect.learning=Un magnete per gli XP
+
+potion.effect.sinking=Pozione dell'inabissamento
+lingering_potion.effect.sinking=Pozione persistente dell'inabissamento
+splash_potion.effect.sinking=Pozione da lancio dell'inabissamento
+tipped_arrow.effect.sinking=Freccia dell'inabissamento
+effect.sinking=Inabissamento
+funny.effect.sinking=Alla Ricerca di Nemo
+description.effect.sinking=Ti trascina sott'acqua
+
+potion.effect.detection=Pozione dell'attenzione
+lingering_potion.effect.detection=Pozione persistente dell'attenzione
+splash_potion.effect.detection=Pozione da lancio dell'attenzione
+tipped_arrow.effect.detection=Freccia dell'attenzione
+effect.detection=Attenzione
+funny.effect.detection=Hey, quello e' un Khajiit? 
+description.effect.detection=Le entita' attorno a te sono evidenziate
+
+potion.effect.recall=Pozione del richiamo
+lingering_potion.effect.recall=Pozione persistente del richiamo
+splash_potion.effect.recall=Pozione da lancio del richiamo
+tipped_arrow.effect.recall=Freccia del richiamo
+effect.recall=Richiamo
+funny.effect.recall=Torno subito!
+description.effect.recall=Quando un'entita' prende l'effetto\nla sua posizione viene salvata.\nAllo scadere del conto alla rovescia\nviene riportata li'. Se vuoi usarlo\ntra dimensioni, ti serve il livello II
+
+potion.effect.freezing=Pozione del congelamento
+lingering_potion.effect.freezing=Pozione persistente del congelamento
+splash_potion.effect.freezing=Pozione da lancio del congelamento
+tipped_arrow.effect.freezing=Freccia del congelamento
+effect.freezing=Congelamento
+funny.effect.freezing=Basta, Mei!
+description.effect.freezing=Blocca l'entita' nel ghiaccio.\nQuesto tipo di ghiaccio non diventa acqua\ne non sostituisce blocchi esistenti
+
+potion.effect.magnetism=Pozione del magnetismo
+lingering_potion.effect.magnetism=Pozione persistente del magnetismo
+splash_potion.effect.magnetism=Pozione da lancio del magnetismo
+tipped_arrow.effect.magnetism=Freccia del magnetismo
+effect.magnetism=Magnetismo
+funny.effect.magnetism=Come diventare attraente in poco tempo
+description.effect.magnetism=Attrae gli oggetti verso il giocatore.\nIl livello II toglie il ritardo di raccoglimento
+
+potion.effect.pacifism=Pozione del pacifismo
+lingering_potion.effect.pacifism=Pozione persistente del pacifismo
+splash_potion.effect.pacifism=Pozione da lancio del pacifismo
+tipped_arrow.effect.pacifism=Freccia del pacifismo
+effect.pacifism=Pacifismo
+funny.effect.pacifism=Calmati, amico!
+description.effect.pacifism=Se un'entita' con pacifismo viene attaccata,\nl'attaccante viene rallentato
+
+potion.effect.crumbling=Pozione dell'erosione
+lingering_potion.effect.crumbling=Pozione persistente dell'erosione
+splash_potion.effect.crumbling=Pozione da lancio dell'erosione
+tipped_arrow.effect.crumbling=Freccia dell'erosione
+effect.crumbling=Erosione
+funny.effect.crumbling=Viaggio al Centro della Terra
+description.effect.crumbling=Corrode il terreno sotto di te.\nDistrugge solo i blocchi più comuni 
+
+potion.effect.concentration=Pozione della concentrazione
+lingering_potion.effect.concentration=Pozione persistente della concentrazione
+splash_potion.effect.concentration=Pozione da lancio della concentrazione
+tipped_arrow.effect.concentration=Freccia della concentrazione
+effect.concentration=Concentrazione
+funny.effect.concentration=Bello come ammazzare quella mosca fastidiosa
+description.effect.concentration=Rimuove le particelle delle pozioni
+
+potion.effect.return=Pozione del ritorno
+lingering_potion.effect.return=Pozione persistente del ritorno
+splash_potion.effect.return=Pozione da lancio del ritorno
+tipped_arrow.effect.return=Freccia del ritorno
+effect.return=Ritorno
+funny.effect.return=Vai in camera tua, ORA!
+description.effect.return=Ti teletrasporta sul tuo letto.\nE' necessario un letto valido e non ostruito
+
+potion.effect.photosynthesis=Pozione di fotosintesi
+lingering_potion.effect.photosynthesis=Pozione persistente di fotosintesi
+splash_potion.effect.photosynthesis=Pozione da lancio di fotosintesi
+tipped_arrow.effect.photosynthesis=Freccia di fotosintesi
+effect.photosynthesis=Fotosintesi
+funny.effect.photosynthesis=Perche' i respiriani esistono davvero
+description.effect.photosynthesis=Riempie la fame e la saturazione\nfintantoche' riesci a vedere il sole
+
+potion.effect.charged=Pozione carica
+lingering_potion.effect.charged=Pozione carica persistente
+splash_potion.effect.charged=Pozione carica da lancio
+tipped_arrow.effect.charged=Freccia carica
+effect.charged=Carica
+funny.effect.charged=Meglio di niente, no?
+description.effect.charged=Usata per creare la pozione Carica II
+potion.effect.charged2=Pozione carica
+lingering_potion.effect.charged2=Pozione carica persistente
+splash_potion.effect.charged2=Pozione carica da lancio
+tipped_arrow.effect.charged2=Freccia carica
+effect.charged2=Carica II
+funny.effect.charged2=Caricamento descrizione in corso...
+description.effect.charged2=Usata per creare le pozioni piu' forti
+
+potion.effect.cheatDeath_quiescent=Pozione del ritardo mortale
+lingering_potion.effect.cheatDeath_quiescent=Pozione persistente del ritardo mortale
+splash_potion.effect.cheatDeath_quiescent=Pozione da lancio del ritardo mortale
+tipped_arrow.effect.cheatDeath_quiescent=Freccia del ritardo mortale
+effect.cheatDeath_quiescent=Ritardo Mortale
+funny.effect.cheatDeath_quiescent=Non e' ancora la mia ora!
+description.effect.cheatDeath_quiescent=Mentre sei affetto da questa pozione non muori.\nLa prima volta che la tua vita raggiunge 0,\nquesta pozione si attiva. Un effetto attivo ti\nprotegge ancora dalla morte, ma piu' si avvicina\nallo 0, piu' e' alta la probabilita' di morire, perdendo\ntutti i tuoi strumenti. Avere sia questo effetto\nche quello attivo vanifica entrambi.
+effect.cheatDeath_active=Ticchettio Mortale 
+
+potion.effect.hurry=Pozione della fretta
+lingering_potion.effect.hurry=Pozione persistente della fretta
+splash_potion.effect.hurry=Pozione da lancio della fretta
+tipped_arrow.effect.hurry=Freccia della fretta
+effect.hurry=Fretta
+funny.effect.hurry=Siamo arrivati?
+description.effect.hurry=Tutte le tile entity attorno\nal giocatore lavorano più in fretta.\nQuesto causa un'incredibile fame
+
+potion.effect.combustion=Pozione della combustione
+lingering_potion.effect.combustion=Pozione persistente della combustione
+splash_potion.effect.combustion=Pozione da lancio della combustione
+tipped_arrow.effect.combustion=Freccia della combustione
+effect.combustion=Combustione
+funny.effect.combustion=Burn baby, burn!
+description.effect.combustion=L'entita' prende fuoco e lo appicca nei suoi dintorni.\nAi giocatori si cucina l'inventario
+
+potion.effect.reincarnation=Pozione della reincarnazione
+lingering_potion.effect.reincarnation=Pozione persistente della reincarnazione
+splash_potion.effect.reincarnation=Pozione da lancio della reincarnazione
+tipped_arrow.effect.reincarnation=Freccia della reincarnazione
+effect.reincarnation=Reincarnazione
+funny.effect.reincarnation=Vediamo un po'... Mia prossima vita è come tenia
+description.effect.reincarnation=Ti permette di conservare le pozioni attive\nquando muori. Il livello II trasferisce solo\ngli effetti positivi e, in piu', se stesso
+
+potion.effect.gravity=Pozione della gravita'
+lingering_potion.effect.gravity=Pozione persistente della gravita'
+splash_potion.effect.gravity=Pozione da lancio della gravita'
+tipped_arrow.effect.gravity=Freccia della gravita'
+effect.gravity=Gravita'
+funny.effect.gravity=G*m1*m2/(r*r)
+description.effect.gravity=Le entita' in aria vengono attirate verso terra
+
+potion.effect.leech=Pozione della sanguisuga
+lingering_potion.effect.leech=Pozione persistente della sanguisuga
+splash_potion.effect.leech=Pozione da lancio della sanguisuga
+tipped_arrow.effect.leech=Freccia della sanguisuga
+effect.leech=Parassita
+funny.effect.leech=Le macchie di sangue sono le peggiori
+description.effect.leech=Se l'entita' causa danni ad altre, guarisce
+
+potion.effect.sails=Pozione della navigazione
+lingering_potion.effect.sails=Pozione persistente della navigazione
+splash_potion.effect.sails=Pozione da lancio della navigazione
+tipped_arrow.effect.sails=Freccia della navigazione
+effect.sails=Navigazione
+funny.effect.sails=Qual buon vento?
+description.effect.sails=Aumenta la velocita' in barca dei giocatori
+
+potion.effect.soulCross=Pozione delle anime tormentate
+potion.effect.allure=Pozione dell'incanto marino
+potion.effect.featherFeet=Pozione dei piedi di piuma
+potion.effect.emptiness=Pozione della vanita' vuota
+potion.effect.bloodthirst=Pozione dell'ombra cremisi
+potion.effect.clear=Pozione dell'assoluzione
+
+splash_potion.effect.soulCross=Pozione da lancio delle anime tormentate
+splash_potion.effect.allure=Pozione da lancio dell'incanto marino
+splash_potion.effect.featherFeet=Pozione da lancio dei piedi di piuma
+splash_potion.effect.emptiness=Pozione da lancio della vanita' vuota
+splash_potion.effect.bloodthirst=Pozione da lancio dell'ombra cremisi
+splash_potion.effect.clear=Pozione da lancio dell'assoluzione
+
+lingering_potion.effect.soulCross=Pozione persistente delle anime tormentate
+lingering_potion.effect.allure=Pozione persistente dell'incanto marino
+lingering_potion.effect.featherFeet=Pozione persistente dei piedi di piuma
+lingering_potion.effect.emptiness=Pozione persistente della vanita' vuota
+lingering_potion.effect.bloodthirst=Pozione persistente dell'ombra cremisi
+lingering_potion.effect.clear=Pozione persistente dell'assoluzione
+
+tipped_arrow.effect.soulCross=Freccia delle anime tormentate
+tipped_arrow.effect.allure=Freccia dell'incanto marino
+tipped_arrow.effect.featherFeet=Freccia dei piedi di piuma
+tipped_arrow.effect.emptiness=Freccia della vanita' vuota
+tipped_arrow.effect.bloodthirst=Freccia dell'ombra cremisi
+tipped_arrow.effect.clear=Freccia dell'assoluzione
+
+sticky.description.title=Combinare le pozioni\n
+sticky.description.description=Piazza 2 o piu' pozioni in una griglia 3x3 con uno slime al centro per sommare la loro durata. Solo pozioni identiche tra loro funzioneranno, e solo con effetti non istantanei.
+
+split.description.title=Dividere le pozioni\n
+split.description.description=Piazza una pozione al centro e circondala da bottiglie vuote per dividere la pozione in più pozioni dello stesso tipo, ma dalla durata limitata. Necessita di una griglia 3x3
+
+item.potion_bag.charges=%1$d Pozioni disponibili
+item.potion_bag.name=Borsa da alchimista
+
+item.byproduct=Prendimi per separare (% secondi)
+item.unmodifiable=Pozione alterata, non modificarla in un alambicco
+tile.encased_ice.name=Ghiaccio (in scioglimento)
+item.breakable=(Fiala rapida)
+item.emptyvial=Fiala Vuota
+item.rightclick.1=Clicca col destro per riempire con una pozione dal tuo inventario
+item.rightclick.2=o uniscila con una pozione in una griglia da lavoro
+itemGroup.extraalchemy=Extra Alchemy
+tooltip.credit=Effetto aggiunto da %1$s
+tooltip.credit.uncertain=Effetto forse aggiunto da %1$s
+tooltip.loaded.credit=Oggetto aggiunto da Extra Alchemy
+tooltip.togglef3.F3H=[Usa la modalita' F3+H per le descrizioni]
+tooltip.togglef3.SHIFT=[Tieni premuto SHIFT per le descrizioni]
+tooltip.togglef3.ALT=[Tieni premuto ALT per le descrizioni]
+tooltip.togglef3.CTRL=[Tieni premuto CTRL per le descrizioni]
+death.attack.death_revenge.player=La morte ha riscosso il debito di %1$s
+extraalchemy.update.available=[Extra Alchemy] Nuova Versione! Clicca qui per scaricare

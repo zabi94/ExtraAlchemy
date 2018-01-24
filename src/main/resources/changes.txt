@@ -1,0 +1,107 @@
+0.3.1.1
+	[FIX] Actually requires compatlayer now
+	[FIX] Coloring the medal crashed the game
+	[FIX] Some instances of Itemstack still used null
+	[FIX] Actually launch on pre 1.11! YEAH (This took me A LONG TIME to figure out)
+	
+0.3.1.2
+	[FIX] WE HAVE WORKING TEXTURES AGAIN!
+	[EDT] Potion of pacifism now slows attacker. It was a little bit op. Also fixes bug of inverted behaviour
+	[FIX] Splitting potions crashed the game
+	[FIX] Potion of dislocation wouldn't work
+	[EDT] Probability of cheat death reworked, it doesn't almost-always kill you at 0 and never-before 10 anymore
+	
+	! >> Do not downgrade this mod after running a world with this version installed, or all the medals and vials will disappear
+	
+0.3.1.3
+	[FIX] Crash when coloring medal
+	[FIX] Crash when splitting potions
+	[FIX] Particles now work as intended
+	
+0.3.1.4
+	[ADD] Disabling a potion in the config now just removes the recipe. Existing potions will still work as intended
+	[ADD] Custom potion recipe capability. Run the game once to generate the "extra_alchemy_recipes.cfg" file in your config folder, instructions are there
+	[ADD] New config to log all registered potion types. Intended to be used as a custom crafting guide
+	
+0.3.1.5.1
+	[TWK] Tweaked brewing stand on fire to be twice as slow, so it actually has some drawbacks that encourage the use of blaze powder
+	[TWK] Custom recipes now use resource names, existing custom recipes will need to be rewritten.
+	[-->] Delete or rename "extra_alchemy_recipes.cfg" to generate a new one with the new instructions.
+	[FIX] Possible crash when looking at tooltips
+	[FIX] Config for logging potions is now false by default
+	[INF] Beta - back to normal update channel!
+	
+0.3.2
+	[ADD] Potion Bags! Load your pots, select your favorite and apply it without opening the bag!
+	[ADD] I made a little bit of ASM Hacking... potions won't glow anymore, so you can actually distinguish them by the color
+	[-->] Config to remove bottle glint
+	[FIX] Disabling both potion combining and splitting recipes also removed the restriction on the brewing stand for existing ones
+	[FIX] Fixed potential bug where JEI and Botania would not be detected in 1.11+
+	[FIX] Fixed ice from freezing potions suffocating entities
+	[TWK] Reworked freezing potion logic
+	[-X-] DROPPED SUPPORT FOR 1.9.4
+	
+0.3.3
+	[TWK] Now quick vials require splash potions to be crafted instead of normal ones
+	[FIX] Config for disabling potion bags was ignored
+	[TWK] New quick vials behaviour, now it takes .5s to apply an effect. Config for old behaviour available
+	[ADD] When you connect to a server, the mod checks if the essential configuration is compatible and kicks the client if it is not
+	[FIX] Could not craft potion bag when vials where disabled. Changed recipe
+	[ADD] Potion of beheading, high chance of dropping a very volatile skull (4 seconds before item despawn) when killed if under this potion
+	[-->] Default recipe: rotten flesh into level 2 charged potion. Has lenghtened and strong variants
+	[ADD] Potion of Dispel Enchantment, *every* item in an entity's inventory has a small chance *per enchantment* of losing one level
+	[-->] Default recipe: poisonous potato into strong potion of learning. No variants
+	[ADD] Keybinding to inhibit the magnetism effect. Countdown won't stop, the icon will have a "!" to show interruption
+	[ADD] You can now edit the config from the mods menu in-game
+	[TWK] Most of the configs are now moved and renamed. Your config will get renamed and a new one created. You'll need to reconfigure the whole thing
+	[FIX] Removed the option for a separate creative tab until CompatLayer updates. Everything is under the vanilla alchemy tab now
+	
+0.3.3.1
+	[TWK] Buffed potion of fuse with increased base blast radius/damage and better power scaling per level
+	[FIX] Modified potions now cannot be selected or consumed in the bag
+	[ADD] Added botania's brews in vanilla potion form. Config for disabling integration and recipes are separate so you can add custom recipes should you choose to
+	[ADD] The mod will now try and guess what mod added a potion, and tell you in the tooltip. No config to disable, since I keep getting bug reports for potions from other mods
+	[ADD] Rustic's blazing trail and feather potions support
+	[INF] Release, we're out of beta. I think this is stable enough
+	
+0.3.4
+	[ADD] 1.12 Compat
+	[CHG] Now Depends on JanusLib instead of CompatLayer
+	[BUG] Remove glint option still not working, waiting for forge team to update mappings for asm. Log will say error, but your game will run fine
+	
+0.3.4.1
+	[-X-] Dropped feature support for pre-1.12 since cross-compatibility is no longer possible
+	[-X-] No longer depends on JanusCompatLib
+	[FIX] Restored custom tab capability
+	[FIX] Fixed some incompatibilities
+	[FIX] Now works with newer forge versions
+	[FIX] Remove glint works again
+	[BUG] Potion splitting, combining, medal coloring and vial + splash crafting are not working - Still figuring out how IRecipes work on 1.12
+	[RMV] No longer supports in game config editing - you'd need to reboot anyways, but it might come back in the future
+	[BMP] Bump forge to recommended
+	
+0.3.5
+	[RMV] Removed custom particles, they felt out of place and behaved weirdly
+	[RMV] Removed Rustic and Botania's potions. It was a stupid idea to add em natively
+	[RMV] Removed in game update notifier. Moving to default forge notifier in the future
+	[FIX] Fix vial crafting, potion combining and potion splitting
+	[FIX] Fix Jei related crashing when looking for potions in some edge cases
+	[ADD] Covens compatibility for potion tooltip
+	
+	
+0.3.6
+	[FIX] Crash on startup if Covens was installed
+	[CHG] Changed Creative Item Tab icon
+	[FIX] Potion glint removal asm failed in newer versions of forge
+	[CHG] Updated French translation
+	
+0.3.6.1
+	[CHG] Updated fr_FR.lang, thanks to AugiteSoul @ github
+	[FIX] Fixed Magnetism potion acting weird (thanks forge changing methods name in a non-safe way)
+	[FIX] #27: Potion bag not showing tooltips
+	[FIX] #30: Recall potion acting weird after teleporting from the end dimension (thanks minecraft for being a weird ass codebase)
+	
+0.3.6.2
+	[FIX] Crash on server start (Closes #33)
+	[FIX] Crash when recalling back from the End (Closes #32)
+	[FIX] Instant potions not being applied from vials (Closes #31)
