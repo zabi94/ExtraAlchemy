@@ -1,4 +1,9 @@
-# Extra Alchemy Issue Tracker
+# Extra Alchemy
+This mod adds a bunch of potions to minecraft, with a few extra neat tweaks. Check the wiki for more info!
+(JEI is highly recommended to find potion recipes in-game)
+
+
+## Extra Alchemy Issue Tracker
 Issue Collector for [Extra Alchemy](https://minecraft.curseforge.com/projects/extra-alchemy)
 
 
