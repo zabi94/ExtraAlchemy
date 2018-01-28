@@ -26,6 +26,7 @@ public class ModItems {
 	public static final Item supporter_medal = null;
 	public static final Item vial_break = null;
 	public static final Item potion_bag = null;
+	public static final Item modified_potion = null;
 	
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
@@ -33,6 +34,7 @@ public class ModItems {
 		items.add(breakable_potion);
 		items.add(vial_break);
 		items.add(potion_bag);
+		items.add(modified_potion);
 		for (Item i:items) {
 			ExtraAlchemy.proxy.registerItemModel(i);
 		}
@@ -45,7 +47,8 @@ public class ModItems {
 		else reg.register(new ItemBreakablePotion());
 		reg.registerAll(
 				new ItemVial(),
-				new ItemPotionBag()
+				new ItemPotionBag(),
+				new ItemModifiedPotion()
 				);
 	}
 	

@@ -5,6 +5,7 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistryEntry;
@@ -50,11 +51,12 @@ public class QuickVialRecipeHandler extends IForgeRegistryEntry.Impl<IRecipe> im
 			if (!s.isEmpty()) {
 				if (s.getItem().equals(Items.SPLASH_POTION)) {
 					is.getTagCompound().setString("Potion", s.getTagCompound().getString("Potion"));
+					PotionUtils.appendEffects(is, PotionUtils.getPotionFromItem(s).getEffects());
 					return is;
 				}
 			}
 		}
-		return ItemStack.EMPTY;
+		return is;
 	}
 
 	@Override

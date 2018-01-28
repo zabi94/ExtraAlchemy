@@ -1,5 +1,6 @@
 package zabi.minecraft.extraalchemy.items;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -33,7 +34,9 @@ public class ItemBreakablePotionNew extends ItemBreakablePotion {
 		ItemStack fxs = stack.copy();
 		EntityPlayer player = (EntityPlayer) entityLiving;
 		if (!world.isRemote) {
-            for (PotionEffect potioneffect : PotionUtils.getEffectsFromStack(stack)) {
+			ArrayList<PotionEffect> list = new ArrayList<PotionEffect>();
+			PotionUtils.addCustomPotionEffectToList(stack.getTagCompound(), list);
+            for (PotionEffect potioneffect : list) {
             	 if (potioneffect.getPotion().isInstant()) {
                      potioneffect.getPotion().affectEntity(null, null, entityLiving, potioneffect.getAmplifier(), 1.0D);
                  } else {

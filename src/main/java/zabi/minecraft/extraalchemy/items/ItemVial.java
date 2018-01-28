@@ -47,6 +47,7 @@ public class ItemVial extends Item {
 
             		ItemStack fullVialStack = new ItemStack(ModItems.breakable_potion);
             		PotionUtils.addPotionToItemStack(fullVialStack, PotionUtils.getPotionFromItem(potionStack));
+            		PotionUtils.appendEffects(fullVialStack, PotionUtils.getPotionFromItem(potionStack).getEffects());
             		EntityItem itemen = new EntityItem(world, player.posX, player.posY, player.posZ, fullVialStack);
             		
             		if (player == null || !player.capabilities.isCreativeMode) {

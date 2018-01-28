@@ -21,7 +21,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import zabi.minecraft.extraalchemy.blocks.BrewingStandFire;
 import zabi.minecraft.extraalchemy.gui.GuiHandler;
 import zabi.minecraft.extraalchemy.integration.BotaniaHandler;
-import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.items.TabExtraAlchemy;
 import zabi.minecraft.extraalchemy.lib.Config;
 import zabi.minecraft.extraalchemy.lib.Log;
@@ -76,10 +75,6 @@ public class ExtraAlchemy {
 		if (Config.useFireUndernathBrewingStand.getBoolean()) MinecraftForge.EVENT_BUS.register(new BrewingStandFire());
 		Log.i("Registering Network Protocol");
 		NetworkModRegistry.registerMessages(network);
-		
-		if (Config.allowPotionCombining.getBoolean()) {
-			StickyPotionRecipeHandler.validItems.add(ModItems.breakable_potion);
-		}
 		
 		proxy.registerItemDescriptions();
 		recipesfile = event.getSuggestedConfigurationFile().getParent()+File.separatorChar+"extra_alchemy_recipes.cfg";

@@ -1,6 +1,5 @@
 package zabi.minecraft.extraalchemy.recipes.crafting;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -11,22 +10,17 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.lib.Reference;
 import zabi.minecraft.extraalchemy.potion.PotionReference;
 
 public class StickyPotionRecipeHandler extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
-	public static ArrayList<Item> validItems = new ArrayList<Item>();
 	public static List<String> potionBlacklist = Arrays.asList(new String[] {PotionReference.INSTANCE.CHEAT_DEATH_POTION.getName()});
-	static {
-		validItems.add(Items.POTIONITEM);
-		validItems.add(Items.SPLASH_POTION);
-		validItems.add(Items.LINGERING_POTION);
-		validItems.add(Items.TIPPED_ARROW);
-	}
 	
 	public StickyPotionRecipeHandler() {
 		this.setRegistryName(Reference.MID, "sticky_potion");
@@ -44,7 +38,7 @@ public class StickyPotionRecipeHandler extends IForgeRegistryEntry.Impl<IRecipe>
 			if (slot!=4) {
 				if (!inv.getStackInSlot(slot).isEmpty()) {
 					final int eSlot = slot;
-					if (validItems.contains(inv.getStackInSlot(eSlot).getItem())) {
+					if (inv.getStackInSlot(eSlot).getItem().equals(ModItems.modified_potion) || inv.getStackInSlot(eSlot).getItem().equals(Items.POTIONITEM) || inv.getStackInSlot(eSlot).getItem().equals(ModItems.breakable_potion)) {
 						List<PotionEffect> stackEffects = PotionUtils.getEffectsFromStack(inv.getStackInSlot(eSlot));
 						if (firstEffectFound==null) {
 							if (stackEffects.get(stackEffects.size()-1).getPotion().isInstant()) return false;
@@ -69,23 +63,24 @@ public class StickyPotionRecipeHandler extends IForgeRegistryEntry.Impl<IRecipe>
 	public ItemStack getCraftingResult(InventoryCrafting inv) {
 		int counter = 0;
 		PotionEffect firstEffectFound = null;
+		PotionType firstTypeFound = null;
 		Item firstItemFound = null;
-		String displayName = null;
 		for (int i = 0; i < 9; i++) {
 			if (i!=4 && !inv.getStackInSlot(i).isEmpty()) {
 				counter++;
 				if (firstEffectFound==null) {
-					List<PotionEffect> lista = PotionUtils.getEffectsFromStack(inv.getStackInSlot(i));
-					displayName = inv.getStackInSlot(i).getDisplayName();
+					ItemStack istack = inv.getStackInSlot(i);
+					List<PotionEffect> lista = PotionUtils.getEffectsFromStack(istack);
 					firstEffectFound = lista.get(lista.size()-1);
-					firstItemFound = inv.getStackInSlot(i).getItem();
+					firstTypeFound = PotionUtils.getPotionFromItem(istack);
+					firstItemFound = istack.getItem();
 				}
 			}
 		}
+		if (firstItemFound == Items.POTIONITEM) firstItemFound = ModItems.modified_potion;
 		ItemStack s = new ItemStack(firstItemFound);
-		s.setStackDisplayName(displayName);
 		PotionUtils.appendEffects(s, Collections.singleton(new PotionEffect(firstEffectFound.getPotion(), firstEffectFound.getDuration()*counter, firstEffectFound.getAmplifier(), firstEffectFound.getIsAmbient(), firstEffectFound.doesShowParticles())));
-		s.getTagCompound().setBoolean("alteredPotion", true);
+		PotionUtils.addPotionToItemStack(s, firstTypeFound);
 		return s;
 	}
 

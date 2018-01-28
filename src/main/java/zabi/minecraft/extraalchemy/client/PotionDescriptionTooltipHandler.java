@@ -44,9 +44,6 @@ public class PotionDescriptionTooltipHandler {
 			if (evt.getItemStack().getTagCompound().hasKey("splitresult")) {
 				toolTip.add(I18n.format("item.byproduct").replace("%", ""+(evt.getItemStack().getTagCompound().getInteger("splitresult"))));
 			}
-			if (evt.getItemStack().getTagCompound().hasKey("alteredPotion")) {
-				toolTip.add(I18n.format("item.unmodifiable"));
-			}
 		}
 		
 		PotionType pt = PotionUtils.getPotionFromItem(evt.getItemStack());
