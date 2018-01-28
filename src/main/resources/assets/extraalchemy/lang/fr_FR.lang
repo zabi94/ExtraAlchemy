@@ -194,8 +194,7 @@ tile.encased_ice.name=Glace (Fusion)
  
 item.breakable=(Fiole rapide)
 item.emptyvial=Fiole vide
-item.vial.rightclick.1=Clic droit pour remplir avec une potion de votre inventaire
-item.vial.rightclick.2=Ou pour combiner avec une autre potion
+item.vial.rightclick=Clic droit pour remplir avec une potion de votre inventaire ou pour combiner avec une autre potion
  
 item.potion_bag=Sac d’Alchimie
 item.potion_bag.charges=%1$d potion(s) disponible(s) à l’intérieur
