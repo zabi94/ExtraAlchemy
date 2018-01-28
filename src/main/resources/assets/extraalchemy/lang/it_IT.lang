@@ -227,16 +227,15 @@ tipped_arrow.effect.bloodthirst=Freccia dell'ombra cremisi
 tipped_arrow.effect.clear=Freccia dell'assoluzione
 
 sticky.description.title=Combinare le pozioni\n
-sticky.description.description=Piazza 2 o piu' pozioni in una griglia 3x3 con uno slime al centro per sommare la loro durata. Solo pozioni identiche tra loro funzioneranno, e solo con effetti non istantanei.
+sticky.description.description=Piazza 2 o piu' pozioni da bere o in fiala in una griglia 3x3 con uno slime al centro per sommare la loro durata. Solo pozioni identiche tra loro funzioneranno, e solo con effetti non istantanei.
 
 split.description.title=Dividere le pozioni\n
-split.description.description=Piazza una pozione al centro e circondala da bottiglie vuote per dividere la pozione in più pozioni dello stesso tipo, ma dalla durata limitata. Necessita di una griglia 3x3
+split.description.description=Se piazzi in una griglia una pozione da bere circondata da 2 o più bottiglie vuote, oppure una da lancio o in fiala circondata da fiale vuote, dividerai la pozione in dosi multiple di minor durata. Pozioni istantanee o effetti risultanti inferiori ai 5 secondi non funzionano
 
 item.potion_bag.charges=%1$d Pozioni disponibili
 item.potion_bag.name=Borsa da alchimista
 
 item.byproduct=Prendimi per separare (% secondi)
-item.unmodifiable=Pozione alterata, non modificarla in un alambicco
 tile.encased_ice.name=Ghiaccio (in scioglimento)
 item.breakable=(Fiala rapida)
 item.emptyvial=Fiala Vuota

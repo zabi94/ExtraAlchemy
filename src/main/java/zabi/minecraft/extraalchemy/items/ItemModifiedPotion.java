@@ -136,7 +136,6 @@ public class ItemModifiedPotion extends ItemPotion {
 				}
 			}
 		}
-		tooltip.add(I18n.format("item.unmodifiable"));
 	}
 	
 	public String getItemStackDisplayName(ItemStack stack) {

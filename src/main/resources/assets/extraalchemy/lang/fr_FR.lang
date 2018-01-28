@@ -189,7 +189,6 @@ split.description.title=Fractionnement de Potions
 split.description.description=Divisez une potion en plusieurs plus courtes en l'élaborant avec jusqu'à 8 bouteilles vides autour. Requiert un établi
  
 item.byproduct=Prenez-moi pour me diviser (% secondes)
-item.unmodifiable=Potion modifiée. Ne modifiez pas cette potion dans un alambic (merci)
 tile.encased_ice.name=Glace (Fusion)
  
 item.breakable=(Fiole rapide)
