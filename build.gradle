@@ -34,7 +34,6 @@ minecraft {
     version = "1.12.2-14.23.1.2589"
     runDir = "run"
     mappings = "snapshot_20171027"
-    coreMod = "zabi.minecraft.extraalchemy.asm.ExtraAlchemyLoadingPlugin"
 }
 
 dependencies {
