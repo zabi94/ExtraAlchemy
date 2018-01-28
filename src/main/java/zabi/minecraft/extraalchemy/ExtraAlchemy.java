@@ -8,7 +8,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -78,7 +77,7 @@ public class ExtraAlchemy {
 		Log.i("Registering Network Protocol");
 		NetworkModRegistry.registerMessages(network);
 		
-		if (Config.allowPotionCombining.getBoolean() && !(Config.loadAsCovensPlugin.getBoolean() && Loader.isModLoaded("covens"))) {
+		if (Config.allowPotionCombining.getBoolean()) {
 			StickyPotionRecipeHandler.validItems.add(ModItems.breakable_potion);
 		}
 		

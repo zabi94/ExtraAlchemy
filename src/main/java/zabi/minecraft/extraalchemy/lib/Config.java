@@ -20,10 +20,10 @@ public class Config {
 	
 	public static ConfigCategory general, compat, visual, tooltips, potions;
 	
-	public static Property respectSolegnolias, loadAsCovensPlugin/*, loadBotaniaPotions, addBotaniaRecipesAutomatically, loadRusticPotions, addRusticRecipesAutomatically*/;
+	public static Property respectSolegnolias/*, loadBotaniaPotions, addBotaniaRecipesAutomatically, loadRusticPotions, addRusticRecipesAutomatically*/;
 	public static Property showBadJoke,useJEITooltipWrapping,descriptionMode;
 	public static Property allowPotionCombining, allowPotionSplitting, /*versionCheck,*/ hardcoreCheatDeath, cheatDeathRandom, enable_potion_bag, useNewVials, breakingPotions, useFireUndernathBrewingStand;
-	public static Property log_potion_types,removeGlowingEffect,rainbowCheatDeath,useCustomParticles,addSeparateTab;
+	public static Property log_potion_types,rainbowCheatDeath,useCustomParticles,addSeparateTab;
 	
 	public static Property p_cheatDeath,p_combustion,p_concentration,p_crumbling,p_detection,p_dislocation,p_freezing,p_fuse,p_hurry,p_learning,p_magnetism,p_pacifism,
 	p_photosynthesis,p_piper,p_recall,p_reincarnation,p_return,p_sinking,p_gravity,p_leech,p_sails,p_charged_level1,p_charged_level2,p_beheading,p_dispel;
@@ -77,10 +77,6 @@ public class Config {
 		allowPotionSplitting.setComment("If set to true, this allows the creation of shorter potions (and tipped arrows)");
 		general.put("allowPotionSplitting", allowPotionSplitting);
 		
-//		versionCheck = configuration.get(general.getQualifiedName(), "versionCheck", true);
-//		versionCheck.setComment("Set to false to disable version checking on startup");
-//		general.put("versionCheck", versionCheck);
-		
 		hardcoreCheatDeath = configuration.get(general.getQualifiedName(), "hardcoreCheatDeath", true);
 		hardcoreCheatDeath.setComment("Set to false to disable hardcore cheat death");
 		general.put("hardcoreCheatDeath", hardcoreCheatDeath);
@@ -111,26 +107,6 @@ public class Config {
 		respectSolegnolias.setComment("Set to true to prevent the magnetism potion from working around solegnolias from Botania (Might have a negative impact on performance)");
 		compat.put("respectSolegnolias", respectSolegnolias);
 		
-		loadAsCovensPlugin = configuration.get(compat.getQualifiedName(), "loadAsCovensPlugin", true);
-		loadAsCovensPlugin.setComment("When set to true and Covens is installed, use this mod as a simple plugin to add potion effects");
-		compat.put("loadAsCovensPlugin", loadAsCovensPlugin);
-		
-//		loadBotaniaPotions = configuration.get(compat.getQualifiedName(), "loadBotaniaPotions", true);
-//		loadBotaniaPotions.setComment("Set to false to prevent botania potions from loading as normal potions");
-//		compat.put("loadBotaniaPotions", loadBotaniaPotions);
-//		
-//		addBotaniaRecipesAutomatically = configuration.get(compat.getQualifiedName(), "addBotaniaRecipesAutomatically", false);
-//		addBotaniaRecipesAutomatically.setComment("If \"loadBotaniaPotion\" is set to true, this will add recipes for them. You can enable this if you don't want to add custom recipes");
-//		compat.put("addBotaniaRecipesAutomatically", addBotaniaRecipesAutomatically);
-//		
-//		loadRusticPotions = configuration.get(compat.getQualifiedName(), "loadRusticPotions", true);
-//		loadRusticPotions.setComment("Set to false to prevent rustic potions from loading as normal potions");
-//		compat.put("loadRusticPotions", loadRusticPotions);
-//		
-//		addRusticRecipesAutomatically = configuration.get(compat.getQualifiedName(), "addRusticRecipesAutomatically", false);
-//		addRusticRecipesAutomatically.setComment("If \"loadRusticPotions\" is set to true, this will add recipes for them. You can enable this if you don't want to add custom recipes");
-//		compat.put("addRusticRecipesAutomatically", addRusticRecipesAutomatically);
-		
 		//Visual
 		log_potion_types = configuration.get(visual.getQualifiedName(), "log_potion_types", false);
 		log_potion_types.setComment("Set to true to log all the potions in your instance with their potion-type ID. Used to create custom recipes");
@@ -143,10 +119,6 @@ public class Config {
 		useCustomParticles = configuration.get(visual.getQualifiedName(), "useCustomParticles", true);
 		useCustomParticles.setComment("Set to false to disable custom particles");
 		visual.put("useCustomParticles", useCustomParticles);
-
-		removeGlowingEffect = configuration.get(visual.getQualifiedName(), "removeGlowingEffect", true);
-		removeGlowingEffect.setComment("Set to true to remove the glowing effect from vanilla potions and all those deriving from them");
-		visual.put("removeGlowingEffect", removeGlowingEffect);
 
 		addSeparateTab = configuration.get(visual.getQualifiedName(), "addSeparateTab", true);
 		addSeparateTab.setComment("Set to false to move all Extra Alchemy Items to the Vanilla Creative Alchemy Tab");
@@ -289,8 +261,6 @@ public class Config {
 		if (p_sinking.getBoolean()) status|=(1<<28);
 		if (p_beheading.getBoolean()) status|=(1<<29);
 		if (p_dispel.getBoolean()) status|=(1<<30);
-//		if (loadBotaniaPotions.getBoolean()) status|=(1<<31);
-//		if (loadRusticPotions.getBoolean()) status|=(1<<32);
 		return status;
 	}
 	
@@ -343,8 +313,6 @@ public class Config {
 			"p_sinking",
 			"p_beheading",
 			"p_dispel"
-//			"loadBotaniaPotions",
-//			"loadRusticPotions"
 	};
 	
 	public static class ConfigHandler {
