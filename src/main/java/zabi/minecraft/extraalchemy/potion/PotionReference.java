@@ -5,7 +5,6 @@ import zabi.minecraft.extraalchemy.potion.potion.PotionCheatDeath;
 import zabi.minecraft.extraalchemy.potion.potion.PotionCombustion;
 import zabi.minecraft.extraalchemy.potion.potion.PotionConcentration;
 import zabi.minecraft.extraalchemy.potion.potion.PotionCrumbling;
-import zabi.minecraft.extraalchemy.potion.potion.PotionDetection;
 import zabi.minecraft.extraalchemy.potion.potion.PotionDislocation;
 import zabi.minecraft.extraalchemy.potion.potion.PotionDispel;
 import zabi.minecraft.extraalchemy.potion.potion.PotionFreezing;
@@ -117,9 +116,6 @@ public class PotionReference {
 	public PotionTypeBase TYPE_COMBUSTION_NORMAL = new PotionTypeBase(COMBUSTION, 20*30, 0, "combustion_normal");
 	public PotionTypeBase TYPE_COMBUSTION_STRONG = new PotionTypeBase(COMBUSTION, 20*20, 1, "combustion_strong");
 	public PotionTypeBase TYPE_COMBUSTION_LONG = new PotionTypeBase(COMBUSTION, 20*50, 0, "combustion_long");
-	
-	public PotionBase DETECTION = new PotionDetection(false, 32767);
-	public PotionTypeBase TYPE_DETECTION = new PotionTypeBase(DETECTION, 100, 0, "detection_normal");
 	
 	public PotionBase LEARNING = new PotionLearning(false, 14024505);
 	public PotionTypeBase TYPE_LEARNING_NORMAL = new PotionTypeBase(LEARNING, 20*60*4, 0, "learning_normal");

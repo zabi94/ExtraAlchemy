@@ -6,7 +6,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import zabi.minecraft.extraalchemy.network.packets.PacketAskConfig;
 import zabi.minecraft.extraalchemy.network.packets.PacketConfigStatus;
 import zabi.minecraft.extraalchemy.network.packets.PacketDispelSuccess;
-import zabi.minecraft.extraalchemy.network.packets.PacketHighlightEntity;
 import zabi.minecraft.extraalchemy.network.packets.PacketMagnetStatus;
 import zabi.minecraft.extraalchemy.network.packets.PacketToggleMagnet;
 
@@ -15,7 +14,6 @@ public class NetworkModRegistry {
 
 	public static void registerMessages(SimpleNetworkWrapper net) {
 		int id = 0;
-		net.registerMessage(PacketHighlightEntity.Handler.class, PacketHighlightEntity.class, id++, Side.CLIENT);
 		net.registerMessage(PacketAskConfig.Handler.class, PacketAskConfig.class, id++, Side.CLIENT);
 		net.registerMessage(PacketDispelSuccess.Handler.class, PacketDispelSuccess.class, id++, Side.CLIENT);
 		net.registerMessage(PacketMagnetStatus.Handler.class, PacketMagnetStatus.class, id++, Side.CLIENT);

@@ -25,7 +25,7 @@ public class Config {
 	public static Property allowPotionCombining, allowPotionSplitting, /*versionCheck,*/ hardcoreCheatDeath, cheatDeathRandom, enable_potion_bag, useNewVials, breakingPotions, useFireUndernathBrewingStand;
 	public static Property log_potion_types,rainbowCheatDeath,useCustomParticles,addSeparateTab;
 	
-	public static Property p_cheatDeath,p_combustion,p_concentration,p_crumbling,p_detection,p_dislocation,p_freezing,p_fuse,p_hurry,p_learning,p_magnetism,p_pacifism,
+	public static Property p_cheatDeath,p_combustion,p_concentration,p_crumbling,p_dislocation,p_freezing,p_fuse,p_hurry,p_learning,p_magnetism,p_pacifism,
 	p_photosynthesis,p_piper,p_recall,p_reincarnation,p_return,p_sinking,p_gravity,p_leech,p_sails,p_charged_level1,p_charged_level2,p_beheading,p_dispel;
 	
 	public static void init(File config) {
@@ -161,9 +161,6 @@ public class Config {
 		p_crumbling = configuration.get(potions.getQualifiedName(), "p_crumbling", true);
 		potions.put("p_crumbling", p_crumbling);
 		
-		p_detection = configuration.get(potions.getQualifiedName(), "p_detection", true);
-		potions.put("p_detection", p_detection);
-		
 		p_dislocation = configuration.get(potions.getQualifiedName(), "p_dislocation", true);
 		potions.put("p_dislocation", p_dislocation);
 		
@@ -242,7 +239,7 @@ public class Config {
 		if (p_combustion.getBoolean()) status|=512;
 		if (p_concentration.getBoolean()) status|=1024;
 		if (p_crumbling.getBoolean()) status|=2048;
-		if (p_detection.getBoolean()) status|=4096;
+		if (p_dispel.getBoolean()) status|=4096;
 		if (p_dislocation.getBoolean()) status|=8192;
 		if (p_freezing.getBoolean()) status|=(1<<14);
 		if (p_fuse.getBoolean()) status|=(1<<15);
@@ -260,7 +257,6 @@ public class Config {
 		if (p_sails.getBoolean()) status|=(1<<27);
 		if (p_sinking.getBoolean()) status|=(1<<28);
 		if (p_beheading.getBoolean()) status|=(1<<29);
-		if (p_dispel.getBoolean()) status|=(1<<30);
 		return status;
 	}
 	
@@ -294,7 +290,7 @@ public class Config {
 			"p_combustion",
 			"p_concentration",
 			"p_crumbling",
-			"p_detection",
+			"p_dispel",
 			"p_dislocation",
 			"p_freezing",
 			"p_fuse",
@@ -311,8 +307,8 @@ public class Config {
 			"p_return",
 			"p_sails",
 			"p_sinking",
-			"p_beheading",
-			"p_dispel"
+			"p_beheading"
+			
 	};
 	
 	public static class ConfigHandler {

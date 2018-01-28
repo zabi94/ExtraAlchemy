@@ -69,7 +69,6 @@ public class Recipes {
 		if (Config.p_freezing.getBoolean())			RecipeManager.registerRecipe(PotionTypes.AWKWARD, PotionReference.INSTANCE.TYPE_FREEZING, Items.SNOWBALL);
 		if (Config.p_return.getBoolean())			RecipeManager.registerRecipe(PotionTypes.AWKWARD, PotionReference.INSTANCE.TYPE_RETURN, Items.PRISMARINE_SHARD);
 		if (Config.p_cheatDeath.getBoolean())		RecipeManager.registerRecipe(PotionReference.INSTANCE.TYPE_CHARGED2, PotionReference.INSTANCE.TYPE_CHEAT_DEATH, Items.GOLDEN_APPLE);
-		if (Config.p_detection.getBoolean()) 		RecipeManager.registerRecipe(PotionTypes.MUNDANE, PotionReference.INSTANCE.TYPE_DETECTION, Items.SPIDER_EYE);
 		if (Config.p_dispel.getBoolean())			RecipeManager.registerRecipe(PotionReference.INSTANCE.TYPE_LEARNING_STRONG, PotionReference.INSTANCE.TYPE_DISPEL, Items.POISONOUS_POTATO);
 		if (Config.p_charged_level2.getBoolean()) 	RecipeManager.registerRecipe(PotionReference.INSTANCE.TYPE_CHARGED, PotionReference.INSTANCE.TYPE_CHARGED2, Items.PRISMARINE_CRYSTALS);
 		if (Config.p_charged_level1.getBoolean()) 	RecipeManager.registerRecipe(PotionTypes.THICK, PotionReference.INSTANCE.TYPE_CHARGED, Items.GOLD_INGOT);
