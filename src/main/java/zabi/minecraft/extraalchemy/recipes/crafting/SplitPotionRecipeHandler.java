@@ -43,7 +43,6 @@ public class SplitPotionRecipeHandler extends IForgeRegistryEntry.Impl<IRecipe> 
 		int counter = 0;
 		ItemStack res=ItemStack.EMPTY;
 		for (int i=0;i<9;i++) if (i!=4) {
-			//if (inv.getStackInSlot(i)!=null) {
 			if (!inv.getStackInSlot(i).isEmpty()) {
 				if (res.isEmpty()) res = inv.getStackInSlot(i).copy();
 				counter++;

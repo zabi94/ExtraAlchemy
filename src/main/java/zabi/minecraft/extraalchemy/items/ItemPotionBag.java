@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -21,7 +22,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -45,7 +45,7 @@ public class ItemPotionBag extends Item {
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		int ch = getCharges(stack);
 		if (ch>0) {
-			tooltip.add(String.format(I18n.translateToLocal("item.potion_bag.charges"), ch));
+			tooltip.add(I18n.format("item.potion_bag.charges", ch));
 			if (GuiScreen.isShiftKeyDown()) {
 				tooltip.add("");
 				ItemStack deleg = getPotionBottle(stack);
@@ -118,7 +118,7 @@ public class ItemPotionBag extends Item {
 
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
-        return I18n.translateToLocal("item.potion_bag");
+        return I18n.format("item.potion_bag");
     }
 	
 	private int getCharges(ItemStack stack) {

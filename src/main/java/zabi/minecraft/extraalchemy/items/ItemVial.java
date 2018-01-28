@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
@@ -18,7 +19,6 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -72,14 +72,13 @@ public class ItemVial extends Item {
 
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
-        return I18n.translateToLocal("item.emptyvial");
+        return I18n.format("item.emptyvial");
     }
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(I18n.translateToLocal("item.vial.rightclick.1"));
-		tooltip.add(I18n.translateToLocal("item.vial.rightclick.2"));
+		tooltip.add(I18n.format("item.vial.rightclick"));
 	}
 
 }

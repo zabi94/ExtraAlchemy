@@ -246,8 +246,7 @@ tile.encased_ice.name=Ice (Melting)
 
 item.breakable=(Quick Vial)
 item.emptyvial=Empty Vial
-item.vial.rightclick.1=Right click to fill with a potion from your inventory
-item.vial.rightclick.2=or craft together with a potion
+item.vial.rightclick=Right click to fill with a potion from your inventory or craft together with a potion
 
 item.potion_bag=Alchemy Bag
 item.potion_bag.charges=%1$d Potion(s) available inside

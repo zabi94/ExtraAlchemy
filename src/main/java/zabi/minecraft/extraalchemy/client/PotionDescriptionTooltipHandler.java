@@ -5,10 +5,10 @@ import java.util.List;
 import com.mojang.realmsclient.gui.ChatFormatting;
 
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -42,10 +42,10 @@ public class PotionDescriptionTooltipHandler {
 
 		if (evt.getItemStack().hasTagCompound()) { 
 			if (evt.getItemStack().getTagCompound().hasKey("splitresult")) {
-				toolTip.add(I18n.translateToLocal("item.byproduct").replace("%", ""+(evt.getItemStack().getTagCompound().getInteger("splitresult"))));
+				toolTip.add(I18n.format("item.byproduct").replace("%", ""+(evt.getItemStack().getTagCompound().getInteger("splitresult"))));
 			}
 			if (evt.getItemStack().getTagCompound().hasKey("alteredPotion")) {
-				toolTip.add(I18n.translateToLocal("item.unmodifiable"));
+				toolTip.add(I18n.format("item.unmodifiable"));
 			}
 		}
 		
@@ -54,13 +54,13 @@ public class PotionDescriptionTooltipHandler {
 		if (pt instanceof PotionTypeBase) {
 			
 			String potName = ((PotionTypeBase)pt).getPotion().getName();
-			String textRaw = I18n.translateToLocal("description."+potName);
-			String badJoke = I18n.translateToLocal("funny."+potName);
+			String textRaw = I18n.format("description."+potName);
+			String badJoke = I18n.format("funny."+potName);
 			
 			toolTip.add("");
-			toolTip.add(ChatFormatting.GOLD+String.format(I18n.translateToLocal("tooltip.credit"), Reference.NAME));	//Added by Extra Alchemy
+			toolTip.add(ChatFormatting.GOLD+I18n.format("tooltip.credit", Reference.NAME));	//Added by Extra Alchemy
 			
-			if (Config.showBadJoke.getBoolean()) toolTip.add(ChatFormatting.GREEN+ChatFormatting.ITALIC.toString()+I18n.translateToLocal(badJoke));	//Bad Joke
+			if (Config.showBadJoke.getBoolean()) toolTip.add(ChatFormatting.GREEN+ChatFormatting.ITALIC.toString()+I18n.format(badJoke));	//Bad Joke
 			
 			if (shouldShowHint(evt.getFlags().isAdvanced())) {			//Description or...
 				toolTip.add("");
@@ -79,16 +79,16 @@ public class PotionDescriptionTooltipHandler {
 					}
 				}
 																			//... Press * to show description
-			} else if (!Config.descriptionMode.getString().equals("NONE")) toolTip.add(I18n.translateToLocal("tooltip.togglef3."+Config.descriptionMode.getString()));
+			} else if (!Config.descriptionMode.getString().equals("NONE")) toolTip.add(I18n.format("tooltip.togglef3."+Config.descriptionMode.getString()));
 		} else if (pt instanceof PotionTypeCompat) {
 			toolTip.add("");
-			toolTip.add(ChatFormatting.GOLD+String.format(I18n.translateToLocal("tooltip.credit"), ((PotionTypeCompat)pt).getMod() ));
-			toolTip.add(ChatFormatting.GRAY+I18n.translateToLocal("tooltip.loaded.credit"));
+			toolTip.add(ChatFormatting.GOLD+String.format(I18n.format("tooltip.credit"), ((PotionTypeCompat)pt).getMod() ));
+			toolTip.add(ChatFormatting.GRAY+I18n.format("tooltip.loaded.credit"));
 		} else if (!pt.getEffects().isEmpty()){
 			String mid = pt.getRegistryName().getResourceDomain();
 			String modName = ModIDs.getModName(mid);
 			toolTip.add("");
-			toolTip.add(ChatFormatting.GOLD+String.format(I18n.translateToLocal("tooltip.credit"), modName));
+			toolTip.add(ChatFormatting.GOLD+I18n.format("tooltip.credit", modName));
 		} else if (evt.getItemStack().hasTagCompound() && evt.getItemStack().getTagCompound().hasKey("brewdata")) {//Covens compat
 			NBTTagCompound tag = evt.getItemStack().getTagCompound().getCompoundTag("brewdata");
 			if (!tag.getBoolean("spoiled") && tag.hasKey("pot0")) {
@@ -96,7 +96,7 @@ public class PotionDescriptionTooltipHandler {
 				if (!tag.hasKey("pot1")) {
 					String prn = tag.getCompoundTag("pot0").getString("potion");
 					String modName = ModIDs.getModName(prn.substring(0, prn.indexOf(':')));
-					toolTip.add(ChatFormatting.GOLD+String.format(I18n.translateToLocal("tooltip.credit"), modName));
+					toolTip.add(ChatFormatting.GOLD+String.format(I18n.format("tooltip.credit"), modName));
 				}
 			}
 		}
