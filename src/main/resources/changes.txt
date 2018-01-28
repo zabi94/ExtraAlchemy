@@ -105,3 +105,10 @@
 	[FIX] Crash on server start (Closes #33)
 	[FIX] Crash when recalling back from the End (Closes #32)
 	[FIX] Instant potions not being applied from vials (Closes #31)
+	
+0.3.7
+	[FIX] Potion length modification is now fixed. Only drinkable potions and vials can be modified
+	[FIX] Changed description to reflect changes
+	[RMV] Potion of detection has been removed from the mod, as the code it relied on is no longer functional in 1.12
+	[-!-] Glint removal has been moved to its own mod (NoMoreGlowingPots, with support from MC 1.8), this mod is now 100% ASM free
+	[MSC] A lot of code has been cleaned up from the debris of MC version porting, source is now publicly available 
