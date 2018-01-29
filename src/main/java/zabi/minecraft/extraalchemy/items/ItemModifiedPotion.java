@@ -25,6 +25,8 @@ import net.minecraft.stats.StatList;
 import net.minecraft.util.Tuple;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import zabi.minecraft.extraalchemy.lib.Reference;
 
 public class ItemModifiedPotion extends ItemPotion {
@@ -138,6 +140,8 @@ public class ItemModifiedPotion extends ItemPotion {
 		}
 	}
 	
+	@Override
+	@SideOnly(Side.CLIENT)
 	public String getItemStackDisplayName(ItemStack stack) {
         return I18n.format(PotionUtils.getPotionFromItem(stack).getNamePrefixed("potion.effect."));
     }

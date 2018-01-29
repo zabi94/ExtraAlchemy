@@ -47,6 +47,8 @@ public class ItemBreakablePotion extends ItemPotion {
         this.setRegistryName( new ResourceLocation(Reference.MID, "breakable_potion"));
 	}
 	
+	@Override
+	@SideOnly(Side.CLIENT)
 	public String getItemStackDisplayName(ItemStack stack) {
         return I18n.format(PotionUtils.getPotionFromItem(stack).getNamePrefixed("potion.effect."))+" "+I18n.format("item.breakable");
     }

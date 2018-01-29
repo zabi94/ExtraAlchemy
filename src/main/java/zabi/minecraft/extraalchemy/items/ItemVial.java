@@ -72,6 +72,7 @@ public class ItemVial extends Item {
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public String getItemStackDisplayName(ItemStack stack) {
         return I18n.format("item.emptyvial");
     }

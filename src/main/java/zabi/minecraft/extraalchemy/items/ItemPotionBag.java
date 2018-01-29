@@ -117,6 +117,7 @@ public class ItemPotionBag extends Item {
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public String getItemStackDisplayName(ItemStack stack) {
         return I18n.format("item.potion_bag");
     }
