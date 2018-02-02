@@ -29,6 +29,8 @@ public class TabExtraAlchemy extends CreativeTabs {
 	@Override
 	public void displayAllRelevantItems(NonNullList<ItemStack> list) {
 		ArrayList<ItemStack> added_list = new ArrayList<ItemStack>();
+		if (Config.enable_potion_bag.getBoolean()) list.add(new ItemStack(ModItems.potion_bag));
+		if (Config.breakingPotions.getBoolean()) list.add(new ItemStack(ModItems.vial_break));
 		try {
 			for (PotionType t:PotionType.REGISTRY) {
 				if (t instanceof PotionTypeBase) {
@@ -46,8 +48,6 @@ public class TabExtraAlchemy extends CreativeTabs {
 			for (ItemStack s:added_list) {
 				list.add(ModPotionHelper.transformToArrow(s));
 			}
-			if (Config.enable_potion_bag.getBoolean()) list.add(new ItemStack(ModItems.potion_bag));
-			if (Config.breakingPotions.getBoolean()) list.add(new ItemStack(ModItems.vial_break));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
