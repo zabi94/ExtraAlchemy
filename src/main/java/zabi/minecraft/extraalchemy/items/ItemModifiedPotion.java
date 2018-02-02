@@ -34,6 +34,7 @@ public class ItemModifiedPotion extends ItemPotion {
 	public ItemModifiedPotion() {
 		this.setRegistryName(Reference.MID, "modified_potion");
 		this.setUnlocalizedName("potion");
+		this.setCreativeTab(null);
 	}
 
 	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
