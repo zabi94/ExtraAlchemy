@@ -115,3 +115,7 @@
 	
 0.3.7.1
 	[FIX] Crash on server startup
+	
+0.3.?
+	[FIX] Potions appearing twice under the alchemy creative tab
+	[TWK] Moved vial and bag to the top of the creative tab
