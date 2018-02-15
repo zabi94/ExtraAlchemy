@@ -5,7 +5,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import zabi.minecraft.extraalchemy.lib.Config;
+import zabi.minecraft.extraalchemy.ModConfig;
 
 
 public class PacketAskConfig implements IMessage {
@@ -25,7 +25,7 @@ public class PacketAskConfig implements IMessage {
 
 		@Override
 		public IMessage onMessage(PacketAskConfig message, MessageContext ctx) {
-			return new PacketConfigStatus(Config.getConfigSignature());
+			return new PacketConfigStatus(ModConfig.getConfigSignature());
 		}
 
 	}

@@ -18,11 +18,11 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import zabi.minecraft.extraalchemy.ModConfig.ChangeListener;
 import zabi.minecraft.extraalchemy.blocks.BrewingStandFire;
 import zabi.minecraft.extraalchemy.gui.GuiHandler;
 import zabi.minecraft.extraalchemy.integration.BotaniaHandler;
 import zabi.minecraft.extraalchemy.items.TabExtraAlchemy;
-import zabi.minecraft.extraalchemy.lib.Config;
 import zabi.minecraft.extraalchemy.lib.Log;
 import zabi.minecraft.extraalchemy.lib.Reference;
 import zabi.minecraft.extraalchemy.network.NetworkModRegistry;
@@ -58,7 +58,6 @@ public class ExtraAlchemy {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		
-		Config.init(event.getSuggestedConfigurationFile());
 		PotionReference.INSTANCE.getClass(); //Load static class
 		proxy.registerEventHandler();
 		MinecraftForge.EVENT_BUS.register(new PotionPacifism.PacifismHandler());
@@ -72,7 +71,7 @@ public class ExtraAlchemy {
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 		
 		
-		if (Config.useFireUndernathBrewingStand.getBoolean()) MinecraftForge.EVENT_BUS.register(new BrewingStandFire());
+		if (ModConfig.options.useFireUndernathBrewingStand) MinecraftForge.EVENT_BUS.register(new BrewingStandFire());
 		Log.i("Registering Network Protocol");
 		NetworkModRegistry.registerMessages(network);
 		
@@ -85,17 +84,15 @@ public class ExtraAlchemy {
 		BotaniaHandler.checkLoadBotania();
 		Recipes.registerRecipes();
 		ExtraAlchemy.proxy.registerColorHandler();
-		if (Config.addSeparateTab.getBoolean()) {
+		if (ModConfig.options.addSeparateTab) {
 			TAB = new TabExtraAlchemy();
 		}
 	}
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		
-		MinecraftForge.EVENT_BUS.register(new Config.ConfigHandler());
-		
-		if (Config.log_potion_types.getBoolean()) {
+		MinecraftForge.EVENT_BUS.register(new ChangeListener());
+		if (ModConfig.options.log_potion_types) {
 			Log.i("\n\n\n-----------------------------v- LOGGING POTIONS -v-----------------------------\n\n\n");
 			PotionType.REGISTRY.forEach(pt -> {
 				Log.i(pt.getRegistryName().toString());

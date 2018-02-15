@@ -26,8 +26,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import zabi.minecraft.extraalchemy.ExtraAlchemy;
+import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.gui.GuiHandler;
-import zabi.minecraft.extraalchemy.lib.Config;
 import zabi.minecraft.extraalchemy.lib.Reference;
 
 public class ItemPotionBag extends Item {
@@ -35,7 +35,7 @@ public class ItemPotionBag extends Item {
     
 	public ItemPotionBag() {
 		this.setMaxStackSize(1);
-	    if (Config.addSeparateTab.getBoolean()) this.setCreativeTab(ExtraAlchemy.TAB);
+	    if (ModConfig.options.addSeparateTab) this.setCreativeTab(ExtraAlchemy.TAB);
 	    else this.setCreativeTab(CreativeTabs.BREWING);
 	    this.setRegistryName(new ResourceLocation(Reference.MID, "potion_bag"));
 	}

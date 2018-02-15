@@ -17,7 +17,7 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import zabi.minecraft.extraalchemy.ExtraAlchemy;
-import zabi.minecraft.extraalchemy.lib.Config;
+import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.lib.Log;
 import zabi.minecraft.extraalchemy.potion.PotionBase;
 import zabi.minecraft.extraalchemy.potion.PotionReference;
@@ -42,7 +42,7 @@ public class PotionCheatDeath extends PotionBase {
 	
 	@Override
 	public int getLiquidColor() {
-		if (Config.rainbowCheatDeath.getBoolean()) return ExtraAlchemy.proxy.getRainbow(super.getLiquidColor());
+		if (ModConfig.client.rainbowCheatDeath) return ExtraAlchemy.proxy.getRainbow(super.getLiquidColor());
 		return super.getLiquidColor();
 	}
 
@@ -57,7 +57,7 @@ public class PotionCheatDeath extends PotionBase {
 		if (e instanceof EntityPlayer && ((EntityPlayer)e).isSpectator()) return;
 		if (!e.getEntityWorld().isRemote && !e.isDead) {
 			int duration = e.getActivePotionEffect(PotionReference.INSTANCE.CHEAT_DEATH_POTION_ACTIVE).getDuration();
-			if (Config.cheatDeathRandom.getBoolean()) {
+			if (ModConfig.options.cheatDeathRandom) {
 				double probability = 2d/200d;
 				if (duration<200) {
 					probability = 1d/20d;
@@ -79,7 +79,7 @@ public class PotionCheatDeath extends PotionBase {
 
 	@Override
 	public boolean isReady(int duration, int amplifier) {
-		return this.isBadEffect() && ((Config.cheatDeathRandom.getBoolean() && duration%10==0) || duration==1);
+		return this.isBadEffect() && ((ModConfig.options.cheatDeathRandom && duration%10==0) || duration==1);
 	}
 
 	public static class PotionCheatDeathHandler {
@@ -113,7 +113,7 @@ public class PotionCheatDeath extends PotionBase {
 		
 		@SubscribeEvent
 		public void onLivingDrops(LivingDropsEvent evt) {
-			if (Config.hardcoreCheatDeath.getBoolean() && evt.getEntityLiving().getActivePotionEffect(PotionReference.INSTANCE.CHEAT_DEATH_POTION_ACTIVE)!=null) {
+			if (ModConfig.options.hardcoreCheatDeath && evt.getEntityLiving().getActivePotionEffect(PotionReference.INSTANCE.CHEAT_DEATH_POTION_ACTIVE)!=null) {
 				evt.setCanceled(true);
 				Log.d("Stopped items from dropping");
 			}

@@ -12,7 +12,7 @@ splash_potion.effect.dispel=Pozione da lancio di rimozione
 tipped_arrow.effect.dispel=Freccia di rimozione
 effect.dispel=Rimozione
 funny.effect.dispel=E' di nuovo Torvald, vero?
-description.effect.dispel=La creatura che viene afflitta da questa pozione ha\nuna possibilita' di perdere dei livelli di\nincantesimo dai suoi strumenti
+description.effect.dispel=La creatura che viene afflitta da questa pozione ha una possibilita' di perdere dei livelli di incantesimo dai suoi strumenti
 
 potion.effect.piper=Pozione dell'ammaliatore
 lingering_potion.effect.piper=Pozione persistente dell'ammaliatore
@@ -20,7 +20,7 @@ splash_potion.effect.piper=Pozione da lancio dell'ammaliatore
 tipped_arrow.effect.piper=Freccia dell'ammaliatore
 effect.piper=Ammaliamento
 funny.effect.piper=Ci son due coccodrilli...
-description.effect.piper=Attira gli animali come se stessi\ntenendo il loro cibo preferito
+description.effect.piper=Attira gli animali come se stessi tenendo il loro cibo preferito
 
 potion.effect.fuse=Pozione della miccia
 lingering_potion.effect.fuse=Pozione persistente della miccia
@@ -36,7 +36,7 @@ splash_potion.effect.beheading=Pozione da lancio della decapitazione
 tipped_arrow.effect.beheading=Freccia da decapitazione
 effect.beheading=Decapitazione
 funny.effect.beheading=Preferisco Sir Nicholas, se non ti dispiace
-description.effect.beheading=Una creatura che muore con decapitazione attiva\nha piu' probabilita' di lasciar cadere la sua testa\nche sara' pero' estremamente fragile e svanira'\nmolto velocemente se lasciata a terra
+description.effect.beheading=Una creatura che muore con decapitazione attiva ha piu' probabilita' di lasciar cadere la sua testa che sara' pero' estremamente fragile e svanira' molto velocemente se lasciata a terra
 
 potion.effect.learning=Pozione dello studio
 lingering_potion.effect.learning=Pozione persistente dello studio
@@ -68,7 +68,7 @@ splash_potion.effect.recall=Pozione da lancio del richiamo
 tipped_arrow.effect.recall=Freccia del richiamo
 effect.recall=Richiamo
 funny.effect.recall=Torno subito!
-description.effect.recall=Quando un'entita' prende l'effetto\nla sua posizione viene salvata.\nAllo scadere del conto alla rovescia\nviene riportata li'. Se vuoi usarlo\ntra dimensioni, ti serve il livello II
+description.effect.recall=Quando un'entita' prende l'effetto la sua posizione viene salvata. Allo scadere del conto alla rovescia viene riportata li'. Se vuoi usarlo tra dimensioni, ti serve il livello II
 
 potion.effect.freezing=Pozione del congelamento
 lingering_potion.effect.freezing=Pozione persistente del congelamento
@@ -76,7 +76,7 @@ splash_potion.effect.freezing=Pozione da lancio del congelamento
 tipped_arrow.effect.freezing=Freccia del congelamento
 effect.freezing=Congelamento
 funny.effect.freezing=Basta, Mei!
-description.effect.freezing=Blocca l'entita' nel ghiaccio.\nQuesto tipo di ghiaccio non diventa acqua\ne non sostituisce blocchi esistenti
+description.effect.freezing=Blocca l'entita' nel ghiaccio. Questo tipo di ghiaccio non diventa acqua e non sostituisce blocchi esistenti
 
 potion.effect.magnetism=Pozione del magnetismo
 lingering_potion.effect.magnetism=Pozione persistente del magnetismo
@@ -84,7 +84,7 @@ splash_potion.effect.magnetism=Pozione da lancio del magnetismo
 tipped_arrow.effect.magnetism=Freccia del magnetismo
 effect.magnetism=Magnetismo
 funny.effect.magnetism=Come diventare attraente in poco tempo
-description.effect.magnetism=Attrae gli oggetti verso il giocatore.\nIl livello II toglie il ritardo di raccoglimento
+description.effect.magnetism=Attrae gli oggetti verso il giocatore. Il livello II toglie il ritardo di raccoglimento
 
 potion.effect.pacifism=Pozione del pacifismo
 lingering_potion.effect.pacifism=Pozione persistente del pacifismo
@@ -92,7 +92,7 @@ splash_potion.effect.pacifism=Pozione da lancio del pacifismo
 tipped_arrow.effect.pacifism=Freccia del pacifismo
 effect.pacifism=Pacifismo
 funny.effect.pacifism=Calmati, amico!
-description.effect.pacifism=Se un'entita' con pacifismo viene attaccata,\nl'attaccante viene rallentato
+description.effect.pacifism=Se un'entita' con pacifismo viene attaccata, l'attaccante viene rallentato
 
 potion.effect.crumbling=Pozione dell'erosione
 lingering_potion.effect.crumbling=Pozione persistente dell'erosione
@@ -100,7 +100,7 @@ splash_potion.effect.crumbling=Pozione da lancio dell'erosione
 tipped_arrow.effect.crumbling=Freccia dell'erosione
 effect.crumbling=Erosione
 funny.effect.crumbling=Viaggio al Centro della Terra
-description.effect.crumbling=Corrode il terreno sotto di te.\nDistrugge solo i blocchi più comuni 
+description.effect.crumbling=Corrode il terreno sotto di te. Distrugge solo i blocchi più comuni 
 
 potion.effect.concentration=Pozione della concentrazione
 lingering_potion.effect.concentration=Pozione persistente della concentrazione
@@ -116,7 +116,7 @@ splash_potion.effect.return=Pozione da lancio del ritorno
 tipped_arrow.effect.return=Freccia del ritorno
 effect.return=Ritorno
 funny.effect.return=Vai in camera tua, ORA!
-description.effect.return=Ti teletrasporta sul tuo letto.\nE' necessario un letto valido e non ostruito
+description.effect.return=Ti teletrasporta sul tuo letto. E' necessario un letto valido e non ostruito
 
 potion.effect.photosynthesis=Pozione di fotosintesi
 lingering_potion.effect.photosynthesis=Pozione persistente di fotosintesi
@@ -124,7 +124,7 @@ splash_potion.effect.photosynthesis=Pozione da lancio di fotosintesi
 tipped_arrow.effect.photosynthesis=Freccia di fotosintesi
 effect.photosynthesis=Fotosintesi
 funny.effect.photosynthesis=Perche' i respiriani esistono davvero
-description.effect.photosynthesis=Riempie la fame e la saturazione\nfintantoche' riesci a vedere il sole
+description.effect.photosynthesis=Riempie la fame e la saturazione fintantoche' riesci a vedere il sole
 
 potion.effect.charged=Pozione carica
 lingering_potion.effect.charged=Pozione carica persistente
@@ -147,7 +147,7 @@ splash_potion.effect.cheatDeath_quiescent=Pozione da lancio del ritardo mortale
 tipped_arrow.effect.cheatDeath_quiescent=Freccia del ritardo mortale
 effect.cheatDeath_quiescent=Ritardo Mortale
 funny.effect.cheatDeath_quiescent=Non e' ancora la mia ora!
-description.effect.cheatDeath_quiescent=Mentre sei affetto da questa pozione non muori.\nLa prima volta che la tua vita raggiunge 0,\nquesta pozione si attiva. Un effetto attivo ti\nprotegge ancora dalla morte, ma piu' si avvicina\nallo 0, piu' e' alta la probabilita' di morire, perdendo\ntutti i tuoi strumenti. Avere sia questo effetto\nche quello attivo vanifica entrambi.
+description.effect.cheatDeath_quiescent=Mentre sei affetto da questa pozione non muori. La prima volta che la tua vita raggiunge 0, questa pozione si attiva. Un effetto attivo ti protegge ancora dalla morte, ma piu' si avvicina allo 0, piu' e' alta la probabilita' di morire, perdendo tutti i tuoi strumenti. Avere sia questo effetto che quello attivo vanifica entrambi.
 effect.cheatDeath_active=Ticchettio Mortale 
 
 potion.effect.hurry=Pozione della fretta
@@ -156,7 +156,7 @@ splash_potion.effect.hurry=Pozione da lancio della fretta
 tipped_arrow.effect.hurry=Freccia della fretta
 effect.hurry=Fretta
 funny.effect.hurry=Siamo arrivati?
-description.effect.hurry=Tutte le tile entity attorno\nal giocatore lavorano più in fretta.\nQuesto causa un'incredibile fame
+description.effect.hurry=Tutte le tile entity attorno al giocatore lavorano più in fretta. Questo causa un'incredibile fame
 
 potion.effect.combustion=Pozione della combustione
 lingering_potion.effect.combustion=Pozione persistente della combustione
@@ -164,7 +164,7 @@ splash_potion.effect.combustion=Pozione da lancio della combustione
 tipped_arrow.effect.combustion=Freccia della combustione
 effect.combustion=Combustione
 funny.effect.combustion=Burn baby, burn!
-description.effect.combustion=L'entita' prende fuoco e lo appicca nei suoi dintorni.\nAi giocatori si cucina l'inventario
+description.effect.combustion=L'entita' prende fuoco e lo appicca nei suoi dintorni. Ai giocatori si cucina l'inventario
 
 potion.effect.reincarnation=Pozione della reincarnazione
 lingering_potion.effect.reincarnation=Pozione persistente della reincarnazione
@@ -172,7 +172,7 @@ splash_potion.effect.reincarnation=Pozione da lancio della reincarnazione
 tipped_arrow.effect.reincarnation=Freccia della reincarnazione
 effect.reincarnation=Reincarnazione
 funny.effect.reincarnation=Vediamo un po'... Mia prossima vita è come tenia
-description.effect.reincarnation=Ti permette di conservare le pozioni attive\nquando muori. Il livello II trasferisce solo\ngli effetti positivi e, in piu', se stesso
+description.effect.reincarnation=Ti permette di conservare le pozioni attive quando muori. Il livello II trasferisce solo gli effetti positivi e, in piu', se stesso
 
 potion.effect.gravity=Pozione della gravita'
 lingering_potion.effect.gravity=Pozione persistente della gravita'
@@ -226,10 +226,10 @@ tipped_arrow.effect.emptiness=Freccia della vanita' vuota
 tipped_arrow.effect.bloodthirst=Freccia dell'ombra cremisi
 tipped_arrow.effect.clear=Freccia dell'assoluzione
 
-sticky.description.title=Combinare le pozioni\n
+sticky.description.title=Combinare le pozioni 
 sticky.description.description=Piazza 2 o piu' pozioni da bere o in fiala in una griglia 3x3 con uno slime al centro per sommare la loro durata. Solo pozioni identiche tra loro funzioneranno, e solo con effetti non istantanei.
 
-split.description.title=Dividere le pozioni\n
+split.description.title=Dividere le pozioni 
 split.description.description=Se piazzi in una griglia una pozione da bere circondata da 2 o più bottiglie vuote, oppure una da lancio o in fiala circondata da fiale vuote, dividerai la pozione in dosi multiple di minor durata. Pozioni istantanee o effetti risultanti inferiori ai 5 secondi non funzionano
 
 item.potion_bag.charges=%1$d Pozioni disponibili
@@ -249,4 +249,6 @@ tooltip.togglef3.SHIFT=[Tieni premuto SHIFT per le descrizioni]
 tooltip.togglef3.ALT=[Tieni premuto ALT per le descrizioni]
 tooltip.togglef3.CTRL=[Tieni premuto CTRL per le descrizioni]
 death.attack.death_revenge.player=La morte ha riscosso il debito di %1$s
-extraalchemy.update.available=[Extra Alchemy] Nuova Versione! Clicca qui per scaricare
+extraalchemy.config.options=Opzioni generali
+extraalchemy.config.potions=Attiva o disattiva le pozioni
+extraalchemy.config.client=Opzioni visive

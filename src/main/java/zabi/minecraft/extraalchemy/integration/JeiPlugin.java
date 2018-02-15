@@ -12,8 +12,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
+import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.items.ModItems;
-import zabi.minecraft.extraalchemy.lib.Config;
 import zabi.minecraft.extraalchemy.lib.Log;
 import zabi.minecraft.extraalchemy.potion.ModPotionHelper;
 
@@ -36,12 +36,12 @@ public class JeiPlugin implements IModPlugin {
 		
 		registry.getJeiHelpers().getIngredientBlacklist().addIngredientToBlacklist(new ItemStack(ModItems.supporter_medal));
 		
-		if (Config.allowPotionCombining.getBoolean()) {
+		if (ModConfig.options.allowPotionCombining) {
 			Log.d("Adding Sticky Potion description");
 			PotionType.REGISTRY.forEach(pt -> addStickyDescription(pt, registry));
 		}
 		
-		if (Config.allowPotionSplitting.getBoolean()) {
+		if (ModConfig.options.allowPotionSplitting) {
 			Log.d("Adding Splitting Potion description");
 			PotionType.REGISTRY.forEach(pt -> addSplitDescription(pt, registry));
 		}

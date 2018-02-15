@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.Loader;
-import zabi.minecraft.extraalchemy.lib.Config;
+import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.lib.Log;
 
 public class BotaniaHandler {
@@ -63,7 +63,7 @@ public class BotaniaHandler {
 	}
 	
 	private static void loadSolegnoliaCompat() {
-		if (Config.respectSolegnolias.getBoolean()) try {
+		if (ModConfig.options.respectSolegnolias) try {
 			Log.i("Loading Botania Solegnolia integration");
 			hasSolegnolia = Class.forName("vazkii.botania.common.block.subtile.functional.SubTileSolegnolia").getMethod("hasSolegnoliaAround", Entity.class);
 		} catch (ClassNotFoundException | NoSuchMethodException | SecurityException e) {

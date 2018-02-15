@@ -10,14 +10,13 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import zabi.minecraft.extraalchemy.ModConfig;
+import zabi.minecraft.extraalchemy.ModConfig.Mode;
 import zabi.minecraft.extraalchemy.integration.ModIDs;
 import zabi.minecraft.extraalchemy.items.ModItems;
-import zabi.minecraft.extraalchemy.lib.Config;
-import zabi.minecraft.extraalchemy.lib.Log;
 import zabi.minecraft.extraalchemy.lib.Reference;
 import zabi.minecraft.extraalchemy.potion.PotionTypeBase;
 import zabi.minecraft.extraalchemy.potion.PotionTypeCompat;
@@ -25,15 +24,6 @@ import zabi.minecraft.extraalchemy.potion.PotionTypeCompat;
 @SideOnly(Side.CLIENT)
 @SuppressWarnings("deprecation")
 public class PotionDescriptionTooltipHandler {
-	
-	private boolean JEIWrapping = false;
-
-	public PotionDescriptionTooltipHandler() {
-		JEIWrapping = (Loader.isModLoaded(ModIDs.jei)||Loader.isModLoaded(ModIDs.jei.toLowerCase())) && Config.useJEITooltipWrapping.getBoolean();
-		if (JEIWrapping) {
-			Log.d("Letting JEI wrap tooltips");
-		}
-	}
 
 	@SubscribeEvent
 	public void onTooltipEvent(ItemTooltipEvent evt) {
@@ -57,26 +47,14 @@ public class PotionDescriptionTooltipHandler {
 			toolTip.add("");
 			toolTip.add(ChatFormatting.GOLD+I18n.format("tooltip.credit", Reference.NAME));	//Added by Extra Alchemy
 			
-			if (Config.showBadJoke.getBoolean()) toolTip.add(ChatFormatting.GREEN+ChatFormatting.ITALIC.toString()+I18n.format(badJoke));	//Bad Joke
+			if (ModConfig.client.showBadJoke) toolTip.add(ChatFormatting.GREEN+ChatFormatting.ITALIC.toString()+I18n.format(badJoke));	//Bad Joke
 			
 			if (shouldShowHint(evt.getFlags().isAdvanced())) {			//Description or...
 				toolTip.add("");
-				if (JEIWrapping) {
-					String ns=textRaw.replace("\\n", " ");
-					toolTip.add(ns);
-				} else {
-					while (textRaw.length()>0) {
-						if (!textRaw.contains("\\n")) {
-							toolTip.add(textRaw);
-							textRaw = "";
-						} else {
-							toolTip.add(textRaw.substring(0,textRaw.indexOf("\\n")));
-							textRaw = textRaw.substring(textRaw.indexOf("\\n")+2, textRaw.length());
-						}
-					}
-				}
+				toolTip.add(textRaw);
+				
 																			//... Press * to show description
-			} else if (!Config.descriptionMode.getString().equals("NONE")) toolTip.add(I18n.format("tooltip.togglef3."+Config.descriptionMode.getString()));
+			} else if (!ModConfig.client.descriptionMode.name().equals("NONE")) toolTip.add(I18n.format("tooltip.togglef3."+ModConfig.client.descriptionMode.name()));
 		} else if (pt instanceof PotionTypeCompat) {
 			toolTip.add("");
 			toolTip.add(ChatFormatting.GOLD+String.format(I18n.format("tooltip.credit"), ((PotionTypeCompat)pt).getMod() ));
@@ -97,15 +75,12 @@ public class PotionDescriptionTooltipHandler {
 				}
 			}
 		}
-		
-		
-		
 	}
 	
 	private static boolean shouldShowHint(boolean advTooltips) {
-		return (advTooltips && Config.descriptionMode.getString().equals("F3H")) ||							//F3+H
-				(GuiScreen.isAltKeyDown() && Config.descriptionMode.getString().equals("ALT")) ||			//ALT
-				(GuiScreen.isCtrlKeyDown() && Config.descriptionMode.getString().equals("CTRL")) ||			//CTRL
-				(GuiScreen.isShiftKeyDown() && Config.descriptionMode.getString().equals("SHIFT"));			//SHIFT
+		return (advTooltips && ModConfig.client.descriptionMode==Mode.F3H) ||							//F3+H
+				(GuiScreen.isAltKeyDown() && ModConfig.client.descriptionMode==Mode.ALT) ||			//ALT
+				(GuiScreen.isCtrlKeyDown() && ModConfig.client.descriptionMode==Mode.CTRL) ||			//CTRL
+				(GuiScreen.isShiftKeyDown() && ModConfig.client.descriptionMode==Mode.SHIFT);			//SHIFT
 	}
 }

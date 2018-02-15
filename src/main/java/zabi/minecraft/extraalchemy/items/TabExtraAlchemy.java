@@ -7,7 +7,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionType;
 import net.minecraft.util.NonNullList;
-import zabi.minecraft.extraalchemy.lib.Config;
+import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.lib.Reference;
 import zabi.minecraft.extraalchemy.potion.ModPotionHelper;
 import zabi.minecraft.extraalchemy.potion.PotionTypeBase;
@@ -29,8 +29,8 @@ public class TabExtraAlchemy extends CreativeTabs {
 	@Override
 	public void displayAllRelevantItems(NonNullList<ItemStack> list) {
 		ArrayList<ItemStack> added_list = new ArrayList<ItemStack>();
-		if (Config.enable_potion_bag.getBoolean()) list.add(new ItemStack(ModItems.potion_bag));
-		if (Config.breakingPotions.getBoolean()) list.add(new ItemStack(ModItems.vial_break));
+		if (ModConfig.options.enable_potion_bag) list.add(new ItemStack(ModItems.potion_bag));
+		if (ModConfig.options.breakingPotions) list.add(new ItemStack(ModItems.vial_break));
 		try {
 			for (PotionType t:PotionType.REGISTRY) {
 				if (t instanceof PotionTypeBase) {
