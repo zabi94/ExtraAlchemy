@@ -116,6 +116,7 @@
 0.3.7.1
 	[FIX] Crash on server startup
 	
-0.3.?
+0.3.8
 	[FIX] Potions appearing twice under the alchemy creative tab
 	[TWK] Moved vial and bag to the top of the creative tab
+	[CHG] Remade the config from the ground up. Can now be configured in game. THIS WILL MAKE OLD CONFIGs USELESS
