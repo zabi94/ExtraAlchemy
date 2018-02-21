@@ -60,12 +60,11 @@ public class PotionMagnetism extends PotionBase {
 		public void onPlayerDropping (ItemTossEvent evt) {
 			if (evt.getPlayer().getActivePotionEffect(PotionReference.INSTANCE.MAGNETISM)!=null) {
 				evt.getEntityItem().getTags().add(Reference.MID+":NoPickup");
-				evt.getEntityItem().getTags().add(Reference.MID+":Dropper="+evt.getPlayer().getCachedUniqueIdString()+"$age="+evt.getEntityItem().getAge());
 			}
 		}
 
 		public static boolean isSneakingRequired(EntityPlayer player, EntityItem item) {
-			if (item.getTags().contains(Reference.MID+":NoPickup") && item.getAge()<(DELAY_TICKS)) return true;
+			if (item.getTags().contains(Reference.MID+":NoPickup") && item.ticksExisted<(DELAY_TICKS)) return true;
 			return false;
 		}
 	}

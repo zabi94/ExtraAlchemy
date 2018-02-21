@@ -22,7 +22,6 @@ import zabi.minecraft.extraalchemy.potion.PotionTypeBase;
 import zabi.minecraft.extraalchemy.potion.PotionTypeCompat;
 
 @SideOnly(Side.CLIENT)
-@SuppressWarnings("deprecation")
 public class PotionDescriptionTooltipHandler {
 
 	@SubscribeEvent
