@@ -18,7 +18,7 @@ repositories {
   }
 }
 
-version = "0.3.8-release"
+version = "0.3.8.1-release"
 group= "zabi.minecraft.extraalchemy"
 archivesBaseName = "extraalchemy"
 
@@ -39,15 +39,12 @@ minecraft {
 dependencies {
     
   	deobfCompile "mezz.jei:jei_1.12:4.7.1.69:api"
-	//deobfCompile "com.githubmcjty:compatlayer:1.11.2-0.2.7"
   	runtime "mezz.jei:jei_1.12:4.7.1.69"
-	//compile files('lib/januslib-0.1.2-dev-deobf.jar')
-	//runtime files('lib/januslib-0.1-deobf.jar')
 }
 
 jar {
    manifest {
-       attributes('FMLAT': 'extraalchemy_at.cfg', "FMLCorePluginContainsFMLMod": "true", "FMLCorePlugin": "zabi.minecraft.extraalchemy.asm.ExtraAlchemyLoadingPlugin")
+       attributes('FMLAT': 'extraalchemy_at.cfg')
    }
 }
 
