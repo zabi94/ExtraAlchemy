@@ -18,9 +18,9 @@ public class GuiPotionBag extends GuiContainer {
 		this.xSize = 176;
 	}
 	
-	
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float pTicks, int mouseX, int mouseY) {
+		drawDefaultBackground();
 		mc.getTextureManager().bindTexture(texture);
 		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		String name = cnt.getBagName();
@@ -32,11 +32,12 @@ public class GuiPotionBag extends GuiContainer {
 		int left = 8+(this.xSize - 16 - size)/2;
 		this.fontRenderer.drawString(name, this.guiLeft+left, this.guiTop+77, 3216909);
 	}
-
+	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		super.drawGuiContainerForegroundLayer(mouseX, mouseY);
 		renderHoveredToolTip(mouseX-guiLeft, mouseY-guiTop);
 	}
+	
+	
 	
 }
