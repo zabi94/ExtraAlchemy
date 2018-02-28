@@ -226,11 +226,9 @@ tipped_arrow.effect.emptiness=Freccia della vanita' vuota
 tipped_arrow.effect.bloodthirst=Freccia dell'ombra cremisi
 tipped_arrow.effect.clear=Freccia dell'assoluzione
 
-sticky.description.title=Combinare le pozioni 
-sticky.description.description=Piazza 2 o piu' pozioni da bere o in fiala in una griglia 3x3 con uno slime al centro per sommare la loro durata. Solo pozioni identiche tra loro funzioneranno, e solo con effetti non istantanei.
-
-split.description.title=Dividere le pozioni 
-split.description.description=Se piazzi in una griglia una pozione da bere circondata da 2 o più bottiglie vuote, oppure una da lancio o in fiala circondata da fiale vuote, dividerai la pozione in dosi multiple di minor durata. Pozioni istantanee o effetti risultanti inferiori ai 5 secondi non funzionano
+recipe.sticky.description=Piazza 2 o piu' pozioni da bere o in fiala in una griglia 3x3 con uno slime al centro per sommare la loro durata. Solo pozioni identiche tra loro funzioneranno.
+recipe.split.vial.description=Se piazzi in una griglia una pozione da lancio o in fiala circondata da fiale vuote, dividerai la pozione in fiale multiple di minor durata. Gli effetti risultanti inferiori ai 5 secondi non funzionano
+recipe.split.drink.description=Se piazzi in una griglia una pozione da bere circondata da 2 o più bottiglie vuote, dividerai la pozione in dosi multiple di minor durata. Gli effetti risultanti inferiori ai 5 secondi non funzionano
 
 item.potion_bag.charges=%1$d Pozioni disponibili
 item.potion_bag.name=Borsa da alchimista

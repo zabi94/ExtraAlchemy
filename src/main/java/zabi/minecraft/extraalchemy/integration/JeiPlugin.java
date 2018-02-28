@@ -1,6 +1,11 @@
 package zabi.minecraft.extraalchemy.integration;
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 import javax.annotation.Nonnull;
+
+import com.google.common.collect.Lists;
 
 import mezz.jei.api.IJeiRuntime;
 import mezz.jei.api.IModPlugin;
@@ -15,57 +20,42 @@ import net.minecraft.potion.PotionUtils;
 import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.lib.Log;
-import zabi.minecraft.extraalchemy.potion.ModPotionHelper;
 
 @JEIPlugin
 public class JeiPlugin implements IModPlugin {
 	
-	public static boolean isJeiInstalled = false;
-	
-	private static String[] descriptionStickyList = new String[] {
-			"sticky.description.title","sticky.description.description"
-	};
-	
-	private static String[] descriptionSplitList = new String[] {
-			"split.description.title","split.description.description"
-	};
+	private static final String slime = "recipe.sticky.description";
+	private static final String split_d = "recipe.split.drink.description";
+	private static final String split_v = "recipe.split.vial.description";
 
 	public void register(@Nonnull IModRegistry registry) {
 		Log.d("Configuring JEI integration");
-		isJeiInstalled = true;
 		
 		registry.getJeiHelpers().getIngredientBlacklist().addIngredientToBlacklist(new ItemStack(ModItems.supporter_medal));
 		
-		if (ModConfig.options.allowPotionCombining) {
-			Log.d("Adding Sticky Potion description");
-			PotionType.REGISTRY.forEach(pt -> addStickyDescription(pt, registry));
+		ArrayList<ItemStack> potion = getAllPotionsInsideItemstack(new ItemStack(Items.POTIONITEM));
+		ArrayList<ItemStack> potion_s = getAllPotionsInsideItemstack(new ItemStack(Items.SPLASH_POTION));
+		
+		
+		registry.addIngredientInfo(potion, ItemStack.class, split_d, "\n\n", slime);
+		
+		if (ModConfig.options.breakingPotions) {
+			registry.addIngredientInfo(potion_s, ItemStack.class, split_v);
+			ArrayList<ItemStack> potion_v = getAllPotionsInsideItemstack(new ItemStack(ModItems.breakable_potion));
+			registry.addIngredientInfo(potion_v, ItemStack.class, split_v, "\n\n", slime);
 		}
 		
-		if (ModConfig.options.allowPotionSplitting) {
-			Log.d("Adding Splitting Potion description");
-			PotionType.REGISTRY.forEach(pt -> addSplitDescription(pt, registry));
-		}
 	}
 
-	private void addSplitDescription(PotionType pt, IModRegistry registry) {
-		if (pt==null || pt.hasInstantEffect() || pt.getEffects().isEmpty()) return;
-		ItemStack s = new ItemStack(Items.POTIONITEM);
-		PotionUtils.addPotionToItemStack(s, pt);
-		registry.addIngredientInfo(s, ItemStack.class, descriptionSplitList);
-		registry.addIngredientInfo(ModPotionHelper.transformToLingering(s), ItemStack.class, descriptionSplitList);
-		registry.addIngredientInfo(ModPotionHelper.transformToSplash(s), ItemStack.class, descriptionSplitList);
+	private ArrayList<ItemStack> getAllPotionsInsideItemstack(ItemStack is) {
+		return Lists.newArrayList(
+				PotionType.REGISTRY.getKeys().parallelStream()
+				.map(k -> PotionType.REGISTRY.getObject(k))
+				.map(pt -> PotionUtils.addPotionToItemStack(is.copy(), pt))
+				.collect(Collectors.toList())
+			);
 	}
-
-	private void addStickyDescription(PotionType pt, IModRegistry registry) {
-		if (pt==null || pt.hasInstantEffect() || pt.getEffects().isEmpty()) return;
-		ItemStack s = new ItemStack(Items.POTIONITEM);
-		PotionUtils.addPotionToItemStack(s, pt);
-		registry.addIngredientInfo(s, ItemStack.class, descriptionStickyList);
-		registry.addIngredientInfo(ModPotionHelper.transformToArrow(s), ItemStack.class, descriptionStickyList);
-		registry.addIngredientInfo(ModPotionHelper.transformToLingering(s), ItemStack.class, descriptionStickyList);
-		registry.addIngredientInfo(ModPotionHelper.transformToSplash(s), ItemStack.class, descriptionStickyList);
-	}
-
+	
 	@Override
 	public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {}
 	
