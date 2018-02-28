@@ -3,9 +3,9 @@ package zabi.minecraft.extraalchemy.items;
 import java.util.ArrayList;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionType;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.NonNullList;
 import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.lib.Reference;
@@ -28,32 +28,40 @@ public class TabExtraAlchemy extends CreativeTabs {
 	
 	@Override
 	public void displayAllRelevantItems(NonNullList<ItemStack> list) {
-		ArrayList<ItemStack> added_list = new ArrayList<ItemStack>();
 		if (ModConfig.options.enable_potion_bag) list.add(new ItemStack(ModItems.potion_bag));
 		if (ModConfig.options.breakingPotions) list.add(new ItemStack(ModItems.vial_break));
 		try {
+			ArrayList<ItemStack> normal = new ArrayList<ItemStack>();
+			ArrayList<ItemStack> splash = new ArrayList<ItemStack>();
+			ArrayList<ItemStack> linger = new ArrayList<ItemStack>();
+			ArrayList<ItemStack> arrow = new ArrayList<ItemStack>();
+			ArrayList<ItemStack> vial = new ArrayList<ItemStack>();
+			
 			for (PotionType t:PotionType.REGISTRY) {
 				if (t instanceof PotionTypeBase) {
-					ItemStack is = ModPotionHelper.getItemStackOfPotion(Items.POTIONITEM, t);
-					added_list.add(is);
-					list.add(is);
+					normal.add(PotionUtils.addPotionToItemStack(ModPotionHelper.normalEmpty.copy(), t));
+					splash.add(PotionUtils.addPotionToItemStack(ModPotionHelper.splashEmpty.copy(), t));
+					linger.add(PotionUtils.addPotionToItemStack(ModPotionHelper.lingeringEmpty.copy(), t));
+					arrow.add(PotionUtils.addPotionToItemStack(ModPotionHelper.arrowEmpty.copy(), t));
+					if (ModConfig.options.breakingPotions) {
+						ItemStack stack = PotionUtils.addPotionToItemStack(ModPotionHelper.vialEmpty.copy(), t);
+						PotionUtils.appendEffects(stack, t.getEffects());
+						vial.add(stack);
+					}
 				}
 			}
-			for (ItemStack s:added_list) {
-				list.add(ModPotionHelper.transformToSplash(s));
-			}
-			for (ItemStack s:added_list) {
-				list.add(ModPotionHelper.transformToLingering(s));
-			}
-			for (ItemStack s:added_list) {
-				list.add(ModPotionHelper.transformToArrow(s));
-			}
+			
+			list.addAll(normal);
+			list.addAll(vial);
+			list.addAll(splash);
+			list.addAll(linger);
+			list.addAll(arrow);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		super.displayAllRelevantItems(list);
 	}
-
 
 	@Override
 	public ItemStack getTabIconItem() {
