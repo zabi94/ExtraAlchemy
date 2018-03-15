@@ -44,8 +44,8 @@ public class Recipes {
 
 		//3 Variants
 		if (ModConfig.potions.p_fuse) 				RecipeManager.registerRecipeWithVariant(PotionTypes.AWKWARD, new ItemStack(Items.FIREWORK_CHARGE), PotionReference.INSTANCE.TYPE_FUSE_NORMAL, PotionReference.INSTANCE.TYPE_FUSE_QUICK, PotionReference.INSTANCE.TYPE_FUSE_STRONG);
-		if (ModConfig.potions.p_magnetism) 		RecipeManager.registerRecipeWithVariant(PotionTypes.AWKWARD, new ItemStack(Items.IRON_INGOT), PotionReference.INSTANCE.TYPE_MAGNETISM_NORMAL, PotionReference.INSTANCE.TYPE_MAGNETISM_LONG, PotionReference.INSTANCE.TYPE_MAGNETISM_STRONG);
-		if (ModConfig.potions.p_piper) 			RecipeManager.registerRecipeWithVariant(PotionTypes.AWKWARD, new ItemStack(Items.WHEAT), PotionReference.INSTANCE.TYPE_PIPER_NORMAL, PotionReference.INSTANCE.TYPE_PIPER_LONG, PotionReference.INSTANCE.TYPE_PIPER_STRONG);
+		if (ModConfig.potions.p_magnetism) 			RecipeManager.registerRecipeWithVariant(PotionTypes.AWKWARD, new ItemStack(Items.IRON_INGOT), PotionReference.INSTANCE.TYPE_MAGNETISM_NORMAL, PotionReference.INSTANCE.TYPE_MAGNETISM_LONG, PotionReference.INSTANCE.TYPE_MAGNETISM_STRONG);
+		if (ModConfig.potions.p_piper) 				RecipeManager.registerRecipeWithVariant(PotionTypes.AWKWARD, new ItemStack(Items.WHEAT), PotionReference.INSTANCE.TYPE_PIPER_NORMAL, PotionReference.INSTANCE.TYPE_PIPER_LONG, PotionReference.INSTANCE.TYPE_PIPER_STRONG);
 		if (ModConfig.potions.p_photosynthesis) 	RecipeManager.registerRecipeWithVariant(PotionTypes.AWKWARD, new ItemStack(Items.BEETROOT_SEEDS), PotionReference.INSTANCE.TYPE_PHOTOSYNTHESIS_NORMAL, PotionReference.INSTANCE.TYPE_PHOTOSYNTHESIS_LONG, PotionReference.INSTANCE.TYPE_PHOTOSYNTHESIS_STRONG);
 		if (ModConfig.potions.p_reincarnation)		RecipeManager.registerRecipeWithVariant(PotionTypes.AWKWARD, new ItemStack(Items.LEATHER), PotionReference.INSTANCE.TYPE_REINCARNATION_NORMAL, PotionReference.INSTANCE.TYPE_REINCARNATION_LONG, PotionReference.INSTANCE.TYPE_REINCARNATION_STRONG);
 
@@ -54,15 +54,16 @@ public class Recipes {
 
 		if (ModConfig.potions.p_learning)			RecipeManager.registerRecipeWithVariant(PotionTypes.THICK, new ItemStack(Item.getItemFromBlock(Blocks.LAPIS_BLOCK)), PotionReference.INSTANCE.TYPE_LEARNING_NORMAL, PotionReference.INSTANCE.TYPE_LEARNING_LONG, PotionReference.INSTANCE.TYPE_LEARNING_STRONG);
 		if (ModConfig.potions.p_gravity) 			RecipeManager.registerRecipeWithVariant(PotionTypes.THICK, new ItemStack(Items.NETHERBRICK), PotionReference.INSTANCE.TYPE_GRAVITY_NORMAL, PotionReference.INSTANCE.TYPE_GRAVITY_LONG, PotionReference.INSTANCE.TYPE_GRAVITY_STRONG);
-		if (ModConfig.potions.p_crumbling) 		RecipeManager.registerRecipeWithVariant(PotionTypes.THICK, new ItemStack(Items.FLINT), PotionReference.INSTANCE.TYPE_CRUMBLING_NORMAL, PotionReference.INSTANCE.TYPE_CRUMBLING_LONG, PotionReference.INSTANCE.TYPE_CRUMBLING_STRONG);
+		if (ModConfig.potions.p_crumbling) 			RecipeManager.registerRecipeWithVariant(PotionTypes.THICK, new ItemStack(Items.FLINT), PotionReference.INSTANCE.TYPE_CRUMBLING_NORMAL, PotionReference.INSTANCE.TYPE_CRUMBLING_LONG, PotionReference.INSTANCE.TYPE_CRUMBLING_STRONG);
 
 		if (ModConfig.potions.p_recall) 			RecipeManager.registerRecipeWithVariant(PotionTypes.LONG_SLOWNESS, new ItemStack(Items.ENDER_EYE), PotionReference.INSTANCE.TYPE_RECALL_NORMAL, PotionReference.INSTANCE.TYPE_RECALL_LONG, PotionReference.INSTANCE.TYPE_RECALL_STRONG);
 		if (ModConfig.potions.p_sinking) 			RecipeManager.registerRecipeWithVariant(PotionTypes.WATER_BREATHING, new ItemStack(Items.CLAY_BALL), PotionReference.INSTANCE.TYPE_SINKING_NORMAL, PotionReference.INSTANCE.TYPE_SINKING_LONG, PotionReference.INSTANCE.TYPE_SINKING_STRONG);
 		if (ModConfig.potions.p_pacifism) 			RecipeManager.registerRecipeWithVariant(PotionTypes.STRONG_HARMING, new ItemStack(Items.GOLDEN_APPLE), PotionReference.INSTANCE.TYPE_PACIFISM_NORMAL, PotionReference.INSTANCE.TYPE_PACIFISM_LONG, PotionReference.INSTANCE.TYPE_PACIFISM_STRONG);
-		if (ModConfig.potions.p_hurry) 			RecipeManager.registerRecipeWithVariant(PotionReference.INSTANCE.TYPE_CHARGED2, new ItemStack(Items.COOKIE), PotionReference.INSTANCE.TYPE_HURRY_NORMAL, PotionReference.INSTANCE.TYPE_HURRY_LONG, PotionReference.INSTANCE.TYPE_HURRY_STRONG);
+		if (ModConfig.potions.p_hurry) 				RecipeManager.registerRecipeWithVariant(PotionReference.INSTANCE.TYPE_CHARGED2, new ItemStack(Items.COOKIE), PotionReference.INSTANCE.TYPE_HURRY_NORMAL, PotionReference.INSTANCE.TYPE_HURRY_LONG, PotionReference.INSTANCE.TYPE_HURRY_STRONG);
 		if (ModConfig.potions.p_leech)				RecipeManager.registerRecipeWithVariant(PotionTypes.HARMING, new ItemStack(Items.SPECKLED_MELON), PotionReference.INSTANCE.TYPE_LEECH_NORMAL, PotionReference.INSTANCE.TYPE_LEECH_LONG, PotionReference.INSTANCE.TYPE_LEECH_STRONG);
 		if (ModConfig.potions.p_sails)				RecipeManager.registerRecipeWithVariant(PotionTypes.LONG_SWIFTNESS, new ItemStack(Items.FISH), PotionReference.INSTANCE.TYPE_SAILS_NORMAL, PotionReference.INSTANCE.TYPE_SAILS_LONG, PotionReference.INSTANCE.TYPE_SAILS_STRONG);
 		if (ModConfig.potions.p_beheading)			RecipeManager.registerRecipeWithVariant(PotionReference.INSTANCE.TYPE_CHARGED2, new ItemStack(Items.ROTTEN_FLESH), PotionReference.INSTANCE.TYPE_BEHEADING_NORMAL, PotionReference.INSTANCE.TYPE_BEHEADING_LONG, PotionReference.INSTANCE.TYPE_BEHEADING_STRONG);
+		if (ModConfig.potions.p_pain)				RecipeManager.registerRecipeWithVariant(PotionTypes.WEAKNESS, new ItemStack(Items.IRON_NUGGET), PotionReference.INSTANCE.TYPE_PAIN_NORMAL, PotionReference.INSTANCE.TYPE_PAIN_LONG, PotionReference.INSTANCE.TYPE_PAIN_STRONG);
 
 		//1 Variant
 		if (ModConfig.potions.p_concentration) 	RecipeManager.registerRecipe(PotionTypes.AWKWARD, PotionReference.INSTANCE.TYPE_CONCENTRATION, Items.EGG);

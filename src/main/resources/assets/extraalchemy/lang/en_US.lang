@@ -198,41 +198,13 @@ effect.sails=Navigation
 funny.effect.sails=Row row row your boat
 description.effect.sails=Players can drive boats faster
 
-potion.effect.soulCross=Potion of Crossed Souls
-potion.effect.allure=Potion of Marine Allure
-potion.effect.featherFeet=Potion of Feather Feet
-potion.effect.emptiness=Potion of Vanity's Emptiness
-potion.effect.bloodthirst=Potion of Crimson Shade
-potion.effect.clear=Potion of Absolution
-potion.effect.blazing_trail=Potion of Blazing Trail
-potion.effect.feather=Potion of Feather
-
-splash_potion.effect.soulCross=Splash Potion of Crossed Souls
-splash_potion.effect.allure=Splash Potion of Marine Allure
-splash_potion.effect.featherFeet=Splash Potion of Feather Feet
-splash_potion.effect.emptiness=Splash Potion of Vanity's Emptiness
-splash_potion.effect.bloodthirst=Splash Potion of Crimson Shade
-splash_potion.effect.clear=Splash Potion of Absolution
-splash_potion.effect.blazing_trail=Splash Potion of Blazing Trail
-splash_potion.effect.feather=Splash Potion of Feather
-
-lingering_potion.effect.soulCross=Lingering Potion of Crossed Souls
-lingering_potion.effect.allure=Lingering Potion of Marine Allure
-lingering_potion.effect.featherFeet=Lingering Potion of Feather Feet
-lingering_potion.effect.emptiness=Lingering Potion of Vanity's Emptiness
-lingering_potion.effect.bloodthirst=Lingering Potion of Crimson Shade
-lingering_potion.effect.clear=Lingering Potion of Absolution
-lingering_potion.effect.blazing_trail=Lingering Potion of Blazing Trail
-lingering_potion.effect.feather=Lingering Potion of Feather
-
-tipped_arrow.effect.soulCross=Arrow of Crossed Souls
-tipped_arrow.effect.allure=Arrow of Marine Allure
-tipped_arrow.effect.featherFeet=Arrow of Feather Feet
-tipped_arrow.effect.emptiness=Arrow of Vanity's Emptiness
-tipped_arrow.effect.bloodthirst=Arrow of Crimson Shade
-tipped_arrow.effect.clear=Arrow of Absolution
-tipped_arrow.effect.blazing_trail=Arrow of Blazing Trail
-tipped_arrow.effect.feather=Arrow of Feather
+potion.effect.pain=Potion of Pain
+lingering_potion.effect.pain=Lingering Potion of Pain
+splash_potion.effect.pain=Splash Potion of Pain
+tipped_arrow.effect.pain=Arrow of Pain
+effect.pain=Pain
+funny.effect.pain=What doesn't kill you... now will kill you
+description.effect.pain=Amplifies incoming damage
 
 recipe.sticky.description=Crafting 2 or more drinkable or vial potions in a 3x3 crafting grid with a slime ball in the center will sum their duration.
 recipe.split.vial.description=If you surround a vial/splash potion with empty vials, you'll be able to split the contents of them into multiple, shorter vial poitons. The resulting effect must last longer than 5 seconds

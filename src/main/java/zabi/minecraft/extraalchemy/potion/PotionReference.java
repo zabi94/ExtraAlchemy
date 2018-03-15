@@ -15,6 +15,7 @@ import zabi.minecraft.extraalchemy.potion.potion.PotionLearning;
 import zabi.minecraft.extraalchemy.potion.potion.PotionLeech;
 import zabi.minecraft.extraalchemy.potion.potion.PotionMagnetism;
 import zabi.minecraft.extraalchemy.potion.potion.PotionPacifism;
+import zabi.minecraft.extraalchemy.potion.potion.PotionPain;
 import zabi.minecraft.extraalchemy.potion.potion.PotionPhotosynthesis;
 import zabi.minecraft.extraalchemy.potion.potion.PotionPiper;
 import zabi.minecraft.extraalchemy.potion.potion.PotionRecall;
@@ -144,4 +145,9 @@ public class PotionReference {
 	
 	public PotionBase DISPEL = new PotionDispel(true, 0x105955);
 	public PotionTypeBase TYPE_DISPEL = new PotionTypeBase(DISPEL, 0, 0, "dispel_normal");
+	
+	public PotionBase PAIN = new PotionPain(true, 0x4d4213);
+	public PotionTypeBase TYPE_PAIN_NORMAL = new PotionTypeBase(PAIN, 20*150, 0, "pain_normal");
+	public PotionTypeBase TYPE_PAIN_LONG = new PotionTypeBase(PAIN, 20*60*5, 0, "pain_long");
+	public PotionTypeBase TYPE_PAIN_STRONG = new PotionTypeBase(PAIN, 20*120, 1, "pain_strong");
 }

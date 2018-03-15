@@ -27,14 +27,7 @@ import zabi.minecraft.extraalchemy.lib.Log;
 import zabi.minecraft.extraalchemy.lib.Reference;
 import zabi.minecraft.extraalchemy.network.NetworkModRegistry;
 import zabi.minecraft.extraalchemy.potion.PotionReference;
-import zabi.minecraft.extraalchemy.potion.potion.PotionBeheading;
-import zabi.minecraft.extraalchemy.potion.potion.PotionCheatDeath;
-import zabi.minecraft.extraalchemy.potion.potion.PotionCombustion;
-import zabi.minecraft.extraalchemy.potion.potion.PotionHurry;
-import zabi.minecraft.extraalchemy.potion.potion.PotionLeech;
-import zabi.minecraft.extraalchemy.potion.potion.PotionMagnetism;
-import zabi.minecraft.extraalchemy.potion.potion.PotionPacifism;
-import zabi.minecraft.extraalchemy.potion.potion.PotionReincarnation;
+import zabi.minecraft.extraalchemy.potion.potion.*;
 import zabi.minecraft.extraalchemy.proxy.Proxy;
 import zabi.minecraft.extraalchemy.recipes.Recipes;
 import zabi.minecraft.extraalchemy.recipes.brew.BrewingStandBlocker;
@@ -67,6 +60,7 @@ public class ExtraAlchemy {
 		MinecraftForge.EVENT_BUS.register(new PotionCombustion.PotionCombustionHandler());
 		MinecraftForge.EVENT_BUS.register(new PotionLeech.PotionLeechHandler());
 		MinecraftForge.EVENT_BUS.register(new PotionBeheading.PotionBeheadingHandler());
+		MinecraftForge.EVENT_BUS.register(new PotionPain.PotionPainHandler());
 		MinecraftForge.EVENT_BUS.register(new BrewingStandBlocker());
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 		

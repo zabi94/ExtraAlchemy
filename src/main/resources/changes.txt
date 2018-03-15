@@ -127,3 +127,8 @@
 	[ADD] Potion bag automatically selects the next available potion when finishing one type
 	[FIX] GUI of potion bag was missing the default background
 	[RWK] Reworked how the bags work internally. Should be more stable, but there's a risk to lose your existing potions. Empty the bags before updating!
+	
+0.3.8.2
+	[ADD] Potion of Pain
+	[FIX] Split/Sticky pots description
+	[ADD] Full vials now show up in the creative tab

@@ -111,6 +111,8 @@ public class ModConfig {
 		public boolean p_beheading = true;
 		@Config.LangKey("potion.effect.dispel")
 		public boolean p_dispel = true;
+		@Config.LangKey("potion.effect.pain")
+		public boolean p_pain = true;
 	}
 	
 	public static class ChangeListener {
@@ -126,19 +128,19 @@ public class ModConfig {
 		long status = 0;
 		
 		if (options.allowPotionCombining) status|=1;
-		if (options.allowPotionSplitting) status|=2;
-		if (options.breakingPotions) status|=4;
-		if (options.enable_potion_bag) status|=8;
-		if (options.useNewVials) status|=16;
-		if (options.respectSolegnolias) status|=32;
-		if (potions.p_charged_level1) status|=64;
-		if (potions.p_charged_level2) status|=128;
-		if (potions.p_cheatDeath) status|=256;
-		if (potions.p_combustion) status|=512;
-		if (potions.p_concentration) status|=1024;
-		if (potions.p_crumbling) status|=2048;
-		if (potions.p_dispel) status|=4096;
-		if (potions.p_dislocation) status|=8192;
+		if (options.allowPotionSplitting) status|=(1<<1);
+		if (options.breakingPotions) status|=(1<<2);
+		if (options.enable_potion_bag) status|=(1<<3);
+		if (options.useNewVials) status|=(1<<4);
+		if (options.respectSolegnolias) status|=(1<<5);
+		if (potions.p_charged_level1) status|=(1<<6);
+		if (potions.p_charged_level2) status|=(1<<7);
+		if (potions.p_cheatDeath) status|=(1<<8);
+		if (potions.p_combustion) status|=(1<<9);
+		if (potions.p_concentration) status|=(1<<10);
+		if (potions.p_crumbling) status|=(1<<11);
+		if (potions.p_dispel) status|=(1<<12);
+		if (potions.p_dislocation) status|=(1<<13);
 		if (potions.p_freezing) status|=(1<<14);
 		if (potions.p_fuse) status|=(1<<15);
 		if (potions.p_gravity) status|=(1<<16);
@@ -155,6 +157,7 @@ public class ModConfig {
 		if (potions.p_sails) status|=(1<<27);
 		if (potions.p_sinking) status|=(1<<28);
 		if (potions.p_beheading) status|=(1<<29);
+		if (potions.p_pain) status |= (1<<30);
 		return status;
 	}
 	
@@ -205,8 +208,8 @@ public class ModConfig {
 			"p_return",
 			"p_sails",
 			"p_sinking",
-			"p_beheading"
-			
+			"p_beheading",
+			"p_pain"
 	};
 	
 }

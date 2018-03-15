@@ -198,33 +198,13 @@ effect.sails=Navigazione
 funny.effect.sails=Qual buon vento?
 description.effect.sails=Aumenta la velocita' in barca dei giocatori
 
-potion.effect.soulCross=Pozione delle anime tormentate
-potion.effect.allure=Pozione dell'incanto marino
-potion.effect.featherFeet=Pozione dei piedi di piuma
-potion.effect.emptiness=Pozione della vanita' vuota
-potion.effect.bloodthirst=Pozione dell'ombra cremisi
-potion.effect.clear=Pozione dell'assoluzione
-
-splash_potion.effect.soulCross=Pozione da lancio delle anime tormentate
-splash_potion.effect.allure=Pozione da lancio dell'incanto marino
-splash_potion.effect.featherFeet=Pozione da lancio dei piedi di piuma
-splash_potion.effect.emptiness=Pozione da lancio della vanita' vuota
-splash_potion.effect.bloodthirst=Pozione da lancio dell'ombra cremisi
-splash_potion.effect.clear=Pozione da lancio dell'assoluzione
-
-lingering_potion.effect.soulCross=Pozione persistente delle anime tormentate
-lingering_potion.effect.allure=Pozione persistente dell'incanto marino
-lingering_potion.effect.featherFeet=Pozione persistente dei piedi di piuma
-lingering_potion.effect.emptiness=Pozione persistente della vanita' vuota
-lingering_potion.effect.bloodthirst=Pozione persistente dell'ombra cremisi
-lingering_potion.effect.clear=Pozione persistente dell'assoluzione
-
-tipped_arrow.effect.soulCross=Freccia delle anime tormentate
-tipped_arrow.effect.allure=Freccia dell'incanto marino
-tipped_arrow.effect.featherFeet=Freccia dei piedi di piuma
-tipped_arrow.effect.emptiness=Freccia della vanita' vuota
-tipped_arrow.effect.bloodthirst=Freccia dell'ombra cremisi
-tipped_arrow.effect.clear=Freccia dell'assoluzione
+potion.effect.pain=Pozione del dolore
+lingering_potion.effect.pain=Pozione persistente del dolore
+splash_potion.effect.pain=Pozione da lancio del dolore
+tipped_arrow.effect.pain=Freccia del dolore
+effect.pain=Dolore
+funny.effect.pain=Quello che non ti uccide... forse ora ci riuscira'
+description.effect.pain=Aumenta il danno subito dalle entita'
 
 recipe.sticky.description=Piazza 2 o piu' pozioni da bere o in fiala in una griglia 3x3 con uno slime al centro per sommare la loro durata. Solo pozioni identiche tra loro funzioneranno.
 recipe.split.vial.description=Se piazzi in una griglia una pozione da lancio o in fiala circondata da fiale vuote, dividerai la pozione in fiale multiple di minor durata. Gli effetti risultanti inferiori ai 5 secondi non funzionano
