@@ -19,7 +19,7 @@ public class PotionPulling extends PotionBase {
 	@Override
 	public void performEffect(EntityLivingBase elb, int amplifier) {
 		if (elb.world.isRemote) return;
-		elb.world.getEntitiesWithinAABB(EntityLivingBase.class, elb.getEntityBoundingBox().grow(2*(1+amplifier)), e -> (!e.equals(elb) && e.getDistance(elb)>1.5f))
+		elb.world.getEntitiesWithinAABB(EntityLivingBase.class, elb.getEntityBoundingBox().grow(4*(1+amplifier)), e -> (!e.equals(elb) && e.getDistance(elb)>1.5f))
 			.stream().forEach(e -> pullIn(e, elb, amplifier));
 	}
 

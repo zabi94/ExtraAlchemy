@@ -3,6 +3,7 @@ package zabi.minecraft.extraalchemy.potion.potion;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.Vec3d;
 import zabi.minecraft.extraalchemy.potion.PotionBase;
+import zabi.minecraft.extraalchemy.potion.PotionReference;
 
 public class PotionPushing extends PotionBase {
 
@@ -19,7 +20,7 @@ public class PotionPushing extends PotionBase {
 	@Override
 	public void performEffect(EntityLivingBase elb, int amplifier) {
 		if (elb.world.isRemote) return;
-		elb.world.getEntitiesWithinAABB(EntityLivingBase.class, elb.getEntityBoundingBox().grow(2*(1+amplifier)), e -> !e.equals(elb))
+		elb.world.getEntitiesWithinAABB(EntityLivingBase.class, elb.getEntityBoundingBox().grow(4*(1+amplifier)), e -> !e.equals(elb))
 			.stream().forEach(e -> pushAway(e, elb, amplifier));
 	}
 
@@ -27,6 +28,7 @@ public class PotionPushing extends PotionBase {
 		Vec3d push = new Vec3d(e.posX-elb.posX, 0, e.posZ-elb.posZ);
 		push = push.scale(0.2*(1d/push.lengthSquared()));
 		e.addVelocity(push.x, push.y, push.z);
+		e.removePotionEffect(PotionReference.INSTANCE.PULL);
 	}
 
 }
