@@ -206,6 +206,22 @@ effect.pain=Dolore
 funny.effect.pain=Quello che non ti uccide... forse ora ci riuscira'
 description.effect.pain=Aumenta il danno subito dalle entita'
 
+potion.effect.push=Pozione della spinta
+lingering_potion.effect.push=Pozione persistente della spinta
+splash_potion.effect.push=Pozione da lancio della spinta
+tipped_arrow.effect.push=Freccia della spinta
+effect.push=Spinta
+funny.effect.push=L'incarnazione del concetto di spazio personale
+description.effect.push=Spinge via le altre entita'
+
+potion.effect.pull=Pozione della trazione
+lingering_potion.effect.pull=Pozione persistente della trazione
+splash_potion.effect.pull=Pozione da lancio della trazione
+tipped_arrow.effect.pull=Freccia della trazione
+effect.pull=Trazione
+funny.effect.pull=Amici soffocanti
+description.effect.pull=Attira a se le altre entita'
+
 recipe.sticky.description=Piazza 2 o piu' pozioni da bere o in fiala in una griglia 3x3 con uno slime al centro per sommare la loro durata. Solo pozioni identiche tra loro funzioneranno.
 recipe.split.vial.description=Se piazzi in una griglia una pozione da lancio o in fiala circondata da fiale vuote, dividerai la pozione in fiale multiple di minor durata. Gli effetti risultanti inferiori ai 5 secondi non funzionano
 recipe.split.drink.description=Se piazzi in una griglia una pozione da bere circondata da 2 o più bottiglie vuote, dividerai la pozione in dosi multiple di minor durata. Gli effetti risultanti inferiori ai 5 secondi non funzionano

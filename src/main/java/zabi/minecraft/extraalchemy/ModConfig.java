@@ -63,6 +63,8 @@ public class ModConfig {
 	
 	
 	public static class Potions {
+		@Config.LangKey("potion.effect.push")
+		public boolean p_push = true;
 		@Config.LangKey("potion.effect.cheatDeath_quiescent")
 		public boolean p_cheatDeath = true;
 		@Config.LangKey("potion.effect.combustion")
@@ -113,6 +115,8 @@ public class ModConfig {
 		public boolean p_dispel = true;
 		@Config.LangKey("potion.effect.pain")
 		public boolean p_pain = true;
+		@Config.LangKey("potion.effect.pull")
+		public boolean p_pull = true;
 	}
 	
 	public static class ChangeListener {
@@ -158,6 +162,8 @@ public class ModConfig {
 		if (potions.p_sinking) status|=(1<<28);
 		if (potions.p_beheading) status|=(1<<29);
 		if (potions.p_pain) status |= (1<<30);
+		if (potions.p_push) status |= (1<<31);
+		if (potions.p_pull) status |= (1<<32);
 		return status;
 	}
 	
@@ -209,7 +215,9 @@ public class ModConfig {
 			"p_sails",
 			"p_sinking",
 			"p_beheading",
-			"p_pain"
+			"p_pain",
+			"p_push",
+			"p_pull"
 	};
 	
 }

@@ -18,6 +18,8 @@ import zabi.minecraft.extraalchemy.potion.potion.PotionPacifism;
 import zabi.minecraft.extraalchemy.potion.potion.PotionPain;
 import zabi.minecraft.extraalchemy.potion.potion.PotionPhotosynthesis;
 import zabi.minecraft.extraalchemy.potion.potion.PotionPiper;
+import zabi.minecraft.extraalchemy.potion.potion.PotionPulling;
+import zabi.minecraft.extraalchemy.potion.potion.PotionPushing;
 import zabi.minecraft.extraalchemy.potion.potion.PotionRecall;
 import zabi.minecraft.extraalchemy.potion.potion.PotionReincarnation;
 import zabi.minecraft.extraalchemy.potion.potion.PotionReturn;
@@ -150,4 +152,14 @@ public class PotionReference {
 	public PotionTypeBase TYPE_PAIN_NORMAL = new PotionTypeBase(PAIN, 20*150, 0, "pain_normal");
 	public PotionTypeBase TYPE_PAIN_LONG = new PotionTypeBase(PAIN, 20*60*5, 0, "pain_long");
 	public PotionTypeBase TYPE_PAIN_STRONG = new PotionTypeBase(PAIN, 20*120, 1, "pain_strong");
+	
+	public PotionBase PUSH = new PotionPushing(true, 0x23d6c9);
+	public PotionTypeBase TYPE_PUSH_NORMAL = new PotionTypeBase(PUSH, 20*60, 0, "push_normal");
+	public PotionTypeBase TYPE_PUSH_LONG = new PotionTypeBase(PUSH, 20*30*5, 0, "push_long");
+	public PotionTypeBase TYPE_PUSH_STRONG = new PotionTypeBase(PUSH, 20*60, 1, "push_strong");
+	
+	public PotionBase PULL = new PotionPulling(true, 0x23d670);
+	public PotionTypeBase TYPE_PULL_NORMAL = new PotionTypeBase(PULL, 20*60, 0, "pull_normal");
+	public PotionTypeBase TYPE_PULL_LONG = new PotionTypeBase(PULL, 20*30*5, 0, "pull_long");
+	public PotionTypeBase TYPE_PULL_STRONG = new PotionTypeBase(PULL, 20*60, 1, "pull_strong");
 }

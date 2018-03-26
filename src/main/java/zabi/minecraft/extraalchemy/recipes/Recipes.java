@@ -64,6 +64,8 @@ public class Recipes {
 		if (ModConfig.potions.p_sails)				RecipeManager.registerRecipeWithVariant(PotionTypes.LONG_SWIFTNESS, new ItemStack(Items.FISH), PotionReference.INSTANCE.TYPE_SAILS_NORMAL, PotionReference.INSTANCE.TYPE_SAILS_LONG, PotionReference.INSTANCE.TYPE_SAILS_STRONG);
 		if (ModConfig.potions.p_beheading)			RecipeManager.registerRecipeWithVariant(PotionReference.INSTANCE.TYPE_CHARGED2, new ItemStack(Items.ROTTEN_FLESH), PotionReference.INSTANCE.TYPE_BEHEADING_NORMAL, PotionReference.INSTANCE.TYPE_BEHEADING_LONG, PotionReference.INSTANCE.TYPE_BEHEADING_STRONG);
 		if (ModConfig.potions.p_pain)				RecipeManager.registerRecipeWithVariant(PotionTypes.WEAKNESS, new ItemStack(Items.IRON_NUGGET), PotionReference.INSTANCE.TYPE_PAIN_NORMAL, PotionReference.INSTANCE.TYPE_PAIN_LONG, PotionReference.INSTANCE.TYPE_PAIN_STRONG);
+		if (ModConfig.potions.p_push)				RecipeManager.registerRecipeWithVariant(PotionReference.INSTANCE.TYPE_PULL_NORMAL, new ItemStack(Items.FERMENTED_SPIDER_EYE), PotionReference.INSTANCE.TYPE_PUSH_NORMAL, PotionReference.INSTANCE.TYPE_PUSH_LONG, PotionReference.INSTANCE.TYPE_PUSH_STRONG);
+		if (ModConfig.potions.p_pull)				RecipeManager.registerRecipeWithVariant(PotionTypes.SWIFTNESS, new ItemStack(Items.GOLD_NUGGET), PotionReference.INSTANCE.TYPE_PULL_NORMAL, PotionReference.INSTANCE.TYPE_PULL_LONG, PotionReference.INSTANCE.TYPE_PULL_STRONG);
 
 		//1 Variant
 		if (ModConfig.potions.p_concentration) 	RecipeManager.registerRecipe(PotionTypes.AWKWARD, PotionReference.INSTANCE.TYPE_CONCENTRATION, Items.EGG);
