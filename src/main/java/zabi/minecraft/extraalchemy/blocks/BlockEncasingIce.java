@@ -7,6 +7,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -18,9 +19,8 @@ public class BlockEncasingIce extends BlockBreakable {
 
 	public BlockEncasingIce(Material materialIn) {
         super(Material.ICE, false);
-        this.slipperiness = 0.98F;
+        this.setDefaultSlipperiness(0.98f);
         this.setCreativeTab(null);
-        this.setTickRandomly(true);
         this.setHardness(0.5F).setLightOpacity(3).setUnlocalizedName("encasing_ice");
 	}
 
@@ -45,10 +45,30 @@ public class BlockEncasingIce extends BlockBreakable {
     }
 
 	public EnumPushReaction getMobilityFlag(IBlockState state) {
-		return EnumPushReaction.NORMAL;
+		return EnumPushReaction.BLOCK;
+	}
+	
+	@Override
+	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
+		super.onBlockAdded(worldIn, pos, state);
+		if (!worldIn.isRemote) {
+			worldIn.scheduleUpdate(pos, state.getBlock(), (3+(worldIn.rand.nextInt(7)))*20);
+		}
 	}
 	
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
             worldIn.setBlockToAir(pos);
     }
+	
+	@Override
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+		entity.setInWeb();
+		entity.posX = entity.prevPosX;
+		entity.posY = entity.prevPosY;
+		entity.posZ = entity.prevPosZ;
+		entity.rotationPitch = entity.prevRotationPitch;
+		entity.rotationYaw = entity.prevRotationYaw;
+		entity.setSprinting(false);
+		entity.setPositionAndRotation(entity.posX, entity.posY, entity.posZ, entity.rotationYaw, entity.rotationPitch);
+	}
 }
