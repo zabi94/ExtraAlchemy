@@ -155,11 +155,11 @@ public class PotionReference {
 	
 	public PotionBase PUSH = new PotionPushing(true, 0x23d6c9);
 	public PotionTypeBase TYPE_PUSH_NORMAL = new PotionTypeBase(PUSH, 20*60, 0, "push_normal");
-	public PotionTypeBase TYPE_PUSH_LONG = new PotionTypeBase(PUSH, 20*30*5, 0, "push_long");
-	public PotionTypeBase TYPE_PUSH_STRONG = new PotionTypeBase(PUSH, 20*60, 1, "push_strong");
+	public PotionTypeBase TYPE_PUSH_LONG = new PotionTypeBase(PUSH, 20*60*2, 0, "push_long");
+	public PotionTypeBase TYPE_PUSH_STRONG = new PotionTypeBase(PUSH, 20*30, 1, "push_strong");
 	
 	public PotionBase PULL = new PotionPulling(true, 0x23d670);
 	public PotionTypeBase TYPE_PULL_NORMAL = new PotionTypeBase(PULL, 20*60, 0, "pull_normal");
-	public PotionTypeBase TYPE_PULL_LONG = new PotionTypeBase(PULL, 20*30*5, 0, "pull_long");
-	public PotionTypeBase TYPE_PULL_STRONG = new PotionTypeBase(PULL, 20*60, 1, "pull_strong");
+	public PotionTypeBase TYPE_PULL_LONG = new PotionTypeBase(PULL, 20*60*2, 0, "pull_long");
+	public PotionTypeBase TYPE_PULL_STRONG = new PotionTypeBase(PULL, 20*30, 1, "pull_strong");
 }
