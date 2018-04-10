@@ -132,3 +132,8 @@
 	[ADD] Potion of Pain
 	[FIX] Split/Sticky pots description
 	[ADD] Full vials now show up in the creative tab
+	
+0.3.8.3
+	[ADD] Potion of pushing
+	[ADD] Potion of pulling
+	[FIX] Potion of Freezing now works well instead of being a minor inconvenience

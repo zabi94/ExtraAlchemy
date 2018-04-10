@@ -18,7 +18,7 @@ repositories {
   }
 }
 
-version = "0.3.8.2-release"
+version = "0.3.8.3-release"
 group= "zabi.minecraft.extraalchemy"
 archivesBaseName = "extraalchemy"
 
