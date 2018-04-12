@@ -137,3 +137,6 @@
 	[ADD] Potion of pushing
 	[ADD] Potion of pulling
 	[FIX] Potion of Freezing now works well instead of being a minor inconvenience
+	
+0.3.8.4
+	[FIX] I broke freezing while fixing freezing <.<
