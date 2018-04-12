@@ -22,9 +22,9 @@ public class PotionFreezing extends PotionInstant {
 	public void applyInstantEffect(EntityLivingBase e, int amp) {
 		if (e instanceof EntityPlayer && ((EntityPlayer)e).isSpectator()) return;
 		AxisAlignedBB bbx = e.getEntityBoundingBox();
-		for (int x = (int)bbx.minX; x < (int)bbx.maxX+1; x++) {
-			for (int y = (int)bbx.minY; y < (int)bbx.maxY+1; y++) {
-				for (int z = (int)bbx.minZ; z < (int)bbx.maxZ+1; z++) {
+		for (int x = (int) Math.floor(bbx.minX); x < (int) Math.ceil(bbx.maxX); x++) {
+			for (int y = (int) Math.floor(bbx.minY); y < (int) Math.ceil(bbx.maxY); y++) {
+				for (int z = (int) Math.floor(bbx.minZ); z < (int) Math.ceil(bbx.maxZ); z++) {
 					BlockPos bp = new BlockPos(x, y, z);
 					if (e.getEntityWorld().isAirBlock(bp)) {
 						e.getEntityWorld().setBlockState(bp, BlockList.ENCASING_ICE.getDefaultState());
