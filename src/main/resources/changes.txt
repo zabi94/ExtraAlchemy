@@ -140,3 +140,8 @@
 	
 0.3.8.4
 	[FIX] I broke freezing while fixing freezing <.<
+	
+0.3.8.5
+	[FIX] Minor bug fixes
+	[LNG] Updated zh_CN.lang
+	[ADD] Patreon rewards - long overdue! Sorry!
