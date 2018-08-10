@@ -19,7 +19,6 @@ import zabi.minecraft.extraalchemy.integration.ModIDs;
 import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.lib.Reference;
 import zabi.minecraft.extraalchemy.potion.PotionTypeBase;
-import zabi.minecraft.extraalchemy.potion.PotionTypeCompat;
 
 @SideOnly(Side.CLIENT)
 public class PotionDescriptionTooltipHandler {
@@ -54,10 +53,6 @@ public class PotionDescriptionTooltipHandler {
 				
 																			//... Press * to show description
 			} else if (!ModConfig.client.descriptionMode.name().equals("NONE")) toolTip.add(I18n.format("tooltip.togglef3."+ModConfig.client.descriptionMode.name()));
-		} else if (pt instanceof PotionTypeCompat) {
-			toolTip.add("");
-			toolTip.add(ChatFormatting.GOLD+String.format(I18n.format("tooltip.credit"), ((PotionTypeCompat)pt).getMod() ));
-			toolTip.add(ChatFormatting.GRAY+I18n.format("tooltip.loaded.credit"));
 		} else if (!pt.getEffects().isEmpty()){
 			String mid = pt.getRegistryName().getResourceDomain();
 			String modName = ModIDs.getModName(mid);
