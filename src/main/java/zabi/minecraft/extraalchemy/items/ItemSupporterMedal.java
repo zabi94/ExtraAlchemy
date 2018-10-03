@@ -102,15 +102,23 @@ public class ItemSupporterMedal extends Item {
 	public void onPlayerJoiningFirst(EntityJoinWorldEvent evt) {
 		if (!evt.getWorld().isRemote && evt.getEntity() instanceof EntityPlayer) {
 			EntityPlayer p = (EntityPlayer) evt.getEntity();
-			if (!p.getTags().contains(GAVE_MEDAL_TAG) && contributorsUUIDs.contains(p.getUniqueID().toString().replace("-", ""))) {
-				ItemStack medal = new ItemStack(ModItems.supporter_medal);
-				medal.setTagCompound(new NBTTagCompound());
-				medal.getTagCompound().setString("supporter", p.getDisplayNameString());
-				EntityItem ent = new EntityItem(evt.getWorld(), evt.getEntity().posX,  evt.getEntity().posY+1,  evt.getEntity().posZ, medal);
-				evt.getWorld().spawnEntity(ent);
-				p.addTag(GAVE_MEDAL_TAG);
+			if (!p.getTags().contains(GAVE_MEDAL_TAG)) {
+				giveMedal(p);
 			}
 		}
+	}
+
+	public boolean giveMedal(EntityPlayer p) {
+		if (contributorsUUIDs.contains(p.getUniqueID().toString().replace("-", ""))) {
+			ItemStack medal = new ItemStack(ModItems.supporter_medal);
+			medal.setTagCompound(new NBTTagCompound());
+			medal.getTagCompound().setString("supporter", p.getDisplayNameString());
+			EntityItem ent = new EntityItem(p.getEntityWorld(), p.posX,  p.posY+1,  p.posZ, medal);
+			p.getEntityWorld().spawnEntity(ent);
+			p.addTag(GAVE_MEDAL_TAG);
+			return true;
+		}
+		return false;
 	}
 
 	public static class ContributorsPoll implements Runnable {

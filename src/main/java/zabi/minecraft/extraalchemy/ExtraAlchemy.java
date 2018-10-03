@@ -3,10 +3,18 @@ package zabi.minecraft.extraalchemy;
 import java.io.File;
 import java.util.List;
 
+import com.google.common.collect.Lists;
+
+import net.minecraft.command.CommandException;
+import net.minecraft.command.ICommand;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -16,12 +24,15 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import zabi.minecraft.extraalchemy.ModConfig.ChangeListener;
 import zabi.minecraft.extraalchemy.blocks.BrewingStandFire;
 import zabi.minecraft.extraalchemy.gui.GuiHandler;
 import zabi.minecraft.extraalchemy.integration.BotaniaHandler;
+import zabi.minecraft.extraalchemy.items.ItemSupporterMedal;
+import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.items.TabExtraAlchemy;
 import zabi.minecraft.extraalchemy.lib.Log;
 import zabi.minecraft.extraalchemy.lib.Reference;
@@ -50,7 +61,6 @@ public class ExtraAlchemy {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		
 		PotionReference.INSTANCE.getClass(); //Load static class
 		proxy.registerEventHandler();
 		MinecraftForge.EVENT_BUS.register(new PotionPacifism.PacifismHandler());
@@ -93,6 +103,58 @@ public class ExtraAlchemy {
 			});
 			Log.i("\n\n\n-----------------------------^- LOGGING POTIONS -^-----------------------------\n\n\n");			
 		}
+	}
+	
+	@EventHandler
+	public void serverStarting(FMLServerStartingEvent evt) {
+		evt.registerServerCommand(new ICommand() {
+			
+			@Override
+			public int compareTo(ICommand arg0) {
+				return 0;
+			}
+			
+			@Override
+			public boolean isUsernameIndex(String[] args, int index) {
+				return false;
+			}
+			
+			@Override
+			public String getUsage(ICommandSender sender) {
+				return "/ea-medal";
+			}
+			
+			@Override
+			public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, BlockPos targetPos) {
+				return Lists.newArrayList();
+			}
+			
+			@Override
+			public String getName() {
+				return "ea-medal";
+			}
+			
+			@Override
+			public List<String> getAliases() {
+				return Lists.newArrayList("ea-medal");
+			}
+
+			@Override
+			public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
+				if (sender instanceof EntityPlayer) {
+					if (((ItemSupporterMedal) ModItems.supporter_medal).giveMedal((EntityPlayer) sender)) {
+						return;
+					}
+					throw new CommandException("You are not a registered contributor for Extra Alchemy!");
+				} 
+				throw new CommandException("Only players can execute this command");
+			}
+			
+			@Override
+			public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
+				return true;
+			}
+		});
 	}
 
 	@EventHandler
