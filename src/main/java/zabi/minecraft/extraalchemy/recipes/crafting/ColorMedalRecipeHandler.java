@@ -11,7 +11,7 @@ import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.lib.Reference;
 
 public class ColorMedalRecipeHandler extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe  {
-	
+
 	public ColorMedalRecipeHandler() {
 		this.setRegistryName(Reference.MID, "medal_tint");
 	}
@@ -52,12 +52,12 @@ public class ColorMedalRecipeHandler extends IForgeRegistryEntry.Impl<IRecipe> i
 	public boolean canFit(int width, int height) {
 		return width>1||height>1;
 	}
-	
+
 	@Override
 	public ItemStack getRecipeOutput() {
-		return ItemStack.EMPTY;
+		return new ItemStack(ModItems.supporter_medal);
 	}
-	
+
 	@Override
 	public NonNullList<ItemStack> getRemainingItems(InventoryCrafting inv) {
 		NonNullList<ItemStack> remn = NonNullList.<ItemStack>withSize(inv.getSizeInventory(), ItemStack.EMPTY);

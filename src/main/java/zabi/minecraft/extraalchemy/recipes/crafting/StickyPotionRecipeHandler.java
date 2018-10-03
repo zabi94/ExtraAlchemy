@@ -90,7 +90,7 @@ public class StickyPotionRecipeHandler extends IForgeRegistryEntry.Impl<IRecipe>
 	}
 	@Override
 	public ItemStack getRecipeOutput() {
-		return ItemStack.EMPTY;
+		return new ItemStack(Items.POTIONITEM);
 	}
 
 }

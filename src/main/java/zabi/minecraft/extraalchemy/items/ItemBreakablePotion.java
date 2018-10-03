@@ -121,10 +121,12 @@ public class ItemBreakablePotion extends ItemPotion {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> list) {
-        if (this.isInCreativeTab(tab)) for (PotionType potiontype : PotionType.REGISTRY) {
-        	list.add(PotionUtils.addPotionToItemStack(new ItemStack(this), potiontype));
-        }
-    }
+		if (this.isInCreativeTab(tab)) {
+			for (PotionType potiontype : PotionType.REGISTRY) {
+				list.add(PotionUtils.addPotionToItemStack(new ItemStack(this), potiontype));
+			}
+		}
+	}
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand){

@@ -67,7 +67,7 @@ public class SplitPotionRecipeHandler extends IForgeRegistryEntry.Impl<IRecipe> 
 
 	@Override
 	public ItemStack getRecipeOutput() {
-		return ItemStack.EMPTY;
+		return new ItemStack(Items.POTIONITEM);
 	}
 	
 	@Override

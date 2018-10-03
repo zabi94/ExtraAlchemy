@@ -28,6 +28,7 @@ import zabi.minecraft.extraalchemy.lib.Log;
 import zabi.minecraft.extraalchemy.lib.Reference;
 import zabi.minecraft.extraalchemy.potion.PotionReference;
 import zabi.minecraft.extraalchemy.recipes.brew.RecipeManager;
+import zabi.minecraft.extraalchemy.recipes.crafting.ColorMedalRecipeHandler;
 import zabi.minecraft.extraalchemy.recipes.crafting.QuickVialRecipeHandler;
 import zabi.minecraft.extraalchemy.recipes.crafting.SplitPotionRecipeHandler;
 import zabi.minecraft.extraalchemy.recipes.crafting.StickyPotionRecipeHandler;
@@ -198,6 +199,7 @@ public class Recipes {
 	@SubscribeEvent
 	public static void registerRecipes(RegistryEvent.Register<IRecipe> evt) {
 		IForgeRegistry<IRecipe> reg = evt.getRegistry();
+		reg.register(new ColorMedalRecipeHandler());
 		if (ModConfig.options.allowPotionCombining) reg.register(new StickyPotionRecipeHandler());
 		if (ModConfig.options.allowPotionSplitting) reg.register(new SplitPotionRecipeHandler());
 		if (ModConfig.options.breakingPotions) reg.register(new QuickVialRecipeHandler());

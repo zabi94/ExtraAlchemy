@@ -21,7 +21,7 @@ build
 # other
 eclipse
 run
-src/main/java/zabi/minecraft/extraalchemy/items/ItemSupporterMedal.java
+# src/main/java/zabi/minecraft/extraalchemy/items/ItemSupporterMedal.java
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
 gradlew

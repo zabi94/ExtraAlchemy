@@ -1,8 +1,5 @@
 package zabi.minecraft.extraalchemy.items;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -19,9 +16,6 @@ import zabi.minecraft.extraalchemy.lib.Reference;
 @Mod.EventBusSubscriber
 @ObjectHolder(Reference.MID)
 public class ModItems {
-	
-	static List<Item> items = new ArrayList<Item>(4);
-
 	public static final Item breakable_potion = null;
 	public static final Item supporter_medal = null;
 	public static final Item vial_break = null;
@@ -31,25 +25,26 @@ public class ModItems {
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
 	public static void onModelRegistration(ModelRegistryEvent evt) {
-		items.add(breakable_potion);
-		items.add(vial_break);
-		items.add(potion_bag);
-		items.add(modified_potion);
-		for (Item i:items) {
-			ExtraAlchemy.proxy.registerItemModel(i);
-		}
+		ExtraAlchemy.proxy.registerItemModel(modified_potion);
+		ExtraAlchemy.proxy.registerItemModel(potion_bag);
+		ExtraAlchemy.proxy.registerItemModel(vial_break);
+		ExtraAlchemy.proxy.registerItemModel(breakable_potion);
+		ExtraAlchemy.proxy.registerItemModel(supporter_medal);
+		
 	}
 	
 	@SubscribeEvent
 	public static void onItemRegistration(RegistryEvent.Register<Item> evt) {
 		IForgeRegistry<Item> reg = evt.getRegistry();
-		if (ModConfig.options.useNewVials) reg.register(new ItemBreakablePotionNew());
-		else reg.register(new ItemBreakablePotion());
-		reg.registerAll(
-				new ItemVial(),
-				new ItemPotionBag(),
-				new ItemModifiedPotion()
-				);
+		if (ModConfig.options.useNewVials) {
+			reg.register(new ItemBreakablePotionNew());
+		} else {
+			reg.register(new ItemBreakablePotion());
+		}
+		reg.register(new ItemVial());
+		reg.register(new ItemPotionBag());
+		reg.register(new ItemModifiedPotion());
+		reg.register(new ItemSupporterMedal());
 	}
 	
 }
