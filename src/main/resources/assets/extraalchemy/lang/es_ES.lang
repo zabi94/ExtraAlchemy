@@ -1,0 +1,205 @@
+potion.effect.dislocation=Poción de indeterminación
+lingering_potion.effect.dislocation=Poción de indeterminación persistente
+splash_potion.effect.dislocation=Poción de indeterminación arrojadiza
+tipped_arrow.effect.dislocation=Flecha de indeterminación
+effect.dislocation=Indeterminación
+funny.effect.dislocation=Principio de incertidumbre
+description.effect.dislocation=Teletransporta varias veces al jugador aleatoriamente alrededor de su posición
+ 
+potion.effect.piper=Poción del flautista
+lingering_potion.effect.piper=Poción del flautista persistente
+splash_potion.effect.piper=Poción del flautista arrojadiza
+tipped_arrow.effect.piper=Flecha del flautista
+effect.piper=Encantador
+funny.effect.piper=El encantador de perros
+description.effect.piper=Atraes a los animales como lo hace su comida preferida
+ 
+potion.effect.fuse=Poción de detonación
+lingering_potion.effect.fuse=Poción de detonación persistente
+splash_potion.effect.fuse=Poción de detonación arrojadiza
+tipped_arrow.effect.fuse=Flecha de detonación
+effect.fuse=Detonación
+funny.effect.fuse= Con una pizca de Creeper
+description.effect.fuse=Cuando el contador llega a 0 la entidad afectada explota
+ 
+potion.effect.learning=Poción de aprendizaje
+lingering_potion.effect.learning=Poción de aprendizaje persistente
+splash_potion.effect.learning=Poción de aprendizaje arrojadiza
+tipped_arrow.effect.learning=Flecha de aprendizaje
+effect.learning=Aprendizaje
+funny.effect.learning=Eureka!
+description.effect.learning=Incrementa la experiencia obtenida
+ 
+potion.effect.sinking=Poción de hundimiento
+lingering_potion.effect.sinking=Poción de hundimiento persistente
+splash_potion.effect.sinking=Poción de hundimiento arrojadiza
+tipped_arrow.effect.sinking=Flecha de hundimiento
+effect.sinking=Hundimiento
+funny.effect.sinking=Buscando a Nemo
+description.effect.sinking=Arrastra a la entidad al fondo del mar
+ 
+potion.effect.recall=Poción de recordar
+lingering_potion.effect.recall=Poción de recordar persistente
+splash_potion.effect.recall=Poción de recordar arrojadiza
+tipped_arrow.effect.recall=Flecha de recordar
+effect.recall=Recordar
+funny.effect.recall=¿Por qué entré en esta habitación, otra vez?
+description.effect.recall=Cuando la entidad adquiere este efecto su posición es guardada. Cuando el contador llega a 0 es teletransportada a la posición inicial. Para funcionar entre dimensiones es necesaria la poción de nivel 2
+ 
+potion.effect.freezing=Poción de congelamiento
+lingering_potion.effect.freezing= Poción de congelamiento persistente
+splash_potion.effect.freezing= Poción de congelamiento arrojadiza
+tipped_arrow.effect.freezing=Flecha de congelamiento
+effect.freezing=Congelamiento
+funny.effect.freezing=Detente Mei!
+description.effect.freezing=Spawnea bloques de hielo alrededor de la entidad. Estos bloques ni se derriten en agua ni sustituyen bloques existentes.
+ 
+potion.effect.combustion=Poción de combustión
+lingering_potion.effect.combustion= Poción de combustión persistente
+splash_potion.effect.combustion= Poción de combustión arrojadiza
+tipped_arrow.effect.combustion=Flecha de combustión
+effect.combustion=Combustión
+funny.effect.combustion=Arde cariño, arde!
+description.effect.combustion=La entidad arde en llamas, propaga su fuego por sus inmediaciones y la comida en su inventario se cocina
+ 
+potion.effect.detection=Poción de detección
+lingering_potion.effect.detection=Poción de detección persistente
+splash_potion.effect.detection=Poción de detección arrojadiza
+tipped_arrow.effect.detection=Flecha de detección
+effect.detection=Detección
+funny.effect.detection=Este Khajiit no va a escabullirse más…
+description.effect.detection=Las entidades a tu alrededor brillan y son detectadas
+ 
+potion.effect.magnetism=Poción de magnetismo
+lingering_potion.effect.magnetism=Poción de magnetismo persistente
+splash_potion.effect.magnetism=Poción de magnetismo arrojadiza
+tipped_arrow.effect.magnetism=Flecha de magnetismo
+effect.magnetism=Magnetismo
+funny.effect.magnetism=Todos mis imanes son me pertenecen!
+description.effect.magnetism=Atrae los ítems dropeados hacia el jugador. El nivel dos elimina el retraso de recogida
+ 
+potion.effect.pacifism=Poción de pacifismo
+lingering_potion.effect.pacifism=Poción de pacifismo
+splash_potion.effect.pacifism=Poción de pacifismo persistente
+tipped_arrow.effect.pacifism=Flecha de pacifismo arrojadiza
+effect.pacifism=Pacifismo
+funny.effect.pacifism=Relájate tío.
+description.effect.pacifism=Cuando la entidad afectada ataca se ve relentizada
+ 
+potion.effect.crumbling=Poción de corrosión
+lingering_potion.effect.crumbling=Poción de corrosión persistente
+splash_potion.effect.crumbling=Poción de corrosión arrojadiza
+tipped_arrow.effect.crumbling=Flecha de corrosión
+effect.crumbling=Corrosión
+funny.effect.crumbling=Manos sucias
+description.effect.crumbling=Corroe paulatinamente materiales cercanos de la entidad afectada
+ 
+potion.effect.return=Poción de regreso
+lingering_potion.effect.return=Poción de regreso persistente
+splash_potion.effect.return=Poción de regreso arrojadiza
+tipped_arrow.effect.return=Flecha de regreso
+effect.return=Regreso
+funny.effect.return=Vete a tu habitación, AHORA!
+description.effect.return=Te teletransporta hasta tu cama siempre y cuando sea válida su ubicación y no esté obstruida
+ 
+potion.effect.concentration=Poción de concentración
+lingering_potion.effect.concentration=Poción de concentración persistente
+splash_potion.effect.concentration=Poción de concentración arrojadiza
+tipped_arrow.effect.concentration=Flecha de concentración
+effect.concentration=Concentración
+funny.effect.concentration=Ahora puedo ver con claridad, la niebla se ha disipado.
+description.effect.concentration=Elimina cualquier efecto de poción que lleves activo
+ 
+potion.effect.photosynthesis=Poción de fotosíntesis
+lingering_potion.effect.photosynthesis=Poción de fotosíntesis persistente
+splash_potion.effect.photosynthesis=Poción de fotosíntesis arrojadiza
+tipped_arrow.effect.photosynthesis=Flecha de fotosíntesis
+effect.photosynthesis=Fotosíntesis
+funny.effect.photosynthesis=Porque el respiracionismo también es una cosa
+description.effect.photosynthesis=Sacia el hambre y aumenta la saturación mientras se está bajo la luz del sol
+ 
+potion.effect.hurry=Poción de prisa
+lingering_potion.effect.hurry=Poción de prisa persistente
+splash_potion.effect.hurry=Poción de prisa arrojadiza
+tipped_arrow.effect.hurry=Flecha de prisa
+effect.hurry=Prisa
+funny.effect.hurry=¿Hemos llegado ya?
+description.effect.hurry=Todas las entidades a tu alrededor que funcionen mediante ticks ven aumentada la velocidad de estos a costa de causarte mucha hambre
+ 
+potion.effect.charged=Poción cargada
+lingering_potion.effect.charged=Poción cargada persistente
+splash_potion.effect.charged=Poción cargada arrojadiza
+tipped_arrow.effect.charged=Flecha cargada
+effect.charged=Carga
+funny.effect.charged=Es el comienzo
+description.effect.charged=Usada para craftear pociones más poderosas
+potion.effect.charged2=Poción cargada
+lingering_potion.effect.charged2=Poción cargada persistente
+splash_potion.effect.charged2=Poción cargada arrojadiza
+tipped_arrow.effect.charged2=Flecha cargada
+effect.charged2=Carga
+funny.effect.charged2=Es el comienzo
+description.effect.charged2=Usada para craftear pociones más poderosas
+ 
+potion.effect.cheatDeath_quiescent=Poción de muerte aplazada
+lingering_potion.effect.cheatDeath_quiescent=Poción persistente de muerte aplazada
+splash_potion.effect.cheatDeath_quiescent=Poción arrojadiza de muerte aplazada
+tipped_arrow.effect.cheatDeath_quiescent=Flecha de muerte aplazada
+effect.cheatDeath_quiescent=Muerte aplazada
+funny.effect.cheatDeath_quiescent=Hoy no!
+description.effect.cheatDeath_quiescent=No puedes morir mientras estés bajo el efecto de esta poción. Si tus corazones llegan a 0 con el efecto activo no morirás y será la cuenta atrás del efecto la que determine el instante pospuesto en el que morirás y perderás todos tus ítems. Teniendo ambos efectos activos a la vez se anulan mutuamente
+effect.cheatDeath_active=Reloj de muerte
+ 
+potion.effect.reincarnation=Poción de reencarnación
+lingering_potion.effect.reincarnation=Poción de reencarnación persistente
+splash_potion.effect.reincarnation=Poción de reencarnación arrojadiza
+tipped_arrow.effect.reincarnation=Flecha de reencarnación
+effect.reincarnation=Reencarnación
+funny.effect.reincarnation=Bien, veamos que me espera en la próxima vida
+description.effect.reincarnation=Teniendo este efecto activo a la hora de morir te permite conservar los otros efectos activos de pociones al volver a spawnear
+ 
+potion.effect.gravity=Poción de gravedad
+lingering_potion.effect.gravity=Poción de gravedad persistente
+splash_potion.effect.gravity=Poción de gravedad arrojadiza
+tipped_arrow.effect.gravity=Flecha de gravedad
+effect.gravity=Gravedad
+funny.effect.gravity=G*m1*m2/(r*r)
+description.effect.gravity=Los bloques bajo la entidad afectada caerán como lo hace la arena
+ 
+potion.effect.leech=Poción de sanguijuela
+lingering_potion.effect.leech=Poción persistente de sanguijuela
+splash_potion.effect.leech=Poción arrojadiza de sanguijuela
+tipped_arrow.effect.leech=Flecha de sanguijuela
+effect.leech=Sanguijuela
+funny.effect.leech=Las manchas de sangre son las más difíciles de limpiar
+description.effect.leech=Al dañar a otros recupera vida
+ 
+potion.effect.sails=Poción de los 7 mares
+lingering_potion.effect.sails=Poción de los 7 mares persistente
+splash_potion.effect.sails=Poción de los 7 mares arrojadiza
+tipped_arrow.effect.sails=Flecha de los 7 mares
+effect.sails=Navegación
+funny.effect.sails=Rema, rema, rema tu barco suavemente corriente abajo
+description.effect.sails=Los jugadores puede moverse en barco más rápido
+ 
+sticky.description.title=Combinar pociones\n
+sticky.description.description=Craftea 2 o más pociones del mismo tipo en una mesa de 3x3 con una bola de slime en el centro para sumar su duración
+ 
+split.description.title=Dividir pociones\n
+split.description.description=Divide una poción en varias menores del mismo tipo colocándola en la mesa de 3x3 rodeada de botellas vacías
+ 
+item.byproduct=Lévame a dividir (% segundos)
+item.unmodifiable=Poción modificada. No modifiques esta poción en un soporte de pociones
+tile.encased_ice.name=Hielo (Derritiéndose)
+item.breakable=(Vial rápido)
+item.emptyvial=Vial vacío
+item.vial.rightclick.1=Pulsa botón derecho para llenar con una poción de tu inventario
+item.vial.rightclick.2=o craftealo junto con una poción
+itemGroup.extraalchemy=Extra Alchemy
+tooltip.credit=Añadido por Extra Alchemy
+tooltip.togglef3.F3H=[Pulsa F3+H para modo descripción]
+tooltip.togglef3.SHIFT=[Mantén SHIFT para descripción]
+tooltip.togglef3.ALT=[Mantén ALT para descripción]
+tooltip.togglef3.CTRL=[Mantén CTRL para descripción]
+death.attack.death_revenge.player=La muerte dejará su marca en %1$s
+extraalchemy.update.available=[Extra Alchemy] Nueva versión disponible! Haz click para descargar
