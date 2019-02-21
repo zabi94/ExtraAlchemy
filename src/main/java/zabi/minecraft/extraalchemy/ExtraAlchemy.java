@@ -20,6 +20,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -44,7 +45,13 @@ import zabi.minecraft.extraalchemy.recipes.Recipes;
 import zabi.minecraft.extraalchemy.recipes.brew.BrewingStandBlocker;
 import zabi.minecraft.extraalchemy.recipes.crafting.StickyPotionRecipeHandler;
 
-@Mod(name=Reference.NAME, modid=Reference.MID, version=Reference.VERSION, dependencies="after:botania", acceptedMinecraftVersions="[1.12,1.13)"/*, guiFactory="zabi.minecraft.extraalchemy.gui.config.GuiFactoryEA"*/)
+@Mod(
+		name=Reference.NAME, 
+		modid=Reference.MID, 
+		version=Reference.VERSION, 
+		dependencies="required-after:minerva@[1.0.5,);"
+				+ "after:botania", 
+		acceptedMinecraftVersions="[1.12,1.13)"/*, guiFactory="zabi.minecraft.extraalchemy.gui.config.GuiFactoryEA"*/)
 public class ExtraAlchemy {
 
 	public static TabExtraAlchemy TAB;
@@ -155,6 +162,20 @@ public class ExtraAlchemy {
 				return true;
 			}
 		});
+	}
+	
+	@EventHandler
+	public void fingerprintError(FMLFingerprintViolationEvent evt) {
+		Log.w("");
+		Log.w("");
+		Log.w("");
+		Log.w("Fingerprint on Extra Alchemy doesn't match");
+		Log.w("This may be due to the mod file being modified illegally");
+		Log.w("Make sure to only download mod from a reliable source, like");
+		Log.w("https://minecraft.curseforge.com/");
+		Log.w("");
+		Log.w("");
+		Log.w("");
 	}
 
 	@EventHandler

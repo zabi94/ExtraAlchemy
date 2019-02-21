@@ -1,4 +1,0 @@
-0.3.8.6
-	- Removed unused class
-	- Fixed bug where a recipe with an empty "dummy" result would leak it in a tooltip event and crash other mods using it
-	- Unhid medal handling code

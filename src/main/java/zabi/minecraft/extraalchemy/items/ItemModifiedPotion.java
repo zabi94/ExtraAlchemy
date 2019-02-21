@@ -33,7 +33,7 @@ public class ItemModifiedPotion extends ItemPotion {
 
 	public ItemModifiedPotion() {
 		this.setRegistryName(Reference.MID, "modified_potion");
-		this.setUnlocalizedName("potion");
+		this.setTranslationKey("potion");
 		this.setCreativeTab(null);
 	}
 

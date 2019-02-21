@@ -142,7 +142,7 @@ public class ItemBreakablePotion extends ItemPotion {
         	player.renderBrokenItemStack(player.getHeldItem(hand));
         	world.playSound(player.posX, player.posY, player.posZ, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.PLAYERS, 0.8F, 1f+rand.nextFloat(), false);
         }
-		if (player != null && !player.capabilities.isCreativeMode) {
+		if (!player.capabilities.isCreativeMode) {
 			player.getHeldItem(hand).setCount(player.getHeldItem(hand).getCount()-1);
         }
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));

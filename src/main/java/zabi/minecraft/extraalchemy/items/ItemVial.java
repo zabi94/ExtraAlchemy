@@ -50,13 +50,13 @@ public class ItemVial extends Item {
             		PotionUtils.appendEffects(fullVialStack, PotionUtils.getPotionFromItem(potionStack).getEffects());
             		EntityItem itemen = new EntityItem(world, player.posX, player.posY, player.posZ, fullVialStack);
             		
-            		if (player == null || !player.capabilities.isCreativeMode) {
+            		if (!player.capabilities.isCreativeMode) {
             			potionStack.setCount(potionStack.getCount()-1);
                     }
             		world.spawnEntity(itemen);
             		player.inventory.markDirty();
             		
-            		if (player == null || !player.capabilities.isCreativeMode) {
+            		if (!player.capabilities.isCreativeMode) {
                         emptyVialStack.setCount(emptyVialStack.getCount()-1);
                     }
             		break;

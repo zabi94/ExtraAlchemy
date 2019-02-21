@@ -23,7 +23,7 @@ public class BlockEncasingIce extends BlockBreakable {
         super(Material.ICE, false);
         this.setDefaultSlipperiness(0.98f);
         this.setCreativeTab(null);
-        this.setHardness(0.5F).setLightOpacity(3).setUnlocalizedName("encasing_ice");
+        this.setHardness(0.5F).setLightOpacity(3).setTranslationKey("encasing_ice");
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class BlockEncasingIce extends BlockBreakable {
     }
 	
 	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+	public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity) {
 		if (entity instanceof EntityShulker || entity instanceof EntityEnderman) return; //anything that can tp basically
 		entity.setInWeb();
 		entity.posX = entity.prevPosX;

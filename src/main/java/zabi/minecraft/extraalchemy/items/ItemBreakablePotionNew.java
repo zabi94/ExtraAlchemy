@@ -48,7 +48,7 @@ public class ItemBreakablePotionNew extends ItemBreakablePotion {
         	player.renderBrokenItemStack(fxs);
         	world.playSound(player.posX, player.posY, player.posZ, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.PLAYERS, 0.8F, 1f+rand.nextFloat(), false);
         }
-		if (player != null && !player.capabilities.isCreativeMode) {
+		if (!player.capabilities.isCreativeMode) {
 			stack.setCount(stack.getCount()-1);
         }
 		return stack;

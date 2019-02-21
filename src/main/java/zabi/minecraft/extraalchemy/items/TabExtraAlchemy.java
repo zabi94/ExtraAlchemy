@@ -22,7 +22,12 @@ public class TabExtraAlchemy extends CreativeTabs {
 	}
 
 	@Override
-	public ItemStack getIconItemStack() {
+	public ItemStack createIcon() {
+		return ICON_STACK;
+	}
+	
+	@Override
+	public ItemStack getIcon() {
 		return ICON_STACK;
 	}
 	
@@ -62,11 +67,4 @@ public class TabExtraAlchemy extends CreativeTabs {
 		}
 		super.displayAllRelevantItems(list);
 	}
-
-	@Override
-	public ItemStack getTabIconItem() {
-		return ICON_STACK;
-	}
-	
-
 }

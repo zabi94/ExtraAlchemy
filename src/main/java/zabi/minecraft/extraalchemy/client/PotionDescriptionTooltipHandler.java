@@ -54,7 +54,7 @@ public class PotionDescriptionTooltipHandler {
 																			//... Press * to show description
 			} else if (!ModConfig.client.descriptionMode.name().equals("NONE")) toolTip.add(I18n.format("tooltip.togglef3."+ModConfig.client.descriptionMode.name()));
 		} else if (!pt.getEffects().isEmpty()){
-			String mid = pt.getRegistryName().getResourceDomain();
+			String mid = pt.getRegistryName().getNamespace();
 			String modName = ModIDs.getModName(mid);
 			toolTip.add("");
 			toolTip.add(ChatFormatting.GOLD+I18n.format("tooltip.credit", modName));

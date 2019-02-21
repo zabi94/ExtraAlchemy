@@ -109,14 +109,19 @@ public class ItemSupporterMedal extends Item {
 	}
 
 	public boolean giveMedal(EntityPlayer p) {
-		if (contributorsUUIDs.contains(p.getUniqueID().toString().replace("-", ""))) {
-			ItemStack medal = new ItemStack(ModItems.supporter_medal);
-			medal.setTagCompound(new NBTTagCompound());
-			medal.getTagCompound().setString("supporter", p.getDisplayNameString());
-			EntityItem ent = new EntityItem(p.getEntityWorld(), p.posX,  p.posY+1,  p.posZ, medal);
-			p.getEntityWorld().spawnEntity(ent);
-			p.addTag(GAVE_MEDAL_TAG);
-			return true;
+		try {
+			if (contributorsUUIDs.contains(p.getUniqueID().toString().replace("-", ""))) {
+				ItemStack medal = new ItemStack(ModItems.supporter_medal);
+				medal.setTagCompound(new NBTTagCompound());
+				medal.getTagCompound().setString("supporter", p.getDisplayNameString());
+				EntityItem ent = new EntityItem(p.getEntityWorld(), p.posX,  p.posY+1,  p.posZ, medal);
+				p.getEntityWorld().spawnEntity(ent);
+				p.addTag(GAVE_MEDAL_TAG);
+				return true;
+			}
+		} catch (ArrayIndexOutOfBoundsException exc) {
+			// Why the fuck would ArrayList.contains throw this?
+			Log.e("Cannot determine supporter status to give medal to "+p.getName());
 		}
 		return false;
 	}

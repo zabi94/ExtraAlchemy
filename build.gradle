@@ -16,9 +16,13 @@ repositories {
   maven {
 	url "http://maven.k-4u.nl"
   }
+  maven {
+    name = "CurseForge"
+    url = "https://minecraft.curseforge.com/api/maven/"
+  }
 }
 
-version = "0.3.8.6.1-release"
+version = "${ea_vers}"
 group= "zabi.minecraft.extraalchemy"
 archivesBaseName = "extraalchemy"
 
@@ -31,21 +35,18 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.1.2589"
+    version = "${forge_vers}"
     runDir = "run"
-    mappings = "snapshot_20171027"
+    mappings = "${mcp_mappings}"
+    
+    replace '@VERSION@', project.version
+    replace '@FINGERPRINT@', project.findProperty('signSHA1')
 }
 
 dependencies {
-    
-  	deobfCompile "mezz.jei:jei_1.12:4.7.1.69:api"
-  	runtime "mezz.jei:jei_1.12:4.7.1.69"
-}
-
-jar {
-   manifest {
-       attributes('FMLAT': 'extraalchemy_at.cfg')
-   }
+    compile "minerva-library:minerva:library:${minerva_vers}"
+  	deobfCompile "mezz.jei:jei_${mc_vers}:${jei_vers}:api"
+  	runtime "mezz.jei:jei_${mc_vers}:${jei_vers}"
 }
 
 processResources {
@@ -61,3 +62,19 @@ processResources {
         exclude 'mcmod.info'
     }
 }
+
+task signJar(type: SignJar, dependsOn: reobfJar) {
+
+    onlyIf {
+        project.hasProperty('keyStore')
+    }
+
+    keyStore = project.findProperty('keyStore')
+    alias = project.findProperty('keyStoreAlias')
+    storePass = project.findProperty('keyStorePass')
+    keyPass = project.findProperty('keyStoreKeyPass')
+    inputFile = jar.archivePath
+    outputFile = jar.archivePath
+}
+
+build.dependsOn signJar
