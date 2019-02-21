@@ -6,27 +6,31 @@ import com.mojang.realmsclient.gui.ChatFormatting;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.ModConfig.Mode;
 import zabi.minecraft.extraalchemy.integration.ModIDs;
-import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.lib.Reference;
 import zabi.minecraft.extraalchemy.potion.PotionTypeBase;
 
 @SideOnly(Side.CLIENT)
 public class PotionDescriptionTooltipHandler {
+	
+	@ObjectHolder("minerva:supporter_medal")
+	public static final Item medal = null;
 
 	@SubscribeEvent
 	public void onTooltipEvent(ItemTooltipEvent evt) {
 		List<String> toolTip = evt.getToolTip();
-		if (evt.getItemStack().getItem() == ModItems.supporter_medal) return;
+		if (evt.getItemStack().getItem() == medal) return;
 
 		if (evt.getItemStack().hasTagCompound()) { 
 			if (evt.getItemStack().getTagCompound().hasKey("splitresult")) {

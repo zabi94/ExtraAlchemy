@@ -8,9 +8,9 @@
   "url": "http://minecraft.curseforge.com/projects/extra-alchemy",
   "updateUrl": "",
   "authorList": ["ZaBi94"],
-  "credits": "Thanks to my Patrons: Jeremy Lowman, KienanBlue, Samie A., Josh Templeton, Daniel Drawer, and DanTheDetermined!",
+  "credits": "Thanks to my Patrons: Jevan Stutzman, Alec Gabel, Jordan Scheaffer, MrSterner and Adam!",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": [minerva]
 }
 ]

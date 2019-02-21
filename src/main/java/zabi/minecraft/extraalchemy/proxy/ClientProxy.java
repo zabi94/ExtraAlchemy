@@ -50,18 +50,6 @@ public class ClientProxy extends Proxy {
 			}
 		}, new Item[] {ModItems.breakable_potion, ModItems.modified_potion});
 
-		colors.registerItemColorHandler(new IItemColor() {
-			@Override
-			public int colorMultiplier(ItemStack stack, int tintIndex) {
-				return tintIndex == 0 ? getMedalColor(stack) : -1;
-			}
-
-			private int getMedalColor(ItemStack stack) {
-				if (!PotionUtils.getEffectsFromStack(stack).isEmpty()) return PotionUtils.getPotionColorFromEffectList(PotionUtils.getEffectsFromStack(stack));
-				return getRainbow(16777215);
-			}
-		}, ModItems.supporter_medal);
-
 	}
 	
 	@Override

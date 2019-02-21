@@ -1,7 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "extraalchemy:items/medal_inside",
-        "layer1": "extraalchemy:items/medal_outside"
-    }
-}

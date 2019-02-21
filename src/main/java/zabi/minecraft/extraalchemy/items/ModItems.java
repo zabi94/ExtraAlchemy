@@ -17,7 +17,6 @@ import zabi.minecraft.extraalchemy.lib.Reference;
 @ObjectHolder(Reference.MID)
 public class ModItems {
 	public static final Item breakable_potion = null;
-	public static final Item supporter_medal = null;
 	public static final Item vial_break = null;
 	public static final Item potion_bag = null;
 	public static final Item modified_potion = null;
@@ -29,7 +28,6 @@ public class ModItems {
 		ExtraAlchemy.proxy.registerItemModel(potion_bag);
 		ExtraAlchemy.proxy.registerItemModel(vial_break);
 		ExtraAlchemy.proxy.registerItemModel(breakable_potion);
-		ExtraAlchemy.proxy.registerItemModel(supporter_medal);
 		
 	}
 	
@@ -44,7 +42,6 @@ public class ModItems {
 		reg.register(new ItemVial());
 		reg.register(new ItemPotionBag());
 		reg.register(new ItemModifiedPotion());
-		reg.register(new ItemSupporterMedal());
 	}
 	
 }
