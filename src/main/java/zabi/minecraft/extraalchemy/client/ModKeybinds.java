@@ -11,7 +11,6 @@ import zabi.minecraft.extraalchemy.ExtraAlchemy;
 import zabi.minecraft.extraalchemy.lib.Reference;
 import zabi.minecraft.extraalchemy.network.packets.PacketToggleMagnet;
 import zabi.minecraft.extraalchemy.potion.PotionReference;
-import zabi.minecraft.extraalchemy.potion.potion.PotionMagnetism;
 
 public class ModKeybinds {
 	
@@ -27,7 +26,6 @@ public class ModKeybinds {
 		if (suppress_magnet.isPressed()) {
 			if (Minecraft.getMinecraft().player.getActivePotionEffect(PotionReference.INSTANCE.MAGNETISM) != null) {
 				ExtraAlchemy.network.sendToServer(new PacketToggleMagnet());
-				PotionMagnetism.toggleEffect(Minecraft.getMinecraft().player);
 			}
 		}
 	}

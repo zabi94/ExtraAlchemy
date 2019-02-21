@@ -7,6 +7,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import zabi.minecraft.extraalchemy.capability.MagnetismStatus;
 import zabi.minecraft.extraalchemy.integration.BotaniaHandler;
 import zabi.minecraft.extraalchemy.lib.Reference;
 import zabi.minecraft.extraalchemy.potion.PotionBase;
@@ -31,14 +32,16 @@ public class PotionMagnetism extends PotionBase {
 	}
 
 	private void attract(EntityItem i, EntityPlayer p, int amp) {
-		if (p.getTags().contains(TAG_MAG_STOP)) {
+		if (!p.getCapability(MagnetismStatus.CAPABILITY, null).magnetActive) {
 			return;
 		}
 		if (BotaniaHandler.isSolegnoliaAround(i)) {
 			return;
 		}
 		if (MagnetismHandler.isSneakingRequired(p, i) == p.isSneaking()) {
-			if (amp>0) i.setNoPickupDelay();
+			if (amp>0) {
+				i.setNoPickupDelay();
+			}
 			i.onCollideWithPlayer(p);
 		}
 	}
@@ -49,12 +52,16 @@ public class PotionMagnetism extends PotionBase {
 	}
 	
 	public void setIconActive(boolean status) {
-		if (status) this.setIconIndex(3, 1);
-		else this.setIconIndex(4, 2);
+		if (status) {
+			this.setIconIndex(3, 1);
+		} else {
+			this.setIconIndex(4, 2);
+		}
 	}
-
+	
 	public static class MagnetismHandler {
-		private static final int DELAY_TICKS = 20*30;
+		
+		private static final int DELAY_TICKS = 20*5;
 
 		@SubscribeEvent
 		public void onPlayerDropping (ItemTossEvent evt) {
@@ -67,26 +74,5 @@ public class PotionMagnetism extends PotionBase {
 			if (item.getTags().contains(Reference.MID+":NoPickup") && item.ticksExisted<(DELAY_TICKS)) return true;
 			return false;
 		}
-	}
-
-	public static final String TAG_MAG_STOP = "EAMagnetPotionStop";
-	
-	public static void toggleEffect(EntityPlayer player) {
-		setMagnetStatus(player, !isMagnetActive(player));
-	}
-	
-	public static void setMagnetStatus(EntityPlayer player, boolean active) {
-		if (player.getEntityWorld().isRemote) ((PotionMagnetism) PotionReference.INSTANCE.MAGNETISM).setIconActive(active);
-		if (active) {
-			if (player.getTags().contains(TAG_MAG_STOP)) {
-				player.removeTag(TAG_MAG_STOP);
-			}
-		} else {
-			player.addTag(TAG_MAG_STOP);
-		}
-	}
-	
-	public static boolean isMagnetActive(EntityPlayer player) {
-		return !player.getTags().contains(TAG_MAG_STOP);
 	}
 }

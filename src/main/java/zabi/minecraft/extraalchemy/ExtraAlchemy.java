@@ -30,6 +30,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import zabi.minecraft.extraalchemy.ModConfig.ChangeListener;
 import zabi.minecraft.extraalchemy.blocks.BrewingStandFire;
+import zabi.minecraft.extraalchemy.capability.MagnetismStatus;
 import zabi.minecraft.extraalchemy.gui.GuiHandler;
 import zabi.minecraft.extraalchemy.integration.BotaniaHandler;
 import zabi.minecraft.extraalchemy.items.ItemSupporterMedal;
@@ -44,6 +45,7 @@ import zabi.minecraft.extraalchemy.proxy.Proxy;
 import zabi.minecraft.extraalchemy.recipes.Recipes;
 import zabi.minecraft.extraalchemy.recipes.brew.BrewingStandBlocker;
 import zabi.minecraft.extraalchemy.recipes.crafting.StickyPotionRecipeHandler;
+import zabi.minecraft.minerva.common.capability.SimpleCapability;
 
 @Mod(
 		name=Reference.NAME, 
@@ -80,9 +82,10 @@ public class ExtraAlchemy {
 		MinecraftForge.EVENT_BUS.register(new PotionPain.PotionPainHandler());
 		MinecraftForge.EVENT_BUS.register(new BrewingStandBlocker());
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
-		
-		
-		if (ModConfig.options.useFireUndernathBrewingStand) MinecraftForge.EVENT_BUS.register(new BrewingStandFire());
+		SimpleCapability.preInit(MagnetismStatus.class);
+		if (ModConfig.options.useFireUndernathBrewingStand) {
+			MinecraftForge.EVENT_BUS.register(new BrewingStandFire());
+		}
 		Log.i("Registering Network Protocol");
 		NetworkModRegistry.registerMessages(network);
 		
@@ -98,6 +101,7 @@ public class ExtraAlchemy {
 		if (ModConfig.options.addSeparateTab) {
 			TAB = new TabExtraAlchemy();
 		}
+		SimpleCapability.init(MagnetismStatus.class, Reference.MID, MagnetismStatus.CAPABILITY, MagnetismStatus.DEFAULT);
 	}
 	
 	@EventHandler
