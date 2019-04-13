@@ -11,5 +11,6 @@
     "fabric": "*"
   },
   "mixins": {
+  	"client": "extraalchemy.client.json"
   }
 }

@@ -31,4 +31,5 @@ public class ModStatusEffect extends StatusEffect {
 		}
 		return false;
 	}
+	
 }
