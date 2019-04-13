@@ -1,0 +1,15 @@
+{
+  "id": "extraalchemy",
+  "name": "Extra Alchemy",
+  "description": "Adds new potions to Minecraft!",
+  "version": "${version}",
+  "side": "universal",
+  "initializers": [
+    "zabi.minecraft.extraalchemy.ExtraAlchemy"
+  ],
+  "requires": {
+    "fabric": "*"
+  },
+  "mixins": {
+  }
+}
