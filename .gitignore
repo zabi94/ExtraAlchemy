@@ -1,14 +1,25 @@
+# gradle
 
-\.gradle/*
+.gradle/
+build/
+out/
+classes/
 
-\.classpath
+# idea
 
-\.project
+.idea/
+*.iml
+*.ipr
+*.iws
 
-\.settings/org\.eclipse\.jdt\.core\.prefs
+# vscode
 
-\.goutput*
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# fabric
 
 run/
-
-bin/

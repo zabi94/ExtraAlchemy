@@ -1,16 +1,43 @@
 {
+  "schemaVersion": 1,
+  
   "id": "extraalchemy",
+  "version": "${version}",
   "name": "Extra Alchemy",
   "description": "Adds new potions to Minecraft!",
-  "version": "${version}",
-  "side": "universal",
-  "initializers": [
-    "zabi.minecraft.extraalchemy.ExtraAlchemy"
+  "authors": [
+    {
+      "name": "zabi94",
+      "contact": {
+      	"twitter": "https://twitter.com/zabi94",
+      	"discord": "https://discord.gg/njMA9kv"
+      }
+    }
   ],
-  "requires": {
-    "fabric": "*"
+  "contact": {
+  	"homepage": "https://github.com/zabi94/ExtraAlchemy/wiki",
+    "sources": "https://github.com/zabi94/ExtraAlchemy",
+    "issues": "https://github.com/zabi94/ExtraAlchemy/issues"
   },
-  "mixins": {
-  	"client": "extraalchemy.client.json"
+
+  "license": "MIT",
+  "icon": "assets/extraalchemy/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "zabi.minecraft.extraalchemy.ExtraAlchemy"
+    ]
+  },
+  "mixins": [
+    {
+      "config": "extraalchemy.client.json",
+      "environment": "client"
+    }
+  ],
+
+  "requires": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
   }
 }

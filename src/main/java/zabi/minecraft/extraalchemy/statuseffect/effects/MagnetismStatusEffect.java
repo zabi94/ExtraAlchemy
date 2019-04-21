@@ -19,7 +19,7 @@ public class MagnetismStatusEffect extends ModStatusEffect {
 				entity.world.getEntities(ItemEntity.class, entity.getBoundingBox().expand((level + 1) * 3))
 				.stream()
 				.map(e -> (ItemEntity) e)
-				.filter(e -> e.cannotPickup() == entity.isInSneakingPose())
+				.filter(e -> e.cannotPickup() == entity.isSneaking())
 				.forEach(e -> e.onPlayerCollision((PlayerEntity) entity));
 			} else {
 				entity.removePotionEffect(this);

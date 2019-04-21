@@ -6,6 +6,7 @@ import net.minecraft.entity.effect.StatusEffectType;
 public class ModStatusEffect extends StatusEffect {
 	
 	private boolean instant;
+	private boolean isRegistered = false;
 	
 	public ModStatusEffect(StatusEffectType type, int color, boolean isInstant) {
 		super(type, color);
@@ -30,6 +31,15 @@ public class ModStatusEffect extends StatusEffect {
 			throw new IllegalStateException("Non instant effects should override this method!");
 		}
 		return false;
+	}
+	
+	public ModStatusEffect onRegister() {
+		isRegistered = true;
+		return this;
+	}
+	
+	public boolean isRegistered() {
+		return isRegistered;
 	}
 	
 }

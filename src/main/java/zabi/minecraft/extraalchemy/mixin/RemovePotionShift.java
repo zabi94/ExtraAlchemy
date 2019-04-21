@@ -25,7 +25,7 @@ public abstract class RemovePotionShift<T extends Container> extends ContainerSc
 	
 	@Inject(method = "method_2476", at = @At("HEAD"), cancellable = true)
 	public void stopShift(CallbackInfo ci) {
-		if (ModConfig.removeInventoryPotionShift) {
+		if (ModConfig.INSTANCE.removeInventoryPotionShift) {
 			ci.cancel();
 			this.left = (this.width - this.containerWidth) / 2;
 			this.offsetGuiForEffects = false;
