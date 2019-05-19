@@ -6,16 +6,16 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.minecraft.client.gui.ContainerScreen;
-import net.minecraft.client.gui.ingame.AbstractPlayerInventoryScreen;
+import net.minecraft.client.gui.screen.ingame.AbstractContainerScreen;
+import net.minecraft.client.gui.screen.ingame.AbstractInventoryScreen;
 import net.minecraft.container.Container;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.text.TextComponent;
+import net.minecraft.network.chat.TextComponent;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.utils.Log;
 
-@Mixin(AbstractPlayerInventoryScreen.class)
-public abstract class RemovePotionShift<T extends Container> extends ContainerScreen<T> {
+@Mixin(AbstractInventoryScreen.class)
+public abstract class RemovePotionShift<T extends Container> extends AbstractContainerScreen<T> {
 
 	@Shadow protected boolean offsetGuiForEffects;
 	

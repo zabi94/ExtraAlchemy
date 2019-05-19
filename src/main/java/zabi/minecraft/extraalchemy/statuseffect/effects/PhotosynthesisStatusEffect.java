@@ -28,7 +28,7 @@ public class PhotosynthesisStatusEffect extends ModStatusEffect {
 	private static boolean isInDaylight(LivingEntity entity) {
 	      if (entity.world.isDaylight()) {
 	         float float_1 = entity.getBrightnessAtEyes();
-	         BlockPos blockPos_1 = entity.getRiddenEntity() instanceof BoatEntity ? (new BlockPos(entity.x, (double)Math.round(entity.y), entity.z)).up() : new BlockPos(entity.x, (double)Math.round(entity.y), entity.z);
+	         BlockPos blockPos_1 = entity.getVehicle() instanceof BoatEntity ? (new BlockPos(entity.x, (double)Math.round(entity.y), entity.z)).up() : new BlockPos(entity.x, (double)Math.round(entity.y), entity.z);
 	         if (float_1 > 0.5F && entity.world.isSkyVisible(blockPos_1)) {
 	            return true;
 	         }
