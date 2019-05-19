@@ -15,6 +15,8 @@ public class ConfigInstance {
 		
 		public boolean magnetism = true;
 		public boolean photosynthesis = true;
+		public boolean crumbling = true;
+		public boolean fuse = true;
 		
 	}
 	

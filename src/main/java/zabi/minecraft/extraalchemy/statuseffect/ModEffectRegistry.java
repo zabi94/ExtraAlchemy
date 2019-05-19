@@ -7,6 +7,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import zabi.minecraft.extraalchemy.config.ConfigInstance;
 import zabi.minecraft.extraalchemy.config.ModConfig;
+import zabi.minecraft.extraalchemy.statuseffect.effects.CrumblingStatusEffect;
+import zabi.minecraft.extraalchemy.statuseffect.effects.FuseStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.MagnetismStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.PhotosynthesisStatusEffect;
 import zabi.minecraft.extraalchemy.utils.LibMod;
@@ -16,6 +18,8 @@ public class ModEffectRegistry {
 
 	public static ModStatusEffect magnetism = new MagnetismStatusEffect(StatusEffectType.BENEFICIAL, 0xb8b8b8, false);
 	public static ModStatusEffect photosynthesis = new PhotosynthesisStatusEffect(StatusEffectType.BENEFICIAL, 0x3cbd19, false);
+	public static ModStatusEffect crumbling = new CrumblingStatusEffect(StatusEffectType.NEUTRAL, 0x794044, false);
+	public static ModStatusEffect fuse = new FuseStatusEffect(StatusEffectType.HARMFUL, 0xcc3333, false);
 
 	public static void init() {
 
