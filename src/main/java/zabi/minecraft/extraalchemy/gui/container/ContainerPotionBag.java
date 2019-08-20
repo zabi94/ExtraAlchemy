@@ -11,6 +11,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
 import zabi.minecraft.extraalchemy.inventory.PotionBagInventory;
+import zabi.minecraft.extraalchemy.items.ItemBreakablePotion;
 import zabi.minecraft.extraalchemy.items.ModItems;
 
 public class ContainerPotionBag extends ContainerBase {
@@ -74,12 +75,7 @@ public class ContainerPotionBag extends ContainerBase {
 		
 		@Override
 		public boolean isItemValid(ItemStack stack) {
-			return stack.getItem().equals(Items.POTIONITEM);
-		}
-		
-		@Override
-		public int getSlotStackLimit() {
-			return 1;
+			return stack.getItem().equals(Items.POTIONITEM) || stack.getItem() instanceof ItemBreakablePotion;
 		}
 	}
 	
