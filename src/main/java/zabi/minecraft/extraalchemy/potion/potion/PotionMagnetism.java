@@ -27,7 +27,7 @@ public class PotionMagnetism extends PotionBase {
 		if (!e.getEntityWorld().isRemote && e instanceof EntityPlayer) {
 			int radius = 4 + 4*amp;
 			List<EntityItem> list = e.getEntityWorld().getEntitiesWithinAABB(EntityItem.class, e.getEntityBoundingBox().grow(radius, radius, radius));
-			list.parallelStream().forEach(i -> attract(i,(EntityPlayer) e,amp));
+			list.stream().forEach(i -> attract(i,(EntityPlayer) e,amp));
 		}
 	}
 

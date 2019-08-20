@@ -26,7 +26,7 @@ public class PotionPacifism extends PotionBase {
 		public void onEntityHit(LivingHurtEvent event) {
 			if (event.getSource().getTrueSource()==null) return; //Non PvLiving damage is not protected
 			PotionEffect hurtPacifism = event.getEntityLiving().getActivePotionEffect(PotionReference.INSTANCE.PACIFISM);
-			if (hurtPacifism!=null) { //Se l'entità colpita HA pacifismo
+			if (hurtPacifism!=null) {
 				if (event.getSource().getTrueSource() instanceof EntityLivingBase) {
 					PotionEffect slowMod = new PotionEffect(PotionTypes.SLOWNESS.getEffects().get(0).getPotion(), 200, hurtPacifism.getAmplifier()+1);
 					((EntityLivingBase)event.getSource().getTrueSource()).addPotionEffect(slowMod);

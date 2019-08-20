@@ -35,7 +35,7 @@ public class PotionPiper extends PotionBase {
 		if (e instanceof EntityPlayer && ((EntityPlayer)e).isSpectator()) return;
 		if (e instanceof EntityPlayer && !e.getEntityWorld().isRemote) {
 			e.getEntityWorld().getEntitiesWithinAABB(EntityAnimal.class, e.getEntityBoundingBox().expand(10, 2, 10)).parallelStream().forEach(a -> {
-				if (a.tasks.taskEntries.parallelStream().noneMatch(ett -> ett.action instanceof AIFollowPiper)) a.tasks.addTask(3, new AIFollowPiper(a));
+				if (a.tasks.taskEntries.stream().noneMatch(ett -> ett.action instanceof AIFollowPiper)) a.tasks.addTask(3, new AIFollowPiper(a));
 			});
 		}
 	}

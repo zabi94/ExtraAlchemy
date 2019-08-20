@@ -47,7 +47,7 @@ public class PotionCrumbling extends PotionBase {
 			
 			final Block blf = bl;
 			
-			if (whitelist.parallelStream().anyMatch(b -> b.equals(blf))) {
+			if (whitelist.stream().anyMatch(b -> b.equals(blf))) {
 				e.getEntityWorld().destroyBlock(e.getPosition().add(dx, -1, dy), true);
 			}
 		}
