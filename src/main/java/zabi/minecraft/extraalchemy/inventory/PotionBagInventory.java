@@ -40,7 +40,15 @@ public class PotionBagInventory extends AutomatableInventory {
 	public boolean canMachineExtract(int slot, ItemStack stack) {
 		return slot!=0;
 	}
-
+	
+	@Override
+	public ItemStack extractItem(int slot, int amount, boolean simulate) {
+		if (slot==0) {
+			return ItemStack.EMPTY;
+		}
+		return super.extractItem(slot, amount, simulate);
+	}
+	
 	@Override
 	public void onMarkDirty() {
 		NBTTagCompound bagTag = bagStack.getTagCompound();

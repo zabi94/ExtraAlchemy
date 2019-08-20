@@ -37,6 +37,10 @@ public class ContainerPotionBag extends ContainerBase {
 	@Override
 	public ItemStack slotClick(int slotId, int mouseButton, ClickType clickTypeIn, EntityPlayer player) {
 		if (slotId!=0 || clickTypeIn == ClickType.CLONE) return super.slotClick(slotId, mouseButton, clickTypeIn, player);
+		
+		System.out.println(clickTypeIn.name());
+		if (clickTypeIn != ClickType.PICKUP) return ItemStack.EMPTY;
+		
 		ItemStack iso = player.inventory.getItemStack();
 		if (!iso.isEmpty()) {
 			if (!PotionUtils.getEffectsFromStack(iso).isEmpty()) {
@@ -44,8 +48,9 @@ public class ContainerPotionBag extends ContainerBase {
 				nis.setCount(1);
 				((Slot) inventorySlots.get(slotId)).putStack(nis);
 			}
-		} else
+		} else {
 			((Slot) inventorySlots.get(slotId)).putStack(ItemStack.EMPTY);
+		}
 		return ItemStack.EMPTY;
 	}
 	
@@ -54,6 +59,11 @@ public class ContainerPotionBag extends ContainerBase {
 	@Override
 	public boolean canDragIntoSlot(Slot slotIn) {
 		return !(slotIn instanceof GhostPotionSlot);
+	}
+	
+	@Override
+	public boolean canMergeSlot(ItemStack stack, Slot slotIn) {
+		return !(slotIn instanceof GhostPotionSlot) && super.canMergeSlot(stack, slotIn);
 	}
 	
 	public static class PotionSlot extends Slot {
