@@ -48,7 +48,7 @@ import zabi.minecraft.minerva.common.capability.SimpleCapability;
 		name=Reference.NAME, 
 		modid=Reference.MID, 
 		version=Reference.VERSION, 
-		dependencies="required-after:minerva@[1.0.5,);"
+		dependencies="required-after:minerva@[1.0.13,);"
 				+ "after:botania", 
 		acceptedMinecraftVersions="[1.12,1.13)"/*, guiFactory="zabi.minecraft.extraalchemy.gui.config.GuiFactoryEA"*/)
 public class ExtraAlchemy {
