@@ -44,7 +44,7 @@ splash_potion.effect.learning=Pozione da lancio dello studio
 tipped_arrow.effect.learning=Freccia dello studio
 effect.learning=Studio
 funny.effect.learning=Eureka!
-description.effect.learning=Un magnete per gli XP
+description.effect.learning=Un magnete per gli XP, che aumenta il valore delle sfere assorbite del 10%
 
 potion.effect.sinking=Pozione dell'inabissamento
 lingering_potion.effect.sinking=Pozione persistente dell'inabissamento
@@ -100,7 +100,7 @@ splash_potion.effect.crumbling=Pozione da lancio dell'erosione
 tipped_arrow.effect.crumbling=Freccia dell'erosione
 effect.crumbling=Erosione
 funny.effect.crumbling=Viaggio al Centro della Terra
-description.effect.crumbling=Corrode il terreno sotto di te. Distrugge solo i blocchi più comuni 
+description.effect.crumbling=Corrode il terreno sotto di te. Distrugge solo i blocchi piï¿½ comuni 
 
 potion.effect.concentration=Pozione della concentrazione
 lingering_potion.effect.concentration=Pozione persistente della concentrazione
@@ -156,7 +156,7 @@ splash_potion.effect.hurry=Pozione da lancio della fretta
 tipped_arrow.effect.hurry=Freccia della fretta
 effect.hurry=Fretta
 funny.effect.hurry=Siamo arrivati?
-description.effect.hurry=Tutte le tile entity attorno al giocatore lavorano più in fretta. Questo causa un'incredibile fame
+description.effect.hurry=Tutte le tile entity attorno al giocatore lavorano piï¿½ in fretta. Questo causa un'incredibile fame
 
 potion.effect.combustion=Pozione della combustione
 lingering_potion.effect.combustion=Pozione persistente della combustione
@@ -171,7 +171,7 @@ lingering_potion.effect.reincarnation=Pozione persistente della reincarnazione
 splash_potion.effect.reincarnation=Pozione da lancio della reincarnazione
 tipped_arrow.effect.reincarnation=Freccia della reincarnazione
 effect.reincarnation=Reincarnazione
-funny.effect.reincarnation=Vediamo un po'... Mia prossima vita è come tenia
+funny.effect.reincarnation=Vediamo un po'... Mia prossima vita ï¿½ come tenia
 description.effect.reincarnation=Ti permette di conservare le pozioni attive quando muori. Il livello II trasferisce solo gli effetti positivi e, in piu', se stesso
 
 potion.effect.gravity=Pozione della gravita'

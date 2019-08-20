@@ -44,7 +44,7 @@ splash_potion.effect.learning=Splash Potion of Learning
 tipped_arrow.effect.learning=Arrow of Learning
 effect.learning=Learning
 funny.effect.learning=Eureka!
-description.effect.learning=A magnet for XP orbs
+description.effect.learning=A magnet for XP orbs. Also increases gained XP by 10%
 
 potion.effect.sinking=Potion of Sinking
 lingering_potion.effect.sinking=Lingering Potion of Sinking
