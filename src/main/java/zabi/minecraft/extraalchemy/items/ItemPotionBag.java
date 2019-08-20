@@ -58,6 +58,12 @@ public class ItemPotionBag extends Item {
 			PotionUtils.addPotionTooltip(inv.getStackInSlot(0), tooltip, 1); 
 		}
     }
+	
+	@Override
+	public boolean hasEffect(ItemStack stack) {
+		PotionBagInventory inv = getInventory(stack, false);
+		return getCharges(inv, false) > 0 && inv.getStackInSlot(0).hasEffect();
+	}
 
 	@Override
 	 public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand hand) {
@@ -124,8 +130,9 @@ public class ItemPotionBag extends Item {
 						entityLiving.addPotionEffect(new PotionEffect(pe));
 					}
 				}
-				inventory.setStackInSlot(i, ItemStack.EMPTY);
+				inventory.extractItem(i, 1, false);
 				getCharges(inventory, true); //Updates potion if empty
+				inventory.markDirty();
 				return stack;
 			}
 		}
@@ -167,7 +174,7 @@ public class ItemPotionBag extends Item {
 		for (int i=1;i<19;i++) {
 			ItemStack potslot = inventory.getStackInSlot(i);
 			if (!potslot.isEmpty()) {
-				inventory.setStackInSlot(0, potslot.copy());
+				inventory.setStackInSlot(0, potslot.copy().splitStack(1));
 				return getCharges(inventory, false);
 			}
 		}
