@@ -78,10 +78,16 @@ public class Recipes {
 
 
 		if (ModConfig.options.breakingPotions) {
-			GameRegistry.addShapedRecipe(new ResourceLocation(Reference.MID, "vial"), null, new ItemStack(ModItems.vial_break, 3)," F ","G G"," G ", 'G', Item.getItemFromBlock(Blocks.GLASS), 'F', Items.FLINT);
+			GameRegistry.addShapedRecipe(new ResourceLocation(Reference.MID, "vial"), null, new ItemStack(ModItems.vial_break, 3)," F ","G G"," G ", 
+					'G', "blockGlass", 
+					'F', Items.FLINT);
 		}
 		if (ModConfig.options.enable_potion_bag) {
-			GameRegistry.addShapedRecipe(new ResourceLocation(Reference.MID, "recipe_potion_bag"), null, new ItemStack(ModItems.potion_bag), " V ","LWL","LLL", 'V', Items.GLASS_BOTTLE, 'W', Item.getItemFromBlock(Blocks.CHEST), 'L', Items.LEATHER);
+			GameRegistry.addShapedRecipe(new ResourceLocation(Reference.MID, "recipe_potion_bag"), null, new ItemStack(ModItems.potion_bag), 
+					" V ","LWL","LLL", 
+					'V', Items.GLASS_BOTTLE, 
+					'W', "chestWood", 
+					'L', "leather");
 		}
 
 	}
