@@ -48,6 +48,8 @@ public class ModConfig {
 		public boolean log_potion_types = false;
 		@Config.Comment("Set to false to move all Extra Alchemy Items to the Vanilla Creative Alchemy Tab")
 		public boolean addSeparateTab = true;
+		@Config.Comment("Set to false to disable the 10%XP increase for the potion of learning to prevent XP showers-like mechanic from giving infinite XP")
+		public boolean learningBoostsXP = true;
 	}
 	
 	public static class Client {

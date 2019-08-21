@@ -3,6 +3,7 @@ package zabi.minecraft.extraalchemy.potion.potion;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
+import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.potion.PotionBase;
 
 public class PotionLearning extends PotionBase {
@@ -21,7 +22,7 @@ public class PotionLearning extends PotionBase {
 				int rd = 2+2*amp;
 				p.getEntityWorld().getEntitiesWithinAABB(EntityXPOrb.class, p.getEntityBoundingBox().expand(rd, rd, rd)).stream().forEach(xp -> {
 					xp.delayBeforeCanPickup=0;
-					xp.xpValue*=1.1;
+					if (ModConfig.options.learningBoostsXP) xp.xpValue*=1.1;
 					xp.onCollideWithPlayer(p);
 					p.xpCooldown = 0;});
 			}
