@@ -1,13 +1,16 @@
 package zabi.minecraft.extraalchemy.recipes;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-import net.minecraft.block.Block;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
@@ -19,6 +22,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import zabi.minecraft.extraalchemy.ExtraAlchemy;
@@ -35,6 +39,7 @@ import zabi.minecraft.extraalchemy.recipes.crafting.StickyPotionRecipeHandler;
 @Mod.EventBusSubscriber
 public class Recipes {
 
+	private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 	private static int customRecipes = 0;
 
 	public static void registerRecipes() {
@@ -89,115 +94,116 @@ public class Recipes {
 					'W', "chestWood", 
 					'L', "leather");
 		}
-
+		
 	}
 
 	private static void loadCustomRecipes() {
-		File file = new File(ExtraAlchemy.recipesfile);
-		if (!file.exists()) {
+		if (ExtraAlchemy.recipesDirectory.mkdir()) {
 			try {
-				if (file.createNewFile()) {
-					initFile(file);
-				} else {
-					return;
-				}
+				generateExampleRecipe();
 			} catch (IOException e) {
-				Log.w("Cannot create custom recipe file");
+				Log.e("Cannot generate example file");
 				e.printStackTrace();
-				return;
 			}
-		}
-
-		readFile(file);
-	}
-
-	private static void readFile(File file) {
-		BufferedReader in = null;
-		try {
-			in = new BufferedReader(new FileReader(file));
-			in.lines().filter(s -> !s.startsWith("#")).forEach(s -> parseString(s));
-			Log.i(customRecipes+" custom recipes were added");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			Log.w("Cannot read custom recipes file");
-		}
-
-		if (in!=null) try {
-			in.close();
-		} catch (IOException e) {}
-
-	}
-
-	private static void parseString(String s) {
-		if (s.trim().length()==0) return;
-		try {
-			int amp = s.indexOf('&');
-			int eql = s.indexOf('=');
-			int cmm = s.indexOf(',');
-
-			String spotin = s.substring(0, amp).trim();
-			String spotout = s.substring(eql+1, s.length()).trim();
-
-			String ingredient_raw = s.substring(amp+1, eql).trim();
-
-			String item = "";
-			int meta = 0;
-
-			if (cmm<0) {
-				item = ingredient_raw;
-			} else {
-				item=s.substring(amp+1,cmm).trim();
-				meta = Integer.parseInt(s.substring(cmm+1,eql).trim());
-			}
-
-			PotionType pin = PotionType.REGISTRY.getObject(new ResourceLocation(spotin));
-			PotionType pout= PotionType.REGISTRY.getObject(new ResourceLocation(spotout));
-
-			if (pin.equals(PotionTypes.WATER) || pout.equals(PotionTypes.WATER)) {
-				Log.w("Input ("+spotin+") or output ("+spotout+") potion equals to water in "+s);
-			}
-
-			Item ingItm = Item.REGISTRY.getObject(new ResourceLocation(item));
-			if (ingItm == null || ingItm.equals(Items.AIR)) {
-				ingItm = Item.getItemFromBlock(Block.REGISTRY.getObject(new ResourceLocation(item)));
-				if (ingItm == null || ingItm.equals(Items.AIR)) {
-					Log.e(item+" is not an existing item in "+s);
-					return;
-				}
-			}
-
-			ItemStack req = new ItemStack(ingItm, 1, meta);
-			if (req.isEmpty()) {
-				Log.e(item+" is not a valid item in "+s);
-				return;
-			}
-
-			RecipeManager.registerRecipe(pin, pout, req);
-			Log.i("Custom recipe found: "+pin.getRegistryName().toString()+" + "+req.toString()+" = "+pout.getRegistryName());
-			customRecipes++;
-
-		} catch (Exception e) {
-			Log.w(s+" is not a valid custom recipe");
-			e.printStackTrace();
-		}
-	}
-
-	private static void initFile(File file) {
-		try {
-			PrintWriter out = new PrintWriter(file);
-			out.println("# Recipe format: potionIn&Itemstack,meta=potionOut");
-			out.println("# If the item has no meta you can omit it: minecraft:awkward&minecraft:dirt=minecraft:water");
-			out.println("# Example: minecraft:awkward&minecraft:dye,3=minecraft:strong_healing would take an awkward potion,");
-			out.println("# cocoa (dye with metadata 3), and make a potion of healing II out of it.");
-			out.println("# To log all existing potions set the \"log_potion_types\" config to true.");
-			out.println("# To remove an existing potion recipe disable it in the config file.");
-			out.println("# Lines starting with # and empty lines are ignored.");
-			out.println("# There is no difference between \"minecraft:awkward&minecraft:dye,3=minecraft:strong_healing\" and \"minecraft:awkward & minecraft:dye,3 = minecraft:strong_healing\", spaces near delimiters are ignored");
-			out.flush();
-			out.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+		} else if (!ExtraAlchemy.recipesDirectory.isDirectory()) {
+			Log.e("Cannot access custom potion folder");
 			return;
+		}
+		for (File json:ExtraAlchemy.recipesDirectory.listFiles()) {
+			if (json.isFile() && json.getName().endsWith(".json")) {
+				readJson(json);
+			}
+		}
+		Log.i("Generated "+customRecipes+" custom recipes");
+	}
+
+	private static void generateExampleRecipe() throws IOException {
+		GsonRecipe example = new GsonRecipe();
+		
+		example.name = "normal_potion";
+		example.ingredient = "minecraft:rotten_flesh";
+		example.durationSeconds = 120;
+		example.level = 0;
+		example.effect = "minecraft:unluck";
+		example.autoGenerateLongVersion = true;
+		example.autoGenerateStrongVersion = true;
+		example.durationLongVersion = 240;
+		example.durationStrongVersion = 60;
+		writeFile("example_normal_potion", example);
+		
+		example.name = "instant_with_meta";
+		example.ingredient = "minecraft:dye@2";
+		example.durationSeconds = 0;
+		example.level = 0;
+		example.basePotionType = "minecraft:harming";
+		example.effect = "minecraft:instant_damage";
+		example.autoGenerateLongVersion = false;
+		example.autoGenerateStrongVersion = true;
+		example.durationLongVersion = 0;
+		example.durationStrongVersion = 0;
+		writeFile("example_instant_effect_ingredient_metadata", example);
+		
+		example.name = "any_meta";
+		example.ingredient = "minecraft:wool";
+		example.durationSeconds = 0;
+		example.level = 0;
+		example.basePotionType = "minecraft:thick";
+		example.effect = "minecraft:poison";
+		example.autoGenerateLongVersion = false;
+		example.autoGenerateStrongVersion = true;
+		example.durationLongVersion = 0;
+		example.durationStrongVersion = 0;
+		writeFile("example_any_metadata", example);
+	}
+	
+	private static void writeFile(String filename, GsonRecipe recipe) throws IOException {
+		FileWriter writer = null;
+		File destination = new File(ExtraAlchemy.recipesDirectory, filename+".json_disabled");
+		try {
+			writer = new FileWriter(destination);
+			writer.write(gson.toJson(recipe));
+		} finally {
+			if (writer != null) writer.close();
+		}
+	}
+
+	private static void readJson(File json) {
+		try {
+			GsonRecipe recipe = gson.fromJson(new FileReader(json), GsonRecipe.class);
+			if (recipe.check()) {
+				ResourceLocation typeName = new ResourceLocation(recipe.name);
+				PotionType type = null;
+				if (ForgeRegistries.POTION_TYPES.containsKey(typeName)) {
+					type = ForgeRegistries.POTION_TYPES.getValue(typeName);
+				} else {
+					type = recipe.generateType().setArtificial(true);
+					ForgeRegistries.POTION_TYPES.register(type);
+				}
+				RecipeManager.registerRecipe(recipe.getBase(), type, recipe.getIngredient());
+				Log.d("Registered custom potion recipe: "+type.getRegistryName());
+				customRecipes++;
+				
+				if (recipe.autoGenerateLongVersion) {
+					PotionType longType = recipe.generateTypeLong().setArtificial(true);
+					ForgeRegistries.POTION_TYPES.register(longType);
+					RecipeManager.registerRecipe(type, longType, RecipeManager.redstone);
+					Log.d("Registered custom potion recipe: "+longType.getRegistryName());
+					customRecipes++;
+				}
+				
+				if (recipe.autoGenerateStrongVersion) {
+					PotionType strongType = recipe.generateTypeStrong().setArtificial(true);
+					ForgeRegistries.POTION_TYPES.register(strongType);
+					RecipeManager.registerRecipe(type, strongType, RecipeManager.glowstone);
+					Log.d("Registered custom potion recipe: "+strongType.getRegistryName());
+					customRecipes++;
+				}
+			} else {
+				Log.w("Json recipe contains errors: "+ json.getAbsolutePath());
+			}
+		} catch (JsonSyntaxException | JsonIOException | FileNotFoundException e) {
+			Log.e("Cannot read custom potion recipe from file "+json.getName());
+			e.printStackTrace();
 		}
 	}
 

@@ -36,7 +36,7 @@ public class PotionDescriptionTooltipHandler {
 		
 		PotionType pt = PotionUtils.getPotionFromItem(evt.getItemStack());
 		
-		if (pt instanceof PotionTypeBase) {
+		if (pt instanceof PotionTypeBase && !((PotionTypeBase)pt).isArtificial()) {
 			
 			String potName = ((PotionTypeBase)pt).getPotion().getName();
 			String textRaw = I18n.format("description."+potName);

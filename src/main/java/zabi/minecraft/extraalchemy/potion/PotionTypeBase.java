@@ -18,6 +18,7 @@ public class PotionTypeBase extends PotionType {
 	private static final ArrayList<PotionTypeBase> recorder = new ArrayList<PotionTypeBase>();
 	
 	private Potion type;
+	private boolean isArtificial = false;
 	
 	public PotionTypeBase(Potion potion, int duration, int amplifier, String effectName) {
 		super(potion.getName().substring(7), new PotionEffect(potion, duration, amplifier));
@@ -34,5 +35,14 @@ public class PotionTypeBase extends PotionType {
 	public static void register(RegistryEvent.Register<PotionType> evt) {
 		IForgeRegistry<PotionType> reg = evt.getRegistry();
 		for (PotionTypeBase p:recorder) reg.register(p);
+	}
+
+	public boolean isArtificial() {
+		return isArtificial;
+	}
+
+	public PotionTypeBase setArtificial(boolean isArtificial) {
+		this.isArtificial = isArtificial;
+		return this;
 	}
 }

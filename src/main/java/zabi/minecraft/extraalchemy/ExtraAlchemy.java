@@ -60,7 +60,7 @@ public class ExtraAlchemy {
 	@SidedProxy(modId=Reference.MID, clientSide=Reference.PROXY_CLIENT, serverSide=Reference.PROXY_SERVER)
 	public static Proxy proxy;
 	
-	public static String recipesfile;
+	public static File recipesDirectory;
 	
 	@Instance
 	public static ExtraAlchemy instance;
@@ -87,7 +87,7 @@ public class ExtraAlchemy {
 		NetworkModRegistry.registerMessages(network);
 		
 		proxy.registerItemDescriptions();
-		recipesfile = event.getSuggestedConfigurationFile().getParent()+File.separatorChar+"extra_alchemy_recipes.cfg";
+		recipesDirectory = new File(event.getModConfigurationDirectory(), "custom_potions");
 	}
 	
 	@EventHandler

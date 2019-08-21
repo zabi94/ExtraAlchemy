@@ -11,8 +11,8 @@ public class RecipeManager {
 	
 	private static final ItemStack gunpowder = new ItemStack(Items.GUNPOWDER);
 	private static final ItemStack dragonBreath = new ItemStack(Items.DRAGON_BREATH);
-	private static final ItemStack glowstone = new ItemStack(Items.GLOWSTONE_DUST);
-	private static final ItemStack redstone = new ItemStack(Items.REDSTONE);
+	public static final ItemStack glowstone = new ItemStack(Items.GLOWSTONE_DUST);
+	public static final ItemStack redstone = new ItemStack(Items.REDSTONE);
 	
 	public static void registerRecipe(PotionType in, PotionType out, ItemStack ingredient) {
 		
