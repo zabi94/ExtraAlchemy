@@ -44,7 +44,6 @@ public class ContainerPotionBag extends ModContainer<TileEntity> {
 	public ItemStack slotClick(int slotId, int mouseButton, ClickType clickTypeIn, EntityPlayer player) {
 		if (slotId!=0 || clickTypeIn == ClickType.CLONE) return super.slotClick(slotId, mouseButton, clickTypeIn, player);
 		
-		System.out.println(clickTypeIn.name());
 		if (clickTypeIn != ClickType.PICKUP) return ItemStack.EMPTY;
 		
 		ItemStack iso = player.inventory.getItemStack();
