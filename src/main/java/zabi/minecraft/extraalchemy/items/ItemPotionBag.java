@@ -15,7 +15,6 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.ActionResult;
@@ -123,14 +122,7 @@ public class ItemPotionBag extends Item {
 		for (int i=1;i<19;i++) {
 			ItemStack pot = inventory.getStackInSlot(i);
 			if (!pot.isEmpty() && PotionUtils.getPotionFromItem(pot).equals(pt)) {
-				for (PotionEffect pe:pt.getEffects()) {
-					if (pe.getPotion().isInstant()) {
-						pe.getPotion().affectEntity(null, null, entityLiving, pe.getAmplifier(), 1.0D);
-					} else {
-						entityLiving.addPotionEffect(new PotionEffect(pe));
-					}
-				}
-				inventory.extractItem(i, 1, false);
+				inventory.extractItem(i, 1, false).onItemUseFinish(worldIn, entityLiving);
 				getCharges(inventory, true); //Updates potion if empty
 				inventory.markDirty();
 				return stack;

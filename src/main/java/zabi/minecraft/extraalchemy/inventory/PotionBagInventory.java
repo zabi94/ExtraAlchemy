@@ -1,11 +1,13 @@
 package zabi.minecraft.extraalchemy.inventory;
 
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import zabi.minecraft.extraalchemy.items.ItemBreakablePotion;
+import zabi.minecraft.extraalchemy.items.ItemModifiedPotion;
 
 public class PotionBagInventory extends AutomatableInventory {
 	
@@ -34,7 +36,8 @@ public class PotionBagInventory extends AutomatableInventory {
 
 	@Override
 	public boolean canMachineInsert(int slot, ItemStack stack) {
-		return slot!=0 && (stack.getItem()==Items.POTIONITEM || stack.getItem() instanceof ItemBreakablePotion) ;
+		Item it = stack.getItem();
+		return slot!=0 && (it==Items.POTIONITEM || it instanceof ItemBreakablePotion || it instanceof ItemModifiedPotion) ;
 	}
 
 	@Override
