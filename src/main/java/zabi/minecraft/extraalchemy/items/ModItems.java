@@ -10,7 +10,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 import zabi.minecraft.extraalchemy.ExtraAlchemy;
-import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.lib.Reference;
 
 @Mod.EventBusSubscriber
@@ -34,11 +33,7 @@ public class ModItems {
 	@SubscribeEvent
 	public static void onItemRegistration(RegistryEvent.Register<Item> evt) {
 		IForgeRegistry<Item> reg = evt.getRegistry();
-		if (ModConfig.options.useNewVials) {
-			reg.register(new ItemBreakablePotionNew());
-		} else {
-			reg.register(new ItemBreakablePotion());
-		}
+		reg.register(new ItemBreakablePotion());
 		reg.register(new ItemVial());
 		reg.register(new ItemPotionBag());
 		reg.register(new ItemModifiedPotion());

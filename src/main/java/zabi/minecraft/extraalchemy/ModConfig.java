@@ -38,8 +38,6 @@ public class ModConfig {
 		public boolean cheatDeathRandom = true;
 		@Config.Comment("Set to false to disable the recipe for potion bags")
 		public boolean enable_potion_bag = true;
-		@Config.Comment("Set to false to use old, instant vials")
-		public boolean useNewVials = true;
 		@Config.Comment("Set to false to disable the recipe of vial potions")
 		public boolean breakingPotions = true;
 		@Config.Comment("If set to true a brewing stand will run not only on blaze powder but also a fire below will suffice")
@@ -137,7 +135,6 @@ public class ModConfig {
 		if (options.allowPotionSplitting) status|=(1<<1);
 		if (options.breakingPotions) status|=(1<<2);
 		if (options.enable_potion_bag) status|=(1<<3);
-		if (options.useNewVials) status|=(1<<4);
 		if (options.respectSolegnolias) status|=(1<<5);
 		if (potions.p_charged_level1) status|=(1<<6);
 		if (potions.p_charged_level2) status|=(1<<7);

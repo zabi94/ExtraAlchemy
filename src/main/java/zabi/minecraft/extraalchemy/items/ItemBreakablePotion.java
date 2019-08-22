@@ -13,10 +13,12 @@ import com.google.common.collect.Lists;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -130,22 +132,44 @@ public class ItemBreakablePotion extends ItemPotion {
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand){
+		player.setActiveHand(hand);
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
+	}
+	
+	@Override
+	public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entityLiving) {
+		if (!(entityLiving instanceof EntityPlayer)) return stack;
+		ItemStack fxs = stack.copy();
+		EntityPlayer player = (EntityPlayer) entityLiving;
 		if (!world.isRemote) {
 			ArrayList<PotionEffect> list = new ArrayList<PotionEffect>();
-			PotionUtils.addCustomPotionEffectToList(player.getHeldItem(hand).getTagCompound(), list);
+			PotionUtils.addCustomPotionEffectToList(stack.getTagCompound(), list);
             for (PotionEffect potioneffect : list) {
-            	player.addPotionEffect(new PotionEffect(potioneffect));
+            	 if (potioneffect.getPotion().isInstant()) {
+                     potioneffect.getPotion().affectEntity(null, null, entityLiving, potioneffect.getAmplifier(), 1.0D);
+                 } else {
+                     entityLiving.addPotionEffect(new PotionEffect(potioneffect));
+                 }
             }
         } else {
         	Random rand = new Random();
-        	player.swingArm(hand);
-        	player.renderBrokenItemStack(player.getHeldItem(hand));
+        	player.renderBrokenItemStack(fxs);
         	world.playSound(player.posX, player.posY, player.posZ, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.PLAYERS, 0.8F, 1f+rand.nextFloat(), false);
         }
 		if (!player.capabilities.isCreativeMode) {
-			player.getHeldItem(hand).setCount(player.getHeldItem(hand).getCount()-1);
+			stack.setCount(stack.getCount()-1);
         }
-		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
+		return stack;
+	}
+	
+	@Override
+	public EnumAction getItemUseAction(ItemStack stack) {
+		return EnumAction.BOW;
+	}
+	
+	@Override
+	public int getMaxItemUseDuration(ItemStack stack) {
+		return 10;
 	}
 	
 }
