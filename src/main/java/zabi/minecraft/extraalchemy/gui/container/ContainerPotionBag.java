@@ -10,16 +10,19 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
+import net.minecraft.tileentity.TileEntity;
 import zabi.minecraft.extraalchemy.inventory.PotionBagInventory;
 import zabi.minecraft.extraalchemy.items.ItemBreakablePotion;
 import zabi.minecraft.extraalchemy.items.ModItems;
+import zabi.minecraft.minerva.common.network.container.ModContainer;
+import zabi.minecraft.minerva.common.network.container.TransferRule;
 
-public class ContainerPotionBag extends ContainerBase {
+public class ContainerPotionBag extends ModContainer<TileEntity> {
 
 	private String bag_name;
 	
 	public ContainerPotionBag(PotionBagInventory inv, InventoryPlayer pinv) {
-		
+		super(null);
 		int all_x = 8;
 		int all_y = 90;
 		addSlotToContainer(new GhostPotionSlot(inv, 0, 72+all_x, 36));
@@ -29,6 +32,8 @@ public class ContainerPotionBag extends ContainerBase {
 		}
 		this.addPlayerSlots(pinv, all_x, 140);
 		bag_name=inv.getName();
+		this.addRule(new TransferRule(1, 19, s -> s.inventory != inv));
+		this.addRule(new TransferRule(19, this.inventorySlots.size(), s -> s.inventory == inv));
 	}
 	
 	public String getBagName() {
