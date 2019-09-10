@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -23,7 +22,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import zabi.minecraft.extraalchemy.ExtraAlchemy;
-import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.lib.Reference;
 
 public class ItemVial extends Item {
@@ -32,8 +30,7 @@ public class ItemVial extends Item {
 	public ItemVial() {
 		this.setMaxStackSize(16);
 		this.canRepair = false;
-        if (ModConfig.options.addSeparateTab) this.setCreativeTab(ExtraAlchemy.TAB);
-        else this.setCreativeTab(CreativeTabs.BREWING);
+        this.setCreativeTab(ExtraAlchemy.TAB);
         this.setRegistryName(new ResourceLocation(Reference.MID, "vial_break"));
 	}
 	

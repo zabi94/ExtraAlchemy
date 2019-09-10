@@ -44,8 +44,7 @@ public class ItemBreakablePotion extends ItemPotion {
 	
 	protected ItemBreakablePotion() {
         this.setMaxStackSize(16);
-        if (ModConfig.options.addSeparateTab) this.setCreativeTab(ExtraAlchemy.TAB);
-        else this.setCreativeTab(CreativeTabs.BREWING);
+        this.setCreativeTab(ExtraAlchemy.TAB);
         this.setRegistryName( new ResourceLocation(Reference.MID, "breakable_potion"));
 	}
 	
@@ -123,7 +122,7 @@ public class ItemBreakablePotion extends ItemPotion {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> list) {
-		if (this.isInCreativeTab(tab)) {
+		if (this.isInCreativeTab(tab) && ModConfig.options.breakingPotions) {
 			for (PotionType potiontype : PotionType.REGISTRY) {
 				list.add(PotionUtils.addPotionToItemStack(new ItemStack(this), potiontype));
 			}

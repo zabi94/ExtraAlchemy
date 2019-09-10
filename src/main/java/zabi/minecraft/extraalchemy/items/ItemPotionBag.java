@@ -37,8 +37,7 @@ public class ItemPotionBag extends Item {
     
 	public ItemPotionBag() {
 		this.setMaxStackSize(1);
-	    if (ModConfig.options.addSeparateTab) this.setCreativeTab(ExtraAlchemy.TAB);
-	    else this.setCreativeTab(CreativeTabs.BREWING);
+	    this.setCreativeTab(ExtraAlchemy.TAB);
 	    this.setRegistryName(new ResourceLocation(Reference.MID, "potion_bag"));
 	}
 	
@@ -112,6 +111,13 @@ public class ItemPotionBag extends Item {
 	@Override
 	public EnumAction getItemUseAction(ItemStack stack) {
 		return EnumAction.BOW;
+	}
+	
+	@Override
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+		if (ModConfig.options.enable_potion_bag) {
+			super.getSubItems(tab, items);
+		}
 	}
 	
 	@Override

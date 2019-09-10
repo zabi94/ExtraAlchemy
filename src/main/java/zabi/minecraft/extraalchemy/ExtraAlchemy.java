@@ -22,6 +22,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import zabi.minecraft.extraalchemy.ModConfig.ChangeListener;
 import zabi.minecraft.extraalchemy.blocks.BrewingStandFire;
 import zabi.minecraft.extraalchemy.capability.MagnetismStatus;
+import zabi.minecraft.extraalchemy.capability.RingCharge;
 import zabi.minecraft.extraalchemy.gui.GuiHandler;
 import zabi.minecraft.extraalchemy.integration.BotaniaHandler;
 import zabi.minecraft.extraalchemy.items.TabExtraAlchemy;
@@ -53,7 +54,7 @@ import zabi.minecraft.minerva.common.capability.SimpleCapability;
 		acceptedMinecraftVersions="[1.12,1.13)")
 public class ExtraAlchemy {
 
-	public static TabExtraAlchemy TAB;
+	public static TabExtraAlchemy TAB = new TabExtraAlchemy();
 	
 	public static SimpleNetworkWrapper network = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MID);
 	
@@ -80,6 +81,7 @@ public class ExtraAlchemy {
 		MinecraftForge.EVENT_BUS.register(new BrewingStandBlocker());
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 		SimpleCapability.preInit(MagnetismStatus.class);
+		SimpleCapability.preInit(RingCharge.class);
 		if (ModConfig.options.useFireUndernathBrewingStand) {
 			MinecraftForge.EVENT_BUS.register(new BrewingStandFire());
 		}
@@ -92,13 +94,12 @@ public class ExtraAlchemy {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+		TAB.createIcon();
 		BotaniaHandler.checkLoadBotania();
 		Recipes.registerRecipes();
 		ExtraAlchemy.proxy.registerColorHandler();
-		if (ModConfig.options.addSeparateTab) {
-			TAB = new TabExtraAlchemy();
-		}
 		SimpleCapability.init(MagnetismStatus.class, Reference.MID, MagnetismStatus.CAPABILITY, MagnetismStatus.DEFAULT);
+		SimpleCapability.init(RingCharge.class, Reference.MID, RingCharge.CAPABILITY, RingCharge.DEFAULT);
 	}
 	
 	@EventHandler
