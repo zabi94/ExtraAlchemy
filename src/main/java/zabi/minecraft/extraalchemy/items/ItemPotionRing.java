@@ -140,6 +140,7 @@ public class ItemPotionRing extends Item implements IBauble {
 	}
 
 	@Override
+	@Optional.Method(modid = "baubles")
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
 		IBauble.super.onWornTick(itemstack, player);
 		if (!player.world.isRemote && shouldTickAsBauble() && player instanceof EntityPlayer && shouldApplyNow(player)) {
