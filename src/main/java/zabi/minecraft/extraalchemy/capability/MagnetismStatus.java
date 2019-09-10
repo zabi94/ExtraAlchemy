@@ -44,7 +44,9 @@ public class MagnetismStatus extends SimpleCapability {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void onSyncMessage(byte mode) {
-		((PotionMagnetism) PotionReference.INSTANCE.MAGNETISM).setIconActive(mode == 1);
+		if (mode != 0) {
+			((PotionMagnetism) PotionReference.INSTANCE.MAGNETISM).setIconActive(mode == 1);
+		}
 	}
 	
 	@Override
