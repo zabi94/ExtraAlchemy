@@ -12,8 +12,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.tileentity.TileEntity;
 import zabi.minecraft.extraalchemy.inventory.PotionBagInventory;
-import zabi.minecraft.extraalchemy.items.ItemBreakablePotion;
-import zabi.minecraft.extraalchemy.items.ItemModifiedPotion;
+import zabi.minecraft.extraalchemy.items.ItemPotionVial;
+import zabi.minecraft.extraalchemy.items.ItemModifiedDrinkablePotion;
 import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.minerva.common.network.container.ModContainer;
 import zabi.minecraft.minerva.common.network.container.TransferRule;
@@ -80,7 +80,7 @@ public class ContainerPotionBag extends ModContainer<TileEntity> {
 		
 		@Override
 		public boolean isItemValid(ItemStack stack) {
-			return stack.getItem().equals(Items.POTIONITEM) || stack.getItem() instanceof ItemBreakablePotion || stack.getItem() instanceof ItemModifiedPotion;
+			return stack.getItem().equals(Items.POTIONITEM) || stack.getItem() instanceof ItemPotionVial || stack.getItem() instanceof ItemModifiedDrinkablePotion;
 		}
 	}
 	

@@ -40,9 +40,9 @@ import zabi.minecraft.extraalchemy.ExtraAlchemy;
 import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.lib.Reference;
 
-public class ItemBreakablePotion extends ItemPotion {
+public class ItemPotionVial extends ItemPotion {
 	
-	protected ItemBreakablePotion() {
+	protected ItemPotionVial() {
         this.setMaxStackSize(16);
         this.setCreativeTab(ExtraAlchemy.TAB);
         this.setRegistryName( new ResourceLocation(Reference.MID, "breakable_potion"));

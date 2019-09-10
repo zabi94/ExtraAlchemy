@@ -24,10 +24,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import zabi.minecraft.extraalchemy.ExtraAlchemy;
 import zabi.minecraft.extraalchemy.lib.Reference;
 
-public class ItemVial extends Item {
+public class ItemEmptyPotionVial extends Item {
 
 	
-	public ItemVial() {
+	public ItemEmptyPotionVial() {
 		this.setMaxStackSize(16);
 		this.canRepair = false;
         this.setCreativeTab(ExtraAlchemy.TAB);

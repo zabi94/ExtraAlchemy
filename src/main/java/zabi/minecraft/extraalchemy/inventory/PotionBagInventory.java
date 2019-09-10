@@ -6,8 +6,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
-import zabi.minecraft.extraalchemy.items.ItemBreakablePotion;
-import zabi.minecraft.extraalchemy.items.ItemModifiedPotion;
+import zabi.minecraft.extraalchemy.items.ItemPotionVial;
+import zabi.minecraft.extraalchemy.items.ItemModifiedDrinkablePotion;
 
 public class PotionBagInventory extends AutomatableInventory {
 	
@@ -37,7 +37,7 @@ public class PotionBagInventory extends AutomatableInventory {
 	@Override
 	public boolean canMachineInsert(int slot, ItemStack stack) {
 		Item it = stack.getItem();
-		return slot!=0 && (it==Items.POTIONITEM || it instanceof ItemBreakablePotion || it instanceof ItemModifiedPotion) ;
+		return slot!=0 && (it==Items.POTIONITEM || it instanceof ItemPotionVial || it instanceof ItemModifiedDrinkablePotion) ;
 	}
 
 	@Override

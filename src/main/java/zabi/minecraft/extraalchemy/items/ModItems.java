@@ -36,12 +36,12 @@ public class ModItems {
 	@SubscribeEvent
 	public static void onItemRegistration(RegistryEvent.Register<Item> evt) {
 		IForgeRegistry<Item> reg = evt.getRegistry();
-		reg.register(new ItemBreakablePotion());
-		reg.register(new ItemVial());
+		reg.register(new ItemPotionVial());
+		reg.register(new ItemEmptyPotionVial());
 		reg.register(new ItemPotionBag());
-		reg.register(new ItemModifiedPotion());
+		reg.register(new ItemModifiedDrinkablePotion());
 		reg.register(new ItemPotionRing());
-		reg.register(new ItemEmptyRing());
+		reg.register(new ItemEmptyPotionRing());
 	}
 	
 }

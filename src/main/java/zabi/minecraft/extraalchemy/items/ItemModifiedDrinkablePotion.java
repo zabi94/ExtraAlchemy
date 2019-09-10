@@ -29,9 +29,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import zabi.minecraft.extraalchemy.lib.Reference;
 
-public class ItemModifiedPotion extends ItemPotion {
+public class ItemModifiedDrinkablePotion extends ItemPotion {
 
-	public ItemModifiedPotion() {
+	public ItemModifiedDrinkablePotion() {
 		this.setRegistryName(Reference.MID, "modified_potion");
 		this.setTranslationKey("potion");
 		this.setCreativeTab(null);
