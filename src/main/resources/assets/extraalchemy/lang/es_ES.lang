@@ -28,7 +28,7 @@ splash_potion.effect.learning=Poción de aprendizaje arrojadiza
 tipped_arrow.effect.learning=Flecha de aprendizaje
 effect.learning=Aprendizaje
 funny.effect.learning=Eureka!
-description.effect.learning=Incrementa la experiencia obtenida
+description.effect.learning=Incrementa la experiencia obtenida y atrae xp
  
 potion.effect.sinking=Poción de hundimiento
 lingering_potion.effect.sinking=Poción de hundimiento persistente
@@ -188,7 +188,7 @@ sticky.description.description=Craftea 2 o más pociones del mismo tipo en una m
 split.description.title=Dividir pociones\n
 split.description.description=Divide una poción en varias menores del mismo tipo colocándola en la mesa de 3x3 rodeada de botellas vacías
  
-item.byproduct=Lévame a dividir (% segundos)
+item.byproduct=Lévame a dividir (%d segundos)
 item.unmodifiable=Poción modificada. No modifiques esta poción en un soporte de pociones
 tile.encased_ice.name=Hielo (Derritiéndose)
 item.breakable=(Vial rápido)

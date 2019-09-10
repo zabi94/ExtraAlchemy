@@ -44,7 +44,7 @@ splash_potion.effect.learning=喷溅型智慧药水
 tipped_arrow.effect.learning=智慧之箭
 effect.learning=智慧
 funny.effect.learning=我找到了！
-description.effect.learning=玩家周围的经验将会被迅速吸收，且经验获得率+10%
+description.effect.learning=玩家周围的经验将会被迅速吸收，且经验获得率+1/10
  
 potion.effect.sinking=海妖药水
 lingering_potion.effect.sinking=滞留型海妖药水
@@ -226,7 +226,7 @@ recipe.sticky.description=在工作台中间方格放置粘液球，周围放置
 recipe.split.vial.description=如果你将细药水瓶/喷溅型药水瓶放置在工作台中间方格，周围放置细玻璃瓶,那么你将可以得到被稀释的细药水瓶,但稀释后的药水效果持续时间最短必须超过5秒
 recipe.split.drink.description=如果你将药水瓶放置在工作台中间方格，周围放置玻璃瓶,那么你将可以得到被稀释的药水瓶,但稀释后的药水效果持续时间最短必须超过5秒
  
-item.byproduct=把我稀释成 (% 秒)
+item.byproduct=把我稀释成 (%d 秒)
 tile.encased_ice.name=霜冻之冰
  
 item.breakable=(便携细玻璃瓶)

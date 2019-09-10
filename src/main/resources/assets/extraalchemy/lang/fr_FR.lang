@@ -226,7 +226,7 @@ recipe.sticky.description=Placer une boule de Slime au centre d'un établi 3x3 e
 recipe.split.vial.description=Si vous entourez une potion volatile ou un tube avec des tubes vides, vous pourrez diviser leur contenu, et rendre leurs effets moins longs. L'effet final doit durer au minimum 5 secondes.
 recipe.split.drink.description=Si vous entourez une potion buvable avec des fioles vides, vous pourrez diviser son contenu, et rendre son effet moins long. L'effet final doit durer au minimum 5 secondes.
  
-item.byproduct=Prenez-moi pour me diviser (% secondes)
+item.byproduct=Prenez-moi pour me diviser (%d secondes)
 tile.encased_ice.name=Glace (Fusion)
  
 item.breakable=(Tube rapide)

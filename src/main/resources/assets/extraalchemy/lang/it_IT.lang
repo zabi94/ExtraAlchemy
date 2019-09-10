@@ -44,7 +44,7 @@ splash_potion.effect.learning=Pozione da lancio dello studio
 tipped_arrow.effect.learning=Freccia dello studio
 effect.learning=Studio
 funny.effect.learning=Eureka!
-description.effect.learning=Un magnete per gli XP, che aumenta il valore delle sfere assorbite del 10%
+description.effect.learning=Un magnete per gli XP, che aumenta il valore delle sfere assorbite di un decimo
 
 potion.effect.sinking=Pozione dell'inabissamento
 lingering_potion.effect.sinking=Pozione persistente dell'inabissamento
@@ -229,7 +229,11 @@ recipe.split.drink.description=Se piazzi in una griglia una pozione da bere circ
 item.potion_bag.charges=%1$d Pozioni disponibili
 item.potion_bag.name=Borsa da alchimista
 
-item.byproduct=Prendimi per separare (% secondi)
+item.potion_ring_ea.name=Anello di %s %s
+item.potion_ring_ea.uncraftable.name=Anello non creabile
+item.ea.empty_ring.name=Anello da pozioni vuoto
+
+item.byproduct=Prendimi per separare (%d secondi)
 tile.encased_ice.name=Ghiaccio (in scioglimento)
 item.breakable=(Fiala rapida)
 item.emptyvial=Fiala Vuota
