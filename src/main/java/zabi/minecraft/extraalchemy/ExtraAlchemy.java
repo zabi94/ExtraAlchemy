@@ -51,7 +51,8 @@ import zabi.minecraft.minerva.common.capability.SimpleCapability;
 		version=Reference.VERSION, 
 		dependencies="required-after:minerva@[1.0.13,);"
 				+ "after:botania", 
-		acceptedMinecraftVersions="[1.12,1.13)")
+		acceptedMinecraftVersions="[1.12,1.13)",
+		certificateFingerprint = Reference.FINGERPRINT)
 public class ExtraAlchemy {
 
 	public static TabExtraAlchemy TAB = new TabExtraAlchemy();
