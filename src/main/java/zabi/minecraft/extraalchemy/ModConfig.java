@@ -46,6 +46,13 @@ public class ModConfig {
 		public boolean log_potion_types = false;
 		@Config.Comment("Set to false to disable the 10%XP increase for the potion of learning to prevent XP showers-like mechanic from giving infinite XP")
 		public boolean learningBoostsXP = true;
+		@Config.Comment("Set to false to remove the rings from the mod")
+		public boolean enablePotionRings = true;
+		@Config.Comment("Set to false to stop the ring from working as a bauble, and have them apply the effect from the inventory")
+		public boolean enableBaubleInteraction = true;
+		@Config.Comment("The amount of XP a ring should drain every time the effect refreshes (approx. every 9 seconds). The effective amount will increase exponentially with the potion level")
+		public int ringXpConsumption = 10;
+		
 	}
 	
 	public static class Client {

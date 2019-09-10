@@ -25,6 +25,7 @@ import zabi.minecraft.extraalchemy.capability.MagnetismStatus;
 import zabi.minecraft.extraalchemy.capability.RingCharge;
 import zabi.minecraft.extraalchemy.gui.GuiHandler;
 import zabi.minecraft.extraalchemy.integration.BotaniaHandler;
+import zabi.minecraft.extraalchemy.items.ItemPotionRing;
 import zabi.minecraft.extraalchemy.items.TabExtraAlchemy;
 import zabi.minecraft.extraalchemy.lib.Log;
 import zabi.minecraft.extraalchemy.lib.Reference;
@@ -140,17 +141,17 @@ public class ExtraAlchemy {
 					ItemStack is = imcMessage.getItemStackValue();
 					List<PotionEffect> listaEffetti = PotionUtils.getEffectsFromStack(is);
 					if (listaEffetti.isEmpty()) {
-						Log.i(imcMessage.getSender()+" tried to blacklist a potion, but the itemstack has no effects");
+						Log.e(imcMessage.getSender()+" tried to blacklist a potion, but the itemstack has no effects");
 						continue;
 					}
 					if (listaEffetti.size()>1) {
-						Log.i(imcMessage.getSender()+" tried to blacklist a potion, but the itemstack has more than one effect");
+						Log.e(imcMessage.getSender()+" tried to blacklist a potion, but the itemstack has more than one effect");
 						continue;
 					}
 					StickyPotionRecipeHandler.potionBlacklist.add(listaEffetti.get(0).getPotion().getName());
 					Log.i(listaEffetti.get(0).getPotion().getName()+" has been added to blacklist");
 				} else {
-					Log.i(imcMessage.getSender()+" tried to blacklist a potion, but only String and Itemstack messages are supported");
+					Log.e(imcMessage.getSender()+" tried to blacklist a potion, but only String and Itemstack messages are supported");
 				}
 			} else
 			
@@ -159,7 +160,7 @@ public class ExtraAlchemy {
 					PotionCheatDeath.blacklist.add(imcMessage.getStringValue());
 					Log.i(imcMessage.getStringValue()+" has been added to damage blacklist");
 				} else {
-					Log.i(imcMessage.getSender()+" tried to blacklist a damage source, but it is not a string. Use damageSourceObj.damageType");
+					Log.e(imcMessage.getSender()+" tried to blacklist a damage source, but it is not a string. Use damageSourceObj.damageType");
 					continue;
 				}
 			} else
@@ -169,7 +170,27 @@ public class ExtraAlchemy {
 					PotionHurry.blacklist.add(imcMessage.getStringValue());
 					Log.i(imcMessage.getStringValue()+" has been added to hurry blacklist");
 				} else {
-					Log.i(imcMessage.getSender()+" tried to blacklist an ITicking entity, but it is not a string. Use TileEntityClass.getName()");
+					Log.e(imcMessage.getSender()+" tried to blacklist an ITicking entity, but it is not a string. Use TileEntityClass.getName()");
+					continue;
+				}
+			}
+			
+			if (imcMessage.key.equalsIgnoreCase("add-ring")) {
+				if (imcMessage.isStringMessage()) {
+					ItemPotionRing.addToWhitelist(imcMessage.getStringValue());
+					Log.i(imcMessage.getStringValue()+" has been added as a valid potion ring. This might not be effective if it holds more than 1 effect or if the effect doesn't exist");
+				} else {
+					Log.e(imcMessage.getSender()+": potion ring must be a STRING message of the PotionType registry name");
+					continue;
+				}
+			}
+			
+			if (imcMessage.key.equalsIgnoreCase("remove-ring")) {
+				if (imcMessage.isStringMessage()) {
+					ItemPotionRing.removeFromWhitelist(imcMessage.getStringValue());
+					Log.i(imcMessage.getStringValue()+" has been removed from valid potion rings");
+				} else {
+					Log.e(imcMessage.getSender()+": potion ring must be a STRING message of the PotionType registry name");
 					continue;
 				}
 			}

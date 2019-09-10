@@ -27,6 +27,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import zabi.minecraft.extraalchemy.ExtraAlchemy;
 import zabi.minecraft.extraalchemy.ModConfig;
+import zabi.minecraft.extraalchemy.items.ItemPotionRing;
 import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.lib.Log;
 import zabi.minecraft.extraalchemy.lib.Reference;
@@ -93,6 +94,17 @@ public class Recipes {
 					'V', Items.GLASS_BOTTLE, 
 					'W', "chestWood", 
 					'L', "leather");
+		}
+		
+		if (ModConfig.options.enablePotionRings) {
+			GameRegistry.addShapedRecipe(new ResourceLocation(Reference.MID, "empty_ring"), null, new ItemStack(ModItems.empty_ring), 
+					"NIN", "IBI", "NIN",
+					'I', Items.GOLD_INGOT,
+					'N', Items.GOLD_NUGGET,
+					'B', Items.GLASS_BOTTLE
+			);
+			
+			ItemPotionRing.addRecipes();
 		}
 		
 	}

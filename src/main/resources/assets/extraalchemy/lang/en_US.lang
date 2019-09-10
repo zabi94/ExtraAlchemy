@@ -236,6 +236,10 @@ item.vial.rightclick=Right click to fill with a splash potion from your inventor
 item.potion_bag=Alchemy Bag
 item.potion_bag.charges=%1$d Potion(s) available inside
 
+item.potion_ring_ea.name=Ring of %s %s
+item.potion_ring_ea.uncraftable.name=Uncraftable Ring
+item.ea.empty_ring.name=Empty Potion Ring
+
 itemGroup.extraalchemy=Extra Alchemy
 tooltip.credit=Effect added by %1$s
 tooltip.credit.uncertain=Effect maybe added by %1$s

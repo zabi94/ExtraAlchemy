@@ -19,6 +19,8 @@ public class ModItems {
 	public static final Item vial_break = null;
 	public static final Item potion_bag = null;
 	public static final Item modified_potion = null;
+	public static final Item potion_ring = null;
+	public static final Item empty_ring = null;
 	
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
@@ -27,7 +29,8 @@ public class ModItems {
 		ExtraAlchemy.proxy.registerItemModel(potion_bag);
 		ExtraAlchemy.proxy.registerItemModel(vial_break);
 		ExtraAlchemy.proxy.registerItemModel(breakable_potion);
-		
+		ExtraAlchemy.proxy.registerItemModel(potion_ring);
+		ExtraAlchemy.proxy.registerItemModel(empty_ring);
 	}
 	
 	@SubscribeEvent
@@ -37,6 +40,8 @@ public class ModItems {
 		reg.register(new ItemVial());
 		reg.register(new ItemPotionBag());
 		reg.register(new ItemModifiedPotion());
+		reg.register(new ItemPotionRing());
+		reg.register(new ItemEmptyRing());
 	}
 	
 }

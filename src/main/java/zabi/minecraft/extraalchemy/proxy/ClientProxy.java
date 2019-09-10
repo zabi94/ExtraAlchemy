@@ -48,7 +48,7 @@ public class ClientProxy extends Proxy {
 			public int colorMultiplier(ItemStack stack, int tintIndex) {
 				return tintIndex == 0 ? PotionUtils.getPotionColorFromEffectList(PotionUtils.getEffectsFromStack(stack)) : -1;
 			}
-		}, new Item[] {ModItems.breakable_potion, ModItems.modified_potion});
+		}, new Item[] {ModItems.breakable_potion, ModItems.modified_potion, ModItems.potion_ring});
 
 	}
 	

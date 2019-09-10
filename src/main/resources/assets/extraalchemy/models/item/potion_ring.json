@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "extraalchemy:items/ring_gem",
+        "layer1": "extraalchemy:items/ring_body"
+    }
+}

@@ -45,6 +45,7 @@ minecraft {
 
 dependencies {
     compile "minerva-library:minerva:library:${minerva_vers}"
+    compile "baubles:Baubles:1.12:${baubles_version}"
   	deobfCompile "mezz.jei:jei_${mc_vers}:${jei_vers}:api"
   	runtime "mezz.jei:jei_${mc_vers}:${jei_vers}"
 }
