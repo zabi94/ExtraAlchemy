@@ -25,6 +25,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.common.crafting.IngredientNBT;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -237,7 +238,7 @@ public class ItemPotionRing extends Item implements IBauble {
 				new ResourceLocation(Reference.MID, pt.getRegistryName().toString().replace(':', '_')),
 				null, 
 				result, 
-				Ingredient.fromStacks(potion),
+				new IngredientNBT(potion) {},
 				Ingredient.fromItem(ModItems.empty_ring)
 		);
 	}
