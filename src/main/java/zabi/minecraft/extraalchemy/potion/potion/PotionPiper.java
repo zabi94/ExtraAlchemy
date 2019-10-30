@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.pathfinding.PathNavigateGround;
 import zabi.minecraft.extraalchemy.entity.AIFollowPiper;
 import zabi.minecraft.extraalchemy.potion.PotionBase;
 
@@ -34,8 +35,8 @@ public class PotionPiper extends PotionBase {
 	private void applyAI(EntityLivingBase e) {
 		if (e instanceof EntityPlayer && ((EntityPlayer)e).isSpectator()) return;
 		if (e instanceof EntityPlayer && !e.getEntityWorld().isRemote) {
-			e.getEntityWorld().getEntitiesWithinAABB(EntityAnimal.class, e.getEntityBoundingBox().expand(10, 2, 10)).parallelStream().forEach(a -> {
-				if (a.tasks.taskEntries.stream().noneMatch(ett -> ett.action instanceof AIFollowPiper)) a.tasks.addTask(3, new AIFollowPiper(a));
+			e.getEntityWorld().getEntitiesWithinAABB(EntityAnimal.class, e.getEntityBoundingBox().expand(10, 2, 10)).stream().forEach(a -> {
+				if (a.getNavigator() instanceof PathNavigateGround && a.tasks.taskEntries.stream().noneMatch(ett -> ett.action instanceof AIFollowPiper)) a.tasks.addTask(3, new AIFollowPiper(a));
 			});
 		}
 	}
