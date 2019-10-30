@@ -50,9 +50,10 @@ public class ModConfig {
 		public boolean enablePotionRings = true;
 		@Config.Comment("Set to false to stop the ring from working as a bauble, and have them apply the effect from the inventory")
 		public boolean enableBaubleInteraction = true;
-		@Config.Comment("The amount of XP a ring should drain every time the effect refreshes (approx. every 9 seconds). The effective amount will increase exponentially with the potion level")
-		public int ringXpConsumption = 10;
-		
+		@Config.Comment("The amount of XP a level 1 ring should drain when the effect charges run out.")
+		public int ringXpConsumptionFirstLevel = 2;
+		@Config.Comment("The amount of XP a level 1 ring should drain when the effect charges run out.")
+		public int ringXpConsumptionSecondLevel = 3;
 	}
 	
 	public static class Client {

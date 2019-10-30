@@ -10,10 +10,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import zabi.minecraft.extraalchemy.capability.MagnetismStatus;
 import zabi.minecraft.extraalchemy.integration.BotaniaHandler;
 import zabi.minecraft.extraalchemy.lib.Reference;
+import zabi.minecraft.extraalchemy.potion.NoncontinuousEffect;
 import zabi.minecraft.extraalchemy.potion.PotionBase;
 import zabi.minecraft.extraalchemy.potion.PotionReference;
 
-public class PotionMagnetism extends PotionBase {
+public class PotionMagnetism extends PotionBase implements NoncontinuousEffect {
 	
 	public PotionMagnetism(boolean isBadEffectIn, int liquidColorIn) {
 		super(isBadEffectIn, liquidColorIn, "magnetism");
@@ -74,5 +75,10 @@ public class PotionMagnetism extends PotionBase {
 			if (item.getTags().contains(Reference.MID+":NoPickup") && item.ticksExisted<(DELAY_TICKS)) return true;
 			return false;
 		}
+	}
+
+	@Override
+	public boolean isEffectActive(EntityLivingBase player) {
+		return player.getCapability(MagnetismStatus.CAPABILITY, null).magnetActive;
 	}
 }

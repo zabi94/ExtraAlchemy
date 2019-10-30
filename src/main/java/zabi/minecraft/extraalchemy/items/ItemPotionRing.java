@@ -16,6 +16,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
@@ -37,6 +38,7 @@ import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.capability.RingCharge;
 import zabi.minecraft.extraalchemy.lib.Reference;
 import zabi.minecraft.extraalchemy.lib.Utils;
+import zabi.minecraft.extraalchemy.potion.NoncontinuousEffect;
 
 @Optional.Interface(modid = "baubles", iface = "baubles.api.IBauble")
 public class ItemPotionRing extends Item implements IBauble {
@@ -176,9 +178,11 @@ public class ItemPotionRing extends Item implements IBauble {
 		PotionType type = PotionUtils.getPotionFromItem(stack);
 		for (PotionEffect pe: type.getEffects()) {
 			int lvl = pe.getAmplifier() + 1;
-			int cost = (int) Math.pow(ModConfig.options.ringXpConsumption, lvl);
-			if (drainXp(p, cost)) {
-				p.addPotionEffect(new PotionEffect(pe.getPotion(), 120, lvl - 1, false, false));
+			if (lvl <= 2) {
+				int cost = lvl == 1?ModConfig.options.ringXpConsumptionFirstLevel:(lvl == 2?ModConfig.options.ringXpConsumptionSecondLevel:Integer.MAX_VALUE);
+				if (drainXp(p, cost, pe.getPotion())) {
+					p.addPotionEffect(new PotionEffect(pe.getPotion(), 120, lvl - 1, false, false));
+				}
 			}
 		}
 	}
@@ -187,9 +191,12 @@ public class ItemPotionRing extends Item implements IBauble {
 		return p.ticksExisted % 100 == 0;
 	}
 
-	private boolean drainXp(EntityPlayer p, int amount) {
+	private boolean drainXp(EntityPlayer p, int amount, Potion potion) {
 		
 		if (p.isCreative()) return true;
+		if (potion instanceof NoncontinuousEffect && !((NoncontinuousEffect) potion).isEffectActive(p)) {
+			return true;
+		}
 		
 		RingCharge rc = p.getCapability(RingCharge.CAPABILITY, null);
 		
