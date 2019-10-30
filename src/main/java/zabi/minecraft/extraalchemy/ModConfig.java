@@ -54,6 +54,12 @@ public class ModConfig {
 		public int ringXpConsumptionFirstLevel = 2;
 		@Config.Comment("The amount of XP a level 1 ring should drain when the effect charges run out.")
 		public int ringXpConsumptionSecondLevel = 3;
+		@Config.RangeDouble(min = 0, max = 1)
+		@Config.Comment("The chance of a head dropping for a non-empowered potion of beheading (no glowstone added)")
+		public double beheadingChanceLower = 0.5;
+		@Config.RangeDouble(min = 0, max = 1)
+		@Config.Comment("The chance of a head dropping for an empowered potion of beheading (higher levels of the potion)")
+		public double beheadingChanceHigher = 1;
 	}
 	
 	public static class Client {

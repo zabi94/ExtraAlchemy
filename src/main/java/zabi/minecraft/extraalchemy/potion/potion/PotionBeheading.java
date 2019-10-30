@@ -15,6 +15,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.potion.PotionBase;
 import zabi.minecraft.extraalchemy.potion.PotionReference;
 
@@ -37,7 +38,7 @@ public class PotionBeheading extends PotionBase {
 			if (evt.getEntityLiving().getEntityWorld().isRemote) return;
 			PotionEffect pe = evt.getEntityLiving().getActivePotionEffect(PotionReference.INSTANCE.BEHEADING); 
 			if (pe!=null) {
-				if (pe.getAmplifier() > 0 || Math.random() > 0.7) {
+				if (rollChance(pe.getAmplifier())) {
 					ItemStack stack = getHead(evt.getEntityLiving());
 					if (!stack.isEmpty()) {
 
@@ -53,6 +54,12 @@ public class PotionBeheading extends PotionBase {
 					}
 				}
 			}
+		}
+
+		private boolean rollChance(int amplifier) {
+			double roll = Math.random();
+			double chance = (amplifier == 0 ? ModConfig.options.beheadingChanceLower : ModConfig.options.beheadingChanceHigher);
+			return roll < chance;
 		}
 
 		private ItemStack getHead(EntityLivingBase entity) {
