@@ -34,7 +34,7 @@ public class BrewingStandFire {
 			try {
 				ArrayList<TileEntity> allTiles = new ArrayList<TileEntity>();
 				allTiles.addAll(evt.world.loadedTileEntityList);
-				allTiles.parallelStream()
+				allTiles.stream()
 					.filter(te -> (te instanceof TileEntityBrewingStand))
 					.filter(te -> !te.isInvalid())
 					.filter(te -> isHeatSource(te.getPos().down(), te.getWorld(), true))
