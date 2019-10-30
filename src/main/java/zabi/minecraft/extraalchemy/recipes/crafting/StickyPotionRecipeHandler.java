@@ -41,10 +41,12 @@ public class StickyPotionRecipeHandler extends IForgeRegistryEntry.Impl<IRecipe>
 					if (inv.getStackInSlot(eSlot).getItem().equals(ModItems.modified_potion) || inv.getStackInSlot(eSlot).getItem().equals(Items.POTIONITEM) || inv.getStackInSlot(eSlot).getItem().equals(ModItems.breakable_potion)) {
 						List<PotionEffect> stackEffects = PotionUtils.getEffectsFromStack(inv.getStackInSlot(eSlot));
 						if (firstEffectFound==null) {
-							if (stackEffects.get(stackEffects.size()-1).getPotion().isInstant()) return false;
-							String name = stackEffects.get(stackEffects.size()-1).getPotion().getName();
+							if (stackEffects.size() != 1) return false;
+							PotionEffect p = stackEffects.get(0);
+							if (p.getPotion().isInstant()) return false;
+							String name = p.getPotion().getName();
 							if (potionBlacklist.contains(name)) return false;
-							firstEffectFound = stackEffects.get(stackEffects.size()-1);
+							firstEffectFound = p;
 							firstItemFound = inv.getStackInSlot(eSlot).getItem();
 							counter++;
 							continue;
