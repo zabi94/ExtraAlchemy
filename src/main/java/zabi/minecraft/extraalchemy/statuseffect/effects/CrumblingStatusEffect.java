@@ -39,7 +39,7 @@ public class CrumblingStatusEffect extends ModStatusEffect {
 				}
 			}
 			if (blocks.size() > 0) {
-				BlockPos r = blocks.get(entity.getRand().nextInt(blocks.size()));
+				BlockPos r = blocks.get(entity.getRandom().nextInt(blocks.size()));
 				entity.world.breakBlock(r, true);
 			}
 		}

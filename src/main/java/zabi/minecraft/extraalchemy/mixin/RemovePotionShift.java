@@ -10,7 +10,7 @@ import net.minecraft.client.gui.screen.ingame.AbstractContainerScreen;
 import net.minecraft.client.gui.screen.ingame.AbstractInventoryScreen;
 import net.minecraft.container.Container;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.text.Text;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.utils.Log;
 
@@ -19,11 +19,11 @@ public abstract class RemovePotionShift<T extends Container> extends AbstractCon
 
 	@Shadow protected boolean offsetGuiForEffects;
 	
-	public RemovePotionShift(T container_1, PlayerInventory playerInventory_1, TextComponent textComponent_1) {
+	public RemovePotionShift(T container_1, PlayerInventory playerInventory_1, Text textComponent_1) {
 		super(container_1, playerInventory_1, textComponent_1);
 	}
 	
-	@Inject(method = "method_2476", at = @At("HEAD"), cancellable = true)
+	@Inject(method = "applyStatusEffectOffset", at = @At("HEAD"), cancellable = true)
 	public void stopShift(CallbackInfo ci) {
 		if (ModConfig.INSTANCE.removeInventoryPotionShift) {
 			ci.cancel();

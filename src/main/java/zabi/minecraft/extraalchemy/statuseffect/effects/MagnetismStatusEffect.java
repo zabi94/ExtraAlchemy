@@ -16,13 +16,13 @@ public class MagnetismStatusEffect extends ModStatusEffect {
 	public void applyUpdateEffect(LivingEntity entity, int level) {
 		if (!entity.world.isClient) {
 			if (entity instanceof PlayerEntity) {
-				entity.world.getEntities(ItemEntity.class, entity.getBoundingBox().expand((level + 1) * 3))
+				entity.world.getEntities(ItemEntity.class, entity.getBoundingBox().expand((level + 1) * 3), null)
 				.stream()
 				.map(e -> (ItemEntity) e)
 				.filter(e -> e.cannotPickup() == entity.isSneaking())
 				.forEach(e -> e.onPlayerCollision((PlayerEntity) entity));
 			} else {
-				entity.removePotionEffect(this);
+				entity.removeStatusEffect(this);
 			}
 		}
 	}
