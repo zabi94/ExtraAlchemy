@@ -1,0 +1,254 @@
+potion.effect.dislocation=Зелье дислокации
+lingering_potion.effect.dislocation=Туманное зелье дислокации
+splash_potion.effect.dislocation=Взрывное зелье дислокации
+tipped_arrow.effect.dislocation=Стрела дислокации
+effect.dislocation=Дислокация
+funny.effect.dislocation=Зелье Шрёдингера
+description.effect.dislocation=Телепортирует игрока в случайное место неподалёку
+
+potion.effect.dispel=Зелье рассеивания зачарований
+lingering_potion.effect.dispel=Туманное зелье рассеивания зачарований
+splash_potion.effect.dispel=Взрывное зелье рассеивания зачарований
+tipped_arrow.effect.dispel=Стрела рассеивания зачарований
+effect.dispel=Рассеивание зачарований
+funny.effect.dispel=Работа Торвальда
+description.effect.dispel=Существо, поражённое этим зельем, имеет небольшой шанс потерять уровни зачарования у своих предметов
+
+potion.effect.piper=Зелье волынщика
+lingering_potion.effect.piper=Туманное зелье волынщика
+splash_potion.effect.piper=Взрывное зелье волынщика
+tipped_arrow.effect.piper=Стрела волынщика
+effect.piper=Очаровывание
+funny.effect.piper=Мастер-щенок9000
+description.effect.piper=Приманивает к вам животных, как если бы вы держали их любимую еду
+
+potion.effect.beheading=Зелье обезглавливания
+lingering_potion.effect.beheading=Туманное зелье обезглавливания
+splash_potion.effect.beheading=Взрывное зелье обезглавливания
+tipped_arrow.effect.beheading=Стрела обезглавливания
+effect.beheading=Обезглавливание
+funny.effect.beheading=Танцуй, танцуй, танцуй, пока не умрёшь
+description.effect.beheading=Если существо с обезглавливанием умирает, его шансы уронить череп повышаются, но череп чрезвычайно хрупок и очень быстро исчезнет, если его оставить на земле
+
+potion.effect.fuse=Зелье фитиля
+lingering_potion.effect.fuse=Туманное зелье фитиля
+splash_potion.effect.fuse=Взрывное зелье фитиля
+tipped_arrow.effect.fuse=Стрела фитиля
+effect.fuse=Фитиль
+funny.effect.fuse=Всего-лишь аллюзия на крипера
+description.effect.fuse=Когда время действия эффекта подходит к концу, существо взрывается
+
+potion.effect.learning=Зелье обучения
+lingering_potion.effect.learning=Туманное зелье обучения
+splash_potion.effect.learning=Взрывное зелье обучения
+tipped_arrow.effect.learning=Стрела обучения
+effect.learning=Обучение
+funny.effect.learning=Эврика!
+description.effect.learning=Магнит для сфер с опытом. Также повышает получение опыта на 1/10
+
+potion.effect.sinking=Зелье утопления
+lingering_potion.effect.sinking=Туманное зелье утопления
+splash_potion.effect.sinking=Взрывное зелье утопления
+tipped_arrow.effect.sinking=Стрела утопления
+effect.sinking=Утопление
+funny.effect.sinking=В поисках немо
+description.effect.sinking=Утаскивает существо под воду
+
+potion.effect.recall=Зелье отзывания
+lingering_potion.effect.recall=Туманное зелье отзывания
+splash_potion.effect.recall=Взрывное зелье отзывания
+tipped_arrow.effect.recall=Стрела отзывания
+effect.recall=Отзывание
+funny.effect.recall=Зачем я снова вошёл в эту комнату?
+description.effect.recall=Когда существо получает этот эффект, позиция существа сохраняется. Когда время действия эффекта подходит к концу, то существо телепортируется назад. Чтобы это также работало через измерения, требуется II уровень эффекта
+
+potion.effect.freezing=Зелье заморозки
+lingering_potion.effect.freezing=Туманное зелье заморозки
+splash_potion.effect.freezing=Взрывное зелье заморозки
+tipped_arrow.effect.freezing=Стрела заморозки
+effect.freezing=Заморозка
+funny.effect.freezing=Прекрати, Мэй!
+description.effect.freezing=Создаёт ледяные блоки вокруг существа. Эти блоки не будут создавать воду и не заменят существующе блоки
+
+potion.effect.combustion=Зелье сгорания
+lingering_potion.effect.combustion=Туманное зелье сгорания
+splash_potion.effect.combustion=Взрывное зелье сгорания
+tipped_arrow.effect.combustion=Стрела сгорания
+effect.combustion=Сгорание
+funny.effect.combustion=Гори детка, гори!
+description.effect.combustion=Поджигает существо. Огонь появляется вокруг него. Предметы в инвенторе игрока приготавливаются
+
+potion.effect.detection=Зелье обнаружения
+lingering_potion.effect.detection=Туманное зелье обнаружения
+splash_potion.effect.detection=Взрывное зелье обнаружения
+tipped_arrow.effect.detection=Стрела обнаружения
+effect.detection=Обнаружение
+funny.effect.detection=Этот каджит больше не крадётся...
+description.effect.detection=Существа вокруг вас начинаются светиться
+
+potion.effect.magnetism=Зелье магнетизма
+lingering_potion.effect.magnetism=Туманное зелье магнетизма
+splash_potion.effect.magnetism=Взрывное зелье магнетизма
+tipped_arrow.effect.magnetism=Стрела магнетизма
+effect.magnetism=Магнетизм
+funny.effect.magnetism=Все мои магниты принадлежат мне!
+description.effect.magnetism=Притягивает предметы к игроку. Уровень II также убирает задержку подбора
+
+potion.effect.pacifism=Зелье пацифизма
+lingering_potion.effect.pacifism=Туманное зелье пацифизма
+splash_potion.effect.pacifism=Взрывное зелье пацифизма
+tipped_arrow.effect.pacifism=Стрела пацифизма
+effect.pacifism=Пацифизм
+funny.effect.pacifism=Остынь, чувак!
+description.effect.pacifism=Когда существо атакует существо с эффектом пацифизма, атакующий замедляется
+
+potion.effect.crumbling=Зелье разрушения
+lingering_potion.effect.crumbling=Туманное зелье разрушения
+splash_potion.effect.crumbling=Взрывное зелье разрушения
+tipped_arrow.effect.crumbling=Стрела разрушения
+effect.crumbling=Разрушение
+funny.effect.crumbling=Грязные Лапы
+description.effect.crumbling=Разъедает землю под вашими ногами. Только некоторые материалы будут уничтожены
+
+potion.effect.return=Зелье возврата
+lingering_potion.effect.return=Туманное зелье возврата
+splash_potion.effect.return=Взрывное зелье возврата
+tipped_arrow.effect.return=Стрела возврата
+effect.return=Возврат
+funny.effect.return=Иди к себе в комнату, СЕЙЧАС ЖЕ!
+description.effect.return=Телепортирует вас назад к вашей кровати. Требуется доступ к свободной, доступной кровати
+
+potion.effect.concentration=Зелье концентрации
+lingering_potion.effect.concentration=Туманное зелье концентрации
+splash_potion.effect.concentration=Взрывное зелье концентрации
+tipped_arrow.effect.concentration=Стрела концентрации
+effect.concentration=Концетрация
+funny.effect.concentration=Теперь я ясно вижу, что вихрь исчез
+description.effect.concentration=Убирает "крутящиеся" частицы любого зелья
+
+potion.effect.photosynthesis=Зелье фотосинтеза
+lingering_potion.effect.photosynthesis=Туманное зелье фотосинтеза
+splash_potion.effect.photosynthesis=Взрывное зелье фотосинтеза
+tipped_arrow.effect.photosynthesis=Стрела фотосинтеза
+effect.photosynthesis=Фотосинтез
+funny.effect.photosynthesis=Потому что дыхание - это вещь
+description.effect.photosynthesis=Восполняет голод и насыщение до тех пор, пока вы можете видеть дневной свет
+
+potion.effect.hurry=Зелье торопыги
+lingering_potion.effect.hurry=Туманное зелье торопыги
+splash_potion.effect.hurry=Взрывное зелье торопыги
+tipped_arrow.effect.hurry=Стрела торопыги
+effect.hurry=Торопыга
+funny.effect.hurry=Мы уже там?
+description.effect.hurry=Все процессы вокруг игрока протекают быстрее. Это вызывает дикий голод
+
+potion.effect.charged=Заряженное зелье
+lingering_potion.effect.charged=Туманное заряженное зелье
+splash_potion.effect.charged=Взрывное заряженное зелье
+tipped_arrow.effect.charged=Заряженная стрела
+effect.charged=Заряд
+funny.effect.charged=Это старт
+description.effect.charged=Используется для крафта "Заряженное зелье II"
+potion.effect.charged2=Заряженное зелье II
+lingering_potion.effect.charged2=Туманное заряженное зелье II
+splash_potion.effect.charged2=Взрывное заряженное зелье II
+tipped_arrow.effect.charged2=Заряженная стрела II
+effect.charged2=Заряд II
+funny.effect.charged2=Почти, но все ещё недостаточно
+description.effect.charged2=Используется для крафта еще более сильных зелий
+
+potion.effect.cheatDeath_quiescent=Зелье отсрочки смерти
+lingering_potion.effect.cheatDeath_quiescent=Туманное зелье отсрочки смерти
+splash_potion.effect.cheatDeath_quiescent=Взрывное зелье отсрочки смерти
+tipped_arrow.effect.cheatDeath_quiescent=Стрела отсрочки смерти
+effect.cheatDeath_quiescent=Отсрочка смерти
+funny.effect.cheatDeath_quiescent=Не сегодня!
+description.effect.cheatDeath_quiescent=Вы не можете умереть, пока у вас есть этот эффект зелья. При первой "смерти" этот эффект становится активным. Активный эффект по-прежнему будет защищать вас от смерти, но чем ближе вы к концу его действия, тем выше вероятность мгновенной случайной смерти и потери всех ваших предметов. Наличие как этого, так и активного эффекта сводит на нет оба.
+effect.cheatDeath_active=Часы смерти
+
+potion.effect.reincarnation=Зелье реинкарнации
+lingering_potion.effect.reincarnation=Туманное зелье реинкарнации
+splash_potion.effect.reincarnation=Взрывное зелье реинкарнации
+tipped_arrow.effect.reincarnation=Стрела реинкарнации
+effect.reincarnation=Реинкарнация
+funny.effect.reincarnation=А теперь посмотрим, что ждёт меня в следующей жизни
+description.effect.reincarnation=Используется, чтобы сохранить эффекты зелий после смерти. Уровень II также сохраняет этот эффект и все остальные положительные эффекты. Уровень I не сохраняет этот эффект
+
+potion.effect.gravity=Зелье гравитации
+lingering_potion.effect.gravity=Туманное зелье гравитации
+splash_potion.effect.gravity=Взрывное зелье гравитации
+tipped_arrow.effect.gravity=Стрела гравитации
+effect.gravity=Гравитация
+funny.effect.gravity=G*m1*m2/(r*r)
+description.effect.gravity=Воздушные существа притягиваются вниз
+
+potion.effect.leech=Зелье пиявки
+lingering_potion.effect.leech=Туманное зелье пиявки
+splash_potion.effect.leech=Взрывное зелье пиявки
+tipped_arrow.effect.leech=Стрела пиявки
+effect.leech=Пиявка
+funny.effect.leech=Пятна крови - это самое худшее
+description.effect.leech=Нанесение урона другими существам лечит атакующего
+
+potion.effect.sails=Зелье семи морей
+lingering_potion.effect.sails=Туманное зелье семи морей
+splash_potion.effect.sails=Взрывное зелье семи морей
+tipped_arrow.effect.sails=Стрела семи морей
+effect.sails=Навигация
+funny.effect.sails=Греби греби греби свою лодку
+description.effect.sails=Игроки могут управлять лодками быстрее
+
+potion.effect.pain=Зелье боли
+lingering_potion.effect.pain=Туманное зелье боли
+splash_potion.effect.pain=Взрывное зелье боли
+tipped_arrow.effect.pain=Стрела боли
+effect.pain=Боль
+funny.effect.pain=То, что не убивало вас... теперь будет
+description.effect.pain=Усиливает входящий урон
+
+potion.effect.push=Зелье отталкивания
+lingering_potion.effect.push=Туманное зелье отталкивания
+splash_potion.effect.push=Взрывное зелье отталкивания
+tipped_arrow.effect.push=Стрела отталкивания
+effect.push=Отталкивание
+funny.effect.push=Само понятие личного пространства
+description.effect.push=Отталкивает существ от цели
+
+potion.effect.pull=Зелье тяги
+lingering_potion.effect.pull=Туманное зелье тяги
+splash_potion.effect.pull=Взрывное зелье тяги
+tipped_arrow.effect.pull=Стрела тяги
+effect.pull=Тяга
+funny.effect.pull=Это гравитация
+description.effect.pull=Притягивает существ к цели
+
+recipe.sticky.description=Создание 2-х и более питьевых или пробирчатых зелий в сетке крафта 3x3 со сгустком слизи в центре будет суммировать их продолжительность.
+recipe.split.vial.description=Если вы окружите пробирку с зельем пустой пробиркой, вы сможете разделить её содержимое на несколько более слабых зелий. Полученный эффект должен длиться более 5 секунд
+recipe.split.drink.description=Если вы окружите питьевое зелье пустыми пузырьками, вы сможете разделить их содержимое на несколько более слабых зелий. Полученный эффект должен длиться более 5 секунд
+
+item.byproduct=Take me to split (%d секунд)
+tile.encased_ice.name=Лёд (Плавится)
+
+item.breakable=(Пробирка)
+item.emptyvial=Пустая пробирка
+item.vial.rightclick=Нажмите ПКМ, чтобы заполнить пробирку взрывным зельем из вашего инвентаря или объедините их в сетке крафта
+
+item.potion_bag=Сумка алхимика
+item.potion_bag.charges=%1$d Зелий доступно внутри
+
+item.potion_ring_ea.name=Кольцо - %s %s
+item.potion_ring_ea.uncraftable.name=Несоздаваемое кольцо
+item.ea.empty_ring.name=Пустое зельевое кольцо
+
+itemGroup.extraalchemy=Extra Alchemy
+tooltip.credit=Эффект добавлен %1$s
+tooltip.credit.uncertain=Эффект возможно добавлен %1$s
+tooltip.loaded.credit=Предмет добавлен Extra Alchemy
+tooltip.togglef3.F3H=[Нажмите F3+H для описания]
+tooltip.togglef3.SHIFT=[Держите SHIFT для описания]
+tooltip.togglef3.ALT=[Держите ALT для описания]
+tooltip.togglef3.CTRL=[Держите CTRL для описания]
+death.attack.death_revenge.player=Смерть забрала своё у %1$s
+extraalchemy.config.options=Основные настройки
+extraalchemy.config.potions=Включить или отключить зелья
+extraalchemy.config.client=Визуальные настройки
