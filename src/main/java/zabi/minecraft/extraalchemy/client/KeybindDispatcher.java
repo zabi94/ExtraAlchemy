@@ -11,7 +11,6 @@ import net.minecraft.util.Identifier;
 import zabi.minecraft.extraalchemy.client.network.ToggleMagnetismPacket;
 import zabi.minecraft.extraalchemy.mixin.PlayerProperties;
 import zabi.minecraft.extraalchemy.utils.LibMod;
-import zabi.minecraft.extraalchemy.utils.Log;
 
 public class KeybindDispatcher {
 	
@@ -27,7 +26,6 @@ public class KeybindDispatcher {
 		ClientTickCallback.EVENT.register(evt -> {
 			if (MAGNETISM_TOGGLE.isPressed()) {
 				if (!wasMagnetismPressedLastTick) {
-					Log.i("Magnet toggled");
 					PlayerProperties pp = (PlayerProperties) (Object) MinecraftClient.getInstance().player;
 					boolean newMagnetismStatus = !pp.isMagnetismEnabled();
 					pp.setMagnetismEnabled(newMagnetismStatus);

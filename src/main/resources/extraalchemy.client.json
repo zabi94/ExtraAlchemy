@@ -3,7 +3,8 @@
   "package": "zabi.minecraft.extraalchemy.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "RemovePotionShift"
+    "RemovePotionShift",
+    "MixinStatusEffectSpriteManager"
   ],
   "injectors": {
     "defaultRequire": 1

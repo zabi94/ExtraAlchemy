@@ -2,6 +2,7 @@ package zabi.minecraft.extraalchemy.statuseffect;
 
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectType;
+import zabi.minecraft.extraalchemy.utils.Log;
 
 public class ModStatusEffect extends StatusEffect {
 	
@@ -28,7 +29,8 @@ public class ModStatusEffect extends StatusEffect {
 
 	protected boolean canApplyEffect(int remainingTicks, int level) {
 		if (!isInstant()) {
-			throw new IllegalStateException("Non instant effects should override this method!");
+			Log.w("Non instant effects should override canApplyEffect!");
+			Thread.dumpStack();
 		}
 		return false;
 	}

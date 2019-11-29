@@ -2,6 +2,7 @@ package zabi.minecraft.extraalchemy.statuseffect;
 
 import java.lang.reflect.Field;
 
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -42,10 +43,21 @@ public class ModEffectRegistry {
 			}
 			int total = registered + disabled;
 			Log.i("Registered %d/%d potions, %d were disabled", registered, total, disabled);
+			Utils.register();
 		} catch (Exception e) {
 			Log.printAndPropagate(e);
 		}
 
+	}
+	
+	public static class Utils {
+		
+		public static StatusEffect magnetism_disabled = null;
+		
+		public static void register() {
+			magnetism_disabled = Registry.register(Registry.STATUS_EFFECT, new Identifier(LibMod.MOD_ID, "magnetism_disabled"), new ModStatusEffect(magnetism.getType(), magnetism.getColor(), magnetism.isInstant()).onRegister());
+			Log.i("Registered dummy effects");
+		}
 	}
 
 }
