@@ -12,7 +12,6 @@ import net.minecraft.container.Container;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import zabi.minecraft.extraalchemy.config.ModConfig;
-import zabi.minecraft.extraalchemy.utils.Log;
 
 @Mixin(AbstractInventoryScreen.class)
 public abstract class RemovePotionShift<T extends Container> extends AbstractContainerScreen<T> {
@@ -29,9 +28,6 @@ public abstract class RemovePotionShift<T extends Container> extends AbstractCon
 			ci.cancel();
 			this.left = (this.width - this.containerWidth) / 2;
 			this.offsetGuiForEffects = false;
-			Log.i("Stopped shift");
-		} else {
-			Log.i("passed shift");
 		}
 	}
 	
