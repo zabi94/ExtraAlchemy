@@ -2,16 +2,41 @@ package zabi.minecraft.extraalchemy.client;
 
 import net.fabricmc.fabric.api.client.keybinding.FabricKeyBinding;
 import net.fabricmc.fabric.api.client.keybinding.KeyBindingRegistry;
+import net.fabricmc.fabric.api.event.client.ClientTickCallback;
+import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.util.InputUtil.Type;
 import net.minecraft.util.Identifier;
+import zabi.minecraft.extraalchemy.client.network.ToggleMagnetismPacket;
+import zabi.minecraft.extraalchemy.mixin.PlayerProperties;
 import zabi.minecraft.extraalchemy.utils.LibMod;
+import zabi.minecraft.extraalchemy.utils.Log;
 
 public class KeybindDispatcher {
 	
 	public static final FabricKeyBinding MAGNETISM_TOGGLE = FabricKeyBinding.Builder.create(new Identifier(LibMod.MOD_ID, "magnetism_toggle"), Type.KEYSYM, InputUtil.fromName("key.keyboard.n").getKeyCode(), LibMod.MOD_NAME).build();
 	
-	public void init() {
+	private static boolean wasMagnetismPressedLastTick = false; 
+	
+	public static void initKeybinds() {
 		KeyBindingRegistry.INSTANCE.register(MAGNETISM_TOGGLE);
+	}
+	
+	public static void registerListeners() {
+		ClientTickCallback.EVENT.register(evt -> {
+			if (MAGNETISM_TOGGLE.isPressed()) {
+				if (!wasMagnetismPressedLastTick) {
+					Log.i("Magnet toggled");
+					PlayerProperties pp = (PlayerProperties) (Object) MinecraftClient.getInstance().player;
+					boolean newMagnetismStatus = !pp.isMagnetismEnabled();
+					pp.setMagnetismEnabled(newMagnetismStatus);
+					ClientSidePacketRegistry.INSTANCE.sendToServer(ToggleMagnetismPacket.ID, ToggleMagnetismPacket.anew(newMagnetismStatus));
+				}
+				wasMagnetismPressedLastTick = true;
+			} else {
+				wasMagnetismPressedLastTick = false;
+			}
+		});
 	}
 }

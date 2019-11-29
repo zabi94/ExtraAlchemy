@@ -3,13 +3,11 @@ package zabi.minecraft.extraalchemy.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.message.AbstractMessageFactory;
-import org.apache.logging.log4j.message.Message;
-import org.apache.logging.log4j.message.StringFormattedMessage;
 
 public class Log {
 	
-	private static final Logger logger = LogManager.getLogger(LibMod.MOD_NAME, new ModMessageFactory(LibMod.MOD_NAME));
+//	private static final Logger logger = LogManager.getLogger(LibMod.MOD_NAME, new ModMessageFactory(LibMod.MOD_NAME));
+	private static final Logger logger = LogManager.getLogger(LibMod.MOD_NAME);
 	private static boolean debug = "true".equals(System.getProperty("debug"));
 
 	public static void i(String s) {
@@ -83,30 +81,30 @@ public class Log {
 		
 	}
 	
-	private static class ModMessageFactory extends AbstractMessageFactory {
-
-		private static final long serialVersionUID = 4790631706836869571L;
-		
-		private String prefix = "";
-		
-		public ModMessageFactory(String modid) {
-			prefix = "[" + modid + "] ";
-		}
-
-		@Override
-		public Message newMessage(Object message) {
-			return newMessage(prefix + message.toString());
-		}
-
-		@Override
-		public Message newMessage(String message) {
-			return new StringFormattedMessage(prefix + message.toString());
-		}
-
-		@Override
-		public Message newMessage(String message, Object... params) {
-			return new StringFormattedMessage(prefix + message, params);
-		}
-
-	}
+//	private static class ModMessageFactory extends AbstractMessageFactory {
+//
+//		private static final long serialVersionUID = 4790631706836869571L;
+//		
+//		private String prefix = "";
+//		
+//		public ModMessageFactory(String modid) {
+//			prefix = "[" + modid + "] ";
+//		}
+//
+//		@Override
+//		public Message newMessage(Object message) {
+//			return newMessage(prefix + message.toString());
+//		}
+//
+//		@Override
+//		public Message newMessage(String message) {
+//			return new StringFormattedMessage(prefix + message.toString());
+//		}
+//
+//		@Override
+//		public Message newMessage(String message, Object... params) {
+//			return new StringFormattedMessage(prefix + message, params);
+//		}
+//
+//	}
 }

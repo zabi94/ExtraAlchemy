@@ -27,15 +27,20 @@
   "entrypoints": {
     "main": [
       "zabi.minecraft.extraalchemy.ExtraAlchemy"
+    ],
+    "client": [
+      "zabi.minecraft.extraalchemy.client.ClientDispatcher"
     ]
   },
   "mixins": [
     {
       "config": "extraalchemy.client.json",
       "environment": "client"
+    }, {
+      "config": "extraalchemy.common.json",
+      "environment": "*"
     }
   ],
-
   "requires": {
     "fabricloader": ">=0.4.0",
     "fabric": "*"
