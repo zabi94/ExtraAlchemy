@@ -3,7 +3,8 @@
   "package": "zabi.minecraft.extraalchemy.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "MixinPlayerEntity"
+    "MixinPlayerEntity", 
+    "MixinLivingEntity"
   ],
   "injectors": {
     "defaultRequire": 1

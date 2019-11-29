@@ -12,6 +12,7 @@ import zabi.minecraft.extraalchemy.statuseffect.effects.CrumblingStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.FuseStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.MagnetismStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.PhotosynthesisStatusEffect;
+import zabi.minecraft.extraalchemy.statuseffect.effects.RecallStatusEffect;
 import zabi.minecraft.extraalchemy.utils.LibMod;
 import zabi.minecraft.extraalchemy.utils.Log;
 
@@ -21,6 +22,7 @@ public class ModEffectRegistry {
 	public static ModStatusEffect photosynthesis = new PhotosynthesisStatusEffect(StatusEffectType.BENEFICIAL, 0x3cbd19, false);
 	public static ModStatusEffect crumbling = new CrumblingStatusEffect(StatusEffectType.NEUTRAL, 0x794044, false);
 	public static ModStatusEffect fuse = new FuseStatusEffect(StatusEffectType.HARMFUL, 0xcc3333, false);
+	public static ModStatusEffect recall = new RecallStatusEffect(StatusEffectType.BENEFICIAL, 0xFFF200, false);
 
 	public static void init() {
 

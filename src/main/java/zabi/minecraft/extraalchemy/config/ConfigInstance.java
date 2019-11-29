@@ -17,6 +17,7 @@ public class ConfigInstance {
 		public boolean photosynthesis = true;
 		public boolean crumbling = true;
 		public boolean fuse = true;
+		public boolean recall = true;
 		
 	}
 	
