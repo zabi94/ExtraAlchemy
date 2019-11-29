@@ -19,6 +19,7 @@ public class KeybindDispatcher {
 	private static boolean wasMagnetismPressedLastTick = false; 
 	
 	public static void initKeybinds() {
+		KeyBindingRegistry.INSTANCE.addCategory(LibMod.MOD_NAME);
 		KeyBindingRegistry.INSTANCE.register(MAGNETISM_TOGGLE);
 	}
 	
