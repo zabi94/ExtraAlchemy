@@ -4,7 +4,7 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectType;
 import net.minecraft.entity.player.PlayerEntity;
-import zabi.minecraft.extraalchemy.mixin.PlayerProperties;
+import zabi.minecraft.extraalchemy.entitydata.PlayerProperties;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class MagnetismStatusEffect extends ModStatusEffect {

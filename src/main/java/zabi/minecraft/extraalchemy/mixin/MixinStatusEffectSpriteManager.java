@@ -13,6 +13,7 @@ import net.minecraft.client.texture.TextureManager;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import zabi.minecraft.extraalchemy.entitydata.PlayerProperties;
 import zabi.minecraft.extraalchemy.statuseffect.ModEffectRegistry;
 
 @Mixin(StatusEffectSpriteManager.class)

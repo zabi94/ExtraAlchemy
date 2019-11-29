@@ -9,7 +9,7 @@ import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.util.InputUtil.Type;
 import net.minecraft.util.Identifier;
 import zabi.minecraft.extraalchemy.client.network.ToggleMagnetismPacket;
-import zabi.minecraft.extraalchemy.mixin.PlayerProperties;
+import zabi.minecraft.extraalchemy.entitydata.PlayerProperties;
 import zabi.minecraft.extraalchemy.utils.LibMod;
 
 public class KeybindDispatcher {

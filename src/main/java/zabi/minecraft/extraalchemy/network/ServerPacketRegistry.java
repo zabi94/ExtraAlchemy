@@ -2,7 +2,7 @@ package zabi.minecraft.extraalchemy.network;
 
 import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
 import zabi.minecraft.extraalchemy.client.network.ToggleMagnetismPacket;
-import zabi.minecraft.extraalchemy.mixin.PlayerProperties;
+import zabi.minecraft.extraalchemy.entitydata.PlayerProperties;
 import zabi.minecraft.extraalchemy.utils.Log;
 
 public class ServerPacketRegistry {

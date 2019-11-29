@@ -10,24 +10,39 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.World;
+import zabi.minecraft.extraalchemy.entitydata.DataTrackers;
+import zabi.minecraft.extraalchemy.entitydata.PlayerProperties;
 
 @Mixin(PlayerEntity.class)
-public abstract class MixinPlayerEntity extends LivingEntity {
+public abstract class MixinPlayerEntity extends LivingEntity implements PlayerProperties {
 
-	private boolean magnetismEnabled = true;
-	
 	protected MixinPlayerEntity(EntityType<? extends LivingEntity> type, World world) {
 		super(type, world);
 	}
 	
 	@Inject(at = @At("TAIL"), method = "readCustomDataFromTag")
 	public void readNbt(CompoundTag tag, CallbackInfo cb) {
-		magnetismEnabled = tag.getBoolean("magnetismEnabled");
+		dataTracker.set(DataTrackers.MAGNET_TRACKER, tag.getBoolean("magnetismEnabled"));
 	}
 	
 	@Inject(at = @At("TAIL"), method = "writeCustomDataToTag")
 	public void writeNbt(CompoundTag tag, CallbackInfo cb) {
-		tag.putBoolean("magnetismEnabled", magnetismEnabled);
+		tag.putBoolean("magnetismEnabled", dataTracker.get(DataTrackers.MAGNET_TRACKER));
+	}
+	
+	@Inject(at = @At("TAIL"), method = "initDataTracker")
+	public void initTracker(CallbackInfo cb) {
+		this.dataTracker.startTracking(DataTrackers.MAGNET_TRACKER, true);
+	}
+	
+	@Override
+	public boolean isMagnetismEnabled() {
+		return dataTracker.get(DataTrackers.MAGNET_TRACKER);
+	}
+	
+	@Override
+	public void setMagnetismEnabled(boolean magnetismActive) {
+		dataTracker.set(DataTrackers.MAGNET_TRACKER, magnetismActive);
 	}
 	
 }
