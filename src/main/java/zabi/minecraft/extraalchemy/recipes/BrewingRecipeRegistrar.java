@@ -9,7 +9,6 @@ import zabi.minecraft.extraalchemy.potion.ModPotion;
 import zabi.minecraft.extraalchemy.potion.ModPotionRegistry;
 import zabi.minecraft.extraalchemy.recipes.BrewingRecipeRegistrar.Registar;
 import zabi.minecraft.extraalchemy.utils.DelayedConsumer;
-import zabi.minecraft.extraalchemy.utils.Log;
 
 public class BrewingRecipeRegistrar extends DelayedConsumer<Registar> {
 
@@ -27,7 +26,6 @@ public class BrewingRecipeRegistrar extends DelayedConsumer<Registar> {
 	
 	private static void registerPotion(boolean active, ModPotion potion, Item ingredient, Potion base) {
 		if (active) {
-			Log.i("Registering potion recipe for " + potion.getName("IN"));
 			INSTANCE.consumeWhenReady(reg -> {
 				reg.register(base, ingredient, potion);
 				if (potion.getEmpowered() != null) {
