@@ -18,6 +18,7 @@ public class ConfigInstance {
 		public boolean crumbling = true;
 		public boolean fuse = true;
 		public boolean recall = true;
+		public boolean sails = true;
 		
 	}
 	
