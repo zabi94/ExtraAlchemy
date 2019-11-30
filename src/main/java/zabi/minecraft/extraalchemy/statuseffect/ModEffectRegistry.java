@@ -26,7 +26,7 @@ public class ModEffectRegistry {
 	public static ModStatusEffect recall = new RecallStatusEffect(StatusEffectType.BENEFICIAL, 0xFFF200, false);
 	public static ModStatusEffect sails = new SailsStatusEffect(StatusEffectType.BENEFICIAL, 0x9BD8FF, false);
 
-	public static void init() {
+	public static void registerAll() {
 
 		try {
 			int registered = 0;
@@ -46,7 +46,7 @@ public class ModEffectRegistry {
 				}
 			}
 			int total = registered + disabled;
-			Log.i("Registered %d/%d potions, %d were disabled", registered, total, disabled);
+			Log.i("Registered %d/%d status effects, %d were disabled", registered, total, disabled);
 			Utils.register();
 		} catch (Exception e) {
 			Log.printAndPropagate(e);
