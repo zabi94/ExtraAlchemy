@@ -22,6 +22,7 @@ public class BrewingRecipeRegistrar extends DelayedConsumer<Registar> {
 		registerPotion(ModConfig.INSTANCE.potions.recall, ModPotionRegistry.recall, Items.ENDER_EYE, Potions.MUNDANE); //Use charged potion here
 		registerPotion(ModConfig.INSTANCE.potions.sails, ModPotionRegistry.sails, Items.SALMON, Potions.AWKWARD);
 		registerPotion(ModConfig.INSTANCE.potions.returning, ModPotionRegistry.returning, Items.PRISMARINE_SHARD, Potions.AWKWARD);
+		registerPotion(ModConfig.INSTANCE.potions.learning, ModPotionRegistry.learning, Items.LAPIS_BLOCK, Potions.THICK);
 	}
 	
 	private static void registerPotion(boolean active, ModPotion potion, Item ingredient, Potion base) {

@@ -6,7 +6,8 @@
     "MixinPlayerEntity", 
     "MixinLivingEntity",
     "AccessorBoatEntity",
-    "MixinBrewRegistry"
+    "MixinBrewRegistry",
+    "AccessorExperienceOrbEntity"
   ],
   "injectors": {
     "defaultRequire": 1
