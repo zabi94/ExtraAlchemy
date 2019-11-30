@@ -1,0 +1,50 @@
+package zabi.minecraft.extraalchemy.recipes;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.Potions;
+import zabi.minecraft.extraalchemy.config.ModConfig;
+import zabi.minecraft.extraalchemy.potion.ModPotion;
+import zabi.minecraft.extraalchemy.potion.ModPotionRegistry;
+import zabi.minecraft.extraalchemy.recipes.BrewingRecipeRegistrar.Registar;
+import zabi.minecraft.extraalchemy.utils.DelayedConsumer;
+import zabi.minecraft.extraalchemy.utils.Log;
+
+public class BrewingRecipeRegistrar extends DelayedConsumer<Registar> {
+
+	private static final BrewingRecipeRegistrar INSTANCE = new BrewingRecipeRegistrar();
+	
+	public static void init() {
+		registerPotion(ModConfig.INSTANCE.potions.fuse, ModPotionRegistry.fuse, Items.FIREWORK_STAR, Potions.AWKWARD);
+		registerPotion(ModConfig.INSTANCE.potions.crumbling, ModPotionRegistry.crumbling, Items.DIRT, Potions.AWKWARD);
+		registerPotion(ModConfig.INSTANCE.potions.magnetism, ModPotionRegistry.magnetism, Items.IRON_INGOT, Potions.AWKWARD);
+		registerPotion(ModConfig.INSTANCE.potions.photosynthesis, ModPotionRegistry.photosynthesis, Items.BEETROOT_SEEDS, Potions.AWKWARD);
+		registerPotion(ModConfig.INSTANCE.potions.recall, ModPotionRegistry.recall, Items.ENDER_EYE, Potions.MUNDANE); //Use charged potion here
+		registerPotion(ModConfig.INSTANCE.potions.sails, ModPotionRegistry.sails, Items.SALMON, Potions.AWKWARD);
+	}
+	
+	private static void registerPotion(boolean active, ModPotion potion, Item ingredient, Potion base) {
+		if (active) {
+			Log.i("Registering potion recipe for " + potion.getName("IN"));
+			INSTANCE.consumeWhenReady(reg -> {
+				reg.register(base, ingredient, potion);
+				if (potion.getEmpowered() != null) {
+					reg.register(potion, Items.GLOWSTONE_DUST, potion.getEmpowered());
+				}
+				if (potion.getExtended() != null) {
+					reg.register(potion, Items.REDSTONE, potion.getExtended());
+				}
+			});
+		}
+	}
+	
+	public static void onKeyReady(Registar r) {
+		INSTANCE.keyReady(r);
+	}
+	
+	@FunctionalInterface
+	public static interface Registar {
+		void register(Potion input, Item item, Potion output);
+	}
+}
