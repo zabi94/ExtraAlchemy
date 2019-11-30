@@ -13,6 +13,7 @@ import zabi.minecraft.extraalchemy.statuseffect.effects.FuseStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.MagnetismStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.PhotosynthesisStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.RecallStatusEffect;
+import zabi.minecraft.extraalchemy.statuseffect.effects.ReturnStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.SailsStatusEffect;
 import zabi.minecraft.extraalchemy.utils.LibMod;
 import zabi.minecraft.extraalchemy.utils.Log;
@@ -25,6 +26,7 @@ public class ModEffectRegistry {
 	public static ModStatusEffect fuse = new FuseStatusEffect(StatusEffectType.HARMFUL, 0xcc3333, false);
 	public static ModStatusEffect recall = new RecallStatusEffect(StatusEffectType.BENEFICIAL, 0xFFF200, false);
 	public static ModStatusEffect sails = new SailsStatusEffect(StatusEffectType.BENEFICIAL, 0x9BD8FF, false);
+	public static ModStatusEffect returning = new ReturnStatusEffect(StatusEffectType.BENEFICIAL, 0xD05585, true);
 
 	public static void registerAll() {
 

@@ -19,6 +19,7 @@ public class ConfigInstance {
 		public boolean fuse = true;
 		public boolean recall = true;
 		public boolean sails = true;
+		public boolean returning = true;
 		
 	}
 	

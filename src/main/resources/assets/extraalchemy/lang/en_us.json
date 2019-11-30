@@ -33,5 +33,11 @@
 	"item.minecraft.potion.effect.recall": "Potion of Rewinding",
 	"item.minecraft.splash_potion.effect.recall": "Splash Potion of Rewinding",
 	"item.minecraft.lingering_potion.effect.recall": "Lingering Potion of Rewinding",
-	"item.minecraft.tipped_arrow.effect.recall": "Arrow of Rewinding"
+	"item.minecraft.tipped_arrow.effect.recall": "Arrow of Rewinding",
+	
+	"effect.extraalchemy.returning": "Returning",
+	"item.minecraft.potion.effect.returning": "Potion of Returning",
+	"item.minecraft.splash_potion.effect.returning": "Splash Potion of Returning",
+	"item.minecraft.lingering_potion.effect.returning": "Lingering Potion of Returning",
+	"item.minecraft.tipped_arrow.effect.returning": "Arrow of Returning"
 }
