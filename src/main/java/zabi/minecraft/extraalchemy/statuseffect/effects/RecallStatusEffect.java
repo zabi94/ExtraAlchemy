@@ -17,7 +17,7 @@ public class RecallStatusEffect extends ModStatusEffect {
 	}
 
 	@Override
-	public void onApplied(LivingEntity livingEntity, AbstractEntityAttributeContainer abstractEntityAttributeContainer, int i) {
+	public void method_5555(LivingEntity livingEntity, AbstractEntityAttributeContainer abstractEntityAttributeContainer, int i) {
 		EntityProperties ep = (EntityProperties) livingEntity;
 		if (ep.getRecallPosition() == null) {
 			ep.setRecallData(new DimensionalPosition(livingEntity));
@@ -54,7 +54,7 @@ public class RecallStatusEffect extends ModStatusEffect {
 	}
 
 	@Override
-	public void onRemoved(LivingEntity livingEntity, AbstractEntityAttributeContainer abstractEntityAttributeContainer, int i) {
+	public void method_5562(LivingEntity livingEntity, AbstractEntityAttributeContainer abstractEntityAttributeContainer, int i) {
 		((EntityProperties) livingEntity).setRecallData(null);
 	}
 

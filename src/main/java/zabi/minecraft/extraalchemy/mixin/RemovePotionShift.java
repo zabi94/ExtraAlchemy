@@ -22,7 +22,7 @@ public abstract class RemovePotionShift<T extends Container> extends AbstractCon
 		super(container_1, playerInventory_1, textComponent_1);
 	}
 	
-	@Inject(method = "applyStatusEffectOffset", at = @At("HEAD"), cancellable = true)
+	@Inject(method = "method_2476", at = @At("HEAD"), cancellable = true)
 	public void stopShift(CallbackInfo ci) {
 		if (ModConfig.INSTANCE.removeInventoryPotionShift) {
 			ci.cancel();

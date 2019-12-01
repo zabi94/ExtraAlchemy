@@ -19,7 +19,7 @@ public class FuseStatusEffect extends ModStatusEffect {
 	@Override
 	public void applyUpdateEffect(LivingEntity entity, int level) {
 		if (!entity.world.isClient) {
-			entity.world.createExplosion(null, entity.getX(), entity.getY() + 1, entity.getZ(), 0.5f+level, false, DestructionType.BREAK);
+			entity.world.createExplosion(null, entity.x, entity.y + 1, entity.z, 0.5f+level, false, DestructionType.BREAK);
 		}
 	}
 

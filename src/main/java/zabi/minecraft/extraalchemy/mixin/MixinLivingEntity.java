@@ -17,7 +17,7 @@ import zabi.minecraft.extraalchemy.utils.DimensionalPosition;
 @Mixin(LivingEntity.class)
 public abstract class MixinLivingEntity extends Entity implements EntityProperties {
 	
-	@Shadow private boolean effectsChanged;
+	@Shadow private boolean field_6285;
 	
 	private DimensionalPosition recallPosition = null;
 
@@ -27,7 +27,7 @@ public abstract class MixinLivingEntity extends Entity implements EntityProperti
 	
 	@Inject(at = @At("TAIL"), method = "readCustomDataFromTag")
 	public void readNbt(CompoundTag tag, CallbackInfo cb) {
-		if (tag.contains("recallPosition")) {
+		if (tag.containsKey("recallPosition")) {
 			recallPosition = DimensionalPosition.fromTag(tag.getCompound("recallPosition"));
 		}
 	}
@@ -51,7 +51,7 @@ public abstract class MixinLivingEntity extends Entity implements EntityProperti
 	
 	@Override
 	public void markEffectsDirty() {
-		effectsChanged = true;
+		field_6285 = true;
 	}
 
 }
