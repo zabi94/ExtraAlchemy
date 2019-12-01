@@ -17,8 +17,10 @@ public class ModPotionRegistry {
 	public static ModPotion photosynthesis = ModPotion.ModPotionTimed.generateAll("photosynthesis", ModEffectRegistry.photosynthesis, 20*80, 20*100, 20*60);
 	public static ModPotion recall = ModPotion.ModPotionTimed.generateAll("recall", ModEffectRegistry.recall, 20*60, 20*80, 20*40);
 	public static ModPotion sails = ModPotion.ModPotionTimed.generateAll("sails", ModEffectRegistry.sails, 20*60*2, 20*60*4, 20*60);
-	public static ModPotion returning = new ModPotion.ModPotionInstant("returning", ModEffectRegistry.returning, 0);
 	public static ModPotion learning = ModPotion.ModPotionTimed.generateAll("learning", ModEffectRegistry.learning, 20*60*4, 20*60*6, 20*60*2);
+	
+	public static ModPotion returning = new ModPotion.ModPotionInstant("returning", ModEffectRegistry.returning, 0);
+	public static ModPotion concentration = new ModPotion.ModPotionInstant("concentration", ModEffectRegistry.concentration, 0);
 	
 	public static void registerAll() {
 		try {

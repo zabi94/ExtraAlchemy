@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import zabi.minecraft.extraalchemy.config.ConfigInstance;
 import zabi.minecraft.extraalchemy.config.ModConfig;
+import zabi.minecraft.extraalchemy.statuseffect.effects.ConcentrationStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.CrumblingStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.FuseStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.LearningStatusEffect;
@@ -27,9 +28,13 @@ public class ModEffectRegistry {
 	public static ModStatusEffect fuse = new FuseStatusEffect(StatusEffectType.HARMFUL, 0xcc3333, false);
 	public static ModStatusEffect recall = new RecallStatusEffect(StatusEffectType.BENEFICIAL, 0xFFF200, false);
 	public static ModStatusEffect sails = new SailsStatusEffect(StatusEffectType.BENEFICIAL, 0x9BD8FF, false);
-	public static ModStatusEffect returning = new ReturnStatusEffect(StatusEffectType.BENEFICIAL, 0xD05585, true);
 	public static ModStatusEffect learning = new LearningStatusEffect(StatusEffectType.BENEFICIAL, 0xD5FF39, false);
 
+	//Instant
+	public static ModStatusEffect returning = new ReturnStatusEffect(StatusEffectType.BENEFICIAL, 0xD05585, true);
+	public static ModStatusEffect concentration = new ConcentrationStatusEffect(StatusEffectType.BENEFICIAL, 0xC8C5E5, true);
+	
+	
 	public static void registerAll() {
 
 		try {

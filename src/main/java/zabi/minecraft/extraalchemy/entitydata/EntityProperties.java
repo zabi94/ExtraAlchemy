@@ -8,4 +8,6 @@ public interface EntityProperties {
 	
 	public void setRecallData(DimensionalPosition pos);
 
+	public void markEffectsDirty();
+	
 }

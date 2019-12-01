@@ -23,6 +23,7 @@ public class ConfigInstance {
 		public boolean sails = true;
 		public boolean returning = true;
 		public boolean learning = true;
+		public boolean concentration = true;
 		
 	}
 	

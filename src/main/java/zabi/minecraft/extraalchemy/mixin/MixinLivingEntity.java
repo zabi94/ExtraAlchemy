@@ -1,6 +1,7 @@
 package zabi.minecraft.extraalchemy.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -15,6 +16,8 @@ import zabi.minecraft.extraalchemy.utils.DimensionalPosition;
 
 @Mixin(LivingEntity.class)
 public abstract class MixinLivingEntity extends Entity implements EntityProperties {
+	
+	@Shadow private boolean effectsChanged;
 	
 	private DimensionalPosition recallPosition = null;
 
@@ -44,6 +47,11 @@ public abstract class MixinLivingEntity extends Entity implements EntityProperti
 	@Override
 	public void setRecallData(DimensionalPosition pos) {
 		recallPosition = pos;
+	}
+	
+	@Override
+	public void markEffectsDirty() {
+		effectsChanged = true;
 	}
 
 }
