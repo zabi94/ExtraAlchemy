@@ -5,16 +5,16 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.entitydata.EntityProperties;
 import zabi.minecraft.extraalchemy.utils.DimensionalPosition;
 
-@Mixin(PlayerEntity.class)
-public abstract class MixinLivingEntity extends LivingEntity implements EntityProperties {
+@Mixin(LivingEntity.class)
+public abstract class MixinLivingEntity extends Entity implements EntityProperties {
 	
 	private DimensionalPosition recallPosition = null;
 
