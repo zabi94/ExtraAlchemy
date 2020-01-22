@@ -246,6 +246,7 @@ tooltip.togglef3.F3H=[Usa la modalita' F3+H per le descrizioni]
 tooltip.togglef3.SHIFT=[Tieni premuto SHIFT per le descrizioni]
 tooltip.togglef3.ALT=[Tieni premuto ALT per le descrizioni]
 tooltip.togglef3.CTRL=[Tieni premuto CTRL per le descrizioni]
+tooltip.no_potion_bag=Questa pozione non può essere usata nella borsa!
 death.attack.death_revenge.player=La morte ha riscosso il debito di %1$s
 extraalchemy.config.options=Opzioni generali
 extraalchemy.config.potions=Attiva o disattiva le pozioni

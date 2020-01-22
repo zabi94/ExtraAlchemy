@@ -248,6 +248,7 @@ tooltip.togglef3.F3H=[Toggle F3+H mode for description]
 tooltip.togglef3.SHIFT=[Hold SHIFT for description]
 tooltip.togglef3.ALT=[Hold ALT for description]
 tooltip.togglef3.CTRL=[Hold CTRL for description]
+tooltip.no_potion_bag=This potion cannot be used from inside the bag!
 death.attack.death_revenge.player=Death took its toll on %1$s
 extraalchemy.config.options=General options
 extraalchemy.config.potions=Enable or disable the potions
