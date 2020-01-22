@@ -1,5 +1,9 @@
 package zabi.minecraft.extraalchemy.items;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import com.google.common.collect.Lists;
@@ -36,16 +40,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import zabi.minecraft.extraalchemy.ExtraAlchemy;
 import zabi.minecraft.extraalchemy.ModConfig;
 import zabi.minecraft.extraalchemy.capability.RingCharge;
+import zabi.minecraft.extraalchemy.lib.Log;
 import zabi.minecraft.extraalchemy.lib.Reference;
 import zabi.minecraft.extraalchemy.lib.Utils;
 import zabi.minecraft.extraalchemy.potion.NoncontinuousEffect;
 
 @Optional.Interface(modid = "baubles", iface = "baubles.api.IBauble")
 public class ItemPotionRing extends Item implements IBauble {
-	
+
 	private static final ArrayList<String> whitelist = Lists.newArrayList();
 	private static final ArrayList<String> blacklist = Lists.newArrayList();
-	
+
 	static {
 		whitelist.add("minecraft:night_vision");
 		whitelist.add("minecraft:invisibility");
@@ -61,7 +66,7 @@ public class ItemPotionRing extends Item implements IBauble {
 		whitelist.add("minecraft:strength");
 		whitelist.add("minecraft:strong_strength");
 		whitelist.add("minecraft:weakness");
-		
+
 		whitelist.add("extraalchemy:magnetism_normal");
 		whitelist.add("extraalchemy:magnetism_strong");
 		whitelist.add("extraalchemy:crumbling_normal");
@@ -85,14 +90,14 @@ public class ItemPotionRing extends Item implements IBauble {
 		whitelist.add("extraalchemy:sinking_normal");
 		whitelist.add("extraalchemy:sinking_strong");
 	}
-	
+
 	public ItemPotionRing() {
 		this.setMaxStackSize(1);
 		this.setCreativeTab(ExtraAlchemy.TAB);
 		this.setRegistryName(new ResourceLocation(Reference.MID, "potion_ring"));
 		this.setHasSubtypes(true);
 	}
-	
+
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		if (this.isInCreativeTab(tab) && ModConfig.options.enablePotionRings) {
@@ -105,13 +110,13 @@ public class ItemPotionRing extends Item implements IBauble {
 				.forEach(pt -> addPotionRing(items, pt));
 		}
 	}
-	
+
 	private void addPotionRing(NonNullList<ItemStack> items, PotionType pt) {
 		ItemStack stack = new ItemStack(this);
 		PotionUtils.addPotionToItemStack(stack, pt);
 		items.add(stack);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public String getItemStackDisplayName(ItemStack stack) {
@@ -120,15 +125,15 @@ public class ItemPotionRing extends Item implements IBauble {
 		}
 		String potName = I18n.format(PotionUtils.getPotionFromItem(stack).getEffects().get(0).getEffectName());
 		String potLvl = I18n.format("potion.potency."+PotionUtils.getPotionFromItem(stack).getEffects().get(0).getAmplifier());
-        return I18n.format("item.potion_ring_ea.name", potName, potLvl).trim();
-    }
+		return I18n.format("item.potion_ring_ea.name", potName, potLvl).trim();
+	}
 
 	@Override
 	@Optional.Method(modid = "baubles")
 	public BaubleType getBaubleType(ItemStack stack) {
 		return BaubleType.RING;
 	}
-	
+
 	@Override
 	@Optional.Method(modid = "baubles")
 	public void onEquipped(ItemStack itemstack, EntityLivingBase player) {
@@ -157,7 +162,7 @@ public class ItemPotionRing extends Item implements IBauble {
 			applyLogic((EntityPlayer) entityIn, stack);
 		}
 	}
-	
+
 	@Override
 	@Optional.Method(modid = "baubles")
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
@@ -171,8 +176,8 @@ public class ItemPotionRing extends Item implements IBauble {
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.FAIL, playerIn.getHeldItem(handIn));
 	}
-	
-	
+
+
 
 	private void applyLogic(EntityPlayer p, ItemStack stack) {
 		PotionType type = PotionUtils.getPotionFromItem(stack);
@@ -186,26 +191,26 @@ public class ItemPotionRing extends Item implements IBauble {
 			}
 		}
 	}
-	
+
 	private boolean shouldApplyNow(Entity p) {
 		return p.ticksExisted % 100 == 0;
 	}
 
 	private boolean drainXp(EntityPlayer p, int amount, Potion potion) {
-		
+
 		if (p.isCreative()) return true;
 		if (potion instanceof NoncontinuousEffect && !((NoncontinuousEffect) potion).isEffectActive(p)) {
 			return true;
 		}
-		
+
 		RingCharge rc = p.getCapability(RingCharge.CAPABILITY, null);
-		
+
 		if (rc.charges > 0) {
 			rc.charges--;
 			rc.markDirty((byte) 1);
 			return true;
 		}
-		
+
 		if (amount > Utils.getPlayerXP(p)) {
 			return false;
 		}
@@ -213,16 +218,16 @@ public class ItemPotionRing extends Item implements IBauble {
 		rc.charges = 5;
 		return true;
 	}
-	
+
 	public static void addToWhitelist(String registryName) {
 		whitelist.add(registryName);
 	}
-	
+
 	public static void removeFromWhitelist(String name) {
 		blacklist.add(name);
 		whitelist.remove(name);
 	}
-	
+
 	public static void addRecipes() {
 		whitelist.stream()
 			.filter(s -> !blacklist.contains(s))
@@ -234,20 +239,43 @@ public class ItemPotionRing extends Item implements IBauble {
 	}
 
 	private static void addRecipeForType(PotionType pt) {
-		
+
 		ItemStack result = new ItemStack(ModItems.potion_ring);
 		PotionUtils.addPotionToItemStack(result, pt);
-		
+
 		ItemStack potion = new ItemStack(Items.POTIONITEM);
 		PotionUtils.addPotionToItemStack(potion, pt);
-		
+
 		GameRegistry.addShapelessRecipe(
 				new ResourceLocation(Reference.MID, pt.getRegistryName().toString().replace(':', '_')),
 				null, 
 				result, 
 				new IngredientNBT(potion) {},
 				Ingredient.fromItem(ModItems.empty_ring)
-		);
+				);
+	}
+
+	public static void loadCustomWhitelist(File whitelistFile) {
+		try {
+			if (whitelistFile.isDirectory()) {
+				Log.e("Potion Ring whitelist is a directory and won't be loaded");
+			} else {
+				if (!whitelistFile.exists()) {
+					Log.i("Creating new potion ring whitelist file");
+					whitelistFile.createNewFile();
+				}
+
+				try (BufferedReader in = new BufferedReader(new FileReader(whitelistFile))) {
+					in.lines()
+						.map(s -> s.trim())
+						.peek(s -> Log.i(String.format("%s has been added to the potion ring whitelist", s)))
+						.forEach(s -> whitelist.add(s));
+				}
+			}
+		} catch (IOException e) {
+			Log.e("Error loading potion ring white list:");
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -92,6 +92,7 @@ public class ExtraAlchemy {
 		
 		proxy.registerItemDescriptions();
 		recipesDirectory = new File(event.getModConfigurationDirectory(), "custom_potions");
+		ItemPotionRing.loadCustomWhitelist(new File(event.getModConfigurationDirectory(), "extra_alchemy_ring_whitelist.txt"));
 	}
 	
 	@EventHandler
