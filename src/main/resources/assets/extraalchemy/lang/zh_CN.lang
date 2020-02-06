@@ -231,7 +231,7 @@ tile.encased_ice.name=霜冻之冰
  
 item.breakable=(便携细玻璃瓶)
 item.emptyvial=细玻璃瓶
-item.vial.rightclick=右键用背包内的药水瓶填充或和一个药水瓶进行合成
+item.vial.rightclick=右键用背包内的喷溅药水瓶填充或和一个喷溅药水瓶进行合成
  
 item.potion_bag =药水包
 item.potion_bag.charges =里面还剩 %1$d 支药水
