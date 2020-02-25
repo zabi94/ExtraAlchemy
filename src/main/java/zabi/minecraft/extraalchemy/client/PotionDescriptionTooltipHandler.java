@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.common.util.Constants.NBT;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -44,16 +45,19 @@ public class PotionDescriptionTooltipHandler {
 
 	@SubscribeEvent
 	public void onTooltipEvent(ItemTooltipEvent evt) {
-		List<String> toolTip = evt.getToolTip();
-		if (evt.getItemStack().getItem() == MinervaMedal.medal) return;
-		addByproductString(evt, toolTip);
-		PotionType pt = PotionUtils.getPotionFromItem(evt.getItemStack());
-		if (pt instanceof PotionTypeBase && !((PotionTypeBase)pt).isArtificial()) {
-			displayModOwnTooltip(evt, toolTip, pt);
-		} else if (!pt.getEffects().isEmpty()) {
-			addCredits(toolTip, ModIDs.getModName(pt.getRegistryName().getNamespace()), evt.getItemStack());
+		ItemStack stack = evt.getItemStack();
+		if (stack.getItem() != MinervaMedal.medal) {
+			if (!hasHiddenTag(stack)) {
+				PotionType pt = PotionUtils.getPotionFromItem(stack);
+				if (pt instanceof PotionTypeBase && !((PotionTypeBase)pt).isArtificial()) {
+					displayModOwnTooltip(evt, pt);
+				} else if (!pt.getEffects().isEmpty()) {
+					addCredits(evt.getToolTip(), ModIDs.getModName(pt.getRegistryName().getNamespace()), stack);
+				}
+			}
+			showHintForPotionBag(evt);
 		}
-		showHintForPotionBag(evt);
+		addByproductString(evt);
 	}
 
 	private void showHintForPotionBag(ItemTooltipEvent evt) {
@@ -64,7 +68,8 @@ public class PotionDescriptionTooltipHandler {
 		}
 	}
 
-	private void displayModOwnTooltip(ItemTooltipEvent evt, List<String> toolTip, PotionType pt) {
+	private void displayModOwnTooltip(ItemTooltipEvent evt, PotionType pt) {
+		List<String> toolTip = evt.getToolTip();
 		String potName = ((PotionTypeBase)pt).getPotion().getName();
 		addCredits(toolTip, Reference.NAME, evt.getItemStack());
 		addBadJoke(toolTip, potName);
@@ -84,10 +89,10 @@ public class PotionDescriptionTooltipHandler {
 		}
 	}
 
-	private void addByproductString(ItemTooltipEvent evt, List<String> toolTip) {
+	private void addByproductString(ItemTooltipEvent evt) {
 		if (evt.getItemStack().hasTagCompound()) { 
 			if (evt.getItemStack().getTagCompound().hasKey("splitresult")) {
-				toolTip.add(I18n.format("item.byproduct").replace("%", ""+(evt.getItemStack().getTagCompound().getInteger("splitresult"))));
+				evt.getToolTip().add(I18n.format("item.byproduct").replace("%", ""+(evt.getItemStack().getTagCompound().getInteger("splitresult"))));
 			}
 		}
 	}
@@ -104,6 +109,10 @@ public class PotionDescriptionTooltipHandler {
 			toolTip.add("");
 			toolTip.add(ChatFormatting.GOLD+I18n.format("tooltip.credit", modname));
 		}
+	}
+
+	private static boolean hasHiddenTag(ItemStack stack) {
+		return stack.hasTagCompound() && stack.getTagCompound().hasKey("HideFlags", NBT.TAG_ANY_NUMERIC) && (stack.getTagCompound().getInteger("HideFlags") & 32) == 1;
 	}
 
 	private static boolean isVanillaItem(ItemStack stack) {
