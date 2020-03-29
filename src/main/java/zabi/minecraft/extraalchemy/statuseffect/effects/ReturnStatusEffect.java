@@ -19,7 +19,7 @@ public class ReturnStatusEffect extends ModStatusEffect {
 			PlayerEntity player = (PlayerEntity) target;
 			BlockPos respawnPos = player.getSpawnPosition();
 			if (respawnPos != null) {
-				PlayerEntity.method_7288(target.world, respawnPos, true).ifPresent(v3d -> {
+				PlayerEntity.findRespawnPosition(target.world, respawnPos, true).ifPresent(v3d -> {
 					player.requestTeleport(v3d.x, v3d.y, v3d.z);
 				});
 			}
