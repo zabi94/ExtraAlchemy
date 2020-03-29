@@ -2,8 +2,8 @@ package zabi.minecraft.extraalchemy.client.network;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.PacketByteBuf;
 import zabi.minecraft.extraalchemy.utils.LibMod;
 
 public class ToggleMagnetismPacket extends PacketByteBuf {

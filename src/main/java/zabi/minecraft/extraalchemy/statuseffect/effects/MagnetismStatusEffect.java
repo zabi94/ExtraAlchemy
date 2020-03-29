@@ -25,7 +25,7 @@ public class MagnetismStatusEffect extends ModStatusEffect {
 					.forEach(e -> e.onPlayerCollision((PlayerEntity) entity));
 				}
 			} else {
-				entity.removeStatusEffect(this);
+				entity.removeStatusEffectInternal(this);
 			}
 		}
 	}
