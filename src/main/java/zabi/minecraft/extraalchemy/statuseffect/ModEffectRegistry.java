@@ -68,7 +68,7 @@ public class ModEffectRegistry {
 		public static StatusEffect magnetism_disabled = null;
 		
 		public static void register() {
-			magnetism_disabled = Registry.register(Registry.STATUS_EFFECT, new Identifier(LibMod.MOD_ID, "magnetism_disabled"), new ModStatusEffect(magnetism.getType(), magnetism.getColor(), magnetism.isInstant()).onRegister());
+			magnetism_disabled = Registry.register(Registry.STATUS_EFFECT, new Identifier(LibMod.MOD_ID, "magnetism_disabled"), new ModStatusEffect(StatusEffectType.BENEFICIAL, magnetism.getColor(), magnetism.isInstant()).onRegister());
 			Log.i("Registered dummy effects");
 		}
 	}
