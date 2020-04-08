@@ -24,7 +24,7 @@ repositories {
 
 version = "${ea_vers}"
 group= "zabi.minecraft.extraalchemy"
-archivesBaseName = "extraalchemy-forge-1.12-${buildnum}"
+archivesBaseName = "extraalchemy-forge-1.12-build${buildnum}"
 
 
 
