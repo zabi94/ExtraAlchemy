@@ -23,6 +23,7 @@ public class KeybindDispatcher {
 		KeyBindingRegistry.INSTANCE.register(MAGNETISM_TOGGLE);
 	}
 	
+	@SuppressWarnings("resource")
 	public static void registerListeners() {
 		ClientTickCallback.EVENT.register(evt -> {
 			if (MAGNETISM_TOGGLE.isPressed()) {
