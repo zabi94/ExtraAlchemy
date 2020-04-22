@@ -124,7 +124,7 @@ public class ItemPotionVial extends ItemPotion {
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> list) {
 		if (this.isInCreativeTab(tab) && ModConfig.options.breakingPotions) {
 			for (PotionType potiontype : PotionType.REGISTRY) {
-				list.add(PotionUtils.addPotionToItemStack(new ItemStack(this), potiontype));
+				list.add(PotionUtils.appendEffects(PotionUtils.addPotionToItemStack(new ItemStack(this), potiontype), potiontype.getEffects()));
 			}
 		}
 	}
