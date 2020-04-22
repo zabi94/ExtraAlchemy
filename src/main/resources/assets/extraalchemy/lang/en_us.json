@@ -51,5 +51,7 @@
 	"item.minecraft.potion.effect.concentration": "Potion of Concentration",
 	"item.minecraft.splash_potion.effect.concentration": "Splash Potion of Concentration",
 	"item.minecraft.lingering_potion.effect.concentration": "Lingering Potion of Concentration",
-	"item.minecraft.tipped_arrow.effect.concentration": "Arrow of Concentration"
+	"item.minecraft.tipped_arrow.effect.concentration": "Arrow of Concentration",
+	
+	"key.extraalchemy.magnetism_toggle": "Toggle Potion of Magnetism"
 }
