@@ -7,6 +7,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.client.gui.screen.ingame.AbstractInventoryScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
@@ -31,12 +32,12 @@ public abstract class RemovePotionShift<T extends ScreenHandler> extends Handled
 	}
 	
 	@Inject(method = "render", at = @At("RETURN"))
-	public void renderOverride(int int_1, int int_2, float float_1, CallbackInfo ci) {
+	public void renderOverride(MatrixStack matrixStack, int int_1, int int_2, float float_1, CallbackInfo ci) {
 	      if (!this.drawStatusEffects) {
-	         this.drawStatusEffects();
+	         this.drawStatusEffects(matrixStack);
 	      }
 	   }
 
-	@Shadow protected abstract void drawStatusEffects();
+	@Shadow protected abstract void drawStatusEffects(MatrixStack matrixStack);
 
 }
