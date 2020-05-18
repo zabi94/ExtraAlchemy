@@ -14,7 +14,7 @@ import zabi.minecraft.extraalchemy.utils.LibMod;
 
 public class KeybindDispatcher {
 	
-	public static final FabricKeyBinding MAGNETISM_TOGGLE = FabricKeyBinding.Builder.create(new Identifier(LibMod.MOD_ID, "magnetism_toggle"), Type.KEYSYM, InputUtil.fromName("key.keyboard.n").getKeyCode(), LibMod.MOD_NAME).build();
+	public static final FabricKeyBinding MAGNETISM_TOGGLE = FabricKeyBinding.Builder.create(new Identifier(LibMod.MOD_ID, "magnetism_toggle"), Type.KEYSYM, InputUtil.fromTranslationKey("key.keyboard.n").getCode(), LibMod.MOD_NAME).build();
 	
 	private static boolean wasMagnetismPressedLastTick = false; 
 	
