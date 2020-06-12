@@ -2,21 +2,30 @@ package zabi.minecraft.extraalchemy.utils;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.World;
 
 public class DimensionalPosition {
 	
 	private final double x, y, z;
-	private final int dim;
+	private final Identifier world;
 	
-	public DimensionalPosition(double x, double y, double z, int dim) {
+	public DimensionalPosition(double x, double y, double z, Identifier world) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
-		this.dim = dim;
+		this.world = world;
+	}
+	
+	public DimensionalPosition(double x, double y, double z, World world) {
+		this(x, y, z, world.getRegistryKey().getValue());
 	}
 	
 	public DimensionalPosition(Entity entity) {
-		this(entity.getPos().x, entity.getPos().y, entity.getPos().z, entity.getEntityWorld().getDimension().getType().getRawId());
+		this(entity.getPos().x, entity.getPos().y, entity.getPos().z, entity.getEntityWorld());
 	}
 
 	public double getX() {
@@ -31,12 +40,16 @@ public class DimensionalPosition {
 		return z;
 	}
 
-	public int getDim() {
-		return dim;
+	public Identifier getWorldId() {
+		return world;
+	}
+	
+	public World getWorld(MinecraftServer server) {
+		return server.getWorld(RegistryKey.of(Registry.DIMENSION, world));
 	}
 	
 	public static DimensionalPosition fromTag(CompoundTag tag) {
-		return new DimensionalPosition(tag.getDouble("x"), tag.getDouble("y"), tag.getDouble("z"), tag.getInt("dim"));
+		return new DimensionalPosition(tag.getDouble("x"), tag.getDouble("y"), tag.getDouble("z"), new Identifier(tag.getString("world")));
 	}
 	
 	public CompoundTag toTag() {
@@ -44,7 +57,7 @@ public class DimensionalPosition {
 		tag.putDouble("x", x);
 		tag.putDouble("y", y);
 		tag.putDouble("z", z);
-		tag.putInt("dim", dim);
+		tag.putString("world", world.toString());
 		return tag;
 	}
 	
@@ -57,7 +70,7 @@ public class DimensionalPosition {
 		sb.append(", ");
 		sb.append(z);
 		sb.append(" @ ");
-		sb.append(dim);
+		sb.append(world);
 		sb.append("]");
 		return sb.toString();
 	}
