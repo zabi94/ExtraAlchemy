@@ -27,6 +27,7 @@ public class KeybindDispatcher {
 		ClientTickCallback.EVENT.register(evt -> {
 			if (MAGNETISM_TOGGLE.isPressed()) {
 				if (!wasMagnetismPressedLastTick) {
+					@SuppressWarnings("resource")
 					PlayerProperties pp = (PlayerProperties) (Object) MinecraftClient.getInstance().player;
 					boolean newMagnetismStatus = !pp.isMagnetismEnabled();
 					pp.setMagnetismEnabled(newMagnetismStatus);
