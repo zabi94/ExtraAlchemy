@@ -11,6 +11,7 @@ import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.statuseffect.effects.ConcentrationStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.CrumblingStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.FuseStatusEffect;
+import zabi.minecraft.extraalchemy.statuseffect.effects.GravityStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.LearningStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.MagnetismStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.PhotosynthesisStatusEffect;
@@ -29,6 +30,7 @@ public class ModEffectRegistry {
 	public static ModStatusEffect recall = new RecallStatusEffect(StatusEffectType.BENEFICIAL, 0xFFF200, false);
 	public static ModStatusEffect sails = new SailsStatusEffect(StatusEffectType.BENEFICIAL, 0x9BD8FF, false);
 	public static ModStatusEffect learning = new LearningStatusEffect(StatusEffectType.BENEFICIAL, 0xD5FF39, false);
+	public static ModStatusEffect gravity = new GravityStatusEffect(StatusEffectType.NEUTRAL, 0x815D09, false);
 
 	//Instant
 	public static ModStatusEffect returning = new ReturnStatusEffect(StatusEffectType.BENEFICIAL, 0xD05585, true);
