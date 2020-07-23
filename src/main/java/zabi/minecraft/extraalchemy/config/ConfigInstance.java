@@ -24,6 +24,7 @@ public class ConfigInstance {
 		public boolean returning = true;
 		public boolean learning = true;
 		public boolean concentration = true;
+		public boolean gravity = true;
 		
 	}
 	

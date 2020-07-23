@@ -53,5 +53,11 @@
 	"item.minecraft.lingering_potion.effect.concentration": "Lingering Potion of Concentration",
 	"item.minecraft.tipped_arrow.effect.concentration": "Arrow of Concentration",
 	
+	"effect.extraalchemy.gravity": "Gravity",
+	"item.minecraft.potion.effect.gravity": "Potion of Gravity",
+	"item.minecraft.splash_potion.effect.gravity": "Splash Potion of Gravity",
+	"item.minecraft.lingering_potion.effect.gravity": "Lingering Potion of Gravity",
+	"item.minecraft.tipped_arrow.effect.gravity": "Arrow of Gravity",
+	
 	"key.extraalchemy.magnetism_toggle": "Toggle Potion of Magnetism"
 }
