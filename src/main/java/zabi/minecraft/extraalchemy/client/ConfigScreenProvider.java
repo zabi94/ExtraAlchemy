@@ -1,0 +1,86 @@
+package zabi.minecraft.extraalchemy.client;
+
+import java.lang.reflect.Field;
+
+import io.github.prospector.modmenu.api.ConfigScreenFactory;
+import io.github.prospector.modmenu.api.ModMenuApi;
+import me.shedaniel.clothconfig2.api.ConfigBuilder;
+import me.shedaniel.clothconfig2.api.ConfigCategory;
+import net.minecraft.text.Style;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
+import zabi.minecraft.extraalchemy.config.ConfigInstance;
+import zabi.minecraft.extraalchemy.config.ModConfig;
+
+public class ConfigScreenProvider implements ModMenuApi {
+	
+	public static ConfigBuilder builder() {
+		
+		ConfigBuilder configBuilder = ConfigBuilder.create()
+				.setTitle(new TranslatableText("extraalchemy.mod_name"))
+				.setEditable(true)
+				.setSavingRunnable(() -> ModConfig.writeJson());
+		
+		ConfigCategory general = configBuilder.getOrCreateCategory(new TranslatableText("extraalchemy.config.general"));
+		ConfigCategory potions = configBuilder.getOrCreateCategory(new TranslatableText("extraalchemy.config.potions"));
+		
+		general.addEntry(configBuilder.entryBuilder()
+				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.enable_learning_boost") , ModConfig.INSTANCE.learningIncreasesExpOrbValue)
+					.setDefaultValue(true)
+					.setTooltip(
+							new TranslatableText("extraalchemy.config.general.enable_learning_boost.tooltip1"),
+							new TranslatableText("extraalchemy.config.general.enable_learning_boost.tooltip2"), 
+							new TranslatableText("extraalchemy.config.serverside").setStyle(Style.EMPTY.withColor(Formatting.RED).withBold(true))
+					)
+					.setSaveConsumer(val -> {ModConfig.INSTANCE.learningIncreasesExpOrbValue = val;})
+					.build()
+		);
+		
+		general.addEntry(configBuilder.entryBuilder()
+				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.disable_inventory_shift") , ModConfig.INSTANCE.removeInventoryPotionShift)
+					.setDefaultValue(true)
+					.setTooltip(
+							new TranslatableText("extraalchemy.config.general.disable_inventory_shift.tooltip1"), 
+							new TranslatableText("extraalchemy.config.general.disable_inventory_shift.tooltip2"),
+							new TranslatableText("extraalchemy.config.clientside").setStyle(Style.EMPTY.withColor(Formatting.AQUA).withBold(true)))
+					.setSaveConsumer(val -> {ModConfig.INSTANCE.removeInventoryPotionShift = val;})
+					.build()
+		);
+		
+		try {
+			for (Field f:ConfigInstance.Potions.class.getDeclaredFields()) {
+				String name = f.getName();
+				if (f.getType().isAssignableFrom(boolean.class)) {
+					potions.addEntry(configBuilder.entryBuilder()
+						.startBooleanToggle(new TranslatableText("extraalchemy.config.potion", new TranslatableText("item.minecraft.potion.effect."+name)) , f.getBoolean(ModConfig.INSTANCE.potions))
+							.setDefaultValue(true)
+							.requireRestart()
+							.setTooltip(
+									new TranslatableText("extraalchemy.config.potion.tooltip1", new TranslatableText("item.minecraft.potion.effect."+name)), 
+									new TranslatableText("extraalchemy.config.potion.tooltip2", new TranslatableText("item.minecraft.potion.effect."+name)),
+									new TranslatableText("extraalchemy.config.serverside").setStyle(Style.EMPTY.withColor(Formatting.RED).withBold(true))
+							)
+							.setSaveConsumer(val -> {try {
+								f.setBoolean(ModConfig.INSTANCE.potions, val);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}})
+							.build()
+							
+					);
+				}
+			}
+		} catch (IllegalAccessException iae) {
+			iae.printStackTrace();
+		}
+		return configBuilder;
+	}
+	
+	@Override
+	public ConfigScreenFactory<?> getModConfigScreenFactory() {
+		return parent -> {
+			return builder().setParentScreen(parent).build();
+		};
+	}
+
+}

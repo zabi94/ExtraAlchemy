@@ -12,6 +12,7 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
 import zabi.minecraft.extraalchemy.utils.LibMod;
+import zabi.minecraft.extraalchemy.utils.Log;
 
 
 public class ModConfig {
@@ -20,7 +21,7 @@ public class ModConfig {
 	private static File configFile;
 	private static Gson config = new GsonBuilder().setPrettyPrinting().create();
 	public static ConfigInstance INSTANCE;
-	
+
 	public static void init() {
 		loadDefaults();
 		generateFoldersAndFiles();
@@ -30,7 +31,7 @@ public class ModConfig {
 	public static void loadDefaults() {
 		INSTANCE = new ConfigInstance();
 	}
-	
+
 	private static void generateFoldersAndFiles() {
 		if (!folder.exists()) {
 			folder.mkdir();
@@ -56,7 +57,7 @@ public class ModConfig {
 			throw new IllegalStateException("'config' must be a folder!");
 		}
 	}
-		
+
 	public static void readJson() {
 		try {
 			INSTANCE = config.fromJson(new FileReader(configFile), ConfigInstance.class);
@@ -72,5 +73,17 @@ public class ModConfig {
 			// No op
 		}
 	}
-		
+
+	public static void writeJson() {
+		Log.i("Saving configuration to %s", configFile.toString());
+		try {
+			String json = config.toJson(INSTANCE);
+			FileWriter writer = new FileWriter(configFile, false);
+			writer.write(json);
+			writer.close();
+		} catch (IOException e) {
+			throw new IllegalStateException("Can't update config file", e);
+		}
+	}
+
 }
