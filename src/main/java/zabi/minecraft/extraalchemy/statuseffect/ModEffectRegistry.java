@@ -6,8 +6,6 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import zabi.minecraft.extraalchemy.config.ConfigInstance;
-import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.statuseffect.effects.ConcentrationStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.CrumblingStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.FuseStatusEffect;
@@ -41,23 +39,15 @@ public class ModEffectRegistry {
 
 		try {
 			int registered = 0;
-			int disabled = 0;
 			for (Field field:ModEffectRegistry.class.getDeclaredFields()) {
 				if (ModStatusEffect.class.isAssignableFrom(field.getType())) {
-					boolean active = (boolean) ConfigInstance.Potions.class.getField(field.getName()).get(ModConfig.INSTANCE.potions);
 					Identifier id = new Identifier(LibMod.MOD_ID, field.getName());
-					if (active) {
-						Registry.register(Registry.STATUS_EFFECT, id, ((ModStatusEffect) field.get(null)).onRegister());
-						Log.d("Registered potion "+id);
-						registered++;
-					} else {
-						Log.d("Potion disabled: "+id);
-						disabled++;
-					}
+					Registry.register(Registry.STATUS_EFFECT, id, ((ModStatusEffect) field.get(null)).onRegister());
+					Log.d("Registered potion "+id);
+					registered++;
 				}
 			}
-			int total = registered + disabled;
-			Log.i("Registered %d/%d status effects, %d were disabled", registered, total, disabled);
+			Log.i("Registered %d status effects", registered);
 			Utils.register();
 		} catch (Exception e) {
 			Log.printAndPropagate(e);
