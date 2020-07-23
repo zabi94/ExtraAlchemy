@@ -33,8 +33,10 @@ dependencies {
 	modCompile "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Deps
-	modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modCompile "io.github.prospector:modmenu:${project.modmenu_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modImplementation "io.github.prospector:modmenu:${project.modmenu_version}"
+	modApi "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
+	include "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
 	//modCompile "me.shedaniel:RoughlyEnoughItems:${project.rei_version}"
 	//modCompile 'me.shedaniel.cloth:config-2:LATEST'
 }

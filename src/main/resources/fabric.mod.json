@@ -30,6 +30,9 @@
     ],
     "client": [
       "zabi.minecraft.extraalchemy.client.ClientDispatcher"
+    ],
+    "modmenu": [
+      "zabi.minecraft.extraalchemy.client.ConfigScreenProvider"
     ]
   },
   "mixins": [

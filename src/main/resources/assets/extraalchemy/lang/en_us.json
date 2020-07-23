@@ -59,5 +59,24 @@
 	"item.minecraft.lingering_potion.effect.gravity": "Lingering Potion of Gravity",
 	"item.minecraft.tipped_arrow.effect.gravity": "Arrow of Gravity",
 	
+	"extraalchemy.modname": "Extra Alchemy",
+	
+	"extraalchemy.config.general": "General",
+	"extraalchemy.config.potions": "Potion Recipes",
+	
+	"extraalchemy.config.general.enable_learning_boost": "Learning XP boost",
+	"extraalchemy.config.general.enable_learning_boost.tooltip1": "Enabling this makes the Potion of Learning increase",
+	"extraalchemy.config.general.enable_learning_boost.tooltip2": "the amount of XP absorbed from orbs by 10%%.",
+	
+	"extraalchemy.config.potion.tooltip1": "Registers the brewing recipe of the potion.",
+	"extraalchemy.config.potion.tooltip2": "The status effect will be registered regardless.",
+	
+	"extraalchemy.config.general.disable_inventory_shift": "Disable inventory drift",
+	"extraalchemy.config.general.disable_inventory_shift.tooltip1": "Prevents the inventory screen from moving to", 
+	"extraalchemy.config.general.disable_inventory_shift.tooltip2": "the right when a status effect is applied.",
+	
+	"extraalchemy.config.clientside": "Client-side only",
+	"extraalchemy.config.serverside": "Must be synchronized with servers manually",
+	
 	"key.extraalchemy.magnetism_toggle": "Toggle Potion of Magnetism"
 }
