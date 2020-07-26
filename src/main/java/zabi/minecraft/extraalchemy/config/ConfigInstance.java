@@ -28,6 +28,7 @@ public class ConfigInstance {
 		public boolean learning = true;
 		public boolean concentration = true;
 		public boolean gravity = true;
+		public boolean combustion = true;
 		
 	}
 	
