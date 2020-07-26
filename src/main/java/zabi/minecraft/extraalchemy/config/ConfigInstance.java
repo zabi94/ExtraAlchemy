@@ -29,6 +29,7 @@ public class ConfigInstance {
 		public boolean concentration = true;
 		public boolean gravity = true;
 		public boolean combustion = true;
+		public boolean pacifism = true;
 		
 	}
 	

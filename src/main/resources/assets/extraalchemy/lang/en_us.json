@@ -74,6 +74,12 @@
 	"item.minecraft.lingering_potion.effect.combustion": "Lingering Potion of Combustion",
 	"item.minecraft.tipped_arrow.effect.combustion": "Arrow of Combustion",
 	
+	"effect.extraalchemy.pacifism": "Pacifism",
+	"item.minecraft.potion.effect.pacifism": "Potion of Pacifism",
+	"item.minecraft.splash_potion.effect.pacifism": "Splash Potion of Pacifism",
+	"item.minecraft.lingering_potion.effect.pacifism": "Lingering Potion of Pacifism",
+	"item.minecraft.tipped_arrow.effect.pacifism": "Arrow of Pacifism",
+	
 	"extraalchemy.mod_name": "Extra Alchemy",
 	
 	"extraalchemy.config.general": "General",
