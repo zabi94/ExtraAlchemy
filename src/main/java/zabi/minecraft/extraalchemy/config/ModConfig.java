@@ -12,7 +12,6 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
 import zabi.minecraft.extraalchemy.utils.LibMod;
-import zabi.minecraft.extraalchemy.utils.Log;
 
 
 public class ModConfig {
@@ -26,6 +25,7 @@ public class ModConfig {
 		loadDefaults();
 		generateFoldersAndFiles();
 		readJson();
+		writeJson(); //Write to file new config options
 	}
 
 	public static void loadDefaults() {
@@ -75,7 +75,6 @@ public class ModConfig {
 	}
 
 	public static void writeJson() {
-		Log.i("Saving configuration to %s", configFile.toString());
 		try {
 			String json = config.toJson(INSTANCE);
 			FileWriter writer = new FileWriter(configFile, false);
