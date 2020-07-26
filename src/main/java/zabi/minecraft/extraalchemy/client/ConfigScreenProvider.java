@@ -7,12 +7,16 @@ import io.github.prospector.modmenu.api.ModMenuApi;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import net.minecraft.text.Style;
+import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import zabi.minecraft.extraalchemy.config.ConfigInstance;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 
 public class ConfigScreenProvider implements ModMenuApi {
+	
+	private static final Text SERVER_SIDE = new TranslatableText("extraalchemy.config.serverside").setStyle(Style.EMPTY.withColor(Formatting.RED).withBold(true));
+	private static final Text CLIENT_SIDE = new TranslatableText("extraalchemy.config.clientside").setStyle(Style.EMPTY.withColor(Formatting.AQUA).withBold(true));
 	
 	public static ConfigBuilder builder() {
 		
@@ -30,7 +34,7 @@ public class ConfigScreenProvider implements ModMenuApi {
 					.setTooltip(
 							new TranslatableText("extraalchemy.config.general.enable_learning_boost.tooltip1"),
 							new TranslatableText("extraalchemy.config.general.enable_learning_boost.tooltip2"), 
-							new TranslatableText("extraalchemy.config.serverside").setStyle(Style.EMPTY.withColor(Formatting.RED).withBold(true))
+							SERVER_SIDE
 					)
 					.setSaveConsumer(val -> {ModConfig.INSTANCE.learningIncreasesExpOrbValue = val;})
 					.build()
@@ -42,8 +46,21 @@ public class ConfigScreenProvider implements ModMenuApi {
 					.setTooltip(
 							new TranslatableText("extraalchemy.config.general.disable_inventory_shift.tooltip1"), 
 							new TranslatableText("extraalchemy.config.general.disable_inventory_shift.tooltip2"),
-							new TranslatableText("extraalchemy.config.clientside").setStyle(Style.EMPTY.withColor(Formatting.AQUA).withBold(true)))
+							CLIENT_SIDE
+					)
 					.setSaveConsumer(val -> {ModConfig.INSTANCE.removeInventoryPotionShift = val;})
+					.build()
+		);
+		
+		general.addEntry(configBuilder.entryBuilder()
+				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.enable_vials") , ModConfig.INSTANCE.enableVials)
+					.setDefaultValue(true)
+					.setTooltip(
+							new TranslatableText("extraalchemy.config.general.enable_vials.tooltip1"), 
+							new TranslatableText("extraalchemy.config.general.enable_vials.tooltip2"),
+							SERVER_SIDE
+					)
+					.setSaveConsumer(val -> {ModConfig.INSTANCE.enableVials = val;})
 					.build()
 		);
 		
@@ -58,7 +75,7 @@ public class ConfigScreenProvider implements ModMenuApi {
 							.setTooltip(
 									new TranslatableText("extraalchemy.config.potion.tooltip1", new TranslatableText("item.minecraft.potion.effect."+name)), 
 									new TranslatableText("extraalchemy.config.potion.tooltip2", new TranslatableText("item.minecraft.potion.effect."+name)),
-									new TranslatableText("extraalchemy.config.serverside").setStyle(Style.EMPTY.withColor(Formatting.RED).withBold(true))
+									SERVER_SIDE
 							)
 							.setSaveConsumer(val -> {try {
 								f.setBoolean(ModConfig.INSTANCE.potions, val);

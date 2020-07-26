@@ -10,6 +10,7 @@ public class ClientDispatcher implements ClientModInitializer {
 		ClientPacketRegistry.init();
 		KeybindDispatcher.initKeybinds();
 		KeybindDispatcher.registerListeners();
+		ColorsRegistration.init();
 	}
 
 }
