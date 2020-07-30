@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -49,11 +50,19 @@ public class PotionBagScreenHandler extends ScreenHandler {
 	protected void addPlayerSlots(PlayerInventory playerInventory, int x, int y) {
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
-				this.addSlot(new Slot(playerInventory, j + (i * 9) + 9, x + (j * 18), y + (i * 18)));
+				if (playerInventory.main.get(j + (i * 9) + 9).getItem() == ModItems.POTION_BAG) {
+					this.addSlot(new BagSlot(playerInventory, j + (i * 9) + 9, x + (j * 18), y + (i * 18)));
+				} else {
+					this.addSlot(new Slot(playerInventory, j + (i * 9) + 9, x + (j * 18), y + (i * 18)));
+				}
 			}
 		}
 		for (int i = 0; i < 9; ++i) {
-			this.addSlot(new Slot(playerInventory, i, x + (i * 18), y + 58));
+			if (playerInventory.main.get(i).getItem() == ModItems.POTION_BAG) {
+				this.addSlot(new BagSlot(playerInventory, i, x + (i * 18), y + 58));
+			} else {
+				this.addSlot(new Slot(playerInventory, i, x + (i * 18), y + 58));
+			}
 		}
 	}
 
@@ -70,9 +79,29 @@ public class PotionBagScreenHandler extends ScreenHandler {
 	}
 	
 	@Override
+	public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
+		return stack.getItem() != ModItems.POTION_BAG && slot.getStack().getItem() != ModItems.POTION_BAG && slot.canInsert(stack);
+	}
+	
+	@Override
+	public boolean canInsertIntoSlot(Slot slot) {
+		return super.canInsertIntoSlot(slot) && !(slot instanceof BagSlot);
+	}
+	
+	@Override
+	protected boolean insertItem(ItemStack stack, int startIndex, int endIndex, boolean fromLast) {
+		if (stack.getItem() == ModItems.POTION_BAG) {
+			return false;
+		}
+		return super.insertItem(stack, startIndex, endIndex, fromLast);
+	}
+	
+	@Override
 	public ItemStack onSlotClick(int slotId, int mouseButton, SlotActionType actionType, PlayerEntity player) {
+		
+		if (actionType == SlotActionType.SWAP) return ItemStack.EMPTY;
+		
 		if (slotId!=0 || actionType == SlotActionType.CLONE) return super.onSlotClick(slotId, mouseButton, actionType, player);
-
 		if (actionType != SlotActionType.PICKUP) return ItemStack.EMPTY;
 
 		//slotId = 0, actionType = PICKUP
@@ -152,4 +181,36 @@ public class PotionBagScreenHandler extends ScreenHandler {
 
 	}
 
+	public static class BagSlot extends Slot {
+
+		public BagSlot(Inventory inventory, int index, int x, int y) {
+			super(inventory, index, x, y);
+		}
+		
+		@Override
+		public boolean canTakeItems(PlayerEntity playerEntity) {
+			return false;
+		}
+		
+		@Override
+		public void setStack(ItemStack stack) {
+			//NO-OP
+		}
+		
+		@Override
+		public ItemStack takeStack(int amount) {
+			return ItemStack.EMPTY;
+		}
+		
+		@Override
+		public ItemStack onTakeItem(PlayerEntity player, ItemStack stack) {
+			return ItemStack.EMPTY;
+		}
+		
+		@Override
+		public boolean doDrawHoveringEffect() {
+			return true;
+		}
+		
+	}
 }

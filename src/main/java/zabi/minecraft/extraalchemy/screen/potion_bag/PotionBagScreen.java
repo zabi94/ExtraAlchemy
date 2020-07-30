@@ -5,6 +5,8 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.screen.slot.Slot;
+import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import zabi.minecraft.extraalchemy.utils.LibMod;
@@ -46,6 +48,13 @@ public class PotionBagScreen extends HandledScreen<PotionBagScreenHandler> {
 	protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {
 		super.drawForeground(matrices, mouseX, mouseY);
 		this.drawMouseoverTooltip(matrices, mouseX-this.x, mouseY-this.y);
+	}
+	
+	@Override
+	protected void onMouseClick(Slot slot, int invSlot, int clickData, SlotActionType actionType) {
+		if (actionType != SlotActionType.SWAP) {
+			super.onMouseClick(slot, invSlot, clickData, actionType);
+		}
 	}
 
 }
