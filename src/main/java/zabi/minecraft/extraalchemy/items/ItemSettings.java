@@ -8,6 +8,6 @@ import zabi.minecraft.extraalchemy.utils.LibMod;
 
 public class ItemSettings {
 	
-	public static final ItemGroup EXTRA_ALCHEMY_GROUP = FabricItemGroupBuilder.create(new Identifier(LibMod.MOD_ID, "all")).icon(() -> new ItemStack(ModItems.EMPTY_VIAL)).build();
+	public static final ItemGroup EXTRA_ALCHEMY_GROUP = FabricItemGroupBuilder.create(new Identifier(LibMod.MOD_ID, "all")).icon(() -> new ItemStack(ModItems.POTION_BAG)).build();
 	
 }

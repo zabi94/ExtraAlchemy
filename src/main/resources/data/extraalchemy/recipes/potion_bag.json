@@ -1,0 +1,24 @@
+    {
+      "type": "minecraft:crafting_shaped",
+      "pattern": [
+        " B ",
+        "LCL",
+        "LLL"
+      ],
+      "key": {
+        "B": {
+          "item": "minecraft:glass_bottle"
+        },
+        "L": {
+          "item": "minecraft:leather"
+        },
+        "C": {
+          "item": "minecraft:chest"
+        }
+      },
+      "result": {
+        "item": "extraalchemy:potion_bag",
+        "count": 1
+      }
+    }
+

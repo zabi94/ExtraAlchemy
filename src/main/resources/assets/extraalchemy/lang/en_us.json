@@ -3,6 +3,16 @@
 	
 	"item.extraalchemy.breakable_potion": "Breakable %s",
 	
+	"item.extraalchemy.potion_bag": "Potion Bag",
+	"item.extraalchemy.potion_bag.selected.potion": "Selected: %s",
+	"item.extraalchemy.potion_bag.selected.available": "Available: %d",
+	"item.extraalchemy.potion_bag.selected.none": "No Potion Selected",
+	"item.extraalchemy.potion_bag.autoselect": "When unavailable: %s",
+	"item.extraalchemy.potion_bag.autoselect.option.next": "Select next potion",
+	"item.extraalchemy.potion_bag.autoselect.option.deselect": "Deselect potion",
+	"item.extraalchemy.potion_bag.autoselect.option.hold": "Keep current selection",
+	"item.extraalchemy.potion_bag.autoselect.change": "Cycle auto-selection mode with [%s]",
+	
 	"item.extraalchemy.empty_vial": "Empty Vial",
 	"item.extraalchemy.empty_vial.tootlip1": "Craft together with a splash potion to fill, or right",
 	"item.extraalchemy.empty_vial.tootlip2": "click with a splash potion in your hotbar.",
@@ -104,5 +114,6 @@
 	"extraalchemy.config.clientside": "Client-side only",
 	"extraalchemy.config.serverside": "Must be synchronized with servers manually",
 	
-	"key.extraalchemy.magnetism_toggle": "Toggle Potion of Magnetism"
+	"key.extraalchemy.magnetism_toggle": "Toggle Potion of Magnetism",
+	"key.extraalchemy.potion_bag_mode": "Toggle Potion Bag auto-selection"
 }
