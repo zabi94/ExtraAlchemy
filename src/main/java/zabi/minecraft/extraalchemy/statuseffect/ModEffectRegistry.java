@@ -13,6 +13,7 @@ import zabi.minecraft.extraalchemy.statuseffect.effects.FuseStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.GravityStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.LearningStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.MagnetismStatusEffect;
+import zabi.minecraft.extraalchemy.statuseffect.effects.PacifismStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.PhotosynthesisStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.RecallStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.ReturnStatusEffect;
@@ -31,6 +32,7 @@ public class ModEffectRegistry {
 	public static ModStatusEffect learning = new LearningStatusEffect(StatusEffectType.BENEFICIAL, 0xD5FF39, false);
 	public static ModStatusEffect gravity = new GravityStatusEffect(StatusEffectType.NEUTRAL, 0x815D09, false);
 	public static ModStatusEffect combustion = new CombustionStatusEffect(StatusEffectType.HARMFUL, 0xF96501, false);
+	public static ModStatusEffect pacifism = new PacifismStatusEffect(StatusEffectType.BENEFICIAL, 0xFEFFE7, false); 
 
 	//Instant
 	public static ModStatusEffect returning = new ReturnStatusEffect(StatusEffectType.BENEFICIAL, 0xD05585, true);
