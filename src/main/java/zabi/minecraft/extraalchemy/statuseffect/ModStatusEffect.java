@@ -1,5 +1,6 @@
 package zabi.minecraft.extraalchemy.statuseffect;
 
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectType;
 import zabi.minecraft.extraalchemy.utils.Log;
@@ -22,7 +23,7 @@ public class ModStatusEffect extends StatusEffect {
 	@Override
 	public boolean canApplyUpdateEffect(int remainingTicks, int level) {
 		if (isInstant()) {
-			return false;
+			return true;
 		}
 		return canApplyEffect(remainingTicks, level);
 	}
@@ -33,6 +34,13 @@ public class ModStatusEffect extends StatusEffect {
 			Thread.dumpStack();
 		}
 		return false;
+	}
+	
+	@Override
+	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+		if (isInstant()) {
+			applyInstantEffect(null, null, entity, amplifier, 1.0d);
+		}
 	}
 	
 	public ModStatusEffect onRegister() {
