@@ -39,7 +39,7 @@ public class PotionBagContainer extends Container {
 		bagInventory = new PotionBagItem.BagInventory(bagStack, hand);
 		addSlot(new SelectorSlot(bagStack, 80, 36));
 		for (int j=0;j<2;j++) for (int i=0;i<9;i++) {
-			this.addSlot(new Slot(bagInventory, i+9*j, 18*i + 8, 18*j+90));
+			this.addSlot(new PotionOnlySlot(bagInventory, i+9*j, 18*i + 8, 18*j+90));
 		}
 		addPlayerSlots(playerInventory, 8, 140);
 	}
@@ -52,7 +52,7 @@ public class PotionBagContainer extends Container {
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
 				if (playerInventory.main.get(j + (i * 9) + 9).getItem() == ModItems.POTION_BAG) {
-					this.addSlot(new BagSlot(playerInventory, j + (i * 9) + 9, x + (j * 18), y + (i * 18)));
+					this.addSlot(new BagLockedSlot(playerInventory, j + (i * 9) + 9, x + (j * 18), y + (i * 18)));
 				} else {
 					this.addSlot(new Slot(playerInventory, j + (i * 9) + 9, x + (j * 18), y + (i * 18)));
 				}
@@ -60,7 +60,7 @@ public class PotionBagContainer extends Container {
 		}
 		for (int i = 0; i < 9; ++i) {
 			if (playerInventory.main.get(i).getItem() == ModItems.POTION_BAG) {
-				this.addSlot(new BagSlot(playerInventory, i, x + (i * 18), y + 58));
+				this.addSlot(new BagLockedSlot(playerInventory, i, x + (i * 18), y + 58));
 			} else {
 				this.addSlot(new Slot(playerInventory, i, x + (i * 18), y + 58));
 			}
@@ -90,7 +90,7 @@ public class PotionBagContainer extends Container {
 	
 	@Override
 	public boolean canInsertIntoSlot(Slot slot) {
-		return super.canInsertIntoSlot(slot) && !(slot instanceof BagSlot);
+		return super.canInsertIntoSlot(slot) && !(slot instanceof BagLockedSlot);
 	}
 	
 	@Override
@@ -126,7 +126,38 @@ public class PotionBagContainer extends Container {
 	
 	@Override
 	public ItemStack transferSlot(PlayerEntity player, int index) {
-		return ItemStack.EMPTY; //TODO
+		if (index > 18) {
+			return transferToBag(player, index);
+		} else {
+			return transferToPlayer(player, index);
+		}
+	}
+
+	private ItemStack transferToBag(PlayerEntity player, int index) {
+		return mergeAndUpdate(player, this.slots.get(index), index, 1, 18, false);
+	}
+
+	private ItemStack transferToPlayer(PlayerEntity player, int index) {
+		return mergeAndUpdate(player, this.slots.get(index), index, 19, 19+36, true);
+	}
+	
+	protected ItemStack mergeAndUpdate(PlayerEntity player, Slot slot, int slotIndex, int startIndex, int stopIndex, boolean reversed) {
+		final ItemStack origStack = slot.getStack();
+		final ItemStack copyStack = origStack.copy();
+		if (!this.insertItem(origStack, startIndex, stopIndex, reversed)) {
+			return ItemStack.EMPTY;
+		}
+		slot.onStackChanged(origStack, copyStack);
+		if (origStack.isEmpty()) {
+			slot.setStack(ItemStack.EMPTY);
+		} else {
+			slot.markDirty();
+		}
+		if (origStack.getCount() == copyStack.getCount()) {
+			return ItemStack.EMPTY;
+		}
+		slot.onTakeItem(player, origStack);
+		return origStack;
 	}
 
 	public static class SelectorSlot extends Slot {
@@ -185,10 +216,23 @@ public class PotionBagContainer extends Container {
 		}
 
 	}
+	
+	public static class PotionOnlySlot extends Slot {
 
-	public static class BagSlot extends Slot {
+		public PotionOnlySlot(Inventory inventory, int index, int x, int y) {
+			super(inventory, index, x, y);
+		}
+		
+		@Override
+		public boolean canInsert(ItemStack stack) {
+			return stack.getItem() == Items.POTION;
+		}
+		
+	}
 
-		public BagSlot(Inventory inventory, int index, int x, int y) {
+	public static class BagLockedSlot extends Slot {
+
+		public BagLockedSlot(Inventory inventory, int index, int x, int y) {
 			super(inventory, index, x, y);
 		}
 		
