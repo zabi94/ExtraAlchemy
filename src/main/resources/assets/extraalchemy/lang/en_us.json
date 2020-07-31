@@ -66,10 +66,10 @@
 	"item.minecraft.tipped_arrow.effect.learning": "Arrow of Learning",
 	
 	"effect.extraalchemy.concentration": "Focus",
-	"item.minecraft.potion.effect.concentration": "Potion of Concentration",
-	"item.minecraft.splash_potion.effect.concentration": "Splash Potion of Concentration",
-	"item.minecraft.lingering_potion.effect.concentration": "Lingering Potion of Concentration",
-	"item.minecraft.tipped_arrow.effect.concentration": "Arrow of Concentration",
+	"item.minecraft.potion.effect.concentration": "Potion of Focusing",
+	"item.minecraft.splash_potion.effect.concentration": "Splash Potion of Focusing",
+	"item.minecraft.lingering_potion.effect.concentration": "Lingering Potion of Focusing",
+	"item.minecraft.tipped_arrow.effect.concentration": "Arrow of Focusing",
 	
 	"effect.extraalchemy.gravity": "Gravity",
 	"item.minecraft.potion.effect.gravity": "Potion of Gravity",
