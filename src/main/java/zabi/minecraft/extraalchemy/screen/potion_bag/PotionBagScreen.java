@@ -2,11 +2,13 @@ package zabi.minecraft.extraalchemy.screen.potion_bag;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
+import net.minecraft.text.StringRenderable;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import zabi.minecraft.extraalchemy.utils.LibMod;
@@ -26,6 +28,8 @@ public class PotionBagScreen extends HandledScreen<PotionBagScreenHandler> {
 	protected void init() {
 		this.backgroundHeight = 221;
 		this.backgroundWidth = 176;
+		MinecraftClient mc = MinecraftClient.getInstance();
+		this.titleX = (this.backgroundWidth - mc.textRenderer.getWidth(this.title))/2;
 		super.init();
 	}
 
@@ -46,7 +50,7 @@ public class PotionBagScreen extends HandledScreen<PotionBagScreenHandler> {
 	
 	@Override
 	protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {
-		super.drawForeground(matrices, mouseX, mouseY);
+		this.textRenderer.draw(matrices, (StringRenderable)this.title, (float)this.titleX, (float)this.titleY, 4210752);
 		this.drawMouseoverTooltip(matrices, mouseX-this.x, mouseY-this.y);
 	}
 	
