@@ -68,6 +68,12 @@
 	"item.minecraft.lingering_potion.effect.gravity": "Lingering Potion of Gravity",
 	"item.minecraft.tipped_arrow.effect.gravity": "Arrow of Gravity",
 	
+	"effect.extraalchemy.combustion": "Scorching",
+	"item.minecraft.potion.effect.combustion": "Potion of Combustion",
+	"item.minecraft.splash_potion.effect.combustion": "Splash Potion of Combustion",
+	"item.minecraft.lingering_potion.effect.combustion": "Lingering Potion of Combustion",
+	"item.minecraft.tipped_arrow.effect.combustion": "Arrow of Combustion",
+	
 	"extraalchemy.mod_name": "Extra Alchemy",
 	
 	"extraalchemy.config.general": "General",

@@ -25,6 +25,7 @@ public class BrewingRecipeRegistrar extends DelayedConsumer<Registar> {
 		registerPotion(ModConfig.INSTANCE.potions.learning, ModPotionRegistry.learning, Items.LAPIS_BLOCK, Potions.THICK);
 		registerPotion(ModConfig.INSTANCE.potions.concentration, ModPotionRegistry.concentration, Items.EGG, Potions.AWKWARD);
 		registerPotion(ModConfig.INSTANCE.potions.gravity, ModPotionRegistry.gravity, Items.NETHER_BRICK, Potions.THICK);
+		registerPotion(ModConfig.INSTANCE.potions.combustion, ModPotionRegistry.combustion, Items.COAL_BLOCK, Potions.MUNDANE);
 	}
 	
 	private static void registerPotion(boolean active, ModPotion potion, Item ingredient, Potion base) {

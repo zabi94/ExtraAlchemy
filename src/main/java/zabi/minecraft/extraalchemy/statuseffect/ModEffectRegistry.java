@@ -6,6 +6,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import zabi.minecraft.extraalchemy.statuseffect.effects.CombustionStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.ConcentrationStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.CrumblingStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.FuseStatusEffect;
@@ -29,6 +30,7 @@ public class ModEffectRegistry {
 	public static ModStatusEffect sails = new SailsStatusEffect(StatusEffectType.BENEFICIAL, 0x9BD8FF, false);
 	public static ModStatusEffect learning = new LearningStatusEffect(StatusEffectType.BENEFICIAL, 0xD5FF39, false);
 	public static ModStatusEffect gravity = new GravityStatusEffect(StatusEffectType.NEUTRAL, 0x815D09, false);
+	public static ModStatusEffect combustion = new CombustionStatusEffect(StatusEffectType.HARMFUL, 0xF96501, false);
 
 	//Instant
 	public static ModStatusEffect returning = new ReturnStatusEffect(StatusEffectType.BENEFICIAL, 0xD05585, true);
