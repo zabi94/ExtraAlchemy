@@ -1,18 +1,22 @@
 package zabi.minecraft.extraalchemy.client;
 
 import java.lang.reflect.Field;
+import java.util.function.Supplier;
 
 import io.github.prospector.modmenu.api.ConfigScreenFactory;
 import io.github.prospector.modmenu.api.ModMenuApi;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
-import net.minecraft.client.resource.language.I18n;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import zabi.minecraft.extraalchemy.config.ConfigInstance;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.utils.LibMod;
 
 public class ConfigScreenProvider implements ModMenuApi {
+	
+	private static final Supplier<String> SERVER_SIDE = () -> new TranslatableText("extraalchemy.config.serverside").formatted(Formatting.RED, Formatting.BOLD).asFormattedString();
+	private static final Supplier<String> CLIENT_SIDE = () ->  new TranslatableText("extraalchemy.config.clientside").formatted(Formatting.AQUA, Formatting.BOLD).asFormattedString();
 	
 	public static ConfigBuilder builder() {
 		
@@ -28,9 +32,9 @@ public class ConfigScreenProvider implements ModMenuApi {
 				.startBooleanToggle("extraalchemy.config.general.enable_learning_boost", ModConfig.INSTANCE.learningIncreasesExpOrbValue)
 					.setDefaultValue(true)
 					.setTooltip(
-							I18n.translate("extraalchemy.config.general.enable_learning_boost.tooltip1"), 
-							I18n.translate("extraalchemy.config.general.enable_learning_boost.tooltip2"), 
-							Formatting.RED.toString()+Formatting.BOLD+I18n.translate("extraalchemy.config.serverside")
+							new TranslatableText("extraalchemy.config.general.enable_learning_boost.tooltip1").asFormattedString(),
+							new TranslatableText("extraalchemy.config.general.enable_learning_boost.tooltip2").asFormattedString(), 
+							SERVER_SIDE.get()
 					)
 					.setSaveConsumer(val -> {ModConfig.INSTANCE.learningIncreasesExpOrbValue = val;})
 					.build()
@@ -40,11 +44,23 @@ public class ConfigScreenProvider implements ModMenuApi {
 				.startBooleanToggle("extraalchemy.config.general.disable_inventory_shift", ModConfig.INSTANCE.removeInventoryPotionShift)
 					.setDefaultValue(true)
 					.setTooltip(
-							I18n.translate("extraalchemy.config.general.disable_inventory_shift.tooltip1"), 
-							I18n.translate("extraalchemy.config.general.disable_inventory_shift.tooltip2"), 
-							Formatting.AQUA.toString()+Formatting.BOLD+I18n.translate("extraalchemy.config.clientside")
-					) 
+							new TranslatableText("extraalchemy.config.general.disable_inventory_shift.tooltip1").asFormattedString(), 
+							new TranslatableText("extraalchemy.config.general.disable_inventory_shift.tooltip2").asFormattedString(),
+							CLIENT_SIDE.get()
+					)
 					.setSaveConsumer(val -> {ModConfig.INSTANCE.removeInventoryPotionShift = val;})
+					.build()
+		);
+		
+		general.addEntry(configBuilder.entryBuilder()
+				.startBooleanToggle("extraalchemy.config.general.enable_vials" , ModConfig.INSTANCE.enableVials)
+					.setDefaultValue(true)
+					.setTooltip(
+							new TranslatableText("extraalchemy.config.general.enable_vials.tooltip1").asFormattedString(), 
+							new TranslatableText("extraalchemy.config.general.enable_vials.tooltip2").asFormattedString(),
+							SERVER_SIDE.get()
+					)
+					.setSaveConsumer(val -> {ModConfig.INSTANCE.enableVials = val;})
 					.build()
 		);
 		
@@ -57,9 +73,9 @@ public class ConfigScreenProvider implements ModMenuApi {
 							.setDefaultValue(true)
 							.requireRestart()
 							.setTooltip(
-									I18n.translate("extraalchemy.config.potion.tooltip1"), 
-									I18n.translate("extraalchemy.config.potion.tooltip2"), 
-									Formatting.RED.toString()+Formatting.BOLD+I18n.translate("extraalchemy.config.serverside")
+									new TranslatableText("extraalchemy.config.potion.tooltip1", new TranslatableText("item.minecraft.potion.effect."+name)).asFormattedString(), 
+									new TranslatableText("extraalchemy.config.potion.tooltip2", new TranslatableText("item.minecraft.potion.effect."+name)).asFormattedString(),
+									SERVER_SIDE.get()
 							)
 							.setSaveConsumer(val -> {try {
 								f.setBoolean(ModConfig.INSTANCE.potions, val);

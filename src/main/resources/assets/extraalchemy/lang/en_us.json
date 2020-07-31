@@ -1,4 +1,13 @@
 {
+	"itemGroup.extraalchemy.all": "Extra Alchemy",
+	
+	"item.extraalchemy.breakable_potion": "Breakable %s",
+	
+	"item.extraalchemy.empty_vial": "Empty Vial",
+	"item.extraalchemy.empty_vial.tootlip1": "Craft together with a splash potion to fill, or right",
+	"item.extraalchemy.empty_vial.tootlip2": "click with a splash potion in your hotbar.",
+	"item.extraalchemy.empty_vial.tootlip.disabled": "Potion Vials are disabled. Remove this recipe with a pack!",
+	
 	"effect.extraalchemy.magnetism": "Magnetism",
 	"item.minecraft.potion.effect.magnetism": "Potion of Magnetism",
 	"item.minecraft.splash_potion.effect.magnetism": "Splash Potion of Magnetism",
@@ -59,7 +68,7 @@
 	"item.minecraft.lingering_potion.effect.gravity": "Lingering Potion of Gravity",
 	"item.minecraft.tipped_arrow.effect.gravity": "Arrow of Gravity",
 	
-	"extraalchemy.modname": "Extra Alchemy",
+	"extraalchemy.mod_name": "Extra Alchemy",
 	
 	"extraalchemy.config.general": "General",
 	"extraalchemy.config.potions": "Potion Recipes",
@@ -68,7 +77,12 @@
 	"extraalchemy.config.general.enable_learning_boost.tooltip1": "Enabling this makes the Potion of Learning increase",
 	"extraalchemy.config.general.enable_learning_boost.tooltip2": "the amount of XP absorbed from orbs by 10%%.",
 	
-	"extraalchemy.config.potion.tooltip1": "Registers the brewing recipe of the potion.",
+	"extraalchemy.config.general.enable_vials": "Enable Potion Vials",
+	"extraalchemy.config.general.enable_vials.tooltip1": "Enabling this makes the Empty Potion Vials craftable",
+	"extraalchemy.config.general.enable_vials.tooltip2": "with a splash potion to create vial potions",
+	
+	"extraalchemy.config.potion": "%s",
+	"extraalchemy.config.potion.tooltip1": "Registers the brewing recipe of the %s.",
 	"extraalchemy.config.potion.tooltip2": "The status effect will be registered regardless.",
 	
 	"extraalchemy.config.general.disable_inventory_shift": "Disable inventory drift",
