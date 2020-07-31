@@ -1,7 +1,7 @@
 package zabi.minecraft.extraalchemy.client;
 
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.fabricmc.fabric.api.event.client.ClientTickCallback;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.options.KeyBinding;
@@ -22,7 +22,7 @@ public class KeybindDispatcher {
 	}
 	
 	public static void registerListeners() {
-		ClientTickCallback.EVENT.register(evt -> {
+		ClientTickEvents.END_CLIENT_TICK.register(evt -> {
 			if (MAGNETISM_TOGGLE.isPressed()) {
 				if (!wasMagnetismPressedLastTick) {
 					@SuppressWarnings("resource")
