@@ -11,6 +11,7 @@ public class ClientDispatcher implements ClientModInitializer {
 		KeybindDispatcher.initKeybinds();
 		KeybindDispatcher.registerListeners();
 		ColorsRegistration.init();
+		ModScreens.init();
 	}
 
 }
