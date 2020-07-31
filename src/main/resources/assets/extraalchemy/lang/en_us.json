@@ -4,8 +4,7 @@
 	"item.extraalchemy.breakable_potion": "Breakable %s",
 	
 	"item.extraalchemy.potion_bag": "Potion Bag",
-	"item.extraalchemy.potion_bag.selected.potion": "Selected: %s",
-	"item.extraalchemy.potion_bag.selected.available": "Available: %d",
+	"item.extraalchemy.potion_bag.selected.potion": "Selected: %s (%s)",
 	"item.extraalchemy.potion_bag.selected.none": "No Potion Selected",
 	"item.extraalchemy.potion_bag.autoselect": "When unavailable: %s",
 	"item.extraalchemy.potion_bag.autoselect.option.next": "Select next potion",

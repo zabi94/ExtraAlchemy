@@ -48,15 +48,17 @@ public class PotionBagItem extends Item {
 		Optional<Potion> optpot = getSelectedPotion(stack);
 
 		if (optpot.isPresent()) {
-			tooltip.add(new TranslatableText("item.extraalchemy.potion_bag.selected.potion", new TranslatableText(optpot.get().finishTranslationKey("item.minecraft.potion.effect.")).setStyle(Style.EMPTY.withColor(Formatting.DARK_PURPLE).withBold(true))));
 			int avail = getSelectedPotionAmount(stack).get();
-			tooltip.add(new TranslatableText("item.extraalchemy.potion_bag.selected.available", new LiteralText(""+avail).setStyle(Style.EMPTY.withBold(avail == 0).withColor(avail == 0 ? Formatting.DARK_RED : Formatting.RESET))));
+			Text potion = new TranslatableText(optpot.get().finishTranslationKey("item.minecraft.potion.effect.")).setStyle(Style.EMPTY.withColor(Formatting.DARK_PURPLE).withBold(true));
+			Text amount = new LiteralText(""+avail).setStyle(Style.EMPTY.withColor(Formatting.BLUE));
+			tooltip.add(new TranslatableText("item.extraalchemy.potion_bag.selected.potion", potion, amount));
+			
 		} else {
-			tooltip.add(new TranslatableText("item.extraalchemy.potion_bag.selected.none"));
+			tooltip.add(new TranslatableText("item.extraalchemy.potion_bag.selected.none").setStyle(Style.EMPTY.withColor(Formatting.DARK_RED)));
 		}
 		Text option = new TranslatableText("item.extraalchemy.potion_bag.autoselect.option."+getSelectionMode(stack).toString().toLowerCase()).setStyle(Style.EMPTY.withColor(Formatting.GOLD));
 		tooltip.add(new TranslatableText("item.extraalchemy.potion_bag.autoselect", option));
-		tooltip.add(new TranslatableText("item.extraalchemy.potion_bag.autoselect.change", new KeybindText("key.extraalchemy.potion_bag_mode")));
+		tooltip.add(new TranslatableText("item.extraalchemy.potion_bag.autoselect.change", new KeybindText("key.extraalchemy.potion_bag_mode").setStyle(Style.EMPTY.withColor(Formatting.AQUA))));
 
 		if (optpot.isPresent()) {
 			tooltip.add(new LiteralText(""));
