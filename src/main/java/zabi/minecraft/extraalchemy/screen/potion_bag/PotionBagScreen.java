@@ -3,6 +3,8 @@ package zabi.minecraft.extraalchemy.screen.potion_bag;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.gui.screen.ingame.ContainerScreen;
+import net.minecraft.container.Slot;
+import net.minecraft.container.SlotActionType;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -45,6 +47,13 @@ public class PotionBagScreen extends ContainerScreen<PotionBagContainer> {
 	protected void drawForeground(int mouseX, int mouseY) {
 		super.drawForeground(mouseX, mouseY);
 		this.drawMouseoverTooltip(mouseX-this.x, mouseY-this.y);
+	}
+	
+	@Override
+	protected void onMouseClick(Slot slot, int invSlot, int clickData, SlotActionType actionType) {
+		if (actionType != SlotActionType.SWAP) {
+			super.onMouseClick(slot, invSlot, clickData, actionType);
+		}
 	}
 
 }
