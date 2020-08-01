@@ -126,6 +126,10 @@
 	"extraalchemy.config.general.enable_rings.tooltip1": "Enabling this makes the Empty Potion Ring craftable", 
 	"extraalchemy.config.general.enable_rings.tooltip2": "with a potion to create Potion Rings.",
 	
+	"extraalchemy.config.general.enable_brewing_stand_fire": "Enable Brewing stand fire tweak",
+	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "Enabling this makes the Brewing Stand get fuel every", 
+	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "2 seconds when a heat source is placed underneath.",
+	
 	"extraalchemy.config.clientside": "Client-side only",
 	"extraalchemy.config.serverside": "Must be synchronized with servers manually",
 	

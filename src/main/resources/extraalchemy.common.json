@@ -9,7 +9,8 @@
     "MixinBrewRegistry",
     "AccessorExperienceOrbEntity",
     "InvokerLivingEntity",
-    "EntityDamaged"
+    "EntityDamaged",
+    "BrewingStandMixin"
   ],
   "injectors": {
     "defaultRequire": 1

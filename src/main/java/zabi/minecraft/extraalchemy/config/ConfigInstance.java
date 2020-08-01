@@ -6,6 +6,7 @@ public class ConfigInstance {
 	public boolean learningIncreasesExpOrbValue;
 	public boolean enableVials;
 	public boolean enableRings;
+	public boolean enableBrewingStandFire;
 	
 	public Potions potions;
 	
@@ -14,6 +15,7 @@ public class ConfigInstance {
 		learningIncreasesExpOrbValue = true;
 		enableVials = true;
 		enableRings = true;
+		enableBrewingStandFire = true;
 		potions = new Potions();
 	}
 	
