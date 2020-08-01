@@ -1,0 +1,7 @@
+{
+  "type": "extraalchemy:potion_ring",
+  "cost": 1,
+  "length": 8,
+  "renew": 1,
+  "potion": "extraalchemy:crumbling"
+}

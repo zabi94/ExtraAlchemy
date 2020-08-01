@@ -1,0 +1,7 @@
+{
+  "type": "extraalchemy:potion_ring",
+  "cost": 3,
+  "length": 36,
+  "renew": 18,
+  "potion": "minecraft:night_vision"
+}

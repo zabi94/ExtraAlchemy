@@ -1,0 +1,7 @@
+{
+  "type": "extraalchemy:potion_ring",
+  "cost": 1,
+  "length": 6,
+  "renew": 1,
+  "potion": "minecraft:strong_poison"
+}

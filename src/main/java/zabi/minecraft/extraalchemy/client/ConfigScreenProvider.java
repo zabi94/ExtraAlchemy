@@ -64,6 +64,18 @@ public class ConfigScreenProvider implements ModMenuApi {
 					.build()
 		);
 		
+		general.addEntry(configBuilder.entryBuilder()
+				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.enable_rings") , ModConfig.INSTANCE.enableRings)
+					.setDefaultValue(true)
+					.setTooltip(
+							new TranslatableText("extraalchemy.config.general.enable_rings.tooltip1"), 
+							new TranslatableText("extraalchemy.config.general.enable_rings.tooltip2"),
+							SERVER_SIDE
+					)
+					.setSaveConsumer(val -> {ModConfig.INSTANCE.enableRings = val;})
+					.build()
+		);
+		
 		try {
 			for (Field f:ConfigInstance.Potions.class.getDeclaredFields()) {
 				String name = f.getName();

@@ -8,7 +8,7 @@ import zabi.minecraft.extraalchemy.items.ModItems;
 public class ColorsRegistration {
 
 	public static void init() {
-		ColorProviderRegistry.ITEM.register(ColorsRegistration::potionColor , ModItems.POTION_VIAL);
+		ColorProviderRegistry.ITEM.register(ColorsRegistration::potionColor , ModItems.POTION_VIAL, ModItems.POTION_RING);
 	}
 	
 	private static int potionColor(ItemStack stack, int tintIndex) {

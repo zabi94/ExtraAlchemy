@@ -1,0 +1,7 @@
+{
+  "type": "extraalchemy:potion_ring",
+  "cost": 5,
+  "length": 6,
+  "renew": 1,
+  "potion": "extraalchemy:photosynthesis_strong"
+}

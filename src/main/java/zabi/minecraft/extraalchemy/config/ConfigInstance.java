@@ -5,6 +5,7 @@ public class ConfigInstance {
 	public boolean removeInventoryPotionShift;
 	public boolean learningIncreasesExpOrbValue;
 	public boolean enableVials;
+	public boolean enableRings;
 	
 	public Potions potions;
 	
@@ -12,6 +13,7 @@ public class ConfigInstance {
 		removeInventoryPotionShift = true;
 		learningIncreasesExpOrbValue = true;
 		enableVials = true;
+		enableRings = true;
 		potions = new Potions();
 	}
 	

@@ -1,0 +1,7 @@
+{
+  "type": "extraalchemy:potion_ring",
+  "cost": 3,
+  "length": 9,
+  "renew": 1,
+  "potion": "minecraft:strong_leaping"
+}
