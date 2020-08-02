@@ -84,6 +84,13 @@ public class ModPotion extends Potion {
 			return base;
 		}
 		
+		public static ModPotionTimed generateWithLengthened(String name, StatusEffect statusEffect, int lengthNormal, int lengthExtended) {
+			ModPotionTimed base = new ModPotionTimed(name, statusEffect, lengthNormal, 0);
+			base.setEmpowered(null);
+			base.setExtended(new ModPotionTimed(name, statusEffect, lengthExtended, 0));
+			return base;
+		}
+		
 	}
 
 }
