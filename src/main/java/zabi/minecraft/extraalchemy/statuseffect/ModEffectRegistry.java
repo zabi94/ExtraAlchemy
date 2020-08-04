@@ -23,8 +23,10 @@ import zabi.minecraft.extraalchemy.utils.LibMod;
 import zabi.minecraft.extraalchemy.utils.Log;
 
 public class ModEffectRegistry {
+	
+	public static final int MAGNETISM_COLOR = 0xb8b8b8;
 
-	public static ModStatusEffect magnetism = new MagnetismStatusEffect(StatusEffectType.BENEFICIAL, 0xb8b8b8, false);
+	public static ModStatusEffect magnetism = new MagnetismStatusEffect(StatusEffectType.BENEFICIAL, MAGNETISM_COLOR, false);
 	public static ModStatusEffect photosynthesis = new PhotosynthesisStatusEffect(StatusEffectType.BENEFICIAL, 0x3cbd19, false);
 	public static ModStatusEffect crumbling = new CrumblingStatusEffect(StatusEffectType.NEUTRAL, 0x794044, false);
 	public static ModStatusEffect fuse = new FuseStatusEffect(StatusEffectType.HARMFUL, 0xcc3333, false);
@@ -66,7 +68,7 @@ public class ModEffectRegistry {
 		public static StatusEffect magnetism_disabled = null;
 		
 		public static void register() {
-			magnetism_disabled = Registry.register(Registry.STATUS_EFFECT, new Identifier(LibMod.MOD_ID, "magnetism_disabled"), new ModStatusEffect(StatusEffectType.BENEFICIAL, magnetism.getColor(), magnetism.isInstant()).onRegister());
+			magnetism_disabled = Registry.register(Registry.STATUS_EFFECT, new Identifier(LibMod.MOD_ID, "magnetism_disabled"), new ModStatusEffect(StatusEffectType.BENEFICIAL, MAGNETISM_COLOR, magnetism.isInstant()).onRegister());
 			Log.i("Registered dummy effects");
 		}
 	}
