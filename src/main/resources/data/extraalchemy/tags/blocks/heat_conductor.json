@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+  
+    "minecraft:bricks",
+    "minecraft:brick_slab",
+    
+    "minecraft:smooth_stone",
+    "minecraft:smooth_stone_slab",
+    
+    "minecraft:stone_bricks",
+    "minecraft:stone_brick_slab",
+    
+    "minecraft:quartz_slab",
+    "minecraft:quartz_block"
+  ]
+}

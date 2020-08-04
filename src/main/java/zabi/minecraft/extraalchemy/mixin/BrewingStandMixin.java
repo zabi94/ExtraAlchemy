@@ -7,19 +7,25 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.BrewingStandBlockEntity;
 import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.inventory.SidedInventory;
+import net.minecraft.tag.BlockTags;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.Tickable;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
+import zabi.minecraft.extraalchemy.utils.LibMod;
 
 @Mixin(BrewingStandBlockEntity.class)
 public abstract class BrewingStandMixin extends LockableContainerBlockEntity implements SidedInventory, Tickable {
 
 	@Shadow private int fuel;
+	
+	private static final Identifier HEAT_SOURCE_TAG = LibMod.id("heat_source");
+	private static final Identifier HEAT_CONDUCTOR_TAG = LibMod.id("heat_conductor");
 	
 	protected BrewingStandMixin(BlockEntityType<?> blockEntityType) {
 		super(blockEntityType);
@@ -27,19 +33,26 @@ public abstract class BrewingStandMixin extends LockableContainerBlockEntity imp
 	
 	@Inject(method = "tick", at = @At("HEAD"))
 	public void checkFireUnderneath(CallbackInfo ci) {
-		if (!world.isClient && ModConfig.INSTANCE.enableBrewingStandFire && isHeatSource(world.getBlockState(pos.down()))) {
-			if (fuel < 20 && world.getTime() % 40 == 0) {
+		if (!world.isClient && ModConfig.INSTANCE.enableBrewingStandFire) {
+			if (fuel < 20 && world.getTime() % 40 == 0 && isHeated(world, pos)) {
 				fuel++;
 				this.markDirty();
 			}
 		}
 	}
+	
+	public boolean isHeated(World world, BlockPos pos) {
+		BlockState oneBelow = world.getBlockState(pos.down());
+		BlockState twoBelow = world.getBlockState(pos.down(2));
+		return isHeatSource(oneBelow) || (isTransmissiveBlock(oneBelow) && isHeatSource(twoBelow));
+	}
 
 	public boolean isHeatSource(BlockState state) {
-		if (state.getMaterial() == Material.FIRE || state.getMaterial() == Material.LAVA || state.getBlock() == Blocks.MAGMA_BLOCK) {
-			return true;
-		}
-		return false;
+		return BlockTags.getContainer().getTagsFor(state.getBlock()).contains(HEAT_SOURCE_TAG);
+	}
+	
+	public boolean isTransmissiveBlock(BlockState state) {
+		return BlockTags.getContainer().getTagsFor(state.getBlock()).contains(HEAT_CONDUCTOR_TAG);
 	}
 	
 }
