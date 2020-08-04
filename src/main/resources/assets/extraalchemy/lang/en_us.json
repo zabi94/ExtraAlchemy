@@ -3,6 +3,18 @@
 	
 	"item.extraalchemy.breakable_potion": "Breakable %s",
 	
+	"item.extraalchemy.empty_ring": "Empty Potion Ring",
+	"item.extraalchemy.empty_ring.tooltip1": "Craft together with a Potion.",
+	"item.extraalchemy.empty_ring.tooltip2": "Not all Potions may be available.",
+	
+	"item.extraalchemy.potion_ring": "Potion Ring",
+	"item.extraalchemy.potion_ring.potion": "Contains: %s %s",
+	"item.extraalchemy.potion_ring.cost": "XP Cost: %s",
+	"item.extraalchemy.potion_ring.creative": "Creative Version",
+	"item.extraalchemy.potion_ring.length": "Duration in seconds: %s",
+	"item.extraalchemy.potion_ring.disabled": "Inactive. Shift-right click to enable",
+	"item.extraalchemy.potion_ring.enabled": "Active. Shift-right click to disable",
+	
 	"item.extraalchemy.potion_bag": "Potion Bag",
 	"item.extraalchemy.potion_bag.selected.potion": "Selected: %s (%s)",
 	"item.extraalchemy.potion_bag.selected.none": "No Potion Selected",
@@ -109,6 +121,10 @@
 	"extraalchemy.config.general.disable_inventory_shift": "Disable inventory drift",
 	"extraalchemy.config.general.disable_inventory_shift.tooltip1": "Prevents the inventory screen from moving to", 
 	"extraalchemy.config.general.disable_inventory_shift.tooltip2": "the right when a status effect is applied.",
+	
+	"extraalchemy.config.general.enable_rings": "Enable Potion Rings",
+	"extraalchemy.config.general.enable_rings.tooltip1": "Enabling this makes the Empty Potion Ring craftable", 
+	"extraalchemy.config.general.enable_rings.tooltip2": "with a potion to create Potion Rings.",
 	
 	"extraalchemy.config.clientside": "Client-side only",
 	"extraalchemy.config.serverside": "Must be synchronized with servers manually",

@@ -1,0 +1,7 @@
+{
+  "type": "extraalchemy:potion_ring",
+  "cost": 10,
+  "length": 4,
+  "renew": 1,
+  "potion": "extraalchemy:pacifism_strong"
+}

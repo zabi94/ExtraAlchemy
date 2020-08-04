@@ -1,0 +1,7 @@
+{
+  "type": "extraalchemy:potion_ring",
+  "cost": 4,
+  "length": 4,
+  "renew": 1,
+  "potion": "minecraft:regeneration"
+}
