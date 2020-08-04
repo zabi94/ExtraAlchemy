@@ -76,6 +76,18 @@ public class ConfigScreenProvider implements ModMenuApi {
 					.build()
 		);
 		
+		general.addEntry(configBuilder.entryBuilder()
+				.startBooleanToggle("extraalchemy.config.general.enable_brewing_stand_fire" , ModConfig.INSTANCE.enableBrewingStandFire)
+					.setDefaultValue(true)
+					.setTooltip(
+							new TranslatableText("extraalchemy.config.general.enable_brewing_stand_fire.tooltip1").asFormattedString(), 
+							new TranslatableText("extraalchemy.config.general.enable_brewing_stand_fire.tooltip2").asFormattedString(),
+							SERVER_SIDE.get()
+					)
+					.setSaveConsumer(val -> {ModConfig.INSTANCE.enableBrewingStandFire = val;})
+					.build()
+		);
+		
 		try {
 			for (Field f:ConfigInstance.Potions.class.getDeclaredFields()) {
 				String name = f.getName();
