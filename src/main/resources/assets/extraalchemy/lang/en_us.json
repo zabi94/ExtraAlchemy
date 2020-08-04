@@ -71,6 +71,12 @@
 	"item.minecraft.lingering_potion.effect.returning": "Lingering Potion of Returning",
 	"item.minecraft.tipped_arrow.effect.returning": "Arrow of Returning",
 	
+	"effect.extraalchemy.piper": "Charming",
+	"item.minecraft.potion.effect.piper": "Potion of the Piper",
+	"item.minecraft.splash_potion.effect.piper": "Splash Potion of the Piper",
+	"item.minecraft.lingering_potion.effect.piper": "Lingering Potion of the Piper",
+	"item.minecraft.tipped_arrow.effect.piper": "Arrow of the Piper",
+	
 	"effect.extraalchemy.learning": "Learning",
 	"item.minecraft.potion.effect.learning": "Potion of Learning",
 	"item.minecraft.splash_potion.effect.learning": "Splash Potion of Learning",

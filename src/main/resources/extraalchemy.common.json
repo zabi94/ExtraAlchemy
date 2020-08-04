@@ -10,6 +10,7 @@
     "AccessorExperienceOrbEntity",
     "InvokerLivingEntity",
     "EntityDamaged",
+    "TemptGoalMixin",
     "BrewingStandMixin"
   ],
   "injectors": {
