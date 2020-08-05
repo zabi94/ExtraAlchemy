@@ -2,7 +2,7 @@
 name: Bug report
 about: Report an abnormal behaviour that does **not** crash the game.
 title: ''
-labels: ''
+labels: Fabric, bug
 assignees: ''
 
 ---
@@ -35,6 +35,7 @@ Don't paste the whole lists here, use **pastebin**
  - Fabric Version: [e.g. 0.6.1.45]
  - Fabric API version: [e.g. Fabric API 0.16.2 build 385]
  - System: [e.g. Windows 10, Mac OS Big Sur, Manjaro Linux] 
+ - Installation type: [e.g. SinglePlayer, DedicatedServer, Lan]
 
 **Additional context**
 Add any other context about the problem here, like other mods that you think might be involved in the problem.
