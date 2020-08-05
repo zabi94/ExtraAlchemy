@@ -29,6 +29,7 @@ If applicable, add screenshots to help explain your problem.
 Don't paste the whole lists here, use **pastebin**
  - Crash Log: 
  - Mod List: 
+ - Extra Alchemy Config:
 
 **Environment (please complete the following information):**
  - Mod Version: [e.g. 1.2.0]
