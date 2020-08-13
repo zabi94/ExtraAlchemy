@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
+import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class ReturnStatusEffect extends ModStatusEffect {
@@ -21,7 +22,7 @@ public class ReturnStatusEffect extends ModStatusEffect {
 			ServerPlayerEntity player = (ServerPlayerEntity) target;
 			BlockPos respawnPos = player.getSpawnPointPosition();
 			if (respawnPos != null) {
-				PlayerEntity.findRespawnPosition((ServerWorld) target.world, respawnPos, player.yaw, player.isSpawnPointSet(), true).ifPresent(v3d -> {
+				PlayerEntity.findRespawnPosition((ServerWorld) target.world, respawnPos, player.yaw, player.isSpawnPointSet(), !ModConfig.INSTANCE.useAnchorChargesWithReturnPotion).ifPresent(v3d -> {
 					player.requestTeleport(v3d.x, v3d.y, v3d.z);
 				});
 			}

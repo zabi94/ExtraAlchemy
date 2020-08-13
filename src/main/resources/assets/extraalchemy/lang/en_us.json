@@ -136,8 +136,13 @@
 	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "Enabling this makes the Brewing Stand get fuel every", 
 	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "2 seconds when a heat source is placed underneath.",
 	
+	"extraalchemy.config.general.anchor_depletes": "Deplete Anchor on return",
+	"extraalchemy.config.general.anchor_depletes.tooltip1": "Enabling this makes the Respawn Anchor lose a charge", 
+	"extraalchemy.config.general.anchor_depletes.tooltip2": "when players teleport to it with the Return effect.",
+	
 	"extraalchemy.config.clientside": "Client-side only",
-	"extraalchemy.config.serverside": "Must be synchronized with servers manually",
+	"extraalchemy.config.must_sync": "Must be synchronized with servers manually",
+	"extraalchemy.config.serveronly": "The value set on servers takes priority on MP",
 	
 	"key.extraalchemy.magnetism_toggle": "Toggle Potion of Magnetism",
 	"key.extraalchemy.potion_bag_mode": "Toggle Potion Bag auto-selection"

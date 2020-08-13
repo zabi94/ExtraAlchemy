@@ -15,8 +15,9 @@ import zabi.minecraft.extraalchemy.config.ModConfig;
 
 public class ConfigScreenProvider implements ModMenuApi {
 	
-	private static final Text SERVER_SIDE = new TranslatableText("extraalchemy.config.serverside").setStyle(Style.EMPTY.withColor(Formatting.RED).withBold(true));
+	private static final Text MUST_SYNC = new TranslatableText("extraalchemy.config.must_sync").setStyle(Style.EMPTY.withColor(Formatting.RED).withBold(true));
 	private static final Text CLIENT_SIDE = new TranslatableText("extraalchemy.config.clientside").setStyle(Style.EMPTY.withColor(Formatting.AQUA).withBold(true));
+	private static final Text SERVER_SIDE = new TranslatableText("extraalchemy.config.serveronly").setStyle(Style.EMPTY.withColor(Formatting.GOLD).withBold(true));
 	
 	public static ConfigBuilder builder() {
 		
@@ -58,7 +59,7 @@ public class ConfigScreenProvider implements ModMenuApi {
 					.setTooltip(
 							new TranslatableText("extraalchemy.config.general.enable_vials.tooltip1"), 
 							new TranslatableText("extraalchemy.config.general.enable_vials.tooltip2"),
-							SERVER_SIDE
+							MUST_SYNC
 					)
 					.setSaveConsumer(val -> {ModConfig.INSTANCE.enableVials = val;})
 					.build()
@@ -70,7 +71,7 @@ public class ConfigScreenProvider implements ModMenuApi {
 					.setTooltip(
 							new TranslatableText("extraalchemy.config.general.enable_rings.tooltip1"), 
 							new TranslatableText("extraalchemy.config.general.enable_rings.tooltip2"),
-							SERVER_SIDE
+							MUST_SYNC
 					)
 					.setSaveConsumer(val -> {ModConfig.INSTANCE.enableRings = val;})
 					.build()
@@ -87,6 +88,18 @@ public class ConfigScreenProvider implements ModMenuApi {
 					.setSaveConsumer(val -> {ModConfig.INSTANCE.enableBrewingStandFire = val;})
 					.build()
 		);
+
+		general.addEntry(configBuilder.entryBuilder()
+				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.anchor_depletes") , ModConfig.INSTANCE.useAnchorChargesWithReturnPotion)
+					.setDefaultValue(true)
+					.setTooltip(
+							new TranslatableText("extraalchemy.config.general.anchor_depletes.tooltip1"), 
+							new TranslatableText("extraalchemy.config.general.anchor_depletes.tooltip2"),
+							SERVER_SIDE
+					)
+					.setSaveConsumer(val -> {ModConfig.INSTANCE.useAnchorChargesWithReturnPotion = val;})
+					.build()
+		);
 		
 		try {
 			for (Field f:ConfigInstance.Potions.class.getDeclaredFields()) {
@@ -99,7 +112,7 @@ public class ConfigScreenProvider implements ModMenuApi {
 							.setTooltip(
 									new TranslatableText("extraalchemy.config.potion.tooltip1", new TranslatableText("item.minecraft.potion.effect."+name)), 
 									new TranslatableText("extraalchemy.config.potion.tooltip2", new TranslatableText("item.minecraft.potion.effect."+name)),
-									SERVER_SIDE
+									MUST_SYNC
 							)
 							.setSaveConsumer(val -> {try {
 								f.setBoolean(ModConfig.INSTANCE.potions, val);

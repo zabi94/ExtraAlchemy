@@ -7,6 +7,7 @@ public class ConfigInstance {
 	public boolean enableVials;
 	public boolean enableRings;
 	public boolean enableBrewingStandFire;
+	public boolean useAnchorChargesWithReturnPotion;
 	
 	public Potions potions;
 	
@@ -16,6 +17,7 @@ public class ConfigInstance {
 		enableVials = true;
 		enableRings = true;
 		enableBrewingStandFire = true;
+		useAnchorChargesWithReturnPotion = true;
 		potions = new Potions();
 	}
 	
