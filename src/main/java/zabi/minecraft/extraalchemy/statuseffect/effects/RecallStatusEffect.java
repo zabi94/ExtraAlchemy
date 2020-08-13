@@ -1,18 +1,13 @@
 package zabi.minecraft.extraalchemy.statuseffect.effects;
 
-import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
-import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectType;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.Vec3d;
 import zabi.minecraft.extraalchemy.entitydata.EntityProperties;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 import zabi.minecraft.extraalchemy.utils.DimensionalPosition;
 
-@SuppressWarnings("deprecation")
 public class RecallStatusEffect extends ModStatusEffect {
 
 	public RecallStatusEffect(StatusEffectType type, int color, boolean isInstant) {
@@ -42,7 +37,8 @@ public class RecallStatusEffect extends ModStatusEffect {
 					entity.stopRiding();
 					if (!pos.getWorldId().equals(entity.getEntityWorld().getRegistryKey().getValue())) {
 						if (i > 0) {
-							ent = FabricDimensions.teleport(entity, (ServerWorld) pos.getWorld(entity.getServer()), (e, server_world, portDir, h, v) -> new PlaceAt(pos));
+//							ent = FabricDimensions.teleport(entity, (ServerWorld) pos.getWorld(entity.getServer()), (e, server_world, portDir, h, v) -> new PlaceAt(pos));
+							return; //TODO remove this and restore teleportation capability once fabric dimension API is available again
 						} else {
 							ent.damage(DamageSource.MAGIC, 1f);
 							return;
@@ -62,12 +58,12 @@ public class RecallStatusEffect extends ModStatusEffect {
 		((EntityProperties) livingEntity).setRecallData(null);
 	}
 
-	public static class PlaceAt extends BlockPattern.TeleportTarget {
-
-		public PlaceAt(DimensionalPosition pos) {
-			super(new Vec3d(pos.getX(), pos.getY(), pos.getZ()), Vec3d.ZERO, 0);
-		}
-		
-	}
+//	public static class PlaceAt extends BlockPattern.TeleportTarget {
+//
+//		public PlaceAt(DimensionalPosition pos) {
+//			super(new Vec3d(pos.getX(), pos.getY(), pos.getZ()), Vec3d.ZERO, 0);
+//		}
+//		
+//	}
 	
 }

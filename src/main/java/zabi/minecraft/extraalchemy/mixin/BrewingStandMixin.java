@@ -48,11 +48,11 @@ public abstract class BrewingStandMixin extends LockableContainerBlockEntity imp
 	}
 
 	public boolean isHeatSource(BlockState state) {
-		return BlockTags.getContainer().getOrCreate(HEAT_SOURCE_TAG).contains(state.getBlock());
+		return BlockTags.getTagGroup().getTag(HEAT_SOURCE_TAG).contains(state.getBlock());
 	}
 	
 	public boolean isTransmissiveBlock(BlockState state) {
-		return BlockTags.getContainer().getOrCreate(HEAT_CONDUCTOR_TAG).contains(state.getBlock());
+		return BlockTags.getTagGroup().getTag(HEAT_CONDUCTOR_TAG).contains(state.getBlock());
 	}
 	
 }

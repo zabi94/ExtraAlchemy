@@ -18,7 +18,7 @@ public class MagnetismStatusEffect extends ModStatusEffect {
 		if (!entity.world.isClient) {
 			if (entity instanceof PlayerEntity) {
 				if (((PlayerProperties) (Object) entity).isMagnetismEnabled()) {
-					entity.world.getEntities(ItemEntity.class, entity.getBoundingBox().expand((level + 1) * 3), null)
+					entity.world.getEntitiesByClass(ItemEntity.class, entity.getBoundingBox().expand((level + 1) * 3), null)
 					.stream()
 					.map(e -> (ItemEntity) e)
 					.filter(e -> e.cannotPickup() == entity.isSneaking())

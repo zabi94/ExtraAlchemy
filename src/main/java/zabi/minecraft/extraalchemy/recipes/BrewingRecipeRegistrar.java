@@ -19,7 +19,7 @@ public class BrewingRecipeRegistrar extends DelayedConsumer<Registar> {
 		registerPotion(ModConfig.INSTANCE.potions.crumbling, ModPotionRegistry.crumbling, Items.DIRT, Potions.AWKWARD);
 		registerPotion(ModConfig.INSTANCE.potions.magnetism, ModPotionRegistry.magnetism, Items.IRON_INGOT, Potions.AWKWARD);
 		registerPotion(ModConfig.INSTANCE.potions.photosynthesis, ModPotionRegistry.photosynthesis, Items.BEETROOT_SEEDS, Potions.AWKWARD);
-		registerPotion(ModConfig.INSTANCE.potions.recall, ModPotionRegistry.recall, Items.ENDER_EYE, Potions.MUNDANE); //Use charged potion here
+//		registerPotion(ModConfig.INSTANCE.potions.recall, ModPotionRegistry.recall, Items.ENDER_EYE, Potions.MUNDANE); //Use charged potion here
 		registerPotion(ModConfig.INSTANCE.potions.sails, ModPotionRegistry.sails, Items.SALMON, Potions.AWKWARD);
 		registerPotion(ModConfig.INSTANCE.potions.returning, ModPotionRegistry.returning, Items.PRISMARINE_SHARD, Potions.AWKWARD);
 		registerPotion(ModConfig.INSTANCE.potions.learning, ModPotionRegistry.learning, Items.LAPIS_BLOCK, Potions.THICK);
@@ -27,6 +27,14 @@ public class BrewingRecipeRegistrar extends DelayedConsumer<Registar> {
 		registerPotion(ModConfig.INSTANCE.potions.gravity, ModPotionRegistry.gravity, Items.NETHER_BRICK, Potions.THICK);
 		registerPotion(ModConfig.INSTANCE.potions.combustion, ModPotionRegistry.combustion, Items.COAL_BLOCK, Potions.MUNDANE);
 		registerPotion(ModConfig.INSTANCE.potions.pacifism, ModPotionRegistry.pacifism, Items.GOLDEN_APPLE, Potions.STRONG_HARMING);
+		
+		if (ModConfig.INSTANCE.potions.recall) { //TODO remove and re-enable normal recipe once dimensions module is available again
+			INSTANCE.consumeWhenReady(reg -> {
+				reg.register(Potions.MUNDANE, Items.ENDER_EYE, ModPotionRegistry.recall);
+				reg.register(ModPotionRegistry.recall, Items.REDSTONE, ModPotionRegistry.recall.getExtended());
+			});
+		}
+		
 	}
 	
 	private static void registerPotion(boolean active, ModPotion potion, Item ingredient, Potion base) {

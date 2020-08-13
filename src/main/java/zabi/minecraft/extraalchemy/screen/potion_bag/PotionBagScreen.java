@@ -8,7 +8,6 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
-import net.minecraft.text.StringRenderable;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import zabi.minecraft.extraalchemy.utils.LibMod;
@@ -50,7 +49,7 @@ public class PotionBagScreen extends HandledScreen<PotionBagScreenHandler> {
 	
 	@Override
 	protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {
-		this.textRenderer.draw(matrices, (StringRenderable)this.title, (float)this.titleX, (float)this.titleY, 4210752);
+		this.textRenderer.draw(matrices, this.title, (float)this.titleX, (float)this.titleY, 4210752);
 		this.drawMouseoverTooltip(matrices, mouseX-this.x, mouseY-this.y);
 	}
 	
