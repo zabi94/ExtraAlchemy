@@ -16,6 +16,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
+import net.minecraft.tag.ItemTags;
 import net.minecraft.text.KeybindText;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Style;
@@ -23,12 +24,14 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.screen.potion_bag.PotionBagScreenhandlerFactory;
+import zabi.minecraft.extraalchemy.utils.LibMod;
 import zabi.minecraft.extraalchemy.utils.Log;
 
 public class PotionBagItem extends Item {
@@ -36,6 +39,8 @@ public class PotionBagItem extends Item {
 	public static final String TAG_MODE = "ea_select_mode";
 	public static final String TAG_INVENTORY = "ea_inventory";
 	public static final String TAG_SELECTED = "ea_selected";
+
+	private static final Identifier TAG_POTION = LibMod.id("potion_for_bag");
 
 	public PotionBagItem() {
 		super(new Item.Settings().maxCount(1).group(ItemSettings.EXTRA_ALCHEMY_GROUP));
@@ -144,6 +149,14 @@ public class PotionBagItem extends Item {
 				break;
 			}
 		}
+	}
+	
+	public static boolean isValidPotionItem(ItemStack stack) {
+		net.minecraft.tag.Tag<Item> potTag = ItemTags.getTagGroup().getTag(TAG_POTION);
+		if (potTag != null && potTag.contains(stack.getItem())) {
+			return !PotionUtil.getPotionEffects(stack).isEmpty();
+		}
+		return false;
 	}
 
 	@Override
@@ -294,7 +307,7 @@ public class PotionBagItem extends Item {
 
 		@Override
 		public boolean isValid(int slot, ItemStack stack) {
-			return !PotionUtil.getPotion(stack).getEffects().isEmpty();
+			return PotionBagItem.isValidPotionItem(stack);
 		}
 
 	}

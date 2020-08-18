@@ -213,14 +213,14 @@ public class PotionBagScreenHandler extends ScreenHandler {
 	}
 	
 	public static class PotionOnlySlot extends Slot {
-
+		
 		public PotionOnlySlot(Inventory inventory, int index, int x, int y) {
 			super(inventory, index, x, y);
 		}
 		
 		@Override
 		public boolean canInsert(ItemStack stack) {
-			return stack.getItem() == Items.POTION;
+			return PotionBagItem.isValidPotionItem(stack);
 		}
 		
 	}

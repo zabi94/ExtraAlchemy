@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:potion",
+    "extraalchemy:breakable_potion"
+  ]
+}
