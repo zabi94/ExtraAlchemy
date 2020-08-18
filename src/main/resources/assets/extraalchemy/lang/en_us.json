@@ -59,24 +59,6 @@
 	"item.minecraft.lingering_potion.effect.fuse": "Lingering Potion of Fuse",
 	"item.minecraft.tipped_arrow.effect.fuse": "Arrow of Fuse",
 	
-	"effect.extraalchemy.growing": "Growing",
-	"item.minecraft.potion.effect.growing": "Potion of Growth",
-	"item.minecraft.splash_potion.effect.growing": "Splash Potion of Growth",
-	"item.minecraft.lingering_potion.effect.growing": "Lingering Potion of Growth",
-	"item.minecraft.tipped_arrow.effect.growing": "Arrow of Growth",
-	
-	"effect.extraalchemy.shrinking": "Shrinking",
-	"item.minecraft.potion.effect.shrinking": "Potion of Shrinking",
-	"item.minecraft.splash_potion.effect.shrinking": "Splash Potion of Shrinking",
-	"item.minecraft.lingering_potion.effect.shrinking": "Lingering Potion of Shrinking",
-	"item.minecraft.tipped_arrow.effect.shrinking": "Arrow of Shrinking",
-	
-	"effect.extraalchemy.resize": "Resize",
-	"item.minecraft.potion.effect.resize": "Potion of Resizing",
-	"item.minecraft.splash_potion.effect.resize": "Splash Potion of Resizing",
-	"item.minecraft.lingering_potion.effect.resize": "Lingering Potion of Resizing",
-	"item.minecraft.tipped_arrow.effect.resize": "Arrow of Resizing",
-	
 	"effect.extraalchemy.recall": "Recall",
 	"item.minecraft.potion.effect.recall": "Potion of Rewinding",
 	"item.minecraft.splash_potion.effect.recall": "Splash Potion of Rewinding",
@@ -157,10 +139,6 @@
 	"extraalchemy.config.general.anchor_depletes": "Deplete Anchor on return",
 	"extraalchemy.config.general.anchor_depletes.tooltip1": "Enabling this makes the Respawn Anchor lose a charge", 
 	"extraalchemy.config.general.anchor_depletes.tooltip2": "when players teleport to it with the Return effect.",
-	
-	"extraalchemy.config.general.disable_sea": "Disable SizeEntityAttributes compat",
-	"extraalchemy.config.general.disable_sea.tooltip1": "Setting this to true will prevent Size Entity Attributes", 
-	"extraalchemy.config.general.disable_sea.tooltip2": "related potions from loading and registering.",
 	
 	"extraalchemy.config.clientside": "Client-side only",
 	"extraalchemy.config.must_sync": "Must be synchronized with servers manually",

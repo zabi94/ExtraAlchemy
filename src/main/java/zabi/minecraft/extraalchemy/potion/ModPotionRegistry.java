@@ -21,12 +21,9 @@ public class ModPotionRegistry {
 	public static ModPotion pacifism = ModPotion.ModPotionTimed.generateAll("pacifism", ModEffectRegistry.pacifism, 20*25, 20*40, 20*15);
 	public static ModPotion piper = ModPotion.ModPotionTimed.generateWithLengthened("piper", ModEffectRegistry.piper, 20*120, 20*240);
 	
+	
 	public static ModPotion returning = new ModPotion.ModPotionInstant("returning", ModEffectRegistry.returning, 0);
 	public static ModPotion concentration = new ModPotion.ModPotionInstant("concentration", ModEffectRegistry.concentration, 0);
-
-	public static ModPotion growing = null;
-	public static ModPotion shrinking = null;
-	public static ModPotion resize = null;
 
 	public static void registerAll() {
 		try {

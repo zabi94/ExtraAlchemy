@@ -101,19 +101,6 @@ public class ConfigScreenProvider implements ModMenuApi {
 					.build()
 		);
 		
-		general.addEntry(configBuilder.entryBuilder()
-				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.disable_sea") , ModConfig.INSTANCE.forceDisableSEACompat)
-					.setDefaultValue(false)
-					.setTooltip(
-							new TranslatableText("extraalchemy.config.general.disable_sea.tooltip1"), 
-							new TranslatableText("extraalchemy.config.general.disable_sea.tooltip2"),
-							MUST_SYNC
-					)
-					.setSaveConsumer(val -> {ModConfig.INSTANCE.forceDisableSEACompat = val;})
-					.requireRestart()
-					.build()
-		);
-		
 		try {
 			for (Field f:ConfigInstance.Potions.class.getDeclaredFields()) {
 				String name = f.getName();
