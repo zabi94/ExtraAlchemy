@@ -64,6 +64,10 @@ public class ModPotion extends Potion {
 			return base;
 		}
 		
+		public static ModPotionInstant generateBase(String name, StatusEffect statusEffect) {
+			return new ModPotionInstant(name, statusEffect, 0);
+		}
+		
 	}
 	
 	public static class ModPotionTimed extends ModPotion {

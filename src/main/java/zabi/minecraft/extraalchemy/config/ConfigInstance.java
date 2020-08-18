@@ -8,6 +8,7 @@ public class ConfigInstance {
 	public boolean enableRings;
 	public boolean enableBrewingStandFire;
 	public boolean useAnchorChargesWithReturnPotion;
+	public boolean forceDisableSEACompat;
 	
 	public Potions potions;
 	
@@ -18,6 +19,7 @@ public class ConfigInstance {
 		enableRings = true;
 		enableBrewingStandFire = true;
 		useAnchorChargesWithReturnPotion = true;
+		forceDisableSEACompat = false;
 		potions = new Potions();
 	}
 	
@@ -36,6 +38,9 @@ public class ConfigInstance {
 		public boolean gravity = true;
 		public boolean combustion = true;
 		public boolean pacifism = true;
+		public boolean growing = true;
+		public boolean shrinking = true;
+		public boolean resize = true;
 		
 	}
 	

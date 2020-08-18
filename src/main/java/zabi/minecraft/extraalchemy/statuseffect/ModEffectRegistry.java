@@ -41,6 +41,11 @@ public class ModEffectRegistry {
 	//Instant
 	public static ModStatusEffect returning = new ReturnStatusEffect(StatusEffectType.BENEFICIAL, 0xD05585, true);
 	public static ModStatusEffect concentration = new ConcentrationStatusEffect(StatusEffectType.BENEFICIAL, 0xC8C5E5, true);
+
+	//Size Entity Attributes compat
+	public static ModStatusEffect growing = null;
+	public static ModStatusEffect shrinking = null;
+	public static ModStatusEffect resize = null;
 	
 	
 	public static void registerAll() {

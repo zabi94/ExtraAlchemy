@@ -28,6 +28,10 @@ public class BrewingRecipeRegistrar extends DelayedConsumer<Registar> {
 		registerPotion(ModConfig.INSTANCE.potions.combustion, ModPotionRegistry.combustion, Items.COAL_BLOCK, Potions.MUNDANE);
 		registerPotion(ModConfig.INSTANCE.potions.pacifism, ModPotionRegistry.pacifism, Items.GOLDEN_APPLE, Potions.STRONG_HARMING);
 		
+		registerPotion(ModConfig.INSTANCE.potions.shrinking && ModPotionRegistry.shrinking != null, ModPotionRegistry.shrinking, Items.BROWN_MUSHROOM, Potions.AWKWARD);
+		registerPotion(ModConfig.INSTANCE.potions.growing && ModPotionRegistry.growing != null, ModPotionRegistry.growing, Items.RED_MUSHROOM, Potions.AWKWARD);
+		registerPotion(ModConfig.INSTANCE.potions.resize && ModPotionRegistry.resize != null, ModPotionRegistry.resize, Items.WARPED_FUNGUS, Potions.AWKWARD);
+		
 		if (ModConfig.INSTANCE.potions.recall) { //TODO remove and re-enable normal recipe once dimensions module is available again
 			INSTANCE.consumeWhenReady(reg -> {
 				reg.register(Potions.MUNDANE, Items.ENDER_EYE, ModPotionRegistry.recall);

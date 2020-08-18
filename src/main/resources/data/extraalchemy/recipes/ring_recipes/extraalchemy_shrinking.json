@@ -1,0 +1,7 @@
+{
+  "type": "extraalchemy:potion_ring",
+  "cost": 0,
+  "length": 2,
+  "renew": 1,
+  "potion": "extraalchemy:shrinking"
+}
