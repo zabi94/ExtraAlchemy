@@ -42,7 +42,7 @@ dependencies {
     }
 	include "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
 	//modCompile "me.shedaniel:RoughlyEnoughItems:${project.rei_version}"
-	//modCompile 'me.shedaniel.cloth:config-2:LATEST'
+	modRuntime "me.shedaniel:RoughlyEnoughItems:${project.rei_version}"
 }
 
 processResources {
