@@ -1,0 +1,144 @@
+{
+	"itemGroup.extraalchemy.all": "Extra Alchemy",
+	
+	"item.extraalchemy.breakable_potion": "Хрупкое %s",
+	
+	"item.extraalchemy.empty_ring": "Пустое кольцо с зельем",
+	"item.extraalchemy.empty_ring.tooltip1": "Соединяется вместе с зельем.",
+	"item.extraalchemy.empty_ring.tooltip2": "Не все зелья могут быть доступны.",
+	
+	"item.extraalchemy.potion_ring": "Кольцо с зельем",
+	"item.extraalchemy.potion_ring.potion": "Содержит: %s %s",
+	"item.extraalchemy.potion_ring.cost": "Стоимость: %s опыта",
+	"item.extraalchemy.potion_ring.creative": "Творческая версия",
+	"item.extraalchemy.potion_ring.length": "Длительность в секундах: %s",
+	"item.extraalchemy.potion_ring.disabled": "Неактивно. Шифт-ПКМ для активации",
+	"item.extraalchemy.potion_ring.enabled": "Активно. Шифт-ПКМ для отключения",
+	
+	"item.extraalchemy.potion_bag": "Сумка с зельем",
+	"item.extraalchemy.potion_bag.selected.potion": "Выбранно: %s (%s)",
+	"item.extraalchemy.potion_bag.selected.none": "Зелье не выбрано",
+	"item.extraalchemy.potion_bag.autoselect": "Когда недоступно: %s",
+	"item.extraalchemy.potion_bag.autoselect.option.next": "Выбрать следующее зелье",
+	"item.extraalchemy.potion_bag.autoselect.option.deselect": "Отменить выбор зелья",
+	"item.extraalchemy.potion_bag.autoselect.option.hold": "Сохранить текущий выбор",
+	"item.extraalchemy.potion_bag.autoselect.change": "Смена режина авто-выбора на клавишу [%s]",
+	
+	"item.extraalchemy.empty_vial": "Пустой флакон",
+	"item.extraalchemy.empty_vial.tootlip1": "Соедините вместе с взрымным зельем в окне крафта чтобы заполнить,",
+	"item.extraalchemy.empty_vial.tootlip2": " или нажмите ПКМ чтобы заполнить взрымным зельем из вашего хотбара.",
+	"item.extraalchemy.empty_vial.tootlip.disabled": "Флаконы с зельями отключены. Удалите этот рецепт с пачкой!",
+	
+	"effect.extraalchemy.magnetism": "Магнетизм",
+	"item.minecraft.potion.effect.magnetism": "Зелье магнетизма",
+	"item.minecraft.splash_potion.effect.magnetism": "Взрывное зелье магнетизма",
+	"item.minecraft.lingering_potion.effect.magnetism": "Туманное зелье магнетизма",
+	"item.minecraft.tipped_arrow.effect.magnetism": "Стрела магнетизма",
+	
+	"effect.extraalchemy.photosynthesis": "Фотосинтез",
+	"item.minecraft.potion.effect.photosynthesis": "Зелье фотосинтеза",
+	"item.minecraft.splash_potion.effect.photosynthesis": "Взрывное зелье фотосинтеза",
+	"item.minecraft.lingering_potion.effect.photosynthesis": "Туманное зелье фотосинтеза",
+	"item.minecraft.tipped_arrow.effect.photosynthesis": "Стрела фотосинтеза",
+	
+	"effect.extraalchemy.crumbling": "Крошение",
+	"item.minecraft.potion.effect.crumbling": "Зелье крошения",
+	"item.minecraft.splash_potion.effect.crumbling": "Взрывное зелье крошения",
+	"item.minecraft.lingering_potion.effect.crumbling": "Туманное зелье крошения",
+	"item.minecraft.tipped_arrow.effect.crumbling": "Стрела крошения",
+	
+	"effect.extraalchemy.sails": "Паруса",
+	"item.minecraft.potion.effect.sails": "Зелье плавания под парусами",
+	"item.minecraft.splash_potion.effect.sails": "Взрывное зелье плавания под парусами",
+	"item.minecraft.lingering_potion.effect.sails": "Туманное зелье плавания под парусами",
+	"item.minecraft.tipped_arrow.effect.sails": "Стрела плавания под парусами",
+	
+	"effect.extraalchemy.fuse": "Детонация",
+	"item.minecraft.potion.effect.fuse": "Зелье фитиля",
+	"item.minecraft.splash_potion.effect.fuse": "Взрывное зелье фитиля",
+	"item.minecraft.lingering_potion.effect.fuse": "Туманное зелье фитиля",
+	"item.minecraft.tipped_arrow.effect.fuse": "Стрела фитиля",
+	
+	"effect.extraalchemy.recall": "Отозвание",
+	"item.minecraft.potion.effect.recall": "Зелье перемотки",
+	"item.minecraft.splash_potion.effect.recall": "Взрывное зелье перемотки",
+	"item.minecraft.lingering_potion.effect.recall": "Туманное зелье перемотки",
+	"item.minecraft.tipped_arrow.effect.recall": "Стрела перемотки",
+	
+	"effect.extraalchemy.returning": "Возврат",
+	"item.minecraft.potion.effect.returning": "Зелье возврата",
+	"item.minecraft.splash_potion.effect.returning": "Взрывное зелье возврата",
+	"item.minecraft.lingering_potion.effect.returning": "Туманное зелье возврата",
+	"item.minecraft.tipped_arrow.effect.returning": "Стрела возврата",
+	
+	"effect.extraalchemy.piper": "Очарование",
+	"item.minecraft.potion.effect.piper": "Зелье дудочника",
+	"item.minecraft.splash_potion.effect.piper": "Взрывное зелье дудочника",
+	"item.minecraft.lingering_potion.effect.piper": "Туманное зелье дудочника",
+	"item.minecraft.tipped_arrow.effect.piper": "Стрела дудочника",
+	
+	"effect.extraalchemy.learning": "Познание",
+	"item.minecraft.potion.effect.learning": "Зелье познания",
+	"item.minecraft.splash_potion.effect.learning": "Взрывное зелье познания",
+	"item.minecraft.lingering_potion.effect.learning": "Туманное зелье познания",
+	"item.minecraft.tipped_arrow.effect.learning": "Стрела познания",
+	
+	"effect.extraalchemy.concentration": "Фокус",
+	"item.minecraft.potion.effect.concentration": "Зелье концентрации",
+	"item.minecraft.splash_potion.effect.concentration": "Взрывное зелье концентрации",
+	"item.minecraft.lingering_potion.effect.concentration": "Туманное зелье концентрации",
+	"item.minecraft.tipped_arrow.effect.concentration": "Стрела концентрации",
+	
+	"effect.extraalchemy.gravity": "Сила тяжести",
+	"item.minecraft.potion.effect.gravity": "Зелье силы тяжести",
+	"item.minecraft.splash_potion.effect.gravity": "Взрывное зелье силы тяжести",
+	"item.minecraft.lingering_potion.effect.gravity": "Туманное зелье силы тяжести",
+	"item.minecraft.tipped_arrow.effect.gravity": "Стрела силы тяжести",
+	
+	"effect.extraalchemy.combustion": "Знойн",
+	"item.minecraft.potion.effect.combustion": "Зелье сгорания",
+	"item.minecraft.splash_potion.effect.combustion": "Взрывное зелье сгорания",
+	"item.minecraft.lingering_potion.effect.combustion": "Туманное зелье сгорания",
+	"item.minecraft.tipped_arrow.effect.combustion": "Стрела сгорания",
+	
+	"effect.extraalchemy.pacifism": "Пацифизм",
+	"item.minecraft.potion.effect.pacifism": "Зелье пацифизма",
+	"item.minecraft.splash_potion.effect.pacifism": "Взрывное зелье пацифизма",
+	"item.minecraft.lingering_potion.effect.pacifism": "Туманное зелье пацифизма",
+	"item.minecraft.tipped_arrow.effect.pacifism": "Стрела пацифизма",
+	
+	"extraalchemy.mod_name": "Extra Alchemy",
+	
+	"extraalchemy.config.general": "Общее",
+	"extraalchemy.config.potions": "Рецепты зелий",
+	
+	"extraalchemy.config.general.enable_learning_boost": "Эффект зелья познания",
+	"extraalchemy.config.general.enable_learning_boost.tooltip1": " Если включено, зелье познания будет увеличивать",
+	"extraalchemy.config.general.enable_learning_boost.tooltip2": "количество опыта полученного со сфер опыта на 10%%.",
+	
+	"extraalchemy.config.general.enable_vials": "Включить флаконы с зельями",
+	"extraalchemy.config.general.enable_vials.tooltip1": "Если включено, будет доступна возможность создания пустых флаконом",
+	"extraalchemy.config.general.enable_vials.tooltip2": "и возможность соединить их с взрымными зельями для создания флаконов с зельями.",
+	
+	"extraalchemy.config.potion": "%s",
+	"extraalchemy.config.potion.tooltip1": "Регистрирует варочный рецепт %s.",
+	"extraalchemy.config.potion.tooltip2": "Эффект зелья все равно будет зарегестрирован.",
+	
+	"extraalchemy.config.general.disable_inventory_shift": "Отключить смещение инвентаря",
+	"extraalchemy.config.general.disable_inventory_shift.tooltip1": "Предотвращает перемещение экрана инвентаря", 
+	"extraalchemy.config.general.disable_inventory_shift.tooltip2": "вправо при применении эффекта зелья.",
+	
+	"extraalchemy.config.general.enable_rings": "Включить кольца с зельями",
+	"extraalchemy.config.general.enable_rings.tooltip1": "Если включено, будет доступна возможность создания пустого кольца с зельем", 
+	"extraalchemy.config.general.enable_rings.tooltip2": "и возможность соединить его с зельями для создания кольца с зельем.",
+	
+	"extraalchemy.config.general.enable_brewing_stand_fire": "Включить твик огня для стойки зельеварения",
+	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "Если включено, стойка зельеварения будет заправляться каждые", 
+	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "2 секунды когда под ней размещен источник тепла.",
+	
+	"extraalchemy.config.clientside": "Только на стороне клиента",
+	"extraalchemy.config.serverside": "Необходимо быть синхронизировано с сервером вручную",
+	
+	"key.extraalchemy.magnetism_toggle": "Переключение эффекта магнетизма",
+	"key.extraalchemy.potion_bag_mode": "Переключение авто-выбора сумки с зельем"
+}
