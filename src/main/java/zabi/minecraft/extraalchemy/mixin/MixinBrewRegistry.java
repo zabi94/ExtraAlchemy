@@ -16,7 +16,7 @@ public abstract class MixinBrewRegistry {
 
 	@Shadow private static void registerPotionRecipe(Potion input, Item item, Potion output) {}
 	
-	@Inject(method = "registerDefaults", at = @At("TAIL"))
+	@Inject(method = "registerDefaults", at = @At("RETURN"))
 	private static void afterRegistration(CallbackInfo cb) {
 		BrewingRecipeRegistrar.onKeyReady((in, ing, out) -> registerPotionRecipe(in, ing, out));
 	}
