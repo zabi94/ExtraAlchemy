@@ -1,0 +1,149 @@
+{
+	"itemGroup.extraalchemy.all": "Extra Alchemy",
+	
+	"item.extraalchemy.breakable_potion": "Fiala con %s",
+	
+	"item.extraalchemy.empty_ring": "Anello per pozioni vuoto",
+	"item.extraalchemy.empty_ring.tooltip1": "Piazzalo su una griglia con una pozione.",
+	"item.extraalchemy.empty_ring.tooltip2": "Non tutte le pozioni funzionano.",
+	
+	"item.extraalchemy.potion_ring": "Anello per pozioni",
+	"item.extraalchemy.potion_ring.potion": "Contiene: %s %s",
+	"item.extraalchemy.potion_ring.cost": "Costo in xp: %s",
+	"item.extraalchemy.potion_ring.creative": "Versione creativa",
+	"item.extraalchemy.potion_ring.length": "Durata in secondi: %s",
+	"item.extraalchemy.potion_ring.disabled": "Disattivato. Shift-click destro per attivare",
+	"item.extraalchemy.potion_ring.enabled": "Attivo. Shift-click destro per disattivare",
+	
+	"item.extraalchemy.potion_bag": "Borsa delle pozioni",
+	"item.extraalchemy.potion_bag.selected.potion": "Selezionata: %s (%s)",
+	"item.extraalchemy.potion_bag.selected.none": "Nessuna pozione selezionata",
+	"item.extraalchemy.potion_bag.autoselect": "Quando finiscono: %s",
+	"item.extraalchemy.potion_bag.autoselect.option.next": "Seleziona automaticamente la successiva",
+	"item.extraalchemy.potion_bag.autoselect.option.deselect": "Deseleziona",
+	"item.extraalchemy.potion_bag.autoselect.option.hold": "Mantieni la selezione corrente",
+	"item.extraalchemy.potion_bag.autoselect.change": "Cicla la modalità di funzionamento con [%s]",
+	
+	"item.extraalchemy.empty_vial": "Fiala vuota",
+	"item.extraalchemy.empty_vial.tootlip1": "Piazzalo su una griglia con una pozione dal lancio per riempire",
+	"item.extraalchemy.empty_vial.tootlip2": "o fai click destro tenendo la pozione sulla barra.",
+	"item.extraalchemy.empty_vial.tootlip.disabled": "Le fiale sono disattivate. Rimuovi questa ricetta con un datapack!",
+	
+	"effect.extraalchemy.magnetism": "Magnetismo",
+	"item.minecraft.potion.effect.magnetism": "Pozione del magnete",
+	"item.minecraft.splash_potion.effect.magnetism": "Pozione da lancio del magnete",
+	"item.minecraft.lingering_potion.effect.magnetism": "Pozione persistente del magnete",
+	"item.minecraft.tipped_arrow.effect.magnetism": "Freccia del magnete",
+	
+	"effect.extraalchemy.photosynthesis": "Fotosintesi",
+	"item.minecraft.potion.effect.photosynthesis": "Pozione di fotosintesi",
+	"item.minecraft.splash_potion.effect.photosynthesis": "Pozione da lancio di fotosintesi",
+	"item.minecraft.lingering_potion.effect.photosynthesis": "Pozione persistente di fotosintesi",
+	"item.minecraft.tipped_arrow.effect.photosynthesis": "Freccia di fotosintesi",
+	
+	"effect.extraalchemy.crumbling": "Erosione",
+	"item.minecraft.potion.effect.crumbling": "Pozione dell'erosione",
+	"item.minecraft.splash_potion.effect.crumbling": "Pozione da lancio dell'erosione",
+	"item.minecraft.lingering_potion.effect.crumbling": "Pozione persistente dell'erosione",
+	"item.minecraft.tipped_arrow.effect.crumbling": "Freccia dell'erosione",
+	
+	"effect.extraalchemy.sails": "Navigare",
+	"item.minecraft.potion.effect.sails": "Pozione della navigazione",
+	"item.minecraft.splash_potion.effect.sails": "Pozione da lancio della navigazione",
+	"item.minecraft.lingering_potion.effect.sails": "Pozione persistente della navigazione",
+	"item.minecraft.tipped_arrow.effect.sails": "Freccia della navigazione",
+	
+	"effect.extraalchemy.fuse": "Detonazione",
+	"item.minecraft.potion.effect.fuse": "Pozione della miccia",
+	"item.minecraft.splash_potion.effect.fuse": "Pozione da lancio della miccia",
+	"item.minecraft.lingering_potion.effect.fuse": "Pozione persistente della miccia",
+	"item.minecraft.tipped_arrow.effect.fuse": "Freccia della miccia",
+	
+	"effect.extraalchemy.recall": "Richiamo",
+	"item.minecraft.potion.effect.recall": "Pozione del richiamo",
+	"item.minecraft.splash_potion.effect.recall": "Pozione da lancio del richiamo",
+	"item.minecraft.lingering_potion.effect.recall": "Pozione persistente del richiamo",
+	"item.minecraft.tipped_arrow.effect.recall": "Freccia del richiamo",
+	
+	"effect.extraalchemy.returning": "Ritorno",
+	"item.minecraft.potion.effect.returning": "Pozione del ritorno",
+	"item.minecraft.splash_potion.effect.returning": "Pozione da lancio del ritorno",
+	"item.minecraft.lingering_potion.effect.returning": "Pozione persistente del ritorno",
+	"item.minecraft.tipped_arrow.effect.returning": "Freccia del ritorno",
+	
+	"effect.extraalchemy.piper": "Ammaliare",
+	"item.minecraft.potion.effect.piper": "Pozione dell'ammaliatore",
+	"item.minecraft.splash_potion.effect.piper": "Pozione da lancio dell'ammaliatore",
+	"item.minecraft.lingering_potion.effect.piper": "Pozione persistente dell'ammaliatore",
+	"item.minecraft.tipped_arrow.effect.piper": "Freccia dell'ammaliatore",
+	
+	"effect.extraalchemy.learning": "Imparare",
+	"item.minecraft.potion.effect.learning": "Pozione della saggezza",
+	"item.minecraft.splash_potion.effect.learning": "Pozione da lancio della saggezza",
+	"item.minecraft.lingering_potion.effect.learning": "Pozione persistente della saggezza",
+	"item.minecraft.tipped_arrow.effect.learning": "Freccia della saggezza",
+	
+	"effect.extraalchemy.concentration": "Concentrazione",
+	"item.minecraft.potion.effect.concentration": "Pozione della concentrazione",
+	"item.minecraft.splash_potion.effect.concentration": "Pozione da lancio della concentrazione",
+	"item.minecraft.lingering_potion.effect.concentration": "Pozione persistente della concentrazione",
+	"item.minecraft.tipped_arrow.effect.concentration": "Freccia della concentrazione",
+	
+	"effect.extraalchemy.gravity": "Gravitazione",
+	"item.minecraft.potion.effect.gravity": "Pozione della gravità",
+	"item.minecraft.splash_potion.effect.gravity": "Pozione da lancio della gravità",
+	"item.minecraft.lingering_potion.effect.gravity": "Pozione persistente della gravità",
+	"item.minecraft.tipped_arrow.effect.gravity": "Freccia della gravità",
+	
+	"effect.extraalchemy.combustion": "Bruciare",
+	"item.minecraft.potion.effect.combustion": "Pozione della combustione",
+	"item.minecraft.splash_potion.effect.combustion": "Pozione da lancio della combustione",
+	"item.minecraft.lingering_potion.effect.combustion": "Pozione persistente della combustione",
+	"item.minecraft.tipped_arrow.effect.combustion": "Freccia della combustione",
+	
+	"effect.extraalchemy.pacifism": "Pacifismo",
+	"item.minecraft.potion.effect.pacifism": "Pozione del pacifismo",
+	"item.minecraft.splash_potion.effect.pacifism": "Pozione da lancio del pacifismo",
+	"item.minecraft.lingering_potion.effect.pacifism": "Pozione persistente del pacifismo",
+	"item.minecraft.tipped_arrow.effect.pacifism": "Freccia del pacifismo",
+	
+	"extraalchemy.mod_name": "Extra Alchemy",
+	
+	"extraalchemy.config.general": "Generali",
+	"extraalchemy.config.potions": "Ricette delle pozione",
+	
+	"extraalchemy.config.general.enable_learning_boost": "XP aumentati dalla saggezza",
+	"extraalchemy.config.general.enable_learning_boost.tooltip1": "Abilitare questa opzione fa si che la Pozione della saggezza",
+	"extraalchemy.config.general.enable_learning_boost.tooltip2": "aumenti la quantità di XP ottenuti dalle sfere del 10%%.",
+	
+	"extraalchemy.config.general.enable_vials": "Abilita le pozioni in fiala",
+	"extraalchemy.config.general.enable_vials.tooltip1": "Abilitare questa opzione fa si che le pozioni in fiala",
+	"extraalchemy.config.general.enable_vials.tooltip2": "vuote possano essere riempite con pozioni da lancio.",
+	
+	"extraalchemy.config.potion": "%s",
+	"extraalchemy.config.potion.tooltip1": "Registra la ricetta per: %s.",
+	"extraalchemy.config.potion.tooltip2": "L'effetto verrà comunque registrato indipendentemente.",
+	
+	"extraalchemy.config.general.disable_inventory_shift": "Disabilita lo spostamento dell'inventario",
+	"extraalchemy.config.general.disable_inventory_shift.tooltip1": "Impedisce all'inventario di spostarsi a destra quando", 
+	"extraalchemy.config.general.disable_inventory_shift.tooltip2": "è presente un effetto di stato.",
+	
+	"extraalchemy.config.general.enable_rings": "Abilita gli anelli per pozioni",
+	"extraalchemy.config.general.enable_rings.tooltip1": "Abilitare questa opzione fa si che gli anelli per pozioni", 
+	"extraalchemy.config.general.enable_rings.tooltip2": "possano essere riempiti con pozioni nella griglia.",
+	
+	"extraalchemy.config.general.enable_brewing_stand_fire": "Abilita fuoco sotto gli alambicchi",
+	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "Abilitare questa opzione fa si che gli alambicchi vengano", 
+	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "scaldati ogni 2 secondi se c'è una fonte di calore sotto.",
+	
+	"extraalchemy.config.general.anchor_depletes": "Consuma le àncore",
+	"extraalchemy.config.general.anchor_depletes.tooltip1": "Abilitare questa opzione fa si che le àncore consumino una carica", 
+	"extraalchemy.config.general.anchor_depletes.tooltip2": "quando i giocatori vi si teletrasportano con la poz. del ritorno.",
+	
+	"extraalchemy.config.clientside": "Solo lato client",
+	"extraalchemy.config.must_sync": "Da sincronizzare manualmente con il server",
+	"extraalchemy.config.serveronly": "Verrà usato il valore impostato nel server",
+	
+	"key.extraalchemy.magnetism_toggle": "(Dis)Abilita la Pozione del magnete",
+	"key.extraalchemy.potion_bag_mode": "Cicla la modalità di selezione della borsa"
+}
