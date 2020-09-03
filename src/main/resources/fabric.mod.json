@@ -29,10 +29,10 @@
       "zabi.minecraft.extraalchemy.ExtraAlchemy"
     ],
     "client": [
-      "zabi.minecraft.extraalchemy.client.ClientDispatcher"
+      "zabi.minecraft.extraalchemy.client.ExtraAlchemyClient"
     ],
     "modmenu": [
-      "zabi.minecraft.extraalchemy.client.ConfigScreenProvider"
+      "zabi.minecraft.extraalchemy.client.screen.ConfigScreenProvider"
     ]
   },
   "mixins": [

@@ -15,7 +15,6 @@ public class ExtraAlchemy implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		
 		ModConfig.init();
 		ModItems.registerItems();
 		ModEffectRegistry.registerAll();

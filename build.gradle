@@ -30,19 +30,30 @@ repositories {
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	
+	//Fabric
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	
 
 	// Deps
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation("io.github.prospector:modmenu:${project.modmenu_version}")  {
       exclude module: 'fabric-api'
+      exclude module: 'config-2'
     }
 	modApi("me.shedaniel.cloth:config-2:${project.clothconfig_version}") {
       exclude module: 'fabric-api'
+      exclude module: 'config-2'
     }
+    
+    //Dev env only
+	modRuntime("me.shedaniel:RoughlyEnoughItems:${project.rei_version}") {
+	  exclude module: 'fabric-api'
+	  exclude module: 'config-2'
+	}
+	
+	//Bundling
 	include "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
-	//modCompile "me.shedaniel:RoughlyEnoughItems:${project.rei_version}"
-	modRuntime "me.shedaniel:RoughlyEnoughItems:${project.rei_version}"
 }
 
 processResources {

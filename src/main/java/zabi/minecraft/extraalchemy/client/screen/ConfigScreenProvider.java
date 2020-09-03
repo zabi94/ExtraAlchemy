@@ -1,4 +1,4 @@
-package zabi.minecraft.extraalchemy.client;
+package zabi.minecraft.extraalchemy.client.screen;
 
 import java.lang.reflect.Field;
 

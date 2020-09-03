@@ -1,4 +1,4 @@
-package zabi.minecraft.extraalchemy.client;
+package zabi.minecraft.extraalchemy.client.rendering;
 
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.item.ItemStack;

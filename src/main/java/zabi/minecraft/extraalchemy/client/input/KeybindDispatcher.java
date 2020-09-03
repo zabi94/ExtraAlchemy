@@ -1,4 +1,4 @@
-package zabi.minecraft.extraalchemy.client;
+package zabi.minecraft.extraalchemy.client.input;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;

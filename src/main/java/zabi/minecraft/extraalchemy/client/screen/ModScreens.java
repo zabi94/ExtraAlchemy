@@ -1,4 +1,4 @@
-package zabi.minecraft.extraalchemy.client;
+package zabi.minecraft.extraalchemy.client.screen;
 
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry.Factory;
