@@ -95,7 +95,7 @@
 	"item.minecraft.lingering_potion.effect.gravity": "Туманное зелье силы тяжести",
 	"item.minecraft.tipped_arrow.effect.gravity": "Стрела силы тяжести",
 	
-	"effect.extraalchemy.combustion": "Знойн",
+	"effect.extraalchemy.combustion": "Зной",
 	"item.minecraft.potion.effect.combustion": "Зелье сгорания",
 	"item.minecraft.splash_potion.effect.combustion": "Взрывное зелье сгорания",
 	"item.minecraft.lingering_potion.effect.combustion": "Туманное зелье сгорания",
@@ -135,9 +135,14 @@
 	"extraalchemy.config.general.enable_brewing_stand_fire": "Включить твик огня для стойки зельеварения",
 	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "Если включено, стойка зельеварения будет заправляться каждые", 
 	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "2 секунды когда под ней размещен источник тепла.",
+
+	"extraalchemy.config.general.anchor_depletes": "Истощение Якоря по возвращении",
+	"extraalchemy.config.general.anchor_depletes.tooltip1": "Включение этого параметра заставляет Якорь Возрождения терять заряд,", 
+	"extraalchemy.config.general.anchor_depletes.tooltip2": "когда игроки телепортируются к нему с эффектом возврата.",
 	
 	"extraalchemy.config.clientside": "Только на стороне клиента",
-	"extraalchemy.config.serverside": "Необходимо быть синхронизировано с сервером вручную",
+	"extraalchemy.config.must_sync": "Необходимо быть синхронизировано с сервером вручную.",
+	"extraalchemy.config.serveronly": "Значение, установленное на серверах, имеет приоритет на MP.",
 	
 	"key.extraalchemy.magnetism_toggle": "Переключение эффекта магнетизма",
 	"key.extraalchemy.potion_bag_mode": "Переключение авто-выбора сумки с зельем"
