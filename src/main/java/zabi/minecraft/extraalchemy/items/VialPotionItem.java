@@ -35,8 +35,8 @@ public class VialPotionItem extends PotionItem {
 		super(new Settings().group(ItemSettings.EXTRA_ALCHEMY_GROUP).maxCount(16));
 	}
 
-	public ItemStack getStackForRender() {
-		return PotionUtil.setPotion(super.getStackForRender(), Potions.WATER);
+	public ItemStack getDefaultStack() {
+		return PotionUtil.setPotion(super.getDefaultStack(), Potions.WATER);
 	}
 	
 	@Override
