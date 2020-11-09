@@ -9,6 +9,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.item.DyeableItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -34,7 +35,7 @@ import zabi.minecraft.extraalchemy.screen.potion_bag.PotionBagScreenhandlerFacto
 import zabi.minecraft.extraalchemy.utils.LibMod;
 import zabi.minecraft.extraalchemy.utils.Log;
 
-public class PotionBagItem extends Item {
+public class PotionBagItem extends Item implements DyeableItem {
 
 	public static final String TAG_MODE = "ea_select_mode";
 	public static final String TAG_INVENTORY = "ea_inventory";
@@ -218,6 +219,12 @@ public class PotionBagItem extends Item {
 			}
 		}
 		return Optional.empty();
+	}
+	
+	@Override
+	public int getColor(ItemStack stack) {
+		CompoundTag compoundTag = stack.getSubTag("display");
+		return compoundTag != null && compoundTag.contains("color", 99) ? compoundTag.getInt("color") : 0xce7720;
 	}
 
 	public static class BagInventory implements Inventory {
