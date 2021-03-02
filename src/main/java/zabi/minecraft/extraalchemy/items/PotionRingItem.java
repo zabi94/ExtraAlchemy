@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
 
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -107,6 +108,12 @@ public class PotionRingItem extends Item {
 
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+		if (!FabricLoader.getInstance().isModLoaded("curios") || ModConfig.INSTANCE.allowRingsInInventoryWithCurios) {
+			onTick(stack, world, entity);
+		}
+	}
+	
+	public static void onTick(ItemStack stack, World world, Entity entity) {
 		if (!world.isClient && !stack.getOrCreateTag().getBoolean("disabled") && entity instanceof LivingEntity) {
 			LivingEntity e = (LivingEntity) entity;
 			Potion potion = PotionUtil.getPotion(stack);
@@ -122,8 +129,9 @@ public class PotionRingItem extends Item {
 			}
 		}
 	}
+	
 
-	private boolean drainXP(LivingEntity e, int cost) {
+	private static boolean drainXP(LivingEntity e, int cost) {
 		if (cost <= 0 || !(e instanceof PlayerEntity)) { //TODO check if effect is disabled
 			return true;
 		}

@@ -28,6 +28,14 @@ repositories {
     	name = "Cloth+REI"
     	url = "https://maven.shedaniel.me/"
     }
+    maven {
+    	name = "Curios pt1"
+        url = "https://maven.theillusivec4.top/"
+    }
+    maven {
+		name = "Curios pt2"
+		url = 'https://dl.bintray.com/ladysnake/libs'
+    }
 }
 
 dependencies {
@@ -40,23 +48,36 @@ dependencies {
 	
 
 	// Deps
-	modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")  {
+	modRuntime("com.terraformersmc:modmenu:${project.modmenu_version}")  {
       exclude module: 'fabric-api'
       exclude module: 'config-2'
+      exclude module: 'cloth-config-fabric'
+      exclude module: 'roughlyenoughitems-api'
     }
 	modApi("me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}") {
       exclude module: 'fabric-api'
       exclude module: 'config-2'
+      exclude module: 'cloth-config-fabric'
+      exclude module: 'roughlyenoughitems-api'
+    }
+    modRuntime("top.theillusivec4.curios:curios-fabric:${project.curios_version}")  {
+      exclude module: 'fabric-api'
+      exclude module: 'config-2'
+      exclude module: 'cloth-config-fabric'
+      exclude module: 'roughlyenoughitems-api'
     }
     
     //Dev env only
 	modRuntime("me.shedaniel:RoughlyEnoughItems:${project.rei_version}") {
 	  exclude module: 'fabric-api'
 	  exclude module: 'config-2'
+      exclude module: 'cloth-config-fabric'
+      exclude module: 'roughlyenoughitems-api'
 	}
 	
+	
 	//Bundling
-	include "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
+	include "me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}"
 }
 
 processResources {

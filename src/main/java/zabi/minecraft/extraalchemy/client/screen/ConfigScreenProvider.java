@@ -78,6 +78,18 @@ public class ConfigScreenProvider implements ModMenuApi {
 		);
 		
 		general.addEntry(configBuilder.entryBuilder()
+				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.ignore_curios") , ModConfig.INSTANCE.allowRingsInInventoryWithCurios)
+					.setDefaultValue(false)
+					.setTooltip(
+							new TranslatableText("extraalchemy.config.general.ignore_curios.tooltip1"), 
+							new TranslatableText("extraalchemy.config.general.ignore_curios.tooltip2"),
+							SERVER_SIDE
+					)
+					.setSaveConsumer(val -> {ModConfig.INSTANCE.allowRingsInInventoryWithCurios = val;})
+					.build()
+		);
+		
+		general.addEntry(configBuilder.entryBuilder()
 				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.enable_brewing_stand_fire") , ModConfig.INSTANCE.enableBrewingStandFire)
 					.setDefaultValue(true)
 					.setTooltip(

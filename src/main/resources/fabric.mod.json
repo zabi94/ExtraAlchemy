@@ -33,6 +33,9 @@
     ],
     "modmenu": [
       "zabi.minecraft.extraalchemy.client.screen.ConfigScreenProvider"
+    ],
+    "cardinal-components-item": [
+      "zabi.minecraft.extraalchemy.compat.CuriosRings"
     ]
   },
   "mixins": [

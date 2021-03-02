@@ -1,6 +1,8 @@
 package zabi.minecraft.extraalchemy;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
+import zabi.minecraft.extraalchemy.compat.CuriosCompatBridge;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.crafting.CraftingRecipes;
 import zabi.minecraft.extraalchemy.crafting.PotionRingRecipe;
@@ -24,6 +26,9 @@ public class ExtraAlchemy implements ModInitializer {
 		ServerPacketRegistry.init();
 		CraftingRecipes.init();
 		ModScreenHandlerTypes.init();
+		if (FabricLoader.getInstance().isModLoaded("curios")) {
+			CuriosCompatBridge.init();
+		}
 	}
 
 }
