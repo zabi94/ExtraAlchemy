@@ -2,8 +2,8 @@ package zabi.minecraft.extraalchemy.client.screen;
 
 import java.lang.reflect.Field;
 
-import io.github.prospector.modmenu.api.ConfigScreenFactory;
-import io.github.prospector.modmenu.api.ModMenuApi;
+import com.terraformersmc.modmenu.api.ConfigScreenFactory;
+import com.terraformersmc.modmenu.api.ModMenuApi;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import net.minecraft.text.Style;

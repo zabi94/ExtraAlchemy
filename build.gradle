@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.5-SNAPSHOT'
+	id 'fabric-loom' version '0.6-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -16,14 +16,17 @@ minecraft {
 
 repositories {
     mavenLocal()
-    jcenter() //Cloth
     maven {
         name = "CurseForge"
         url = "https://minecraft.curseforge.com/api/maven/"
     }
     maven {
     	name = "ModMenu"
-    	url = "https://maven.fabricmc.net/"
+    	url = "https://maven.terraformersmc.com/releases/"
+    }
+    maven {
+    	name = "Cloth+REI"
+    	url = "https://maven.shedaniel.me/"
     }
 }
 
@@ -37,11 +40,11 @@ dependencies {
 	
 
 	// Deps
-	modImplementation("io.github.prospector:modmenu:${project.modmenu_version}")  {
+	modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")  {
       exclude module: 'fabric-api'
       exclude module: 'config-2'
     }
-	modApi("me.shedaniel.cloth:config-2:${project.clothconfig_version}") {
+	modApi("me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}") {
       exclude module: 'fabric-api'
       exclude module: 'config-2'
     }

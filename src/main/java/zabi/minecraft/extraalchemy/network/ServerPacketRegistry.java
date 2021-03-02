@@ -1,6 +1,6 @@
 package zabi.minecraft.extraalchemy.network;
 
-import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.util.Hand;
 import zabi.minecraft.extraalchemy.client.network.ToggleBagAutoSelection;
@@ -12,18 +12,18 @@ import zabi.minecraft.extraalchemy.items.PotionBagItem;
 public class ServerPacketRegistry {
 
 	public static void init() {
-		ServerSidePacketRegistry.INSTANCE.register(ToggleMagnetismPacket.ID, (ctx, buf) -> {
+		ServerPlayNetworking.registerGlobalReceiver(ToggleMagnetismPacket.ID, (server, player, handler, buf, response) -> {
 			boolean magnetismActive = buf.readBoolean();
-			ctx.getTaskQueue().execute(() -> {
-				((PlayerProperties) (Object) ctx.getPlayer()).setMagnetismEnabled(magnetismActive);
+			server.execute(() -> {
+				((PlayerProperties) (Object) player).setMagnetismEnabled(magnetismActive);
 			});
 		});
 		
-		ServerSidePacketRegistry.INSTANCE.register(ToggleBagAutoSelection.ID, (ctx, buf) -> {
+		ServerPlayNetworking.registerGlobalReceiver(ToggleBagAutoSelection.ID, (server, player, handler, buf, response) -> {
 			boolean hand = buf.readBoolean();
-			ctx.getTaskQueue().execute(() -> {
-				PotionBagItem.toggleStatusForPlayer(ctx.getPlayer(), hand?Hand.MAIN_HAND:Hand.OFF_HAND);
-				ItemCooldownManager icm = ctx.getPlayer().getItemCooldownManager();
+			server.execute(() -> {
+				PotionBagItem.toggleStatusForPlayer(player, hand?Hand.MAIN_HAND:Hand.OFF_HAND);
+				ItemCooldownManager icm = player.getItemCooldownManager();
 				icm.set(ModItems.POTION_BAG, 10);
 			});
 		});
