@@ -43,7 +43,7 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 
 	@Override
 	public boolean matches(CraftingInventory inv, World world) {
-		if (!ModConfig.INSTANCE.enableRings || potion.getEffects().size() == 0) { //Globally disabled and specifically disabled
+		if (!ModConfig.INSTANCE.enableRings || potion.getEffects().size() != 1) { //Globally disabled and specifically disabled
 			return false;
 		}
 
@@ -54,7 +54,7 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 			ItemStack is = inv.getStack(i); 
 			Item s = is.getItem();
 			if (s.equals(Items.POTION)) {
-				if (foundPotion || !PotionUtil.getPotion(is).equals(this.potion)) {
+				if (foundPotion || !doesPotionMatch(PotionUtil.getPotion(is))) {
 					return false;
 				} else {
 					foundPotion = true;
@@ -91,6 +91,15 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 	@Override
 	public RecipeSerializer<?> getSerializer() {
 		return CraftingRecipes.RING_CRAFTING_SERIALIZER;
+	}
+	
+	private boolean doesPotionMatch(Potion stack) {
+		if (stack.getEffects().size() != 1) {
+			return false;
+		}
+		StatusEffectInstance stackInstance = stack.getEffects().get(0);
+		StatusEffectInstance recipeInstance = potion.getEffects().get(0);
+		return stackInstance.getEffectType().equals(recipeInstance.getEffectType()) && stackInstance.getAmplifier() == recipeInstance.getAmplifier();
 	}
 
 	public static class Serializer implements RecipeSerializer<PotionRingRecipe> {
