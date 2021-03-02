@@ -7,10 +7,10 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.options.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.util.InputUtil.Type;
-import zabi.minecraft.extraalchemy.client.network.ToggleBagAutoSelection;
-import zabi.minecraft.extraalchemy.client.network.ToggleMagnetismPacket;
 import zabi.minecraft.extraalchemy.entitydata.PlayerProperties;
 import zabi.minecraft.extraalchemy.items.ModItems;
+import zabi.minecraft.extraalchemy.network.C2S_Channels;
+import zabi.minecraft.extraalchemy.network.SimplePacketBufs;
 import zabi.minecraft.extraalchemy.utils.LibMod;
 
 public class KeybindDispatcher {
@@ -33,7 +33,7 @@ public class KeybindDispatcher {
 					PlayerProperties pp = (PlayerProperties) (Object) MinecraftClient.getInstance().player;
 					boolean newMagnetismStatus = !pp.isMagnetismEnabled();
 					pp.setMagnetismEnabled(newMagnetismStatus);
-					ClientPlayNetworking.send(ToggleMagnetismPacket.ID, ToggleMagnetismPacket.anew(newMagnetismStatus));
+					ClientPlayNetworking.send(C2S_Channels.MAGNETISM_ENABLE, SimplePacketBufs.ofBool(newMagnetismStatus));
 				}
 				wasMagnetismPressedLastTick = true;
 			} else {
@@ -44,7 +44,7 @@ public class KeybindDispatcher {
 				boolean mainHand = evt.player.getMainHandStack().getItem() == ModItems.POTION_BAG;
 				boolean offHand = evt.player.getOffHandStack().getItem() == ModItems.POTION_BAG;
 				if (mainHand || offHand) {
-					ClientPlayNetworking.send(ToggleBagAutoSelection.ID, ToggleBagAutoSelection.anew(mainHand));
+					ClientPlayNetworking.send(C2S_Channels.CYCLE_BAG_MODES, SimplePacketBufs.ofBool(mainHand));
 				}
 			}
 		});
