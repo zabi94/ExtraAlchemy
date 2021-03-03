@@ -48,7 +48,7 @@ dependencies {
 	
 
 	// Deps
-	modRuntime("com.terraformersmc:modmenu:${project.modmenu_version}")  {
+	modApi("com.terraformersmc:modmenu:${project.modmenu_version}")  {
       exclude module: 'fabric-api'
       exclude module: 'config-2'
       exclude module: 'cloth-config-fabric'
@@ -60,7 +60,7 @@ dependencies {
       exclude module: 'cloth-config-fabric'
       exclude module: 'roughlyenoughitems-api'
     }
-    modRuntime("top.theillusivec4.curios:curios-fabric:${project.curios_version}")  {
+    modApi("top.theillusivec4.curios:curios-fabric:${project.curios_version}")  {
       exclude module: 'fabric-api'
       exclude module: 'config-2'
       exclude module: 'cloth-config-fabric'
