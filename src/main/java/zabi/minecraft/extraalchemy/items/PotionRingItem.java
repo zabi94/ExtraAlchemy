@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -27,7 +28,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Pair;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.utils.PlayerLevelUtil;
@@ -38,23 +38,17 @@ public class PotionRingItem extends Item {
 		super(new Item.Settings().group(ItemSettings.EXTRA_ALCHEMY_GROUP).maxCount(1));
 	}
 
+	@SuppressWarnings("resource")
 	@Override
 	public void appendStacks(ItemGroup group, DefaultedList<ItemStack> stacks) {
-		if (this.isIn(group) && ModConfig.INSTANCE.enableRings) {
-			Registry.POTION.getEntries().stream()
-			.map(e -> e.getValue())
-			.filter(e -> e.getEffects().size() == 1)
-			.filter(ignoreLongVersions())
-			.forEach(entry -> {
-				if (!entry.getEffects().get(0).getEffectType().isInstant()) {
-					ItemStack is = PotionUtil.setPotion(new ItemStack(this), entry);
-					is.getOrCreateTag().putInt("cost", -1);
-					is.getTag().putInt("length", 60);
-					is.getTag().putInt("renew", 20);
-					is.getTag().putBoolean("disabled", true);
-					stacks.add(is);
-				}
-			});
+		try{
+			if (this.isIn(group) && ModConfig.INSTANCE.enableRings && MinecraftClient.getInstance().world != null) {
+				MinecraftClient.getInstance().world.getRecipeManager().values().stream()
+					.filter(r -> r.getOutput().getItem().equals(ModItems.POTION_RING))
+					.forEach(rec -> stacks.add(rec.getOutput()));
+			}
+		} catch (Throwable e) {
+			e.printStackTrace();
 		}
 	}
 

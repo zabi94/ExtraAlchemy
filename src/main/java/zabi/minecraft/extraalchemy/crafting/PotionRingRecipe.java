@@ -16,9 +16,11 @@ import net.minecraft.item.Items;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
@@ -82,12 +84,17 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 		result.getTag().putBoolean("disabled", true);
 		return result;
 	}
-
+	
+	@Override
+	public ItemStack getOutput() {
+		return craft(null);
+	}
+	
 	@Override
 	public boolean fits(int width, int height) {
 		return width > 1 || height > 1;
 	}
-
+	
 	@Override
 	public RecipeSerializer<?> getSerializer() {
 		return CraftingRecipes.RING_CRAFTING_SERIALIZER;
@@ -101,7 +108,19 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 		StatusEffectInstance recipeInstance = potion.getEffects().get(0);
 		return stackInstance.getEffectType().equals(recipeInstance.getEffectType()) && stackInstance.getAmplifier() == recipeInstance.getAmplifier();
 	}
-
+	
+	@Override
+	public DefaultedList<Ingredient> getPreviewInputs() {
+		ItemStack potion = new ItemStack(Items.POTION);
+		PotionUtil.setPotion(potion, this.potion);
+		return DefaultedList.copyOf(Ingredient.EMPTY, Ingredient.ofItems(ModItems.EMPTY_RING), Ingredient.ofStacks(potion));
+	}
+	
+	@Override
+	public boolean isIgnoredInRecipeBook() {
+		return false;
+	}
+	
 	public static class Serializer implements RecipeSerializer<PotionRingRecipe> {
 
 		@Override
