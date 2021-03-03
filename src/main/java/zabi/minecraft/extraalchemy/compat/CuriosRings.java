@@ -1,7 +1,6 @@
 package zabi.minecraft.extraalchemy.compat;
 
 import dev.onyxstudios.cca.api.v3.item.ItemComponentFactoryRegistry;
-import dev.onyxstudios.cca.api.v3.item.ItemComponentInitializer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
@@ -14,10 +13,9 @@ import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.items.PotionRingItem;
 import zabi.minecraft.extraalchemy.utils.Log;
 
-public class CuriosRings implements ItemComponentInitializer {
+public class CuriosRings {
 
-	@Override
-	public void registerItemComponentFactories(ItemComponentFactoryRegistry registry) {
+	public static void registerItemComponentFactories(ItemComponentFactoryRegistry registry) {
 		Log.i("Registering CCA compatibility");
 		Registry.ITEM.getKey(ModItems.POTION_RING).ifPresent(id -> {
 			registry.registerFor(id.getValue(), CuriosComponent.ITEM, stack -> new RingCurio(stack));
