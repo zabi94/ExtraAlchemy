@@ -48,6 +48,8 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 		if (!ModConfig.INSTANCE.enableRings || potion.getEffects().size() != 1) { //Globally disabled and specifically disabled
 			return false;
 		}
+		
+		if (potion.getEffects().size() == 0) return false;
 
 		boolean foundPotion = false;
 		boolean foundRing = false;
@@ -78,6 +80,7 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 	public ItemStack craft(CraftingInventory inv) {
 		ItemStack result = new ItemStack(ModItems.POTION_RING);
 		PotionUtil.setPotion(result, potion);
+		result.getOrCreateTag();
 		result.getTag().putInt("cost", cost);
 		result.getTag().putInt("length", length);
 		result.getTag().putInt("renew", renew);

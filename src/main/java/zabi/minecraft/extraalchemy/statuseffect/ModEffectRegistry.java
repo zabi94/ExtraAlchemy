@@ -2,10 +2,12 @@ package zabi.minecraft.extraalchemy.statuseffect;
 
 import java.lang.reflect.Field;
 
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import zabi.minecraft.extraalchemy.compat.pehkui.PehkuiCompatBridge;
 import zabi.minecraft.extraalchemy.statuseffect.effects.CombustionStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.ConcentrationStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.CrumblingStatusEffect;
@@ -36,7 +38,7 @@ public class ModEffectRegistry {
 	public static ModStatusEffect gravity = new GravityStatusEffect(StatusEffectType.NEUTRAL, 0x815D09, false);
 	public static ModStatusEffect combustion = new CombustionStatusEffect(StatusEffectType.HARMFUL, 0xF96501, false);
 	public static ModStatusEffect pacifism = new PacifismStatusEffect(StatusEffectType.BENEFICIAL, 0xFEFFE7, false);
-	public static ModStatusEffect piper = new PiperStatusEffect(StatusEffectType.BENEFICIAL, 0xFFDF9F, false); 
+	public static ModStatusEffect piper = new PiperStatusEffect(StatusEffectType.BENEFICIAL, 0xFFDF9F, false);
 
 	//Instant
 	public static ModStatusEffect returning = new ReturnStatusEffect(StatusEffectType.BENEFICIAL, 0xD05585, true);
@@ -54,6 +56,10 @@ public class ModEffectRegistry {
 					Log.d("Registered potion "+id);
 					registered++;
 				}
+			}
+			
+			if (FabricLoader.getInstance().isModLoaded("pehkui")) {
+				registered += PehkuiCompatBridge.registerEffects();
 			}
 			Log.i("Registered %d status effects", registered);
 			Utils.register();

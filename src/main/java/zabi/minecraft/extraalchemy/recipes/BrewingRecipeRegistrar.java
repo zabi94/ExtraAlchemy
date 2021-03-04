@@ -1,9 +1,11 @@
 package zabi.minecraft.extraalchemy.recipes;
 
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.Potions;
+import zabi.minecraft.extraalchemy.compat.pehkui.PehkuiCompatBridge;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.potion.ModPotion;
 import zabi.minecraft.extraalchemy.potion.ModPotionRegistry;
@@ -35,9 +37,13 @@ public class BrewingRecipeRegistrar extends DelayedConsumer<Registar> {
 			});
 		}
 		
+		if (FabricLoader.getInstance().isModLoaded("pehkui")) {
+			PehkuiCompatBridge.registerRecipes();
+		}
+		
 	}
 	
-	private static void registerPotion(boolean active, ModPotion potion, Item ingredient, Potion base) {
+	public static void registerPotion(boolean active, ModPotion potion, Item ingredient, Potion base) {
 		if (active) {
 			INSTANCE.consumeWhenReady(reg -> {
 				reg.register(base, ingredient, potion);

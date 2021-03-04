@@ -2,7 +2,9 @@ package zabi.minecraft.extraalchemy.potion;
 
 import java.lang.reflect.Field;
 
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
+import zabi.minecraft.extraalchemy.compat.pehkui.PehkuiCompatBridge;
 import zabi.minecraft.extraalchemy.statuseffect.ModEffectRegistry;
 import zabi.minecraft.extraalchemy.utils.LibMod;
 import zabi.minecraft.extraalchemy.utils.Log;
@@ -21,7 +23,6 @@ public class ModPotionRegistry {
 	public static ModPotion pacifism = ModPotion.ModPotionTimed.generateAll("pacifism", ModEffectRegistry.pacifism, 20*25, 20*40, 20*15);
 	public static ModPotion piper = ModPotion.ModPotionTimed.generateWithLengthened("piper", ModEffectRegistry.piper, 20*120, 20*240);
 	
-	
 	public static ModPotion returning = new ModPotion.ModPotionInstant("returning", ModEffectRegistry.returning, 0);
 	public static ModPotion concentration = new ModPotion.ModPotionInstant("concentration", ModEffectRegistry.concentration, 0);
 
@@ -35,6 +36,11 @@ public class ModPotionRegistry {
 					registered += ((ModPotion) field.get(null)).registerTree(LibMod.MOD_ID, field.getName());
 				}
 			}
+			
+			if (FabricLoader.getInstance().isModLoaded("pehkui")) {
+				registered += PehkuiCompatBridge.registerPotions();
+			}
+			
 			Log.i("Registered %d potions", registered);
 		} catch (Exception e) {
 			Log.printAndPropagate(e);

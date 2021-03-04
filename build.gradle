@@ -36,6 +36,10 @@ repositories {
 		name = "Curios pt2"
 		url = 'https://dl.bintray.com/ladysnake/libs'
     }
+    maven {
+        name = "pehkui"
+        url = "https://www.cursemaven.com"
+    }
 }
 
 dependencies {
@@ -69,6 +73,13 @@ dependencies {
     
     //Dev env only
 	modRuntime("me.shedaniel:RoughlyEnoughItems:${project.rei_version}") {
+	  exclude module: 'fabric-api'
+	  exclude module: 'config-2'
+      exclude module: 'cloth-config-fabric'
+      exclude module: 'roughlyenoughitems-api'
+	}
+	
+	modImplementation("curse.maven:Pehkui-319596:${project.pehkui_version}") {
 	  exclude module: 'fabric-api'
 	  exclude module: 'config-2'
       exclude module: 'cloth-config-fabric'

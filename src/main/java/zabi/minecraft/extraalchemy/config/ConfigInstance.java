@@ -38,6 +38,8 @@ public class ConfigInstance {
 		public boolean gravity = true;
 		public boolean combustion = true;
 		public boolean pacifism = true;
+		public boolean shrinking = true;
+		public boolean growing = true;
 		
 	}
 	

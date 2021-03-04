@@ -20,6 +20,9 @@ public abstract class MixinLivingEntity extends Entity implements EntityProperti
 	@Shadow private boolean effectsChanged;
 	
 	private DimensionalPosition recallPosition = null;
+	
+	private int last_growth_level = 0;
+	private int last_shrink_level = 0;
 
 	protected MixinLivingEntity(EntityType<? extends LivingEntity> type, World world) {
 		super(type, world);
@@ -30,6 +33,12 @@ public abstract class MixinLivingEntity extends Entity implements EntityProperti
 		if (tag.contains("recallPosition")) {
 			recallPosition = DimensionalPosition.fromTag(tag.getCompound("recallPosition"));
 		}
+		if (tag.contains("last_growth_level")) {
+			last_growth_level = tag.getInt("last_growth_level");
+		}
+		if (tag.contains("last_shrink_level")) {
+			last_shrink_level = tag.getInt("last_shrink_level");
+		}
 	}
 	
 	@Inject(at = @At("TAIL"), method = "writeCustomDataToTag")
@@ -37,6 +46,8 @@ public abstract class MixinLivingEntity extends Entity implements EntityProperti
 		if (recallPosition != null) {
 			tag.put("recallPosition", recallPosition.toTag());
 		}
+		tag.putInt("last_growth_level", last_growth_level);
+		tag.putInt("last_shrink_level", last_shrink_level);
 	}
 
 	@Override
@@ -53,5 +64,24 @@ public abstract class MixinLivingEntity extends Entity implements EntityProperti
 	public void markEffectsDirty() {
 		effectsChanged = true;
 	}
+	
+	@Override
+	public int getLastGrowthAmplifier() {
+		return last_growth_level;
+	}
+	
+	@Override
+	public void setLastGrowthAmplifier(int mult) {
+		last_growth_level = mult;
+	}
+	
+	@Override
+	public int getLastShrinkAmplifier() {
+		return last_shrink_level;
+	}
 
+	@Override
+	public void setLastShrinkAmplifier(int mult) {
+		last_shrink_level = mult;
+	}
 }
