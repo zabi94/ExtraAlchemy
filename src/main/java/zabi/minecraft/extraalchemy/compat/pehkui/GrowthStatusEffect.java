@@ -5,7 +5,6 @@ import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffectType;
 import virtuoel.pehkui.api.ScaleData;
 import virtuoel.pehkui.api.ScaleType;
-import zabi.minecraft.extraalchemy.entitydata.EntityProperties;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class GrowthStatusEffect extends ModStatusEffect {
@@ -26,22 +25,23 @@ public class GrowthStatusEffect extends ModStatusEffect {
 	@Override
 	public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
 		super.onApplied(entity, attributes, amplifier);
-		ScaleData data = ScaleType.BASE.getScaleData(entity);
-		EntityProperties props = EntityProperties.of(entity);
-		if (props.getLastGrowthAmplifier() >= 0) {
-			data.setTargetScale(data.getTargetScale()/getScale(props.getLastGrowthAmplifier()));
+		if (!entity.world.isClient) {
+			ScaleData data = ModSizeModifiers.GROWING.getScaleData(entity);
+			data.setScale(getScale(amplifier));
+			ScaleType.BASE.getScaleData(entity).markForSync(true);
+			data.markForSync(true);
 		}
-		entity.removeStatusEffect(PehkuiPotions.shrinking);
-		data.setTargetScale(data.getTargetScale()*getScale(amplifier));
-		props.setLastGrowthAmplifier(amplifier);
 	}
 	
 	@Override
 	public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
 		super.onRemoved(entity, attributes, amplifier);
-		ScaleData data = ScaleType.BASE.getScaleData(entity);
-		data.setTargetScale(data.getTargetScale()/getScale(amplifier));
-		EntityProperties.of(entity).setLastGrowthAmplifier(-1);
+		if (!entity.world.isClient) {
+			ScaleData data = ModSizeModifiers.GROWING.getScaleData(entity);
+			data.fromScale(ScaleData.IDENTITY);
+			ScaleType.BASE.getScaleData(entity).markForSync(true);
+			data.markForSync(true);
+		}
 	}
 	
 	private static float getScale(int amplifier) {

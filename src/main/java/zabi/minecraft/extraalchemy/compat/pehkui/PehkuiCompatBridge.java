@@ -14,4 +14,8 @@ public class PehkuiCompatBridge {
 		PehkuiPotions.registerRecipes();
 	}
 	
+	public static void init() {
+		ModSizeModifiers.registerModifiers();
+	}
+	
 }

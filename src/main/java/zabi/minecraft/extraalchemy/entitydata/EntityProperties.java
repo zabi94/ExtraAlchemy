@@ -11,14 +11,6 @@ public interface EntityProperties {
 
 	public void markEffectsDirty();
 	
-	public int getLastGrowthAmplifier();
-	
-	public void setLastGrowthAmplifier(int mult);
-	
-	public int getLastShrinkAmplifier();
-	
-	public void setLastShrinkAmplifier(int mult);
-	
 	public static EntityProperties of(LivingEntity entity) {
 		return (EntityProperties) entity;
 	}
