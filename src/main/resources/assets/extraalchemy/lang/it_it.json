@@ -107,6 +107,24 @@
 	"item.minecraft.lingering_potion.effect.pacifism": "Pozione persistente del pacifismo",
 	"item.minecraft.tipped_arrow.effect.pacifism": "Freccia del pacifismo",
 	
+	"effect.extraalchemy.shrinking": "Riduzione",
+	"item.minecraft.potion.effect.shrinking": "Pozione della riduzione",
+	"item.minecraft.splash_potion.effect.shrinking": "Pozione da lancio della riduzione",
+	"item.minecraft.lingering_potion.effect.shrinking": "Pozione persistente della riduzione",
+	"item.minecraft.tipped_arrow.effect.shrinking": "Freccia della riduzione",
+	
+	"effect.extraalchemy.growing": "Crescita",
+	"item.minecraft.potion.effect.growing": "Pozione della crescita",
+	"item.minecraft.splash_potion.effect.growing": "Pozione da lancio della crescita",
+	"item.minecraft.lingering_potion.effect.growing": "Pozione persistente della crescita",
+	"item.minecraft.tipped_arrow.effect.growing": "Freccia della crescita",
+	
+	"effect.extraalchemy.detection": "Percezione",
+	"item.minecraft.potion.effect.detection": "Pozione della percezione",
+	"item.minecraft.splash_potion.effect.detection": "Pozione da lancio della percezione",
+	"item.minecraft.lingering_potion.effect.detection": "Pozione persistente della percezione",
+	"item.minecraft.tipped_arrow.effect.detection": "Freccia della percezione",
+	
 	"extraalchemy.mod_name": "Extra Alchemy",
 	
 	"extraalchemy.config.general": "Generali",

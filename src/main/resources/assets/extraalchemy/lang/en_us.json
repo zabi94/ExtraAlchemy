@@ -119,6 +119,12 @@
 	"item.minecraft.lingering_potion.effect.growing": "Lingering Potion of Growing",
 	"item.minecraft.tipped_arrow.effect.growing": "Arrow of Growing",
 	
+	"effect.extraalchemy.detection": "Perception",
+	"item.minecraft.potion.effect.detection": "Potion of Detection",
+	"item.minecraft.splash_potion.effect.detection": "Splash Potion of Detection",
+	"item.minecraft.lingering_potion.effect.detection": "Lingering Potion of Detection",
+	"item.minecraft.tipped_arrow.effect.detection": "Arrow of Detection",
+	
 	"extraalchemy.mod_name": "Extra Alchemy",
 	
 	"extraalchemy.config.general": "General",
