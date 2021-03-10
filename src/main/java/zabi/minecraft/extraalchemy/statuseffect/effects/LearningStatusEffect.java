@@ -5,7 +5,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectType;
 import net.minecraft.entity.player.PlayerEntity;
 import zabi.minecraft.extraalchemy.config.ModConfig;
-import zabi.minecraft.extraalchemy.mixin.AccessorExperienceOrbEntity;
+import zabi.minecraft.extraalchemy.mixin.access.AccessorExperienceOrbEntity;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class LearningStatusEffect extends ModStatusEffect {

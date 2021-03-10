@@ -4,7 +4,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectType;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.util.math.MathHelper;
-import zabi.minecraft.extraalchemy.mixin.AccessorBoatEntity;
+import zabi.minecraft.extraalchemy.mixin.access.AccessorBoatEntity;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class SailsStatusEffect extends ModStatusEffect {

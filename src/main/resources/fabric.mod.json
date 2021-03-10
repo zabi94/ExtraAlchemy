@@ -45,6 +45,9 @@
     }, {
       "config": "extraalchemy.common.json",
       "environment": "*"
+    }, {
+      "config": "extraalchemy.access.json",
+      "environment": "*"
     }
   ],
   "depends": {

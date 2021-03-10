@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "zabi.minecraft.extraalchemy.mixin.access",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "AccessorBoatEntity",
+    "AccessorExperienceOrbEntity",
+    "InvokerLivingEntity"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

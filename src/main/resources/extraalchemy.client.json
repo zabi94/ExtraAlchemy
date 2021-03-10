@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "zabi.minecraft.extraalchemy.mixin",
+  "package": "zabi.minecraft.extraalchemy.mixin.client",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "RemovePotionShift",

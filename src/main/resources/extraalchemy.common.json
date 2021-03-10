@@ -1,14 +1,11 @@
 {
   "required": true,
-  "package": "zabi.minecraft.extraalchemy.mixin",
+  "package": "zabi.minecraft.extraalchemy.mixin.common",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "MixinPlayerEntity", 
     "MixinLivingEntity",
-    "AccessorBoatEntity",
     "MixinBrewRegistry",
-    "AccessorExperienceOrbEntity",
-    "InvokerLivingEntity",
     "EntityDamaged",
     "TemptGoalMixin",
     "BrewingStandMixin"

@@ -27,7 +27,7 @@ import net.minecraft.util.UseAction;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
-import zabi.minecraft.extraalchemy.mixin.InvokerLivingEntity;
+import zabi.minecraft.extraalchemy.mixin.access.InvokerLivingEntity;
 
 public class VialPotionItem extends PotionItem {
 
