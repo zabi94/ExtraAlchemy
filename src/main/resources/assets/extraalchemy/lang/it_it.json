@@ -140,6 +140,10 @@
 	"extraalchemy.config.general.anchor_depletes.tooltip1": "Abilitare questa opzione fa si che le àncore consumino una carica", 
 	"extraalchemy.config.general.anchor_depletes.tooltip2": "quando i giocatori vi si teletrasportano con la poz. del ritorno.",
 	
+	"extraalchemy.config.general.ignore_curios": "Permetti anelli nell'inventario con Curios",
+	"extraalchemy.config.general.ignore_curios.tooltip1": "Quando questa opzione è attiva, gli anelli funzionano",
+	"extraalchemy.config.general.ignore_curios.tooltip2": "nell'inventario anche se Curios è installato.",
+	
 	"extraalchemy.config.clientside": "Solo lato client",
 	"extraalchemy.config.must_sync": "Da sincronizzare manualmente con il server",
 	"extraalchemy.config.serveronly": "Verrà usato il valore impostato nel server",
