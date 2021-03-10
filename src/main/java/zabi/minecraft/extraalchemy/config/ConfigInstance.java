@@ -40,6 +40,7 @@ public class ConfigInstance {
 		public boolean pacifism = true;
 		public boolean shrinking = true;
 		public boolean growing = true;
+		public boolean detection = true;
 		
 	}
 	

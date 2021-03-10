@@ -38,6 +38,7 @@ public class ModEffectRegistry {
 	public static ModStatusEffect combustion = new CombustionStatusEffect(StatusEffectType.HARMFUL, 0xF96501, false);
 	public static ModStatusEffect pacifism = new EmptyStatusEffect(StatusEffectType.BENEFICIAL, 0xFEFFE7, false);
 	public static ModStatusEffect piper = new EmptyStatusEffect(StatusEffectType.BENEFICIAL, 0xFFDF9F, false);
+	public static ModStatusEffect detection = new EmptyStatusEffect(StatusEffectType.BENEFICIAL, 0x5297D6, false);
 
 	//Instant
 	public static ModStatusEffect returning = new ReturnStatusEffect(StatusEffectType.BENEFICIAL, 0xD05585, true);

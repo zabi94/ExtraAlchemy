@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "RemovePotionShift",
-    "MixinStatusEffectSpriteManager"
+    "MixinStatusEffectSpriteManager",
+    "MixinEntityOutline"
   ],
   "injectors": {
     "defaultRequire": 1
