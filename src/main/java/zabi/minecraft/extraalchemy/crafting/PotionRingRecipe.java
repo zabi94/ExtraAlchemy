@@ -112,18 +112,6 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 		return stackInstance.getEffectType().equals(recipeInstance.getEffectType()) && stackInstance.getAmplifier() == recipeInstance.getAmplifier();
 	}
 	
-	@Override
-	public DefaultedList<Ingredient> getPreviewInputs() {
-		ItemStack potion = new ItemStack(Items.POTION);
-		PotionUtil.setPotion(potion, this.potion);
-		return DefaultedList.copyOf(Ingredient.EMPTY, Ingredient.ofItems(ModItems.EMPTY_RING), Ingredient.ofStacks(potion));
-	}
-	
-	@Override
-	public boolean isIgnoredInRecipeBook() {
-		return false;
-	}
-	
 	public static class Serializer implements RecipeSerializer<PotionRingRecipe> {
 
 		@Override
