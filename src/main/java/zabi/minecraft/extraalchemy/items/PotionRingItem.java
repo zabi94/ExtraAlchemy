@@ -140,46 +140,46 @@ public class PotionRingItem extends Item {
 		return true;
 	}
 
-	public static Predicate<Potion> ignoreLongVersions() {
-		Set<KeyProperty> seen = new HashSet<>();
-		return t -> seen.add(new KeyProperty(t.getEffects().get(0).getAmplifier(), t.getEffects().get(0).getEffectType()));
-	}
-
-	public static class KeyProperty extends Pair<Integer, StatusEffect> {
-		public KeyProperty(Integer left, StatusEffect right) {
-			super(left, right);
-		}
-
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + getLeft();
-			result = prime * result + ((getRight() == null) ? 0 : getRight().hashCode());
-			return result;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			KeyProperty other = (KeyProperty) obj;
-			if (getLeft() != other.getLeft())
-				return false;
-			if (getRight() == null) {
-				if (other.getRight() != null)
-					return false;
-			} else if (!getRight().equals(other.getRight()))
-				return false;
-			return true;
-		}
-
-
-
-	}
+//	public static Predicate<Potion> ignoreLongVersions() {
+//		Set<KeyProperty> seen = new HashSet<>();
+//		return t -> seen.add(new KeyProperty(t.getEffects().get(0).getAmplifier(), t.getEffects().get(0).getEffectType()));
+//	}
+//
+//	public static class KeyProperty extends Pair<Integer, StatusEffect> {
+//		public KeyProperty(Integer left, StatusEffect right) {
+//			super(left, right);
+//		}
+//
+//		@Override
+//		public int hashCode() {
+//			final int prime = 31;
+//			int result = 1;
+//			result = prime * result + getLeft();
+//			result = prime * result + ((getRight() == null) ? 0 : getRight().hashCode());
+//			return result;
+//		}
+//
+//		@Override
+//		public boolean equals(Object obj) {
+//			if (this == obj)
+//				return true;
+//			if (obj == null)
+//				return false;
+//			if (getClass() != obj.getClass())
+//				return false;
+//			KeyProperty other = (KeyProperty) obj;
+//			if (getLeft() != other.getLeft())
+//				return false;
+//			if (getRight() == null) {
+//				if (other.getRight() != null)
+//					return false;
+//			} else if (!getRight().equals(other.getRight()))
+//				return false;
+//			return true;
+//		}
+//
+//
+//
+//	}
 
 }

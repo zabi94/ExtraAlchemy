@@ -6,7 +6,6 @@ import zabi.minecraft.extraalchemy.compat.CuriosCompatBridge;
 import zabi.minecraft.extraalchemy.compat.pehkui.PehkuiCompatBridge;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.crafting.CraftingRecipes;
-import zabi.minecraft.extraalchemy.crafting.PotionRingRecipe;
 import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.network.ServerPacketRegistry;
 import zabi.minecraft.extraalchemy.potion.ModPotionRegistry;
@@ -22,7 +21,7 @@ public class ExtraAlchemy implements ModInitializer {
 		ModItems.registerItems();
 		ModEffectRegistry.registerAll();
 		ModPotionRegistry.registerAll();
-		PotionRingRecipe.generateDefaults();
+//		PotionRingRecipe.generateDefaults();
 		BrewingRecipeRegistrar.init();
 		ServerPacketRegistry.init();
 		CraftingRecipes.init();
