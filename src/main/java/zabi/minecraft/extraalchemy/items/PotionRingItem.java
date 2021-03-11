@@ -86,6 +86,7 @@ public class PotionRingItem extends Item {
 		} catch (Exception e) {
 			tooltip.add(new LiteralText("An error occurred when displaying the tooltip.").formatted(Formatting.RED));
 			tooltip.add(new LiteralText("Destroy this item ASAP to avoid crashes.").formatted(Formatting.RED, Formatting.BOLD));
+			tooltip.add(new LiteralText(e.getMessage()).formatted(Formatting.DARK_GRAY));
 		}
 	}
 
