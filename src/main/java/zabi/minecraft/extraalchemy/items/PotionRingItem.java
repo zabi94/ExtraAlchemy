@@ -1,9 +1,6 @@
 package zabi.minecraft.extraalchemy.items;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.function.Predicate;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
@@ -17,7 +14,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
@@ -25,7 +21,6 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Pair;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
@@ -61,13 +56,20 @@ public class PotionRingItem extends Item {
 	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
 		super.appendTooltip(stack, world, tooltip, context);
 		try {
-			CompoundTag tag = stack.getOrCreateTag();
-			Potion potion = PotionUtil.getPotion(stack);
+			
+			if (PotionUtil.getPotionEffects(stack).size() != 1) {
+				tooltip.add(new LiteralText("Error: rings must have exactly 1 effect attached!").formatted(Formatting.DARK_RED, Formatting.BOLD));
+				return;
+			}
+			
+			StatusEffectInstance sei = PotionUtil.getPotionEffects(stack).get(0);
 
-			Text potionName = new TranslatableText(potion.finishTranslationKey("item.minecraft.potion.effect.")).formatted(Formatting.DARK_PURPLE);
-			Text potionLevel = new TranslatableText("potion.potency."+potion.getEffects().get(0).getAmplifier()).formatted(Formatting.DARK_PURPLE);
-
+			Text potionName = new TranslatableText(sei.getTranslationKey()).formatted(Formatting.DARK_PURPLE);
+			Text potionLevel = new TranslatableText("potion.potency."+sei.getAmplifier()).formatted(Formatting.DARK_PURPLE);
+			
 			tooltip.add(new TranslatableText("item.extraalchemy.potion_ring.potion", potionName, potionLevel));
+			
+			CompoundTag tag = stack.getOrCreateTag();
 
 			int cost = tag.getInt("cost");
 			if (cost > 0) {
@@ -111,8 +113,7 @@ public class PotionRingItem extends Item {
 	public static void onTick(ItemStack stack, World world, Entity entity) {
 		if (!world.isClient && !stack.getOrCreateTag().getBoolean("disabled") && entity instanceof LivingEntity) {
 			LivingEntity e = (LivingEntity) entity;
-			Potion potion = PotionUtil.getPotion(stack);
-			for (StatusEffectInstance sei : potion.getEffects()) {
+			for (StatusEffectInstance sei : PotionUtil.getPotionEffects(stack)) {
 				StatusEffect statusEffect = sei.getEffectType();
 				StatusEffectInstance onEntity = e.getStatusEffect(statusEffect);
 				if (onEntity == null || onEntity.getDuration() <= stack.getTag().getInt("renew")*20) {
