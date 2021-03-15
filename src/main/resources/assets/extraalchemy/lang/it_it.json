@@ -166,6 +166,7 @@
 	"extraalchemy.config.must_sync": "Da sincronizzare manualmente con il server",
 	"extraalchemy.config.serveronly": "Verrà usato il valore impostato nel server",
 	
-	"key.extraalchemy.magnetism_toggle": "(Dis)Abilita la Pozione del magnete",
+	"key.extraalchemy.magnetism_toggle": "(Dis)abilita la Pozione del magnete",
+	"key.extraalchemy.toggle_curios_rings": "(Dis)abilita gli anelli equipaggiati in Curios",
 	"key.extraalchemy.potion_bag_mode": "Cicla la modalità di selezione della borsa"
 }
