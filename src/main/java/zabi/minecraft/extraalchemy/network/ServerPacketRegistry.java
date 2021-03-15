@@ -1,5 +1,6 @@
 package zabi.minecraft.extraalchemy.network;
 
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.util.Hand;
@@ -14,6 +15,7 @@ public class ServerPacketRegistry {
 			boolean magnetismActive = buf.readBoolean();
 			server.execute(() -> {
 				((PlayerProperties) (Object) player).setMagnetismEnabled(magnetismActive);
+				response.sendPacket(S2C_Channels.PLAY_CLICK_SOUND, PacketByteBufs.empty());
 			});
 		});
 		
@@ -23,6 +25,7 @@ public class ServerPacketRegistry {
 				PotionBagItem.toggleStatusForPlayer(player, hand?Hand.MAIN_HAND:Hand.OFF_HAND);
 				ItemCooldownManager icm = player.getItemCooldownManager();
 				icm.set(ModItems.POTION_BAG, 10);
+				response.sendPacket(S2C_Channels.PLAY_CLICK_SOUND, PacketByteBufs.empty());
 			});
 		});
 	}
