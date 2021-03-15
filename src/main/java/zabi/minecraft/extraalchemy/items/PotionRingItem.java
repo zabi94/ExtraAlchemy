@@ -96,11 +96,16 @@ public class PotionRingItem extends Item {
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 		ItemStack stack = user.getStackInHand(hand); 
 		if (user.isSneaking()) {
-			CompoundTag tag = stack.getOrCreateTag();
-			tag.putBoolean("disabled", !tag.getBoolean("disabled"));
+			toggleRingStack(stack);
 			return new TypedActionResult<ItemStack>(ActionResult.SUCCESS, stack);
 		}
 		return new TypedActionResult<ItemStack>(ActionResult.FAIL, stack);
+	}
+
+	public static ItemStack toggleRingStack(ItemStack stack) {
+		CompoundTag tag = stack.getOrCreateTag();
+		tag.putBoolean("disabled", !tag.getBoolean("disabled"));
+		return stack;
 	}
 
 	@Override

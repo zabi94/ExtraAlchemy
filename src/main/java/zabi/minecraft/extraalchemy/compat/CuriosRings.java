@@ -1,8 +1,13 @@
 package zabi.minecraft.extraalchemy.compat;
 
+import java.util.Optional;
+
+import org.apache.commons.lang3.tuple.ImmutableTriple;
+
 import dev.onyxstudios.cca.api.v3.item.ItemComponentFactoryRegistry;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.registry.Registry;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.CuriosComponent;
@@ -27,6 +32,16 @@ public class CuriosRings {
 	public static void init() {
 		CuriosApi.enqueueSlotType(BuildScheme.REGISTER, SlotTypePreset.RING.getInfoBuilder().build());
 		Log.i("Curios slot type registered");
+	}
+
+	public static boolean toggleRings(ServerPlayerEntity player) {
+		Optional<ImmutableTriple<String, Integer, ItemStack>> optTriple = CuriosApi.getCuriosHelper().findEquippedCurio(ModItems.POTION_RING, player);
+		if (optTriple.isPresent()) {
+			ImmutableTriple<String, Integer, ItemStack> triple = optTriple.get();
+			PotionRingItem.toggleRingStack(triple.getRight());
+			return true;
+		}
+		return false;
 	}
 	
 	public static class RingCurio implements ICurio {
