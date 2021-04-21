@@ -58,7 +58,7 @@ public class PotionRingItem extends Item {
 		try {
 			
 			if (PotionUtil.getPotionEffects(stack).size() != 1) {
-				tooltip.add(new LiteralText("Error: rings must have exactly 1 effect attached!").formatted(Formatting.DARK_RED, Formatting.BOLD));
+				tooltip.add(new LiteralText("Error: rings must have \n exactly 1 effect attached!").formatted(Formatting.DARK_RED, Formatting.BOLD));
 				return;
 			}
 			
