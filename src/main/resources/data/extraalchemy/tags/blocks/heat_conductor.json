@@ -8,6 +8,8 @@
     "minecraft:stone_bricks",
     "minecraft:stone_brick_slab",
     "minecraft:quartz_slab",
-    "minecraft:quartz_block"
+    "minecraft:quartz_block",
+    "minecraft:hopper",
+    "minecraft:iron_block"
   ]
 }
