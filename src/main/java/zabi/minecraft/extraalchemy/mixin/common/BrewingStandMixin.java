@@ -6,18 +6,20 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.minecraft.block.BlockState;
+import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.BrewingStandBlockEntity;
 import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.tag.BlockTags;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.utils.LibMod;
+import zabi.minecraft.extraalchemy.utils.Log;
 
 @Mixin(BrewingStandBlockEntity.class)
 public abstract class BrewingStandMixin extends LockableContainerBlockEntity implements SidedInventory, Tickable {
@@ -42,17 +44,18 @@ public abstract class BrewingStandMixin extends LockableContainerBlockEntity imp
 	}
 	
 	public boolean isHeated(World world, BlockPos pos) {
-		BlockState oneBelow = world.getBlockState(pos.down());
-		BlockState twoBelow = world.getBlockState(pos.down(2));
-		return isHeatSource(oneBelow) || (isTransmissiveBlock(oneBelow) && isHeatSource(twoBelow));
+		Tag<Block> tagSource = BlockTags.getTagGroup().getTag(HEAT_SOURCE_TAG);
+		Tag<Block> tagConductor = BlockTags.getTagGroup().getTag(HEAT_CONDUCTOR_TAG);
+		
+		if (tagSource == null || tagConductor == null) {
+			Log.w("Couldn't find heat related tags, check your resource packs for format errors. Disabling brewing fire in the config");
+			ModConfig.INSTANCE.enableBrewingStandFire = false;
+			return false;
+		}
+		
+		Block oneBelow = world.getBlockState(pos.down()).getBlock();
+		Block twoBelow = world.getBlockState(pos.down(2)).getBlock();
+		return tagSource.contains(oneBelow) || (tagConductor.contains(oneBelow) && tagSource.contains(twoBelow));
 	}
 
-	public boolean isHeatSource(BlockState state) {
-		return BlockTags.getTagGroup().getTag(HEAT_SOURCE_TAG).contains(state.getBlock());
-	}
-	
-	public boolean isTransmissiveBlock(BlockState state) {
-		return BlockTags.getTagGroup().getTag(HEAT_CONDUCTOR_TAG).contains(state.getBlock());
-	}
-	
 }
