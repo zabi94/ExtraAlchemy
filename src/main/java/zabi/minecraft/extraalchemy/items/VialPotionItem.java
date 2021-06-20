@@ -65,7 +65,7 @@ public class VialPotionItem extends PotionItem {
 		}
 		if (playerEntity != null) {
 			playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
-			if (!playerEntity.abilities.creativeMode) {
+			if (!playerEntity.getAbilities().creativeMode) {
 				stack.decrement(1);
 			}
 		}

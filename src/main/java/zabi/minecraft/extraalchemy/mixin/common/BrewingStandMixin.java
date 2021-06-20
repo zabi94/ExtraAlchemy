@@ -7,6 +7,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.BrewingStandBlockEntity;
 import net.minecraft.block.entity.LockableContainerBlockEntity;
@@ -14,7 +15,6 @@ import net.minecraft.inventory.SidedInventory;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
@@ -22,19 +22,23 @@ import zabi.minecraft.extraalchemy.utils.LibMod;
 import zabi.minecraft.extraalchemy.utils.Log;
 
 @Mixin(BrewingStandBlockEntity.class)
-public abstract class BrewingStandMixin extends LockableContainerBlockEntity implements SidedInventory, Tickable {
+public abstract class BrewingStandMixin extends LockableContainerBlockEntity implements SidedInventory {
 
 	@Shadow private int fuel;
 	
 	private static final Identifier HEAT_SOURCE_TAG = LibMod.id("heat_source");
 	private static final Identifier HEAT_CONDUCTOR_TAG = LibMod.id("heat_conductor");
 	
-	protected BrewingStandMixin(BlockEntityType<?> blockEntityType) {
-		super(blockEntityType);
+	protected BrewingStandMixin(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
+		super(blockEntityType, blockPos, blockState);
 	}
 	
 	@Inject(method = "tick", at = @At("HEAD"))
-	public void checkFireUnderneath(CallbackInfo ci) {
+	private static void checkFireUnderneath(World world, BlockPos pos, BlockState state, BrewingStandBlockEntity blockEntity, CallbackInfo ci) {
+		((BrewingStandMixin) (Object) blockEntity).mixinLogicProxy();
+	}
+
+	public void mixinLogicProxy() {
 		if (!world.isClient && ModConfig.INSTANCE.enableBrewingStandFire) {
 			if (fuel < 20 && world.getTime() % 40 == 0 && isHeated(world, pos)) {
 				fuel++;

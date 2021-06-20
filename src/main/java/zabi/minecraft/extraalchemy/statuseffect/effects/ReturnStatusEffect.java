@@ -22,7 +22,7 @@ public class ReturnStatusEffect extends ModStatusEffect {
 			ServerPlayerEntity player = (ServerPlayerEntity) target;
 			BlockPos respawnPos = player.getSpawnPointPosition();
 			if (respawnPos != null) {
-				PlayerEntity.findRespawnPosition((ServerWorld) target.world, respawnPos, player.yaw, player.isSpawnPointSet(), !ModConfig.INSTANCE.useAnchorChargesWithReturnPotion).ifPresent(v3d -> {
+				PlayerEntity.findRespawnPosition((ServerWorld) target.world, respawnPos, player.getYaw(), player.isSpawnPointSet(), !ModConfig.INSTANCE.useAnchorChargesWithReturnPotion).ifPresent(v3d -> {
 					player.requestTeleport(v3d.x, v3d.y, v3d.z);
 				});
 			}

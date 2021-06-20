@@ -78,14 +78,14 @@ public class ConfigScreenProvider implements ModMenuApi {
 		);
 		
 		general.addEntry(configBuilder.entryBuilder()
-				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.ignore_curios") , ModConfig.INSTANCE.allowRingsInInventoryWithCurios)
+				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.ignore_ring_mods") , ModConfig.INSTANCE.allowRingsInInventoryWithThirdPartyMods)
 					.setDefaultValue(false)
 					.setTooltip(
-							new TranslatableText("extraalchemy.config.general.ignore_curios.tooltip1"), 
-							new TranslatableText("extraalchemy.config.general.ignore_curios.tooltip2"),
+							new TranslatableText("extraalchemy.config.general.ignore_ring_mods.tooltip1"), 
+							new TranslatableText("extraalchemy.config.general.ignore_ring_mods.tooltip2"),
 							SERVER_SIDE
 					)
-					.setSaveConsumer(val -> {ModConfig.INSTANCE.allowRingsInInventoryWithCurios = val;})
+					.setSaveConsumer(val -> {ModConfig.INSTANCE.allowRingsInInventoryWithThirdPartyMods = val;})
 					.build()
 		);
 		

@@ -28,9 +28,8 @@ public class LearningStatusEffect extends ModStatusEffect {
 					if (ModConfig.INSTANCE.learningIncreasesExpOrbValue) {
 						((AccessorExperienceOrbEntity) orb).setAmount((int) (orb.getExperienceAmount() * (1f + (0.1f * i))));
 					}
-					orb.pickupDelay = 0;
-					orb.onPlayerCollision(p);
 					p.experiencePickUpDelay = 0;
+					orb.onPlayerCollision(p);
 				});
 			}
 		}

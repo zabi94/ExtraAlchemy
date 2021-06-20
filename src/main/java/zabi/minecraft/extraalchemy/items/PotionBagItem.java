@@ -13,8 +13,8 @@ import net.minecraft.item.DyeableItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.tag.ItemTags;
@@ -85,7 +85,7 @@ public class PotionBagItem extends Item implements DyeableItem {
 				if (getSelectedPotionAmount(stack).get() > 0 && optpot.isPresent()) {
 					user.setCurrentHand(hand);
 				} 
-				user.inventory.markDirty();
+				user.getInventory().markDirty();
 			}
 		}
 		return TypedActionResult.success(stack);
@@ -114,7 +114,7 @@ public class PotionBagItem extends Item implements DyeableItem {
 		if (potionStack == null) {
 			bag.getOrCreateTag().remove(TAG_SELECTED);
 		} else {
-			CompoundTag potionTag = new CompoundTag();
+			NbtCompound potionTag = new NbtCompound();
 			potionTag.putString("Potion", Registry.POTION.getId(PotionUtil.getPotion(potionStack)).toString());
 			bag.getOrCreateTag().put(TAG_SELECTED, potionTag);
 		}
@@ -146,7 +146,7 @@ public class PotionBagItem extends Item implements DyeableItem {
 					user.addStatusEffect(new StatusEffectInstance(sei.getEffectType(), sei.getDuration(), sei.getAmplifier(), false, false, true));
 				}
 				inv.onClose((PlayerEntity) user);
-				((PlayerEntity) user).inventory.markDirty();
+				((PlayerEntity) user).getInventory().markDirty();
 				break;
 			}
 		}
@@ -203,7 +203,7 @@ public class PotionBagItem extends Item implements DyeableItem {
 		if (stack.getItem() == ModItems.POTION_BAG) {
 			int current_mode = stack.getOrCreateTag().getInt(TAG_MODE);
 			stack.getTag().putInt(TAG_MODE, (current_mode + 1) % SelectionMode.values().length);
-			player.inventory.markDirty();
+			player.getInventory().markDirty();
 		} else {
 			Log.w("Not holding a bag");
 		}
@@ -223,7 +223,7 @@ public class PotionBagItem extends Item implements DyeableItem {
 	
 	@Override
 	public int getColor(ItemStack stack) {
-		CompoundTag compoundTag = stack.getSubTag("display");
+		NbtCompound compoundTag = stack.getSubTag("display");
 		return compoundTag != null && compoundTag.contains("color", 99) ? compoundTag.getInt("color") : 0xce7720;
 	}
 
@@ -298,17 +298,17 @@ public class PotionBagItem extends Item implements DyeableItem {
 			}
 		}
 
-		private Tag serialize(DefaultedList<ItemStack> items) {
-			CompoundTag tag = new CompoundTag();
+		private NbtElement serialize(DefaultedList<ItemStack> items) {
+			NbtCompound tag = new NbtCompound();
 			for (int i = 0; i < items.size(); i++) {
-				tag.put("inv"+i, items.get(i).toTag(new CompoundTag()));
+				tag.put("inv"+i, items.get(i).writeNbt(new NbtCompound()));
 			}
 			return tag;
 		}
 
-		private void deserialize(CompoundTag tag) {
+		private void deserialize(NbtCompound tag) {
 			for (int i = 0; i < inventory.size(); i++) {
-				inventory.set(i, ItemStack.fromTag(tag.getCompound("inv"+i)));
+				inventory.set(i, ItemStack.fromNbt(tag.getCompound("inv"+i)));
 			}
 		}
 

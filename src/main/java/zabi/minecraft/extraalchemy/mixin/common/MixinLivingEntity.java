@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.entitydata.EntityProperties;
 import zabi.minecraft.extraalchemy.utils.DimensionalPosition;
@@ -25,15 +25,15 @@ public abstract class MixinLivingEntity extends Entity implements EntityProperti
 		super(type, world);
 	}
 	
-	@Inject(at = @At("TAIL"), method = "readCustomDataFromTag")
-	public void readNbt(CompoundTag tag, CallbackInfo cb) {
+	@Inject(at = @At("TAIL"), method = "readCustomDataFromNbt")
+	public void readNbt(NbtCompound tag, CallbackInfo cb) {
 		if (tag.contains("recallPosition")) {
 			recallPosition = DimensionalPosition.fromTag(tag.getCompound("recallPosition"));
 		}
 	}
 	
-	@Inject(at = @At("TAIL"), method = "writeCustomDataToTag")
-	public void writeNbt(CompoundTag tag, CallbackInfo cb) {
+	@Inject(at = @At("TAIL"), method = "writeCustomDataToNbt")
+	public void writeNbt(NbtCompound tag, CallbackInfo cb) {
 		if (recallPosition != null) {
 			tag.put("recallPosition", recallPosition.toTag());
 		}

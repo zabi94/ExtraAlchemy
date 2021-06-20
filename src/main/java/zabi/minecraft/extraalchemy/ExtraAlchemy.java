@@ -2,8 +2,9 @@ package zabi.minecraft.extraalchemy;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
-import zabi.minecraft.extraalchemy.compat.CuriosCompatBridge;
+// import zabi.minecraft.extraalchemy.compat.CuriosCompatBridge;
 import zabi.minecraft.extraalchemy.compat.pehkui.PehkuiCompatBridge;
+import zabi.minecraft.extraalchemy.compat.trinkets.TrinketsCompatBridge;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.crafting.CraftingRecipes;
 import zabi.minecraft.extraalchemy.items.ModItems;
@@ -14,6 +15,8 @@ import zabi.minecraft.extraalchemy.screen.ModScreenHandlerTypes;
 import zabi.minecraft.extraalchemy.statuseffect.ModEffectRegistry;
 
 public class ExtraAlchemy implements ModInitializer {
+	
+	private static boolean ringModsInstalled = false;
 
 	@Override
 	public void onInitialize() {
@@ -26,12 +29,20 @@ public class ExtraAlchemy implements ModInitializer {
 		ServerPacketRegistry.init();
 		CraftingRecipes.init();
 		ModScreenHandlerTypes.init();
-		if (FabricLoader.getInstance().isModLoaded("curios")) {
-			CuriosCompatBridge.init();
-		}
 		if (FabricLoader.getInstance().isModLoaded("pehkui")) {
 			PehkuiCompatBridge.init();
 		}
+		if (FabricLoader.getInstance().isModLoaded("trinkets")) {
+			TrinketsCompatBridge.init();
+		}
+	}
+
+	public static boolean areRingModsInstalled() {
+		return ringModsInstalled;
+	}
+
+	public static void setRingModsInstalled() {
+		ringModsInstalled = true;
 	}
 
 }

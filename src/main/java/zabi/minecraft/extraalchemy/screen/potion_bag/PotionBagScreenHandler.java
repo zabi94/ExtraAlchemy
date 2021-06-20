@@ -74,7 +74,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 	@Override
 	public void close(PlayerEntity player) {
 		bagInventory.onClose(player);
-		player.inventory.markDirty();
+		player.getInventory().markDirty();
 		super.close(player);
 	}
 	
@@ -97,16 +97,19 @@ public class PotionBagScreenHandler extends ScreenHandler {
 	}
 	
 	@Override
-	public ItemStack onSlotClick(int slotId, int mouseButton, SlotActionType actionType, PlayerEntity player) {
+	public void onSlotClick(int slotId, int mouseButton, SlotActionType actionType, PlayerEntity player) {
 		
-		if (actionType == SlotActionType.SWAP) return ItemStack.EMPTY;
+		if (actionType == SlotActionType.SWAP) return;
 		
-		if (slotId!=0 || actionType == SlotActionType.CLONE) return super.onSlotClick(slotId, mouseButton, actionType, player);
-		if (actionType != SlotActionType.PICKUP) return ItemStack.EMPTY;
+		if (slotId!=0 || (actionType == SlotActionType.CLONE && player.getAbilities().creativeMode && this.getCursorStack().isEmpty())) {
+			super.onSlotClick(slotId, mouseButton, actionType, player);
+			return;
+		}
+
+		if (actionType != SlotActionType.PICKUP) return;
 
 		//slotId = 0, actionType = PICKUP
-		
-		ItemStack iso = player.inventory.getCursorStack();
+		ItemStack iso = this.getCursorStack();
 		if (!iso.isEmpty()) {
 			if (!PotionUtil.getPotion(iso).getEffects().isEmpty()) {
 				ItemStack nis = iso.copy();
@@ -116,7 +119,6 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		} else {
 			((Slot) slots.get(slotId)).setStack(ItemStack.EMPTY);
 		}
-		return ItemStack.EMPTY;
 	}
 	
 	@Override
@@ -142,7 +144,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		if (!this.insertItem(origStack, startIndex, stopIndex, reversed)) {
 			return ItemStack.EMPTY;
 		}
-		slot.onStackChanged(origStack, copyStack);
+		slot.onQuickTransfer(origStack, copyStack);
 		if (origStack.isEmpty()) {
 			slot.setStack(ItemStack.EMPTY);
 		} else {
@@ -165,13 +167,12 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		}
 
 		@Override
-		public void onStackChanged(ItemStack originalItem, ItemStack itemStack) {
+		public void onQuickTransfer(ItemStack originalItem, ItemStack itemStack) {
 		}
 
 		@Override
-		public ItemStack onTakeItem(PlayerEntity player, ItemStack stack) {
+		public void onTakeItem(PlayerEntity player, ItemStack stack) {
 			bagStack.getOrCreateTag().remove(PotionBagItem.TAG_SELECTED);
-			return ItemStack.EMPTY;
 		}
 
 		@Override
@@ -247,12 +248,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		}
 		
 		@Override
-		public ItemStack onTakeItem(PlayerEntity player, ItemStack stack) {
-			return ItemStack.EMPTY;
-		}
-		
-		@Override
-		public boolean doDrawHoveringEffect() {
+		public boolean isEnabled() {
 			return true;
 		}
 		

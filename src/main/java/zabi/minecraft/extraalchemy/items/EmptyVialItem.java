@@ -35,7 +35,7 @@ public class EmptyVialItem extends Item {
 		}
 		if (!world.isClient) {
 			for (int i = 0; i < PlayerInventory.getHotbarSize(); i++) {
-				ItemStack potion = user.inventory.main.get(i);
+				ItemStack potion = user.getInventory().main.get(i);
 				if (potion.getItem() == Items.SPLASH_POTION) {
 					Potion main = PotionUtil.getPotion(potion);
 					List<StatusEffectInstance> custom = PotionUtil.getCustomPotionEffects(potion);

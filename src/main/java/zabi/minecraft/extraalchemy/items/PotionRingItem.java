@@ -2,7 +2,6 @@ package zabi.minecraft.extraalchemy.items;
 
 import java.util.List;
 
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
@@ -13,7 +12,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
@@ -24,6 +23,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
+import zabi.minecraft.extraalchemy.ExtraAlchemy;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.utils.PlayerLevelUtil;
 
@@ -69,7 +69,7 @@ public class PotionRingItem extends Item {
 			
 			tooltip.add(new TranslatableText("item.extraalchemy.potion_ring.potion", potionName, potionLevel));
 			
-			CompoundTag tag = stack.getOrCreateTag();
+			NbtCompound tag = stack.getOrCreateTag();
 
 			int cost = tag.getInt("cost");
 			if (cost > 0) {
@@ -103,14 +103,14 @@ public class PotionRingItem extends Item {
 	}
 
 	public static ItemStack toggleRingStack(ItemStack stack) {
-		CompoundTag tag = stack.getOrCreateTag();
+		NbtCompound tag = stack.getOrCreateTag();
 		tag.putBoolean("disabled", !tag.getBoolean("disabled"));
 		return stack;
 	}
 
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-		if (!FabricLoader.getInstance().isModLoaded("curios") || ModConfig.INSTANCE.allowRingsInInventoryWithCurios) {
+		if (!ExtraAlchemy.areRingModsInstalled() || ModConfig.INSTANCE.allowRingsInInventoryWithThirdPartyMods) {
 			onTick(stack, world, entity);
 		}
 	}

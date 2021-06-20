@@ -29,7 +29,7 @@ public class ConcentrationStatusEffect extends ModStatusEffect {
 			target.getActiveStatusEffects().put(i.getEffectType(), nopart); //Not triggering onEffectApplied-like method calls
 			((EntityProperties) target).markEffectsDirty();
 			if (target instanceof ServerPlayerEntity) {
-				((ServerPlayerEntity) target).networkHandler.sendPacket(new EntityStatusEffectS2CPacket(target.getEntityId(), nopart));
+				((ServerPlayerEntity) target).networkHandler.sendPacket(new EntityStatusEffectS2CPacket(target.getId(), nopart));
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 package zabi.minecraft.extraalchemy.utils;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -45,15 +45,15 @@ public class DimensionalPosition {
 	}
 	
 	public World getWorld(MinecraftServer server) {
-		return server.getWorld(RegistryKey.of(Registry.DIMENSION, world));
+		return server.getWorld(RegistryKey.of(Registry.WORLD_KEY, world));
 	}
 	
-	public static DimensionalPosition fromTag(CompoundTag tag) {
+	public static DimensionalPosition fromTag(NbtCompound tag) {
 		return new DimensionalPosition(tag.getDouble("x"), tag.getDouble("y"), tag.getDouble("z"), new Identifier(tag.getString("world")));
 	}
 	
-	public CompoundTag toTag() {
-		CompoundTag tag = new CompoundTag();
+	public NbtCompound toTag() {
+		NbtCompound tag = new NbtCompound();
 		tag.putDouble("x", x);
 		tag.putDouble("y", y);
 		tag.putDouble("z", z);

@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.entitydata.DataTrackers;
 import zabi.minecraft.extraalchemy.entitydata.PlayerProperties;
@@ -20,13 +20,13 @@ public abstract class MixinPlayerEntity extends LivingEntity implements PlayerPr
 		super(type, world);
 	}
 	
-	@Inject(at = @At("TAIL"), method = "readCustomDataFromTag")
-	public void readNbt(CompoundTag tag, CallbackInfo cb) {
+	@Inject(at = @At("TAIL"), method = "readCustomDataFromNbt")
+	public void readNbt(NbtCompound tag, CallbackInfo cb) {
 		dataTracker.set(DataTrackers.MAGNET_TRACKER, tag.getBoolean("magnetismEnabled"));
 	}
 	
-	@Inject(at = @At("TAIL"), method = "writeCustomDataToTag")
-	public void writeNbt(CompoundTag tag, CallbackInfo cb) {
+	@Inject(at = @At("TAIL"), method = "writeCustomDataToNbt")
+	public void writeNbt(NbtCompound tag, CallbackInfo cb) {
 		tag.putBoolean("magnetismEnabled", dataTracker.get(DataTrackers.MAGNET_TRACKER));
 	}
 	
