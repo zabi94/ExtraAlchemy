@@ -111,12 +111,12 @@ public class PotionRingItem extends Item {
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 		if (!ExtraAlchemy.areRingModsInstalled() || ModConfig.INSTANCE.allowRingsInInventoryWithThirdPartyMods) {
-			onTick(stack, world, entity);
+			onTick(stack, entity);
 		}
 	}
 	
-	public static void onTick(ItemStack stack, World world, Entity entity) {
-		if (!world.isClient && !stack.getOrCreateTag().getBoolean("disabled") && entity instanceof LivingEntity) {
+	public static void onTick(ItemStack stack, Entity entity) {
+		if (!stack.getOrCreateTag().getBoolean("disabled") && entity instanceof LivingEntity) {
 			LivingEntity e = (LivingEntity) entity;
 			for (StatusEffectInstance sei : PotionUtil.getPotionEffects(stack)) {
 				StatusEffect statusEffect = sei.getEffectType();

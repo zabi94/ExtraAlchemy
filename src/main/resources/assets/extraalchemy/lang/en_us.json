@@ -167,6 +167,6 @@
 	"extraalchemy.config.serveronly": "The value set on servers takes priority on MP",
 	
 	"key.extraalchemy.magnetism_toggle": "Toggle Potion of Magnetism",
-	"key.extraalchemy.toggle_curios_rings": "Toggle equipped Curios rings",
+	"key.extraalchemy.toggle_extra_inv_rings": "Toggle rings equipped Bauble-like inventories",
 	"key.extraalchemy.potion_bag_mode": "Toggle Potion Bag auto-selection"
 }
