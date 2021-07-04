@@ -1,7 +1,7 @@
 {
   "required": true,
   "package": "zabi.minecraft.extraalchemy.mixin.common",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_16",
   "mixins": [
     "MixinPlayerEntity", 
     "MixinLivingEntity",
