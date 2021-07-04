@@ -17,21 +17,13 @@ repositories {
         url = "https://minecraft.curseforge.com/api/maven/"
     }
     maven {
-    	name = "ModMenu"
-    	url = "https://maven.terraformersmc.com/releases/"
-    }
-    maven {
     	name = "Cloth+REI"
     	url = "https://maven.shedaniel.me/"
     }
     maven {
-        name = "pehkui"
+        name = "Jitpack"
         url = "https://jitpack.io"
     }
-	maven {
-		name = "TerraformersMC" //Trinkets
-		url = "https://maven.terraformersmc.com/"
-	}
 	maven {
 		name = "Ladysnake Libs" //Trinkets
 		url = "https://ladysnake.jfrog.io/artifactory/mods"
@@ -39,6 +31,14 @@ repositories {
 	maven {
 		name = "My own mods, I'm too lazy"
 		url = "https://www.cursemaven.com"
+	}
+    maven {
+    	name = "ModMenu"
+    	url = "https://maven.terraformersmc.com/releases/"
+    }
+	maven {
+		name = "TerraformersMC" //Trinkets
+		url = "https://maven.terraformersmc.com/"
 	}
 }
 
@@ -94,6 +94,13 @@ dependencies {
       exclude module: 'roughlyenoughitems-api'
 	}
 
+	modImplementation("curse.maven:inventorio-491073:${project.inventorio_version}") {
+	  exclude module: 'fabric-api'
+	  exclude module: 'config-2'
+      exclude module: 'cloth-config-fabric'
+      exclude module: 'roughlyenoughitems-api'
+	}
+
 	modRuntime("curse.maven:nomoreglowingpots-286348:${project.nmgp_version}") {
 	  exclude module: 'fabric-api'
 	  exclude module: 'config-2'
@@ -102,7 +109,6 @@ dependencies {
 	}
 	
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
-	
 	
 	// //Bundling
 	include "me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}"
