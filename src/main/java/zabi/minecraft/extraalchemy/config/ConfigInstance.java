@@ -41,7 +41,7 @@ public class ConfigInstance {
 		public boolean shrinking = true;
 		public boolean growing = true;
 		public boolean detection = true;
-		
+		public boolean piper = true;
 	}
 	
 }
