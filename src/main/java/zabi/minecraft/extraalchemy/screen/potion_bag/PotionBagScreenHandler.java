@@ -162,7 +162,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		private ItemStack bagStack;
 
 		public SelectorSlot(ItemStack stack, int x, int y) {
-			super(null, 0, x, y);
+			super(new FakeSelectionInventory(), 0, x, y);
 			bagStack = stack;
 		}
 
