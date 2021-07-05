@@ -3,7 +3,6 @@ package zabi.minecraft.extraalchemy;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import zabi.minecraft.extraalchemy.compat.inventorio.InventorioCompatBridge;
-// import zabi.minecraft.extraalchemy.compat.CuriosCompatBridge;
 import zabi.minecraft.extraalchemy.compat.pehkui.PehkuiCompatBridge;
 import zabi.minecraft.extraalchemy.compat.trinkets.TrinketsCompatBridge;
 import zabi.minecraft.extraalchemy.config.ModConfig;

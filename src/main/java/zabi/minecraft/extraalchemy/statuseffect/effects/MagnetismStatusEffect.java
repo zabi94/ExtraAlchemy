@@ -1,5 +1,7 @@
 package zabi.minecraft.extraalchemy.statuseffect.effects;
 
+import com.google.common.base.Predicates;
+
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectType;
@@ -18,7 +20,7 @@ public class MagnetismStatusEffect extends ModStatusEffect {
 		if (!entity.world.isClient) {
 			if (entity instanceof PlayerEntity) {
 				if (((PlayerProperties) (Object) entity).isMagnetismEnabled()) {
-					entity.world.getEntitiesByClass(ItemEntity.class, entity.getBoundingBox().expand((level + 1) * 3), null)
+					entity.world.getEntitiesByClass(ItemEntity.class, entity.getBoundingBox().expand((level + 1) * 3), Predicates.alwaysTrue())
 					.stream()
 					.map(e -> (ItemEntity) e)
 					.filter(e -> e.isAlive() && !e.isRemoved())
