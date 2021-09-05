@@ -14,6 +14,16 @@
       }
     }
   ],
+  "contributors": [
+  	{
+  	    "name": "she_is_long",
+  	    "contribution": "texture and item icons",
+  	    "contact": {
+  	        "homepage": "https://www.planetminecraft.com/member/she_is_long",
+  	        "discord": "She's_long#7283"
+  	    }
+  	}
+  ],
   "contact": {
   	"homepage": "https://github.com/zabi94/ExtraAlchemy/wiki",
     "sources": "https://github.com/zabi94/ExtraAlchemy",
