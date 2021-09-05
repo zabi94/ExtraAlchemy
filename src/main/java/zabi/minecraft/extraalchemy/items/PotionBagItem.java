@@ -112,11 +112,11 @@ public class PotionBagItem extends Item implements DyeableItem {
 
 	private void selectPotion(ItemStack bag, ItemStack potionStack) {
 		if (potionStack == null) {
-			bag.getOrCreateTag().remove(TAG_SELECTED);
+			bag.getOrCreateNbt().remove(TAG_SELECTED);
 		} else {
 			NbtCompound potionTag = new NbtCompound();
 			potionTag.putString("Potion", Registry.POTION.getId(PotionUtil.getPotion(potionStack)).toString());
-			bag.getOrCreateTag().put(TAG_SELECTED, potionTag);
+			bag.getOrCreateNbt().put(TAG_SELECTED, potionTag);
 		}
 	}
 
@@ -176,7 +176,7 @@ public class PotionBagItem extends Item implements DyeableItem {
 	}
 
 	public Optional<Potion> getSelectedPotion(ItemStack bag) {
-		Potion pot = PotionUtil.getPotion(bag.getOrCreateTag().getCompound(TAG_SELECTED));
+		Potion pot = PotionUtil.getPotion(bag.getOrCreateNbt().getCompound(TAG_SELECTED));
 		if (pot.getEffects().isEmpty()) return Optional.empty();
 		return Optional.of(pot);
 	}
@@ -195,14 +195,14 @@ public class PotionBagItem extends Item implements DyeableItem {
 	}
 
 	public SelectionMode getSelectionMode(ItemStack bag) {
-		return SelectionMode.values()[bag.getOrCreateTag().getInt(TAG_MODE) % SelectionMode.values().length];
+		return SelectionMode.values()[bag.getOrCreateNbt().getInt(TAG_MODE) % SelectionMode.values().length];
 	}
 
 	public static void toggleStatusForPlayer(PlayerEntity player, Hand hand) {
 		ItemStack stack = player.getStackInHand(hand);
 		if (stack.getItem() == ModItems.POTION_BAG) {
-			int current_mode = stack.getOrCreateTag().getInt(TAG_MODE);
-			stack.getTag().putInt(TAG_MODE, (current_mode + 1) % SelectionMode.values().length);
+			int current_mode = stack.getOrCreateNbt().getInt(TAG_MODE);
+			stack.getNbt().putInt(TAG_MODE, (current_mode + 1) % SelectionMode.values().length);
 			player.getInventory().markDirty();
 		} else {
 			Log.w("Not holding a bag");
@@ -223,7 +223,7 @@ public class PotionBagItem extends Item implements DyeableItem {
 	
 	@Override
 	public int getColor(ItemStack stack) {
-		NbtCompound compoundTag = stack.getSubTag("display");
+		NbtCompound compoundTag = stack.getSubNbt("display");
 		return compoundTag != null && compoundTag.contains("color", 99) ? compoundTag.getInt("color") : 0xce7720;
 	}
 
@@ -236,7 +236,7 @@ public class PotionBagItem extends Item implements DyeableItem {
 
 		public BagInventory(ItemStack bag, Hand hand) {
 			openedWith = hand;
-			deserialize(bag.getOrCreateTag().getCompound(TAG_INVENTORY));
+			deserialize(bag.getOrCreateNbt().getCompound(TAG_INVENTORY));
 		}
 
 		@Override
@@ -290,7 +290,7 @@ public class PotionBagItem extends Item implements DyeableItem {
 		@Override
 		public void onClose(PlayerEntity player) {
 			if (openedWith != null) {
-				player.getStackInHand(openedWith).getOrCreateTag().put(TAG_INVENTORY, serialize(inventory));
+				player.getStackInHand(openedWith).getOrCreateNbt().put(TAG_INVENTORY, serialize(inventory));
 			} else {
 				if (!player.world.isClient) {
 					Log.w("Server did not have any hand info associated with the inventory");

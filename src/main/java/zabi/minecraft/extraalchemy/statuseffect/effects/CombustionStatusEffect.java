@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FireBlock;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectType;
+import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
@@ -13,7 +13,7 @@ import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class CombustionStatusEffect extends ModStatusEffect {
 
-	public CombustionStatusEffect(StatusEffectType type, int color, boolean isInstant) {
+	public CombustionStatusEffect(StatusEffectCategory type, int color, boolean isInstant) {
 		super(type, color, isInstant);
 	}
 

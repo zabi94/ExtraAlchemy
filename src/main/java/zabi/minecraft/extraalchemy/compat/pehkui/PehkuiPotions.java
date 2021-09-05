@@ -1,6 +1,6 @@
 package zabi.minecraft.extraalchemy.compat.pehkui;
 
-import net.minecraft.entity.effect.StatusEffectType;
+import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
 import net.minecraft.util.Identifier;
@@ -14,8 +14,8 @@ import zabi.minecraft.extraalchemy.utils.Log;
 
 public class PehkuiPotions {
 	
-	public static ModStatusEffect growing = new GrowthStatusEffect(StatusEffectType.NEUTRAL, 0xFF9600, false);
-	public static ModStatusEffect shrinking = new ShrinkStatusEffect(StatusEffectType.NEUTRAL, 0x00FFC8, false);
+	public static ModStatusEffect growing = new GrowthStatusEffect(StatusEffectCategory.NEUTRAL, 0xFF9600, false);
+	public static ModStatusEffect shrinking = new ShrinkStatusEffect(StatusEffectCategory.NEUTRAL, 0x00FFC8, false);
 
 	public static ModPotion shrinking_ = ModPotion.ModPotionTimed.generateAll("shrinking", shrinking, 20*120, 20*240, 20*60);
 	public static ModPotion growing_ = ModPotion.ModPotionTimed.generateAll("growing", growing, 20*120, 20*240, 20*60);

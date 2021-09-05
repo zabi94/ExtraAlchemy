@@ -4,14 +4,14 @@ import com.google.common.base.Predicates;
 
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectType;
+import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
 import zabi.minecraft.extraalchemy.entitydata.PlayerProperties;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class MagnetismStatusEffect extends ModStatusEffect {
 
-	public MagnetismStatusEffect(StatusEffectType type, int color, boolean isInstant) {
+	public MagnetismStatusEffect(StatusEffectCategory type, int color, boolean isInstant) {
 		super(type, color, isInstant);
 	}
 

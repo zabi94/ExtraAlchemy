@@ -3,14 +3,14 @@ package zabi.minecraft.extraalchemy.statuseffect.effects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffectType;
+import net.minecraft.entity.effect.StatusEffectCategory;
 import zabi.minecraft.extraalchemy.entitydata.EntityProperties;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 import zabi.minecraft.extraalchemy.utils.DimensionalPosition;
 
 public class RecallStatusEffect extends ModStatusEffect {
 
-	public RecallStatusEffect(StatusEffectType type, int color, boolean isInstant) {
+	public RecallStatusEffect(StatusEffectCategory type, int color, boolean isInstant) {
 		super(type, color, isInstant);
 	}
 

@@ -6,13 +6,13 @@ import com.google.common.collect.Lists;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectType;
+import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.util.math.BlockPos;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class CrumblingStatusEffect extends ModStatusEffect {
 
-	public CrumblingStatusEffect(StatusEffectType type, int color, boolean isInstant) {
+	public CrumblingStatusEffect(StatusEffectCategory type, int color, boolean isInstant) {
 		super(type, color, isInstant);
 	}
 

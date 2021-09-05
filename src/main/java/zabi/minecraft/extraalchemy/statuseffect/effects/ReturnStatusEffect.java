@@ -2,7 +2,7 @@ package zabi.minecraft.extraalchemy.statuseffect.effects;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectType;
+import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -12,7 +12,7 @@ import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class ReturnStatusEffect extends ModStatusEffect {
 
-	public ReturnStatusEffect(StatusEffectType type, int color, boolean isInstant) {
+	public ReturnStatusEffect(StatusEffectCategory type, int color, boolean isInstant) {
 		super(type, color, isInstant);
 	}
 

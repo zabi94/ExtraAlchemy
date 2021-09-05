@@ -49,7 +49,7 @@ public class PotionRingItem extends Item {
 
 	@Override
 	public boolean hasGlint(ItemStack stack) {
-		return !stack.getOrCreateTag().getBoolean("disabled");
+		return !stack.getOrCreateNbt().getBoolean("disabled");
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public class PotionRingItem extends Item {
 			
 			tooltip.add(new TranslatableText("item.extraalchemy.potion_ring.potion", potionName, potionLevel));
 			
-			NbtCompound tag = stack.getOrCreateTag();
+			NbtCompound tag = stack.getOrCreateNbt();
 
 			int cost = tag.getInt("cost");
 			if (cost > 0) {
@@ -103,7 +103,7 @@ public class PotionRingItem extends Item {
 	}
 
 	public static ItemStack toggleRingStack(ItemStack stack) {
-		NbtCompound tag = stack.getOrCreateTag();
+		NbtCompound tag = stack.getOrCreateNbt();
 		tag.putBoolean("disabled", !tag.getBoolean("disabled"));
 		return stack;
 	}
@@ -116,14 +116,14 @@ public class PotionRingItem extends Item {
 	}
 	
 	public static void onTick(ItemStack stack, Entity entity) {
-		if (!stack.getOrCreateTag().getBoolean("disabled") && entity instanceof LivingEntity) {
+		if (!stack.getOrCreateNbt().getBoolean("disabled") && entity instanceof LivingEntity) {
 			LivingEntity e = (LivingEntity) entity;
 			for (StatusEffectInstance sei : PotionUtil.getPotionEffects(stack)) {
 				StatusEffect statusEffect = sei.getEffectType();
 				StatusEffectInstance onEntity = e.getStatusEffect(statusEffect);
-				if (onEntity == null || onEntity.getDuration() <= stack.getTag().getInt("renew")*20) {
-					if (drainXP(e, stack.getTag().getInt("cost"))) {
-						int length = stack.getTag().getInt("length");
+				if (onEntity == null || onEntity.getDuration() <= stack.getNbt().getInt("renew")*20) {
+					if (drainXP(e, stack.getNbt().getInt("cost"))) {
+						int length = stack.getNbt().getInt("length");
 						e.addStatusEffect(new StatusEffectInstance(statusEffect, length*20, sei.getAmplifier(), false, false, true));
 					}
 				}

@@ -74,12 +74,12 @@ public class AlternativePotionRingRecipe extends SpecialCraftingRecipe {
 	public ItemStack craft(CraftingInventory inv) {
 		ItemStack result = new ItemStack(ModItems.POTION_RING);
 		PotionUtil.setCustomPotionEffects(result, Collections.singleton(new StatusEffectInstance(effect)));
-		result.getOrCreateTag();
-		result.getTag().putInt("cost", cost);
-		result.getTag().putInt("length", length);
-		result.getTag().putInt("renew", renew);
-		result.getTag().putInt("level", level);
-		result.getTag().putBoolean("disabled", true);
+		result.getOrCreateNbt();
+		result.getNbt().putInt("cost", cost);
+		result.getNbt().putInt("length", length);
+		result.getNbt().putInt("renew", renew);
+		result.getNbt().putInt("level", level);
+		result.getNbt().putBoolean("disabled", true);
 		return result;
 	}
 	

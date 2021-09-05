@@ -172,7 +172,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 
 		@Override
 		public void onTakeItem(PlayerEntity player, ItemStack stack) {
-			bagStack.getOrCreateTag().remove(PotionBagItem.TAG_SELECTED);
+			bagStack.getOrCreateNbt().remove(PotionBagItem.TAG_SELECTED);
 		}
 
 		@Override
@@ -202,12 +202,12 @@ public class PotionBagScreenHandler extends ScreenHandler {
 
 		@Override
 		public void setStack(ItemStack stack) {
-			bagStack.getOrCreateTag().put(PotionBagItem.TAG_SELECTED, stack.getOrCreateTag());
+			bagStack.getOrCreateNbt().put(PotionBagItem.TAG_SELECTED, stack.getOrCreateNbt());
 		}
 
 		@Override
 		public ItemStack takeStack(int amount) {
-			bagStack.getOrCreateTag().remove(PotionBagItem.TAG_SELECTED);
+			bagStack.getOrCreateNbt().remove(PotionBagItem.TAG_SELECTED);
 			return ItemStack.EMPTY;
 		}
 

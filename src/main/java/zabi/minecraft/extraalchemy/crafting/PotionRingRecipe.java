@@ -71,11 +71,11 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 	public ItemStack craft(CraftingInventory inv) {
 		ItemStack result = new ItemStack(ModItems.POTION_RING);
 		PotionUtil.setPotion(result, potion);
-		result.getOrCreateTag();
-		result.getTag().putInt("cost", cost);
-		result.getTag().putInt("length", length);
-		result.getTag().putInt("renew", renew);
-		result.getTag().putBoolean("disabled", true);
+		result.getOrCreateNbt();
+		result.getNbt().putInt("cost", cost);
+		result.getNbt().putInt("length", length);
+		result.getNbt().putInt("renew", renew);
+		result.getNbt().putBoolean("disabled", true);
 		return result;
 	}
 	

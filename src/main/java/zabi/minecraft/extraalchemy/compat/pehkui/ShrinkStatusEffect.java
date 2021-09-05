@@ -2,14 +2,14 @@ package zabi.minecraft.extraalchemy.compat.pehkui;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
-import net.minecraft.entity.effect.StatusEffectType;
+import net.minecraft.entity.effect.StatusEffectCategory;
 import virtuoel.pehkui.api.ScaleData;
 import virtuoel.pehkui.api.ScaleType;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class ShrinkStatusEffect extends ModStatusEffect {
 
-	public ShrinkStatusEffect(StatusEffectType type, int color, boolean isInstant) {
+	public ShrinkStatusEffect(StatusEffectCategory type, int color, boolean isInstant) {
 		super(type, color, isInstant);
 	}
 
@@ -38,7 +38,7 @@ public class ShrinkStatusEffect extends ModStatusEffect {
 		super.onRemoved(entity, attributes, amplifier);
 		if (!entity.world.isClient) {
 			ScaleData data = ModSizeModifiers.SHRINKING.getScaleData(entity);
-			data.fromScale(ScaleData.IDENTITY);
+			data.resetScale(true);
 			ScaleType.BASE.getScaleData(entity).markForSync(true);
 			data.markForSync(true);
 		}

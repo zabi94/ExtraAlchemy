@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffectType;
 import net.minecraft.network.packet.s2c.play.EntityStatusEffectS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
 import zabi.minecraft.extraalchemy.entitydata.EntityProperties;
@@ -13,7 +13,7 @@ import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class ConcentrationStatusEffect extends ModStatusEffect {
 
-	public ConcentrationStatusEffect(StatusEffectType type, int color, boolean isInstant) {
+	public ConcentrationStatusEffect(StatusEffectCategory type, int color, boolean isInstant) {
 		super(type, color, isInstant);
 	}
 	
