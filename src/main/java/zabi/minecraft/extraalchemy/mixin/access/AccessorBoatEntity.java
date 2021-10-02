@@ -9,6 +9,6 @@ import net.minecraft.entity.vehicle.BoatEntity;
 public interface AccessorBoatEntity {
 
 	@Accessor("pressingForward")
-	public boolean isPressingForward();
+	public boolean extraalchemy_isPressingForward();
 	
 }

@@ -28,7 +28,7 @@ public class LearningStatusEffect extends ModStatusEffect {
 			if (!p.world.isClient && !p.isSpectator()) {
 				p.world.getEntitiesByClass(ExperienceOrbEntity.class, p.getBoundingBox().expand(2 + i * 2), Predicates.alwaysTrue()).forEach(orb -> {
 					if (ModConfig.INSTANCE.learningIncreasesExpOrbValue) {
-						((AccessorExperienceOrbEntity) orb).setAmount((int) (orb.getExperienceAmount() * (1f + (0.1f * i))));
+						((AccessorExperienceOrbEntity) orb).extraalchemy_setAmount((int) (orb.getExperienceAmount() * (1f + (0.1f * i))));
 					}
 					p.experiencePickUpDelay = 0;
 					orb.onPlayerCollision(p);

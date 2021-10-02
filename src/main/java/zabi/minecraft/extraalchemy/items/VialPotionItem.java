@@ -60,7 +60,7 @@ public class VialPotionItem extends PotionItem {
 			});
 		} else {
 			Random rand = new Random();
-			((InvokerLivingEntity) (Object) user).spawnParticles(stack, 15);
+			((InvokerLivingEntity) (Object) user).extraalchemy_spawnParticles(stack, 15);
 			world.playSound(user.getX(), user.getY(), user.getZ(), SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.PLAYERS, 0.8F, 1f+rand.nextFloat(), false);
 		}
 		if (playerEntity != null) {

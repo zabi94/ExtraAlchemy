@@ -13,6 +13,6 @@ public interface InvokerLivingEntity {
 
 	@Environment(EnvType.CLIENT)
 	@Invoker("spawnItemParticles")
-	public abstract void spawnParticles(ItemStack stack, int count);
+	public abstract void extraalchemy_spawnParticles(ItemStack stack, int count);
 	
 }

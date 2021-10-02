@@ -9,6 +9,6 @@ import net.minecraft.entity.ExperienceOrbEntity;
 public interface AccessorExperienceOrbEntity {
 
 	@Accessor("amount")
-	public void setAmount(int amt);
+	public void extraalchemy_setAmount(int amt);
 	
 }

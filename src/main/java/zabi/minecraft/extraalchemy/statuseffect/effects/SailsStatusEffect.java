@@ -17,7 +17,7 @@ public class SailsStatusEffect extends ModStatusEffect {
 	public void applyUpdateEffect(LivingEntity e, int amp) {
 		if (e.getVehicle() instanceof BoatEntity) {
 			BoatEntity b = (BoatEntity) e.getVehicle();
-			if (b.isLogicalSideForUpdatingMovement() && ((AccessorBoatEntity) b).isPressingForward()) {
+			if (b.isLogicalSideForUpdatingMovement() && ((AccessorBoatEntity) b).extraalchemy_isPressingForward()) {
 				float f = 0.05f + amp * 0.05f;
 				float p = 0.017453292F;
 				b.setVelocity(b.getVelocity().add(MathHelper.sin(-b.getYaw() * p) * f, 0,  MathHelper.cos(b.getYaw() * p) * f));
