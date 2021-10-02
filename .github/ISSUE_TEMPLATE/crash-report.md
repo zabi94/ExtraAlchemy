@@ -17,8 +17,9 @@ Steps to reproduce the crash:
 
 **Pastebin links**
 Don't paste the whole lists here, use **pastebin**
- - Crash Log: 
- - Mod List: 
+ - Crash Log:
+ - Modpack link (preferred) or Mod List:
+ - Custom changes to modpack (if using a modpack):
  - Extra Alchemy Config:
 
 **Environment (please complete the following information):**

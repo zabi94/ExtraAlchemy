@@ -26,7 +26,8 @@ If applicable, add screenshots to help explain your problem.
 **Pastebin links**
 Don't paste the whole lists here, use **pastebin**
  - latest.log: 
- - Mod List: 
+ - Modpack link (preferred) or Mod List:
+ - Custom changes to modpack (if using a modpack):
  - Extra Alchemy Config:
 
 **Environment (please complete the following information):**
