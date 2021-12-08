@@ -26,8 +26,8 @@ public class ModSizeModifiers {
 	});
 	
 	public static void registerModifiers() {
-		ScaleType.BASE.getDefaultBaseValueModifiers().add(SHRINKING_MOD);
-		ScaleType.BASE.getDefaultBaseValueModifiers().add(GROWING_MOD);
+		ScaleTypesAdapter.BASE.getDefaultBaseValueModifiers().add(SHRINKING_MOD);
+		ScaleTypesAdapter.BASE.getDefaultBaseValueModifiers().add(GROWING_MOD);
 		
 		GROWING.getScaleChangedEvent().register(ev -> {
 			Entity e = ev.getEntity();

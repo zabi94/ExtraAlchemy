@@ -18,4 +18,8 @@ public class PehkuiCompatBridge {
 		ModSizeModifiers.registerModifiers();
 	}
 	
+	public static void preInit() {
+		ScaleTypesAdapter.load();
+	}
+	
 }

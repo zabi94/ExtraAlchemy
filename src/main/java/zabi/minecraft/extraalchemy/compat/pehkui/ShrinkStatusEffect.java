@@ -4,7 +4,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import virtuoel.pehkui.api.ScaleData;
-import virtuoel.pehkui.api.ScaleType;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class ShrinkStatusEffect extends ModStatusEffect {
@@ -28,7 +27,7 @@ public class ShrinkStatusEffect extends ModStatusEffect {
 		if (!entity.world.isClient) {
 			ScaleData data = ModSizeModifiers.SHRINKING.getScaleData(entity);
 			data.setScale(getScale(amplifier));
-			ScaleType.BASE.getScaleData(entity).markForSync(true);
+			ScaleTypesAdapter.BASE.getScaleData(entity).markForSync(true);
 			data.markForSync(true);
 		}
 	}
@@ -39,7 +38,7 @@ public class ShrinkStatusEffect extends ModStatusEffect {
 		if (!entity.world.isClient) {
 			ScaleData data = ModSizeModifiers.SHRINKING.getScaleData(entity);
 			data.resetScale(true);
-			ScaleType.BASE.getScaleData(entity).markForSync(true);
+			ScaleTypesAdapter.BASE.getScaleData(entity).markForSync(true);
 			data.markForSync(true);
 		}
 	}
