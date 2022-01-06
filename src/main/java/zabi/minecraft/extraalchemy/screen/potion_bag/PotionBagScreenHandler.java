@@ -1,5 +1,6 @@
 package zabi.minecraft.extraalchemy.screen.potion_bag;
 
+import java.lang.ref.WeakReference;
 import java.util.Optional;
 
 import net.minecraft.entity.player.PlayerEntity;
@@ -36,7 +37,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		}
 		this.bagStack = player.getStackInHand(hand);
 		bagInventory = new PotionBagItem.BagInventory(bagStack, hand);
-		addSlot(new SelectorSlot(bagStack, 80, 36));
+		addSlot(new SelectorSlot(bagStack, 80, 36, player));
 		for (int j=0;j<2;j++) for (int i=0;i<9;i++) {
 			this.addSlot(new PotionOnlySlot(bagInventory, i+9*j, 18*i + 8, 18*j+90));
 		}
@@ -75,6 +76,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 	public void close(PlayerEntity player) {
 		bagInventory.onClose(player);
 		player.getInventory().markDirty();
+		player.getInventory().onClose(player);
 		super.close(player);
 	}
 	
@@ -160,10 +162,12 @@ public class PotionBagScreenHandler extends ScreenHandler {
 	public static class SelectorSlot extends Slot {
 
 		private ItemStack bagStack;
+		private WeakReference<PlayerEntity> player;
 
-		public SelectorSlot(ItemStack stack, int x, int y) {
+		public SelectorSlot(ItemStack stack, int x, int y, PlayerEntity player) {
 			super(new FakeSelectionInventory(), 0, x, y);
 			bagStack = stack;
+			this.player = new WeakReference<PlayerEntity>(player);
 		}
 
 		@Override
@@ -173,6 +177,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		@Override
 		public void onTakeItem(PlayerEntity player, ItemStack stack) {
 			bagStack.getOrCreateNbt().remove(PotionBagItem.TAG_SELECTED);
+			markInventoryDirty();
 		}
 
 		@Override
@@ -203,12 +208,22 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		@Override
 		public void setStack(ItemStack stack) {
 			bagStack.getOrCreateNbt().put(PotionBagItem.TAG_SELECTED, stack.getOrCreateNbt());
+			markInventoryDirty();
 		}
 
 		@Override
 		public ItemStack takeStack(int amount) {
 			bagStack.getOrCreateNbt().remove(PotionBagItem.TAG_SELECTED);
+			markInventoryDirty();
 			return ItemStack.EMPTY;
+		}
+		
+		private void markInventoryDirty() {
+			PlayerEntity p = player.get();
+			if (p != null) {
+				p.getInventory().markDirty();
+			}
+			this.markDirty();
 		}
 
 	}

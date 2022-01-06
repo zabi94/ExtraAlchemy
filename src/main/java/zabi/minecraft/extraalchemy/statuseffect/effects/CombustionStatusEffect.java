@@ -37,7 +37,7 @@ public class CombustionStatusEffect extends ModStatusEffect {
 					y = w.getHeight() - 1;
 				}
 				BlockPos pos = new BlockPos(x, y, z);
-				if (w.getBlockState(pos).getMaterial().isReplaceable() && Blocks.FIRE.canPlaceAt(null, w, pos)) {
+				if (w.getBlockState(pos).getMaterial().isReplaceable() && Blocks.FIRE.getDefaultState().canPlaceAt(w, pos)) {
 					w.setBlockState(pos, FireBlock.getState(w, pos), 3);
 					break;
 				}
