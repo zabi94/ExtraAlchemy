@@ -1,0 +1,172 @@
+{
+	"itemGroup.extraalchemy.all": "Alquimia Extra",
+	
+	"item.extraalchemy.breakable_potion": "Quebrável %s",
+	
+	"item.extraalchemy.empty_ring": "Anel infusor vazio",
+	"item.extraalchemy.empty_ring.tooltip1": "Junte a uma poção.",
+	"item.extraalchemy.empty_ring.tooltip2": "Nem todas as poções estarão disponíveis.",
+	
+	"item.extraalchemy.potion_ring": "Anel infusor",
+	"item.extraalchemy.potion_ring.potion": "Contém: %s %s",
+	"item.extraalchemy.potion_ring.cost": "Custo de Exp: %s",
+	"item.extraalchemy.potion_ring.creative": "Modo Criativo",
+	"item.extraalchemy.potion_ring.length": "Duração em segundos: %s",
+	"item.extraalchemy.potion_ring.disabled": "Inativo. Shift + Botão direiro para ativar.",
+	"item.extraalchemy.potion_ring.enabled": "Ativo. Shift + Botão direiro para desativar.",
+	
+	"item.extraalchemy.potion_bag": "Bolsa de poções",
+	"item.extraalchemy.potion_bag.selected.potion": "Selecionada(s): %s (%s)",
+	"item.extraalchemy.potion_bag.selected.none": "Nenhuma poção selecionada.",
+	"item.extraalchemy.potion_bag.autoselect": "Quando indisponível: %s",
+	"item.extraalchemy.potion_bag.autoselect.option.next": "Selecione a próxima poção.",
+	"item.extraalchemy.potion_bag.autoselect.option.deselect": "Deselecionar poção",
+	"item.extraalchemy.potion_bag.autoselect.option.hold": "Manter seleção atual",
+	"item.extraalchemy.potion_bag.autoselect.change": "Alternar modo de auto-seleção com [%s]",
+	
+	"item.extraalchemy.empty_vial": "Tubo de ensaio",
+	"item.extraalchemy.empty_vial.tootlip1": "Junte a uma poção arremessável para encher.",
+	"item.extraalchemy.empty_vial.tootlip2": "Clique com uma poção arremessável na sua barra rápida.",
+	"item.extraalchemy.empty_vial.tootlip.disabled": "Tubos de ensaio de poções estão desabilitados. Remova esta receita com um pacote de dados.",
+	
+	"effect.extraalchemy.magnetism": "Magnetismo",
+	"item.minecraft.potion.effect.magnetism": "Poção de magnetismo",
+	"item.minecraft.splash_potion.effect.magnetism": "Poção arremessável de magnetismo",
+	"item.minecraft.lingering_potion.effect.magnetism": "Poção persistente de magnetismo",
+	"item.minecraft.tipped_arrow.effect.magnetism": "Flecha de magnetismo",
+	
+	"effect.extraalchemy.photosynthesis": "Fotossíntese",
+	"item.minecraft.potion.effect.photosynthesis": "Poção de fotossíntese",
+	"item.minecraft.splash_potion.effect.photosynthesis": "Poção arremessável de fotossíntese",
+	"item.minecraft.lingering_potion.effect.photosynthesis": "Poção persistente de fotossíntese",
+	"item.minecraft.tipped_arrow.effect.photosynthesis": "Flecha de fotossíntese",
+	
+	"effect.extraalchemy.crumbling": "Desmoronamento",
+	"item.minecraft.potion.effect.crumbling": "Poção de desmoronamento",
+	"item.minecraft.splash_potion.effect.crumbling": "Poção arremessável de desmoronamento",
+	"item.minecraft.lingering_potion.effect.crumbling": "Poção persistente de desmoronamento",
+	"item.minecraft.tipped_arrow.effect.crumbling": "Flecha de desmoronamento",
+	
+	"effect.extraalchemy.sails": "Navegação",
+	"item.minecraft.potion.effect.sails": "Poção de navegação",
+	"item.minecraft.splash_potion.effect.sails": "Poção arremessável de navegação",
+	"item.minecraft.lingering_potion.effect.sails": "Poção persistente de navegação",
+	"item.minecraft.tipped_arrow.effect.sails": "Flecha de navegação",
+	
+	"effect.extraalchemy.fuse": "Detonação",
+	"item.minecraft.potion.effect.fuse": "Poção de detonação",
+	"item.minecraft.splash_potion.effect.fuse": "Poção arremessável de detonação",
+	"item.minecraft.lingering_potion.effect.fuse": "Poção persistente de detonação",
+	"item.minecraft.tipped_arrow.effect.fuse": "Flecha de detonação",
+	
+	"effect.extraalchemy.recall": "Retrocesso",
+	"item.minecraft.potion.effect.recall": "Poção de retrocesso",
+	"item.minecraft.splash_potion.effect.recall": "Poção arremessável de retrocesso",
+	"item.minecraft.lingering_potion.effect.recall": "Poção persistente de retrocesso",
+	"item.minecraft.tipped_arrow.effect.recall": "Flecha de retrocesso",
+	
+	"effect.extraalchemy.returning": "Retorno",
+	"item.minecraft.potion.effect.returning": "Poção de retorno",
+	"item.minecraft.splash_potion.effect.returning": "Poção arremessável de retorno",
+	"item.minecraft.lingering_potion.effect.returning": "Poção persistente de retorno",
+	"item.minecraft.tipped_arrow.effect.returning": "Flecha de retorno",
+	
+	"effect.extraalchemy.piper": "Encanto",
+	"item.minecraft.potion.effect.piper": "Poção de encanto",
+	"item.minecraft.splash_potion.effect.piper": "Poção arremessável de encanto",
+	"item.minecraft.lingering_potion.effect.piper": "Poção persistente de encanto",
+	"item.minecraft.tipped_arrow.effect.piper": "Flecha de encanto",
+	
+	"effect.extraalchemy.learning": "Aprendizado",
+	"item.minecraft.potion.effect.learning": "Poção de aprendizado",
+	"item.minecraft.splash_potion.effect.learning": "Poção arremessável de aprendizado",
+	"item.minecraft.lingering_potion.effect.learning": "Poção persistente de aprendizado",
+	"item.minecraft.tipped_arrow.effect.learning": "Flecha de aprendizado",
+	
+	"effect.extraalchemy.concentration": "Foco",
+	"item.minecraft.potion.effect.concentration": "Poção de foco",
+	"item.minecraft.splash_potion.effect.concentration": "Poção arremessável de foco",
+	"item.minecraft.lingering_potion.effect.concentration": "Poção persistente de foco",
+	"item.minecraft.tipped_arrow.effect.concentration": "Flecha de foco",
+	
+	"effect.extraalchemy.gravity": "Gravidade",
+	"item.minecraft.potion.effect.gravity": "Poção de gravidade",
+	"item.minecraft.splash_potion.effect.gravity": "Poção arremessável de gravidade",
+	"item.minecraft.lingering_potion.effect.gravity": "Poção persistente de gravidade",
+	"item.minecraft.tipped_arrow.effect.gravity": "Flecha de gravidade",
+	
+	"effect.extraalchemy.combustion": "Combustão",
+	"item.minecraft.potion.effect.combustion": "Poção de combustão",
+	"item.minecraft.splash_potion.effect.combustion": "Poção arremessável de combustão",
+	"item.minecraft.lingering_potion.effect.combustion": "Poção persistente de combustão",
+	"item.minecraft.tipped_arrow.effect.combustion": "Flecha de combustão",
+	
+	"effect.extraalchemy.pacifism": "Harmonia",
+	"item.minecraft.potion.effect.pacifism": "Poção de harmonia",
+	"item.minecraft.splash_potion.effect.pacifism": "Poção arremessável de harmonia",
+	"item.minecraft.lingering_potion.effect.pacifism": "Poção persistente de harmonia",
+	"item.minecraft.tipped_arrow.effect.pacifism": "Flecha de harmonia",
+	
+	"effect.extraalchemy.shrinking": "Encolhimento",
+	"item.minecraft.potion.effect.shrinking": "Poção de encolhimento",
+	"item.minecraft.splash_potion.effect.shrinking": "Poção arremessável de encolhimento",
+	"item.minecraft.lingering_potion.effect.shrinking": "Poção persistente de encolhimento",
+	"item.minecraft.tipped_arrow.effect.shrinking": "Flecha de encolhimento",
+	
+	"effect.extraalchemy.growing": "Crescimento",
+	"item.minecraft.potion.effect.growing": "Poção de crescimento",
+	"item.minecraft.splash_potion.effect.growing": "Poção arremessável de crescimento",
+	"item.minecraft.lingering_potion.effect.growing": "Poção persistente de crescimento",
+	"item.minecraft.tipped_arrow.effect.growing": "Flecha de crescimento",
+	
+	"effect.extraalchemy.detection": "Percepção",
+	"item.minecraft.potion.effect.detection": "Poção de percepção",
+	"item.minecraft.splash_potion.effect.detection": "Poção arremessável de percepção",
+	"item.minecraft.lingering_potion.effect.detection": "Poção persistente de percepção",
+	"item.minecraft.tipped_arrow.effect.detection": "Flecha de percepção",
+	
+	"extraalchemy.mod_name": "Alquimia Extra",
+	
+	"extraalchemy.config.general": "Configurações de Alquimia Extra",
+	"extraalchemy.config.potions": "Receitas das poções",
+	
+	"extraalchemy.config.general.enable_learning_boost": "Aumento de Exp por Aprendizado",
+	"extraalchemy.config.general.enable_learning_boost.tooltip1": "Habilitar isto faz a poção de aprendizado aumentar",
+	"extraalchemy.config.general.enable_learning_boost.tooltip2": "a quantidade de experiência absorvida de orbes em 100%.",
+	
+	"extraalchemy.config.general.enable_vials": "Habilitar tubos de ensaio de poções",
+	"extraalchemy.config.general.enable_vials.tooltip1": "Habilitar isto torna os tubos de ensaio de poções criáveis.",
+	"extraalchemy.config.general.enable_vials.tooltip2": "Juntá-los a poções arremessáveis geram poções de tubos de ensaio.",
+	
+	"extraalchemy.config.potion": "%s",
+	"extraalchemy.config.potion.tooltip1": "Registra a receita de alquimia para %s.",
+	"extraalchemy.config.potion.tooltip2": "O efeito da poção será registrado de qualquer forma.",
+	
+	"extraalchemy.config.general.disable_inventory_shift": "Desabilitar deslocamento do inventário",
+	"extraalchemy.config.general.disable_inventory_shift.tooltip1": "Impede que a tela do inventário se desloque para a", 
+	"extraalchemy.config.general.disable_inventory_shift.tooltip2": "direita quando um efeito de poção é aplicado.",
+	
+	"extraalchemy.config.general.enable_rings": "Habilitar anéis infusores",
+	"extraalchemy.config.general.enable_rings.tooltip1": "Habilitar isto torna os anéis infusores vazios criáveis.", 
+	"extraalchemy.config.general.enable_rings.tooltip2": "Juntá-los a poções geram anéis infusores.",
+	
+	"extraalchemy.config.general.enable_brewing_stand_fire": "Habilitar ajuste no combustível do alambique",
+	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "Habilitar isto faz com que o alambique seja reabastecido a cada", 
+	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "2 segundos quando uma fonte de calor for colocada abaixo dele.",
+	
+	"extraalchemy.config.general.anchor_depletes": "Esvaziar âncora ao retonar",
+	"extraalchemy.config.general.anchor_depletes.tooltip1": "Habilitar isto faz com que a âncora de renascimento perca as cargas quando", 
+	"extraalchemy.config.general.anchor_depletes.tooltip2": "um(a) jogador(a) se teletransporta para ela com o efeito de retrocesso",
+	
+	"extraalchemy.config.general.ignore_ring_mods": "Mods de espaços de anéis permitem anéis infusores",
+	"extraalchemy.config.general.ignore_ring_mods.tooltip1": "Quando isto estiver ativado, anéis infusores vão funcionar em inventários de",
+	"extraalchemy.config.general.ignore_ring_mods.tooltip2": "jogadores(as) mesmo que mods de adição de espaços de anel estejam instalados.",
+	
+	"extraalchemy.config.clientside": "Modo cliente apenas",
+	"extraalchemy.config.must_sync": "Precisa estar sincornizado com servidores manualmente",
+	"extraalchemy.config.serveronly": "O valor estipulado em servidores serão prioritários no PM",
+	
+	"key.extraalchemy.magnetism_toggle": "Alternar poção de magnetismo",
+	"key.extraalchemy.toggle_extra_inv_rings": "Alternar anéis equipados em inventários do tipo bauble",
+	"key.extraalchemy.potion_bag_mode": "Alternar auto-seleção em bolsas de poções"
+}
