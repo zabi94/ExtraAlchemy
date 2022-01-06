@@ -2,7 +2,7 @@ package zabi.minecraft.extraalchemy.config;
 
 public class ConfigInstance {
 
-	public boolean removeInventoryPotionShift;
+//	public boolean removeInventoryPotionShift;
 	public boolean learningIncreasesExpOrbValue;
 	public boolean enableVials;
 	public boolean enableRings;
@@ -13,7 +13,7 @@ public class ConfigInstance {
 	public Potions potions;
 	
 	public ConfigInstance() {
-		removeInventoryPotionShift = true;
+//		removeInventoryPotionShift = true;
 		learningIncreasesExpOrbValue = true;
 		enableVials = true;
 		enableRings = true;

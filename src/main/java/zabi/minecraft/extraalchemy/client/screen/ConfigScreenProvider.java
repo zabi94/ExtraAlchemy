@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
+
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import net.minecraft.text.Style;
@@ -16,7 +17,7 @@ import zabi.minecraft.extraalchemy.config.ModConfig;
 public class ConfigScreenProvider implements ModMenuApi {
 	
 	private static final Text MUST_SYNC = new TranslatableText("extraalchemy.config.must_sync").setStyle(Style.EMPTY.withColor(Formatting.RED).withBold(true));
-	private static final Text CLIENT_SIDE = new TranslatableText("extraalchemy.config.clientside").setStyle(Style.EMPTY.withColor(Formatting.AQUA).withBold(true));
+//	private static final Text CLIENT_SIDE = new TranslatableText("extraalchemy.config.clientside").setStyle(Style.EMPTY.withColor(Formatting.AQUA).withBold(true));
 	private static final Text SERVER_SIDE = new TranslatableText("extraalchemy.config.serveronly").setStyle(Style.EMPTY.withColor(Formatting.GOLD).withBold(true));
 	
 	public static ConfigBuilder builder() {
@@ -41,17 +42,17 @@ public class ConfigScreenProvider implements ModMenuApi {
 					.build()
 		);
 		
-		general.addEntry(configBuilder.entryBuilder()
-				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.disable_inventory_shift") , ModConfig.INSTANCE.removeInventoryPotionShift)
-					.setDefaultValue(true)
-					.setTooltip(
-							new TranslatableText("extraalchemy.config.general.disable_inventory_shift.tooltip1"), 
-							new TranslatableText("extraalchemy.config.general.disable_inventory_shift.tooltip2"),
-							CLIENT_SIDE
-					)
-					.setSaveConsumer(val -> {ModConfig.INSTANCE.removeInventoryPotionShift = val;})
-					.build()
-		);
+//		general.addEntry(configBuilder.entryBuilder()
+//				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.disable_inventory_shift") , ModConfig.INSTANCE.removeInventoryPotionShift)
+//					.setDefaultValue(true)
+//					.setTooltip(
+//							new TranslatableText("extraalchemy.config.general.disable_inventory_shift.tooltip1"), 
+//							new TranslatableText("extraalchemy.config.general.disable_inventory_shift.tooltip2"),
+//							CLIENT_SIDE
+//					)
+//					.setSaveConsumer(val -> {ModConfig.INSTANCE.removeInventoryPotionShift = val;})
+//					.build()
+//		);
 		
 		general.addEntry(configBuilder.entryBuilder()
 				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.enable_vials") , ModConfig.INSTANCE.enableVials)
