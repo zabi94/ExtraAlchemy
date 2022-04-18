@@ -140,44 +140,4 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 		}
 
 	}
-
-//	public static void generateDefaults() {
-//		if ("true".equals(System.getProperty("devGenerateDefaultRingRecipes"))) {
-//			final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//			final File POTFOLDER = new File("POT_OUT");
-//			POTFOLDER.mkdir();
-//			Registry.POTION.getEntries().stream()
-//			.map(e -> e.getValue())
-//			.filter(p -> p.getEffects().size() == 1)
-//			.filter(p -> !p.hasInstantEffect())
-//			.filter(PotionRingItem.ignoreLongVersions())
-//			.forEach(pot -> {
-//				PotionJson en = new PotionJson(pot);
-//				File out = new File(POTFOLDER, en.potion.replace(':', '_')+".json");
-//				try (FileWriter fw = new FileWriter(out)) {
-//					fw.write(gson.toJson(en));
-//					Log.w("Generated: " + out.getName());
-//				} catch (IOException e1) {
-//					Log.e("Not generated: " + out.getName());
-//					e1.printStackTrace();
-//				}
-//			});
-//			throw new RuntimeException("Ring Potion Recipes generated in "+POTFOLDER.getAbsolutePath());
-//		}
-//	}
-//	
-//	public static class PotionJson {
-//		
-//		public PotionJson(Potion potion) {
-//			StatusEffectInstance sei = potion.getEffects().get(0);
-//			this.cost = 2 * (sei.getAmplifier() + 1);
-//			this.length = 4 + sei.getDuration() / 200;
-//			this.renew = 1;
-//			this.potion = Registry.POTION.getId(potion).toString();
-//		}
-//		
-//		public int cost, length, renew;
-//		public String potion, type = "extraalchemy:potion_ring";
-//		
-//	}
 }

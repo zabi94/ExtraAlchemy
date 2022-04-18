@@ -17,7 +17,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
-import net.minecraft.tag.ItemTags;
+import net.minecraft.tag.TagKey;
 import net.minecraft.text.KeybindText;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Style;
@@ -25,7 +25,6 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.collection.DefaultedList;
@@ -41,7 +40,7 @@ public class PotionBagItem extends Item implements DyeableItem {
 	public static final String TAG_INVENTORY = "ea_inventory";
 	public static final String TAG_SELECTED = "ea_selected";
 
-	private static final Identifier TAG_POTION = LibMod.id("potion_for_bag");
+	private static final TagKey<Item> TAG_POTION = TagKey.of(Registry.ITEM_KEY, LibMod.id("potion_for_bag"));
 
 	public PotionBagItem() {
 		super(new Item.Settings().maxCount(1).group(ItemSettings.EXTRA_ALCHEMY_GROUP));
@@ -153,8 +152,7 @@ public class PotionBagItem extends Item implements DyeableItem {
 	}
 	
 	public static boolean isValidPotionItem(ItemStack stack) {
-		net.minecraft.tag.Tag<Item> potTag = ItemTags.getTagGroup().getTag(TAG_POTION);
-		if (potTag != null && potTag.contains(stack.getItem())) {
+		if (stack.isIn(TAG_POTION)) {
 			return !PotionUtil.getPotionEffects(stack).isEmpty();
 		}
 		return false;

@@ -27,7 +27,6 @@ public class ExtraAlchemy implements ModInitializer {
 		ModItems.registerItems();
 		ModEffectRegistry.registerAll();
 		ModPotionRegistry.registerAll();
-//		PotionRingRecipe.generateDefaults();
 		BrewingRecipeRegistrar.init();
 		ServerPacketRegistry.init();
 		CraftingRecipes.init();

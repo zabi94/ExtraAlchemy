@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.10-SNAPSHOT'
+	id 'fabric-loom' version '0.11-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -72,26 +72,21 @@ dependencies {
       exclude module: 'cloth-config-fabric'
       exclude module: 'roughlyenoughitems-api'
 	}
+	
 
 	modImplementation("com.github.Virtuoel:Pehkui:${project.pehkui_version}") {
-	  exclude module: 'fabric-api'
-	  exclude module: 'config-2'
-      exclude module: 'cloth-config-fabric'
-      exclude module: 'roughlyenoughitems-api'
+	  exclude group: "net.fabricmc.fabric-api"
 	}
 
-	modRuntimeOnly("curse.maven:nbt-tooltip-274816:${project.nbttt_version}") {
-	  exclude module: 'fabric-api'
-	  exclude module: 'config-2'
-      exclude module: 'cloth-config-fabric'
-      exclude module: 'roughlyenoughitems-api'
-	}
+	//modRuntimeOnly("curse.maven:nbt-tooltip-274816:${project.nbttt_version}") {
+	//  exclude module: 'fabric-api'
+	//  exclude module: 'config-2'
+    //  exclude module: 'cloth-config-fabric'
+    //  exclude module: 'roughlyenoughitems-api'
+	//}
 
 	modImplementation("curse.maven:inventorio-491073:${project.inventorio_version}") {
-	  exclude module: 'fabric-api'
-	  exclude module: 'config-2'
-      exclude module: 'cloth-config-fabric'
-      exclude module: 'roughlyenoughitems-api'
+	  exclude group: "net.fabricmc.fabric-api"
 	}
 
 	modRuntimeOnly("curse.maven:nomoreglowingpots-286348:${project.nmgp_version}") {
