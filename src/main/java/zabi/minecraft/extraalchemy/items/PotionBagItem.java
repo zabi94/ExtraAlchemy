@@ -143,7 +143,6 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 			Potion isp = PotionUtil.getPotion(currentStack);
 			if (isp.equals(target) && currentStack.getItem() != Items.AIR) {
 				currentStack.getItem().finishUsing(currentStack, user.world, user);
-				currentStack.decrement(1);
 				break;
 			}
 		}
