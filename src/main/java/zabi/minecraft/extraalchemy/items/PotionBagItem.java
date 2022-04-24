@@ -7,6 +7,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.DyeableItem;
@@ -141,15 +142,14 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 			ItemStack currentStack = inv.getStack(i);
 			Potion isp = PotionUtil.getPotion(currentStack);
 			if (isp.equals(target) && currentStack.getItem() != Items.AIR) {
+				currentStack.getItem().finishUsing(currentStack, user.world, user);
 				currentStack.decrement(1);
-				for (StatusEffectInstance sei:target.getEffects()) {
-					user.addStatusEffect(new StatusEffectInstance(sei.getEffectType(), sei.getDuration(), sei.getAmplifier(), false, false, true));
-				}
-				inv.onClose((PlayerEntity) user);
-				((PlayerEntity) user).getInventory().markDirty();
 				break;
 			}
 		}
+		inv.onClose((PlayerEntity) user);
+		PlayerInventory pinv = ((PlayerEntity) user).getInventory();
+		pinv.markDirty();
 	}
 	
 	public static boolean isValidPotionItem(ItemStack stack) {
