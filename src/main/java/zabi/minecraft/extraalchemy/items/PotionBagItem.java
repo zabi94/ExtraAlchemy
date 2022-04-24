@@ -30,11 +30,12 @@ import net.minecraft.util.UseAction;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import zabi.minecraft.extraalchemy.client.tooltip.StatusEffectContainer;
 import zabi.minecraft.extraalchemy.screen.potion_bag.PotionBagScreenhandlerFactory;
 import zabi.minecraft.extraalchemy.utils.LibMod;
 import zabi.minecraft.extraalchemy.utils.Log;
 
-public class PotionBagItem extends Item implements DyeableItem {
+public class PotionBagItem extends Item implements DyeableItem, StatusEffectContainer {
 
 	public static final String TAG_MODE = "ea_select_mode";
 	public static final String TAG_INVENTORY = "ea_inventory";
@@ -321,5 +322,18 @@ public class PotionBagItem extends Item implements DyeableItem {
 		HOLD, NEXT, DESELECT
 	}
 
+	@Override
+	public List<StatusEffectInstance> getContainedEffects(ItemStack stack) {
+		Optional<Potion> optpot = getSelectedPotion(stack);
+		if (optpot.isEmpty()) {
+			return List.of();
+		}
+		return optpot.get().getEffects();
+	}
+
+	@Override
+	public boolean hasEffects(ItemStack stack) {
+		return getSelectedPotion(stack).isPresent() && StatusEffectContainer.super.hasEffects(stack);
+	}
 
 }

@@ -9,6 +9,7 @@ public class ConfigInstance {
 	public boolean enableBrewingStandFire;
 	public boolean useAnchorChargesWithReturnPotion;
 	public boolean allowRingsInInventoryWithThirdPartyMods;
+	public boolean showIconsInTooltips;
 	
 	public Potions potions;
 	
@@ -20,6 +21,7 @@ public class ConfigInstance {
 		enableBrewingStandFire = true;
 		useAnchorChargesWithReturnPotion = true;
 		allowRingsInInventoryWithThirdPartyMods = false;
+		showIconsInTooltips = true;
 		potions = new Potions();
 	}
 	

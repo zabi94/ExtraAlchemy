@@ -17,7 +17,7 @@ import zabi.minecraft.extraalchemy.config.ModConfig;
 public class ConfigScreenProvider implements ModMenuApi {
 	
 	private static final Text MUST_SYNC = new TranslatableText("extraalchemy.config.must_sync").setStyle(Style.EMPTY.withColor(Formatting.RED).withBold(true));
-//	private static final Text CLIENT_SIDE = new TranslatableText("extraalchemy.config.clientside").setStyle(Style.EMPTY.withColor(Formatting.AQUA).withBold(true));
+	private static final Text CLIENT_SIDE = new TranslatableText("extraalchemy.config.clientside").setStyle(Style.EMPTY.withColor(Formatting.AQUA).withBold(true));
 	private static final Text SERVER_SIDE = new TranslatableText("extraalchemy.config.serveronly").setStyle(Style.EMPTY.withColor(Formatting.GOLD).withBold(true));
 	
 	public static ConfigBuilder builder() {
@@ -53,6 +53,18 @@ public class ConfigScreenProvider implements ModMenuApi {
 //					.setSaveConsumer(val -> {ModConfig.INSTANCE.removeInventoryPotionShift = val;})
 //					.build()
 //		);
+		
+		general.addEntry(configBuilder.entryBuilder()
+				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.show_icons_in_tooltips") , ModConfig.INSTANCE.showIconsInTooltips)
+					.setDefaultValue(true)
+					.setTooltip(
+							new TranslatableText("extraalchemy.config.general.show_icons_in_tooltips.tooltip1"), 
+							new TranslatableText("extraalchemy.config.general.show_icons_in_tooltips.tooltip2"),
+							CLIENT_SIDE
+					)
+					.setSaveConsumer(val -> {ModConfig.INSTANCE.showIconsInTooltips = val;})
+					.build()
+		);
 		
 		general.addEntry(configBuilder.entryBuilder()
 				.startBooleanToggle(new TranslatableText("extraalchemy.config.general.enable_vials") , ModConfig.INSTANCE.enableVials)

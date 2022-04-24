@@ -162,6 +162,11 @@
 	"extraalchemy.config.general.ignore_ring_mods.tooltip1": "Quando questa opzione è attiva, gli anelli nell'inventario",
 	"extraalchemy.config.general.ignore_ring_mods.tooltip2": "funzionano anche se una mod che aggiunge slot dedicati è installata.",
 	
+	
+	"extraalchemy.config.general.show_icons_in_tooltips": "Mostra icone degli effetti nel tooltip",
+	"extraalchemy.config.general.show_icons_in_tooltips.tooltip1": "Quando questa opzione è attiva, gli oggetti che hanno",
+	"extraalchemy.config.general.show_icons_in_tooltips.tooltip2": "effetti di stato ne mostreranno icona e livello nel tooltip.",
+	
 	"extraalchemy.config.clientside": "Solo lato client",
 	"extraalchemy.config.must_sync": "Da sincronizzare manualmente con il server",
 	"extraalchemy.config.serveronly": "Verrà usato il valore impostato nel server",
