@@ -15,7 +15,6 @@ import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -61,10 +60,10 @@ public class EmptyVialItem extends Item {
 	@Override
 	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
 		if (ModConfig.INSTANCE.enableVials) {
-			tooltip.add(new TranslatableText("item.extraalchemy.empty_vial.tootlip1"));
-			tooltip.add(new TranslatableText("item.extraalchemy.empty_vial.tootlip2"));
+			tooltip.add(Text.translatable("item.extraalchemy.empty_vial.tootlip1"));
+			tooltip.add(Text.translatable("item.extraalchemy.empty_vial.tootlip2"));
 		} else {
-			tooltip.add(new TranslatableText("item.extraalchemy.empty_vial.tootlip.disabled"));
+			tooltip.add(Text.translatable("item.extraalchemy.empty_vial.tootlip.disabled"));
 		}
 	}
 

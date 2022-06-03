@@ -19,11 +19,7 @@ import net.minecraft.nbt.NbtElement;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.tag.TagKey;
-import net.minecraft.text.KeybindText;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -56,19 +52,19 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 
 		if (optpot.isPresent()) {
 			int avail = getSelectedPotionAmount(stack).get();
-			Text potion = new TranslatableText(optpot.get().finishTranslationKey("item.minecraft.potion.effect.")).setStyle(Style.EMPTY.withColor(Formatting.DARK_PURPLE).withBold(true));
-			Text amount = new LiteralText(""+avail).setStyle(Style.EMPTY.withColor(Formatting.BLUE));
-			tooltip.add(new TranslatableText("item.extraalchemy.potion_bag.selected.potion", potion, amount));
+			Text potion = Text.translatable(optpot.get().finishTranslationKey("item.minecraft.potion.effect.")).formatted(Formatting.DARK_PURPLE, Formatting.BOLD);
+			Text amount = Text.literal(""+avail).formatted(Formatting.BLUE);
+			tooltip.add(Text.translatable("item.extraalchemy.potion_bag.selected.potion", potion, amount));
 			
 		} else {
-			tooltip.add(new TranslatableText("item.extraalchemy.potion_bag.selected.none").setStyle(Style.EMPTY.withColor(Formatting.DARK_RED)));
+			tooltip.add(Text.translatable("item.extraalchemy.potion_bag.selected.none").formatted(Formatting.DARK_RED));
 		}
-		Text option = new TranslatableText("item.extraalchemy.potion_bag.autoselect.option."+getSelectionMode(stack).toString().toLowerCase()).setStyle(Style.EMPTY.withColor(Formatting.GOLD));
-		tooltip.add(new TranslatableText("item.extraalchemy.potion_bag.autoselect", option));
-		tooltip.add(new TranslatableText("item.extraalchemy.potion_bag.autoselect.change", new KeybindText("key.extraalchemy.potion_bag_mode").setStyle(Style.EMPTY.withColor(Formatting.AQUA))));
+		Text option = Text.translatable("item.extraalchemy.potion_bag.autoselect.option."+getSelectionMode(stack).toString().toLowerCase()).formatted(Formatting.GOLD);
+		tooltip.add(Text.translatable("item.extraalchemy.potion_bag.autoselect", option));
+		tooltip.add(Text.translatable("item.extraalchemy.potion_bag.autoselect.change", Text.keybind("key.extraalchemy.potion_bag_mode").formatted(Formatting.AQUA)));
 
 		if (optpot.isPresent()) {
-			tooltip.add(new LiteralText(""));
+			tooltip.add(Text.empty());
 			PotionUtil.buildTooltip(PotionUtil.setPotion(new ItemStack(Items.POTION), optpot.get()), tooltip, 1f);
 		}
 	}

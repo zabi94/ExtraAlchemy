@@ -14,7 +14,7 @@ import net.minecraft.client.texture.StatusEffectSpriteManager;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 
 public class PotionTooltipComponent implements TooltipComponent {
@@ -57,8 +57,7 @@ public class PotionTooltipComponent implements TooltipComponent {
 			int dy = y + (row * (TEXTURE_SIZE + TEXTURE_SPACING));
 			this.draw(matrices, dx, dy, z, icon);
 			if (level > 1) {
-				TranslatableText txt = new TranslatableText("enchantment.level."+level);
-				txt.setStyle(txt.getStyle().withColor(eff.getEffectType().getCategory().getFormatting()));
+				Text txt = Text.translatable("enchantment.level."+level).formatted(eff.getEffectType().getCategory().getFormatting());
 				float tx = dx + TEXTURE_SIZE - textRenderer.getWidth(txt)/2;
 				float ty = dy + TEXTURE_SIZE - textRenderer.fontHeight/2;
 				matrices.translate(0, 0, 400);

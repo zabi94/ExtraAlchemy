@@ -14,9 +14,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.potion.PotionUtil;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -58,37 +56,37 @@ public class PotionRingItem extends Item {
 		try {
 			
 			if (PotionUtil.getPotionEffects(stack).size() != 1) {
-				tooltip.add(new LiteralText("Error: rings must have exactly 1 effect attached!").formatted(Formatting.DARK_RED, Formatting.BOLD));
+				tooltip.add(Text.literal("Error: rings must have exactly 1 effect attached!").formatted(Formatting.DARK_RED, Formatting.BOLD));
 				return;
 			}
 			
 			StatusEffectInstance sei = PotionUtil.getPotionEffects(stack).get(0);
 
-			Text potionName = new TranslatableText(sei.getTranslationKey()).formatted(Formatting.DARK_PURPLE);
-			Text potionLevel = new TranslatableText("potion.potency."+sei.getAmplifier()).formatted(Formatting.DARK_PURPLE);
+			Text potionName = Text.translatable(sei.getTranslationKey()).formatted(Formatting.DARK_PURPLE);
+			Text potionLevel = Text.translatable("potion.potency."+sei.getAmplifier()).formatted(Formatting.DARK_PURPLE);
 			
-			tooltip.add(new TranslatableText("item.extraalchemy.potion_ring.potion", potionName, potionLevel));
+			tooltip.add(Text.translatable("item.extraalchemy.potion_ring.potion", potionName, potionLevel));
 			
 			NbtCompound tag = stack.getOrCreateNbt();
 
 			int cost = tag.getInt("cost");
 			if (cost > 0) {
-				tooltip.add(new TranslatableText("item.extraalchemy.potion_ring.cost", new LiteralText(""+cost).formatted(Formatting.GOLD)));
+				tooltip.add(Text.translatable("item.extraalchemy.potion_ring.cost", Text.literal(""+cost).formatted(Formatting.GOLD)));
 			} else {
-				tooltip.add(new TranslatableText("item.extraalchemy.potion_ring.creative").formatted(Formatting.LIGHT_PURPLE, Formatting.BOLD));
+				tooltip.add(Text.translatable("item.extraalchemy.potion_ring.creative").formatted(Formatting.LIGHT_PURPLE, Formatting.BOLD));
 			}
 
-			tooltip.add(new TranslatableText("item.extraalchemy.potion_ring.length", new LiteralText(""+tag.getInt("length")).formatted(Formatting.BLUE)));
+			tooltip.add(Text.translatable("item.extraalchemy.potion_ring.length", Text.literal(""+tag.getInt("length")).formatted(Formatting.BLUE)));
 
 			if (tag.getBoolean("disabled")) {
-				tooltip.add(new TranslatableText("item.extraalchemy.potion_ring.disabled").formatted(Formatting.GOLD));
+				tooltip.add(Text.translatable("item.extraalchemy.potion_ring.disabled").formatted(Formatting.GOLD));
 			} else {
-				tooltip.add(new TranslatableText("item.extraalchemy.potion_ring.enabled").formatted(Formatting.GREEN));
+				tooltip.add(Text.translatable("item.extraalchemy.potion_ring.enabled").formatted(Formatting.GREEN));
 			}
 		} catch (Exception e) {
-			tooltip.add(new LiteralText("An error occurred when displaying the tooltip.").formatted(Formatting.RED));
-			tooltip.add(new LiteralText("Destroy this item ASAP to avoid crashes.").formatted(Formatting.RED, Formatting.BOLD));
-			tooltip.add(new LiteralText(e.getMessage()).formatted(Formatting.DARK_GRAY));
+			tooltip.add(Text.literal("An error occurred when displaying the tooltip.").formatted(Formatting.RED));
+			tooltip.add(Text.literal("Destroy this item ASAP to avoid crashes.").formatted(Formatting.RED, Formatting.BOLD));
+			tooltip.add(Text.literal(e.getMessage()).formatted(Formatting.DARK_GRAY));
 		}
 	}
 

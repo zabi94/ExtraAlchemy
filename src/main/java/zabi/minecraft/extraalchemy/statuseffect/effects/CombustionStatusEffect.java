@@ -1,12 +1,11 @@
 package zabi.minecraft.extraalchemy.statuseffect.effects;
 
-import java.util.Random;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FireBlock;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
