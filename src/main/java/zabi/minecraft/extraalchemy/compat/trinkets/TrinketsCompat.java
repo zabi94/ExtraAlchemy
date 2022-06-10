@@ -3,7 +3,9 @@ package zabi.minecraft.extraalchemy.compat.trinkets;
 import com.google.common.collect.Lists;
 
 import dev.emi.trinkets.api.TrinketsApi;
+import java.util.List;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.Pair;
 import zabi.minecraft.extraalchemy.ExtraAlchemy;
 import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.items.PotionRingItem;

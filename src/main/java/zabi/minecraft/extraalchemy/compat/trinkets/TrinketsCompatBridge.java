@@ -5,12 +5,11 @@ import net.minecraft.entity.player.PlayerEntity;
 public class TrinketsCompatBridge {
 	
 	public static void init() {
-//		TrinketsCompat.init();
+		TrinketsCompat.init();
 	}
 
 	public static boolean toggleRings(PlayerEntity player) {
-//		return TrinketsCompat.toggleRings(player);
-		return false;
+		return TrinketsCompat.toggleRings(player);
 	}
 	
 }
