@@ -1,0 +1,56 @@
+{
+    "components": [
+        {
+            "type": "patchouli:item",
+            "framed": false,
+            "x": 14,
+            "y": 19,
+            "item": "#item"
+        },
+        {
+            "type": "patchouli:item",
+            "framed": false,
+            "x": 14,
+            "y": 38,
+            "item": "#base"
+        },
+        {
+            "type": "patchouli:header",
+            "text": "#name",
+            "x": -1,
+            "y": -1
+        },
+        {
+            "type": "patchouli:item",
+            "framed": false,
+            "x": 86,
+            "y": 28,
+            "item": "#result"
+        },
+        {
+            "type": "patchouli:item",
+            "framed": true,
+            "x": 50,
+            "y": 28,
+            "item": "minecraft:brewing_stand"
+        },
+        {
+            "type": "patchouli:image",
+            "image": "patchouli:textures/gui/crafting.png",
+            "x": 10,
+            "y": 15,
+            "width": 96,
+            "height": 43,
+            "u": 11,
+            "v": 135,
+            "texture_width": 128,
+            "texture_height": 256
+        },
+        {
+            "type": "patchouli:text",
+            "text": "#text",
+            "x": 0,
+            "y": 65
+        }
+    ]
+}

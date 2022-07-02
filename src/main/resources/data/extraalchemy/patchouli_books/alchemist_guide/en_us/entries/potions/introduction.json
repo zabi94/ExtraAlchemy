@@ -1,0 +1,17 @@
+{
+    "name": "Introduction",
+    "icon": "extraalchemy:potion_bag",
+    "category": "extraalchemy:potions",
+    "priority": true,
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "title": "Introduction",
+            "text": "This pamphlet will list all the potions and trinkets invented by the author himself. All the potions collected in this manual will have their respective lingering, splash and arrow format, just like the more known potions out there. Most of them will also support extending their power or duration with glowstone and redstone, respectively."
+        },
+        {
+            "type": "patchouli:text",
+            "text": "$(l)$(c)Attention$(): Some recipes require a different potion from the usual awkward one. Please refer to the potion's page to find out which one is the correct one."
+        }
+    ]
+}

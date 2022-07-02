@@ -1,0 +1,18 @@
+{
+    "name": "Potion of Sailing",
+    "icon": "extraalchemy:textures/mob_effect/sails.png",
+    "category": "extraalchemy:potions",
+    "pages": [
+        {
+            "type": "extraalchemy:potion",
+            "item": "minecraft:salmon",
+            "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
+            "result": "minecraft:potion{Potion:\"extraalchemy:sails\"}",
+            "name": "Sailing",
+            "text": "The potion of Sailing is elegant in its simplicity: it simply causes the water around the oars of a boat to flow more intensly, aiding travel by boat by making it faster.$(br2)A more powerful effect simply"
+        }, {
+            "type": "patchouli:text",
+            "text": "increases the speed of the water underneath, and the final speed the boat can reach as a consequence."
+        }
+    ]
+}

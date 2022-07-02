@@ -1,0 +1,18 @@
+{
+    "name": "Potion of Photosynthesis",
+    "icon": "extraalchemy:textures/mob_effect/photosynthesis.png",
+    "category": "extraalchemy:potions",
+    "pages": [
+        {
+            "type": "extraalchemy:potion",
+            "item": "minecraft:beetroot_seeds",
+            "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
+            "result": "minecraft:potion{Potion:\"extraalchemy:photosynthesis\"}",
+            "name": "Photosynthesis",
+            "text": "The potion of Photosynthesis creates a sense of fullness in the stomach and prevents the user from starving to death. To do so it will leverage the power of the sun, which must be visible for it to work."
+        }, {
+            "type": "patchouli:text",
+            "text": "Beware, though: the nutrients acquired with this potion are not enough to trigger natural healing mechanisms that normal food triggers, and the feeling quickly fades away, as it only provides a remedy for hunger without any saturation."
+        }
+    ]
+}

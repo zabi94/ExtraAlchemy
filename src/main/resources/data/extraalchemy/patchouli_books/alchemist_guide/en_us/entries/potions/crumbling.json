@@ -1,0 +1,18 @@
+{
+    "name": "Potion of Crumbling",
+    "icon": "extraalchemy:textures/mob_effect/crumbling.png",
+    "category": "extraalchemy:potions",
+    "pages": [
+        {
+            "type": "extraalchemy:potion",
+            "item": "minecraft:dirt",
+            "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
+            "result": "minecraft:potion{Potion:\"extraalchemy:crumbling\"}",
+            "name": "Crumbling",
+            "text": "The potion of Crumbling erodes the more mundane materials from under the feet of the afflicted. A higher potency version could theoretically destroy slightly harder materials."
+        }, {
+            "type": "patchouli:text",
+            "text": "A potion such as this one may be used offensively, to disrupt a foe's escape, or as a tool, to reach lower depths without getting tired. $(br2)A useful trick is to gather a handful of small creatures in an enclosure, say chickens, and applying this brew over them, to quickly have a large area of land dug downwards."
+        }
+    ]
+}

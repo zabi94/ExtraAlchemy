@@ -1,0 +1,18 @@
+{
+    "name": "Potion of Magnetism",
+    "icon": "extraalchemy:textures/mob_effect/magnetism.png",
+    "category": "extraalchemy:potions",
+    "pages": [
+        {
+            "type": "extraalchemy:potion",
+            "item": "minecraft:iron_ingot",
+            "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
+            "result": "minecraft:potion{Potion:\"extraalchemy:magnetism\"}",
+            "name": "Magnetism",
+            "text": "The potion of Magnetism attracts items towards the user. The magnetic attraction is so intense that items will find their way through walls to reach the source of this effect, whose area of influence grows with the strength of the potion."
+        }, {
+            "type": "patchouli:text",
+            "text": "The control this potion gives to the user is immense. Any item willingly thrown on the ground by them will not be influenced by this effect, anything else will immediately be picked up.$(br2)This behaviour is inverted if the user sneaks: items thrown will immediately be picked up, everything else won't.$(br2)It is also possible to temporarily inhibit this effect by pressing $(k:extraalchemy.magnetism_toggle)"
+        }
+    ]
+}
