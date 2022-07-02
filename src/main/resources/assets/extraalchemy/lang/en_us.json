@@ -172,5 +172,9 @@
 	
 	"key.extraalchemy.magnetism_toggle": "Toggle Potion of Magnetism",
 	"key.extraalchemy.toggle_extra_inv_rings": "Toggle rings equipped Bauble-like inventories",
-	"key.extraalchemy.potion_bag_mode": "Toggle Potion Bag auto-selection"
+	"key.extraalchemy.potion_bag_mode": "Toggle Potion Bag auto-selection",
+	
+	"extraalchemy.guide.title": "Alchemist's Pamphlet",
+	"extraalchemy.guide.subtitle": "A guide to unusual brews",
+	"extraalchemy.guide.description": "A quick guide to the use of innovative potions and their related trinkets."
 }

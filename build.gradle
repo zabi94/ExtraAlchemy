@@ -40,6 +40,10 @@ repositories {
 		name = "TerraformersMC" //Trinkets
 		url = "https://maven.terraformersmc.com/"
 	}
+    maven { 
+    	name = "Patchouli"
+    	url 'https://maven.blamejared.com' 
+    }
 }
 
 dependencies {
@@ -101,6 +105,8 @@ dependencies {
 	}
 	
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
+	
+	modImplementation "vazkii.patchouli:Patchouli:${project.patchouli_version}"
 	
 	// //Bundling
 	include "me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}"
