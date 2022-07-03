@@ -1,0 +1,18 @@
+{
+    "name": "Potion of Returning",
+    "icon": "extraalchemy:textures/mob_effect/returning.png",
+    "category": "extraalchemy:potions",
+    "pages": [
+        {
+            "type": "extraalchemy:potion",
+            "item": "minecraft:prismarine_shard",
+            "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
+            "result": "minecraft:potion{Potion:\"extraalchemy:returning\"}",
+            "name": "Returning",
+            "text": "The potion of Returning immediately teleports you to your home, near your bed. A respawn anchor may also be used to redirect the effect of this potion, $(t:Check your configuration!)if the current rules of magic allow for that$(/t). In this case, sufficient charge may be required."
+        }, {
+            "type": "patchouli:text",
+            "text": "Should there not be a viable spot for you to appear in, this potion has no effect."
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "name": "Potion of Learning",
+    "icon": "extraalchemy:textures/mob_effect/learning.png",
+    "category": "extraalchemy:potions",
+    "pages": [
+        {
+            "type": "extraalchemy:potion",
+            "item": "minecraft:lapis_block",
+            "base": "minecraft:potion{Potion:\"minecraft:thick\"}",
+            "result": "minecraft:potion{Potion:\"extraalchemy:learning\"}",
+            "name": "Learning",
+            "text": "The potion of Learning makes the user attract xp orbs from afar and eases the process of absorption, making them instant to pick and it avoids that annoying orbital motion typical of large amounts of experience."
+        }, {
+            "type": "patchouli:text",
+            "text": "$(t:Check your configuration!)In some instances$(/t) it also boosts the amount of experience you're able to gain from those orbs."
+        }
+    ]
+}
