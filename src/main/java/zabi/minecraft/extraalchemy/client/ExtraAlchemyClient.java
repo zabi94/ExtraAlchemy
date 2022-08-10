@@ -10,11 +10,15 @@ import zabi.minecraft.extraalchemy.client.screen.ModScreens;
 import zabi.minecraft.extraalchemy.client.tooltip.PotionTooltipComponent;
 import zabi.minecraft.extraalchemy.client.tooltip.PotionTooltipData;
 import zabi.minecraft.extraalchemy.client.tooltip.StatusEffectContainer;
+import zabi.minecraft.extraalchemy.utils.proxy.ClientProxy;
 
 public class ExtraAlchemyClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
+		
+		new ClientProxy().registerProxy();
+		
 		ClientPacketRegistry.init();
 		KeybindDispatcher.initKeybinds();
 		KeybindDispatcher.registerListeners();
