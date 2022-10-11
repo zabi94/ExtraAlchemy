@@ -1,0 +1,164 @@
+{
+  "itemGroup.extraalchemy.all": "扩展炼药",
+
+  "item.extraalchemy.breakable_potion": "小瓶%s",
+
+  "item.extraalchemy.empty_ring": "空药水指环",
+  "item.extraalchemy.empty_ring.tooltip1": "与药水一起制作。",
+  "item.extraalchemy.empty_ring.tooltip2": "不是所有的药水都可以。",
+
+  "item.extraalchemy.potion_ring": "药水戒指",
+  "item.extraalchemy.potion_ring.potion": "包含：%s %s",
+  "item.extraalchemy.potion_ring.cost": "花费经验点数：%s",
+  "item.extraalchemy.potion_ring.creative": "创造模式版本",
+  "item.extraalchemy.potion_ring.length": "持续时间(s)：%s",
+  "item.extraalchemy.potion_ring.disabled": "禁用。Shift-右键 开启",
+  "item.extraalchemy.potion_ring.enabled": "启用。Shift-右键 关闭",
+
+  "item.extraalchemy.potion_bag": "药水包",
+  "item.extraalchemy.potion_bag.selected.potion": "当前选择：%s (%s)",
+  "item.extraalchemy.potion_bag.selected.none": "没有药水可选",
+  "item.extraalchemy.potion_bag.autoselect": "当药水不可用时：%s",
+  "item.extraalchemy.potion_bag.autoselect.option.next": "选择下一个药水",
+  "item.extraalchemy.potion_bag.autoselect.option.deselect": "取消选择的药水",
+  "item.extraalchemy.potion_bag.autoselect.option.hold": "保持当前选择的药水",
+  "item.extraalchemy.potion_bag.autoselect.change": "按下 [%s] 切换选择模式",
+
+  "item.extraalchemy.empty_vial": "细玻璃瓶",
+  "item.extraalchemy.empty_vial.tootlip1": "使用喷溅药水来合成，是的",
+  "item.extraalchemy.empty_vial.tootlip2": "也可以手持细玻璃瓶右键，会使用快捷栏第一个喷溅药水进行合成。",
+  "item.extraalchemy.empty_vial.tootlip.disabled": "细玻璃瓶被禁用。在这个包中移除配方！",
+
+  "effect.extraalchemy.magnetism": "磁性",
+  "item.minecraft.potion.effect.magnetism": "磁性药水",
+  "item.minecraft.splash_potion.effect.magnetism": "喷溅型磁性药水",
+  "item.minecraft.lingering_potion.effect.magnetism": "滞留型磁性药水",
+  "item.minecraft.tipped_arrow.effect.magnetism": "磁性之箭",
+
+  "effect.extraalchemy.photosynthesis": "光合",
+  "item.minecraft.potion.effect.photosynthesis": "光合药水",
+  "item.minecraft.splash_potion.effect.photosynthesis": "喷溅型光合药水",
+  "item.minecraft.lingering_potion.effect.photosynthesis": "滞留型光合药水",
+  "item.minecraft.tipped_arrow.effect.photosynthesis": "光合之箭",
+
+  "effect.extraalchemy.crumbling": "地噬",
+  "item.minecraft.potion.effect.crumbling": "地噬药水",
+  "item.minecraft.splash_potion.effect.crumbling": "喷溅型地噬药水",
+  "item.minecraft.lingering_potion.effect.crumbling": "滞留型地噬药水",
+  "item.minecraft.tipped_arrow.effect.crumbling": "地噬之箭",
+
+  "effect.extraalchemy.sails": "航行",
+  "item.minecraft.potion.effect.sails": "航行药水",
+  "item.minecraft.splash_potion.effect.sails": "喷溅型航行药水",
+  "item.minecraft.lingering_potion.effect.sails": "滞留型航行药水",
+  "item.minecraft.tipped_arrow.effect.sails": "航行之箭",
+
+  "effect.extraalchemy.fuse": "引信",
+  "item.minecraft.potion.effect.fuse": "引信药水",
+  "item.minecraft.splash_potion.effect.fuse": "喷溅型引信药水",
+  "item.minecraft.lingering_potion.effect.fuse": "滞留型引信药水",
+  "item.minecraft.tipped_arrow.effect.fuse": "引信之箭",
+
+  "effect.extraalchemy.recall": "回溯",
+  "item.minecraft.potion.effect.recall": "回溯药水",
+  "item.minecraft.splash_potion.effect.recall": "喷溅型回溯药水",
+  "item.minecraft.lingering_potion.effect.recall": "滞留型回溯药水",
+  "item.minecraft.tipped_arrow.effect.recall": "回溯药水之箭",
+
+  "effect.extraalchemy.returning": "回归",
+  "item.minecraft.potion.effect.returning": "归还药水",
+  "item.minecraft.splash_potion.effect.returning": "喷溅型归还药水",
+  "item.minecraft.lingering_potion.effect.returning": "滞留型归还药水",
+  "item.minecraft.tipped_arrow.effect.returning": "归还之箭",
+
+  "effect.extraalchemy.piper": "吸引",
+  "item.minecraft.potion.effect.piper": "风笛药水",
+  "item.minecraft.splash_potion.effect.piper": "喷溅型风笛药水",
+  "item.minecraft.lingering_potion.effect.piper": "滞留型风笛药水",
+  "item.minecraft.tipped_arrow.effect.piper": "风笛之箭",
+
+  "effect.extraalchemy.learning": "学习",
+  "item.minecraft.potion.effect.learning": "学习药水",
+  "item.minecraft.splash_potion.effect.learning": "喷溅型学习药水",
+  "item.minecraft.lingering_potion.effect.learning": "滞留型学习药水",
+  "item.minecraft.tipped_arrow.effect.learning": "学习之箭",
+
+  "effect.extraalchemy.concentration": "焦点",
+  "item.minecraft.potion.effect.concentration": "焦点药水",
+  "item.minecraft.splash_potion.effect.concentration": "喷溅型焦点药水",
+  "item.minecraft.lingering_potion.effect.concentration": "滞留型焦点药水",
+  "item.minecraft.tipped_arrow.effect.concentration": "焦点之箭",
+
+  "effect.extraalchemy.gravity": "万有引力",
+  "item.minecraft.potion.effect.gravity": "重力药水",
+  "item.minecraft.splash_potion.effect.gravity": "喷溅型重力药水",
+  "item.minecraft.lingering_potion.effect.gravity": "滞留型重力药水",
+  "item.minecraft.tipped_arrow.effect.gravity": "重力之箭",
+
+  "effect.extraalchemy.combustion": "烧灼",
+  "item.minecraft.potion.effect.combustion": "浴火药水",
+  "item.minecraft.splash_potion.effect.combustion": "喷溅型浴火药水",
+  "item.minecraft.lingering_potion.effect.combustion": "滞留型浴火药水",
+  "item.minecraft.tipped_arrow.effect.combustion": "浴火之箭",
+
+  "effect.extraalchemy.pacifism": "和平主义",
+  "item.minecraft.potion.effect.pacifism": "和平药水",
+  "item.minecraft.splash_potion.effect.pacifism": "喷溅型和平药水",
+  "item.minecraft.lingering_potion.effect.pacifism": "滞留型和平药水",
+  "item.minecraft.tipped_arrow.effect.pacifism": "和平之箭",
+
+  "effect.extraalchemy.detection": "感知",
+  "item.minecraft.potion.effect.detection": "感知药水",
+  "item.minecraft.splash_potion.effect.detection": "喷溅型感知药水",
+  "item.minecraft.lingering_potion.effect.detection": "滞留型感知药水",
+  "item.minecraft.tipped_arrow.effect.detection": "感知之箭",
+
+  "extraalchemy.mod_name": "扩展炼药",
+
+  "extraalchemy.config.general": "通用",
+  "extraalchemy.config.potions": "药水配方",
+
+  "extraalchemy.config.general.enable_learning_boost": "学习XP提升",
+  "extraalchemy.config.general.enable_learning_boost.tooltip1": "启用此功能可以使智慧药水",
+  "extraalchemy.config.general.enable_learning_boost.tooltip2": "从经验球中增加10%%经验值。",
+
+  "extraalchemy.config.general.enable_vials": "启用细玻璃瓶",
+  "extraalchemy.config.general.enable_vials.tooltip1": "启用则可以使用细玻璃瓶与",
+  "extraalchemy.config.general.enable_vials.tooltip2": "喷溅药水制作成小瓶药水",
+
+  "extraalchemy.config.potion": "%s",
+  "extraalchemy.config.potion.tooltip1": "注册酿造配方%s。",
+  "extraalchemy.config.potion.tooltip2": "无论如何,状态效果都会被注册下来。",
+
+  "extraalchemy.config.general.disable_inventory_shift": "禁用背包界面偏移",
+  "extraalchemy.config.general.disable_inventory_shift.tooltip1": "当拥有状态效果时，",
+  "extraalchemy.config.general.disable_inventory_shift.tooltip2": "防止背包界面向右偏移",
+
+  "extraalchemy.config.general.enable_rings": "启用药水戒指",
+  "extraalchemy.config.general.enable_rings.tooltip1": "启用此功能可以使用空药水指环",
+  "extraalchemy.config.general.enable_rings.tooltip2": "与药水一起制作药水指环。",
+
+  "extraalchemy.config.general.enable_brewing_stand_fire": "启用酿造台火源调整",
+  "extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "启用则使得酿造台再每2秒获得燃料，",
+  "extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "当一个热源放置在酿造台底下时。",
+
+  "extraalchemy.config.general.anchor_depletes": "回归消耗重生锚",
+  "extraalchemy.config.general.anchor_depletes.tooltip1": "启用此功能时,当玩家使用回归药水返回重生锚时，",
+  "extraalchemy.config.general.anchor_depletes.tooltip2": "重生锚将消耗一次充能。",
+
+  "extraalchemy.config.general.ignore_ring_mods": "戒指槽MOD允许戒指在背包",
+  "extraalchemy.config.general.ignore_ring_mods.tooltip1": "当启用时,即使安装了专门给戒指使用的插槽，",
+  "extraalchemy.config.general.ignore_ring_mods.tooltip2": "药水戒指在玩家的背包中也能正常工作。",
+
+  "extraalchemy.config.general.show_icons_in_tooltips": "在包含药水效果的工具提示中显示图标",
+  "extraalchemy.config.general.show_icons_in_tooltips.tooltip1": "启用此功能时，所有包含药水效果的物品，",
+  "extraalchemy.config.general.show_icons_in_tooltips.tooltip2": "在工具提示中显示效果图标和等级。",
+
+  "extraalchemy.config.clientside": "仅客户端",
+  "extraalchemy.config.must_sync": "必须手动与服务器同步",
+  "extraalchemy.config.serveronly": "在服务器上设置的值优先于MP",
+
+  "key.extraalchemy.magnetism_toggle": "切换磁性效果",
+  "key.extraalchemy.toggle_extra_inv_rings": "切换在饰品槽中药水戒指的开启/关闭",
+  "key.extraalchemy.potion_bag_mode": "切换药水袋的选择模式"
+}
