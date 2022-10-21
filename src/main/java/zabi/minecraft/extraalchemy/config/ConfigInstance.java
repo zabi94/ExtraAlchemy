@@ -21,7 +21,7 @@ public class ConfigInstance {
 		enableVials = true;
 		enableRings = true;
 		enableBrewingStandFire = true;
-		brewingStandHeatIncrementDelay = 40;
+		brewingStandHeatIncrementDelay = 2;
 		brewingStandFireMaxCapacity = 20;
 		useAnchorChargesWithReturnPotion = true;
 		allowRingsInInventoryWithThirdPartyMods = false;
