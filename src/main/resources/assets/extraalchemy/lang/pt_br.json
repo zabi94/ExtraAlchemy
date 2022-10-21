@@ -154,6 +154,14 @@
 	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "Habilitar isto faz com que o alambique seja reabastecido a cada", 
 	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "2 segundos quando uma fonte de calor for colocada abaixo dele.",
 	
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay": "Velocidade de acumulação de calor do suporte de infusão",
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip1": "Especifique o número de segundos que precisam passar", 
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip2": "para que o suporte de infusão obtenha calor de uma fonte de calor",
+
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity": "Limite de calor do suporte de infusão",
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip1": "Especifique a capacidade máxima (1-20) que o suporte de infusão", 
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip2": "pode acumular de uma fonte de calor embaixo.",
+
 	"extraalchemy.config.general.anchor_depletes": "Esvaziar âncora ao retonar",
 	"extraalchemy.config.general.anchor_depletes.tooltip1": "Habilitar isto faz com que a âncora de renascimento perca as cargas quando", 
 	"extraalchemy.config.general.anchor_depletes.tooltip2": "um(a) jogador(a) se teletransporta para ela com o efeito de retrocesso",

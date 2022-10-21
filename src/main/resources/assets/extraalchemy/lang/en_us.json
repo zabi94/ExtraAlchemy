@@ -151,9 +151,17 @@
 	"extraalchemy.config.general.enable_rings.tooltip2": "with a potion to create Potion Rings.",
 	
 	"extraalchemy.config.general.enable_brewing_stand_fire": "Enable Brewing stand fire tweak",
-	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "Enabling this makes the Brewing Stand get fuel every", 
-	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "2 seconds when a heat source is placed underneath.",
+	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "Enabling this makes the Brewing Stand get fuel", 
+	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "when a heat source is placed underneath.",
 	
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay": "Brewing stand heat accumulation speed",
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip1": "Specify the number of seconds that need to pass", 
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip2": "for the brewing speed to get heat from a heat source.",
+
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity": "Brewing stand heat limit",
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip1": "Specify the maximum capacity (1-20) that the Brewing stand", 
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip2": "can accumulate from a heat source underneath.",
+
 	"extraalchemy.config.general.anchor_depletes": "Deplete Anchor on return",
 	"extraalchemy.config.general.anchor_depletes.tooltip1": "Enabling this makes the Respawn Anchor lose a charge", 
 	"extraalchemy.config.general.anchor_depletes.tooltip2": "when players teleport to it with the Return effect.",

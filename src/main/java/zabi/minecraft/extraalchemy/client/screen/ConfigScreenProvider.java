@@ -113,6 +113,31 @@ public class ConfigScreenProvider implements ModMenuApi {
 		);
 
 		general.addEntry(configBuilder.entryBuilder()
+				.startIntField(Text.translatable("extraalchemy.config.general.brewing_stand_heat_increment_delay") , ModConfig.INSTANCE.brewingStandHeatIncrementDelay)
+					.setDefaultValue(2)
+					.setTooltip(
+							Text.translatable("extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip1"), 
+							Text.translatable("extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip2"),
+							SERVER_SIDE
+					)
+					.setSaveConsumer(val -> {ModConfig.INSTANCE.brewingStandHeatIncrementDelay = val;})
+					.build()
+		);
+
+
+		general.addEntry(configBuilder.entryBuilder()
+				.startIntField(Text.translatable("extraalchemy.config.general.brewing_stand_fire_max_capacity") , ModConfig.INSTANCE.brewingStandFireMaxCapacity)
+					.setDefaultValue(20)
+					.setTooltip(
+							Text.translatable("extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip1"), 
+							Text.translatable("extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip2"),
+							SERVER_SIDE
+					)
+					.setSaveConsumer(val -> {ModConfig.INSTANCE.brewingStandFireMaxCapacity = val;})
+					.build()
+		);
+
+		general.addEntry(configBuilder.entryBuilder()
 				.startBooleanToggle(Text.translatable("extraalchemy.config.general.anchor_depletes") , ModConfig.INSTANCE.useAnchorChargesWithReturnPotion)
 					.setDefaultValue(true)
 					.setTooltip(

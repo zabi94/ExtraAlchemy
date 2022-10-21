@@ -136,6 +136,14 @@
 	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "Если включено, стойка зельеварения будет заправляться каждые", 
 	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "2 секунды когда под ней размещен источник тепла.",
 
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay": "Скорость заправки стойки зельеварения огнём",
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip1": "Укажите количество секунд, спустя которое стойка", 
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip2": "получит тепло от источника тепла.",
+
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity": "Ёмкость тепла в стойке от источника тепла",
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip1": "Укажите максимальную ёмкость (1-20), которую стойка зельеварения", 
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip2": "может накопить от источника тепла под ней.",
+
 	"extraalchemy.config.general.anchor_depletes": "Истощение Якоря по возвращении",
 	"extraalchemy.config.general.anchor_depletes.tooltip1": "Включение этого параметра заставляет Якорь Возрождения терять заряд,", 
 	"extraalchemy.config.general.anchor_depletes.tooltip2": "когда игроки телепортируются к нему с эффектом возврата.",
