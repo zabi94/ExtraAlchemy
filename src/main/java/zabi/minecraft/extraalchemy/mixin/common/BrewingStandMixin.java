@@ -38,7 +38,7 @@ public abstract class BrewingStandMixin extends LockableContainerBlockEntity imp
 
 	public void mixinLogicProxy() {
 		if (!world.isClient && ModConfig.INSTANCE.enableBrewingStandFire) {
-			if (fuel < 20 && world.getTime() % 40 == 0 && isHeated(world, pos)) {
+			if (fuel < ModConfig.INSTANCE.brewingStandFireMaxCapacity && world.getTime() % (20 * ModConfig.INSTANCE.brewingStandHeatIncrementDelay) == 0 && isHeated(world, pos)) {
 				fuel++;
 				this.markDirty();
 			}
