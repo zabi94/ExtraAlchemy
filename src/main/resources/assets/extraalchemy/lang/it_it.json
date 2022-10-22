@@ -154,13 +154,13 @@
 	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "Abilitare questa opzione fa si che gli alambicchi vengano", 
 	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "scaldati ogni 2 secondi se c'è una fonte di calore sotto.",
 	
-	"extraalchemy.config.general.brewing_stand_heat_increment_delay": "Velocità di accumulo di calore del supporto di infusione",
-	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip1": "Specificare il numero di secondi che devono trascorrere affinché", 
-	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip2": "il supporto di infusione riceva calore da una fonte di calore.",
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay": "Brewing stand heat accumulation speed",
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip1": "Specify the number of seconds that need to pass", 
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip2": "for the brewing speed to get heat from a heat source.",
 
-	"extraalchemy.config.general.brewing_stand_fire_max_capacity": "Limite di calore del supporto di fermentazione",
-	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip1": "Specificare la capacità massima (1-20) che il supporto di infusione", 
-	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip2": "può accumulare da una fonte di calore sottostante.",
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity": "Brewing stand heat limit",
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip1": "Specify the maximum capacity (1-20) that the Brewing stand", 
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip2": "can accumulate from a heat source underneath.",
 
 	"extraalchemy.config.general.anchor_depletes": "Consuma le àncore",
 	"extraalchemy.config.general.anchor_depletes.tooltip1": "Abilitare questa opzione fa si che le àncore consumino una carica", 
