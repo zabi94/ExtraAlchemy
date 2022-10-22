@@ -26,6 +26,8 @@ public abstract class BrewingStandMixin extends LockableContainerBlockEntity imp
 	
 	private static final TagKey<Block> HEAT_SOURCE_TAG = TagKey.of(Registry.BLOCK_KEY, LibMod.id("heat_source"));
 	private static final TagKey<Block> HEAT_CONDUCTOR_TAG = TagKey.of(Registry.BLOCK_KEY, LibMod.id("heat_conductor"));
+	private static final int BREWING_STAND_MAX_FUEL_CAPACITY = Math.min(20, ModConfig.INSTANCE.brewingStandFireMaxCapacity);
+	private static final int BREWING_STAND_HEAT_INCREMENT_DELAY_TICKS = 20 * ModConfig.INSTANCE.brewingStandHeatIncrementDelay;
 	
 	protected BrewingStandMixin(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
 		super(blockEntityType, blockPos, blockState);
@@ -38,7 +40,7 @@ public abstract class BrewingStandMixin extends LockableContainerBlockEntity imp
 
 	public void mixinLogicProxy() {
 		if (!world.isClient && ModConfig.INSTANCE.enableBrewingStandFire) {
-			if (fuel < ModConfig.INSTANCE.brewingStandFireMaxCapacity && world.getTime() % (20 * ModConfig.INSTANCE.brewingStandHeatIncrementDelay) == 0 && isHeated(world, pos)) {
+			if (fuel < BREWING_STAND_MAX_FUEL_CAPACITY && isHeated(world, pos) && world.getTime() % BREWING_STAND_HEAT_INCREMENT_DELAY_TICKS == 0) {
 				fuel++;
 				this.markDirty();
 			}
