@@ -8,5 +8,6 @@ import net.minecraft.entity.player.PlayerEntity;
 public class DataTrackers {
 
 	public static final TrackedData<Boolean> MAGNET_TRACKER = DataTracker.registerData(PlayerEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	
 
 }

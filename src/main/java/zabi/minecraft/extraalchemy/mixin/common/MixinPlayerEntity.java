@@ -15,6 +15,8 @@ import zabi.minecraft.extraalchemy.entitydata.PlayerProperties;
 
 @Mixin(PlayerEntity.class)
 public abstract class MixinPlayerEntity extends LivingEntity implements PlayerProperties {
+	
+	private float ea_xp_reserve = 0;
 
 	protected MixinPlayerEntity(EntityType<? extends LivingEntity> type, World world) {
 		super(type, world);
@@ -23,11 +25,13 @@ public abstract class MixinPlayerEntity extends LivingEntity implements PlayerPr
 	@Inject(at = @At("TAIL"), method = "readCustomDataFromNbt")
 	public void readNbt(NbtCompound tag, CallbackInfo cb) {
 		dataTracker.set(DataTrackers.MAGNET_TRACKER, tag.getBoolean("magnetismEnabled"));
+		ea_xp_reserve = tag.getFloat("ea_xp_reserve");
 	}
 	
 	@Inject(at = @At("TAIL"), method = "writeCustomDataToNbt")
 	public void writeNbt(NbtCompound tag, CallbackInfo cb) {
 		tag.putBoolean("magnetismEnabled", dataTracker.get(DataTrackers.MAGNET_TRACKER));
+		tag.putFloat("ea_xp_reserve", ea_xp_reserve);
 	}
 	
 	@Inject(at = @At("TAIL"), method = "initDataTracker")
@@ -43,6 +47,16 @@ public abstract class MixinPlayerEntity extends LivingEntity implements PlayerPr
 	@Override
 	public void setMagnetismEnabled(boolean magnetismActive) {
 		dataTracker.set(DataTrackers.MAGNET_TRACKER, magnetismActive);
+	}
+	
+	@Override
+	public int calculateXPDue(float xp) {
+		
+		int returnable = (int) (xp + ea_xp_reserve);
+		float storable = xp + ea_xp_reserve - returnable;
+		ea_xp_reserve = storable;
+		
+		return returnable;
 	}
 	
 }

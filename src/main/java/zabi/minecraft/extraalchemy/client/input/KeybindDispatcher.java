@@ -42,7 +42,7 @@ public class KeybindDispatcher {
 		ClientTickEvents.END_CLIENT_TICK.register(evt -> {
 			if (MAGNETISM_TOGGLE.isPressed()) {
 				if (!wasMagnetismPressedLastTick) {
-					PlayerProperties pp = (PlayerProperties) (Object) MinecraftClient.getInstance().player;
+					PlayerProperties pp = PlayerProperties.of(MinecraftClient.getInstance().player);
 					boolean newMagnetismStatus = !pp.isMagnetismEnabled();
 					pp.setMagnetismEnabled(newMagnetismStatus);
 					ClientPlayNetworking.send(C2S_Channels.MAGNETISM_ENABLE, SimplePacketBufs.ofBool(newMagnetismStatus));

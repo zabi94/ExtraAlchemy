@@ -17,7 +17,7 @@ public class ServerPacketRegistry {
 		ServerPlayNetworking.registerGlobalReceiver(C2S_Channels.MAGNETISM_ENABLE, (server, player, handler, buf, response) -> {
 			boolean magnetismActive = buf.readBoolean();
 			server.execute(() -> {
-				((PlayerProperties) (Object) player).setMagnetismEnabled(magnetismActive);
+				PlayerProperties.of(player).setMagnetismEnabled(magnetismActive);
 				response.sendPacket(S2C_Channels.PLAY_CLICK_SOUND, PacketByteBufs.empty());
 			});
 		});

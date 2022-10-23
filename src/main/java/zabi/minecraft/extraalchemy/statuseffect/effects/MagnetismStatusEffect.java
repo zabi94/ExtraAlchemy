@@ -18,8 +18,8 @@ public class MagnetismStatusEffect extends ModStatusEffect {
 	@Override
 	public void applyUpdateEffect(LivingEntity entity, int level) {
 		if (!entity.world.isClient) {
-			if (entity instanceof PlayerEntity) {
-				if (((PlayerProperties) (Object) entity).isMagnetismEnabled()) {
+			if (entity instanceof PlayerEntity player) {
+				if (PlayerProperties.of(player).isMagnetismEnabled()) {
 					entity.world.getEntitiesByClass(ItemEntity.class, entity.getBoundingBox().expand((level + 1) * 3), Predicates.alwaysTrue())
 					.stream()
 					.map(e -> (ItemEntity) e)

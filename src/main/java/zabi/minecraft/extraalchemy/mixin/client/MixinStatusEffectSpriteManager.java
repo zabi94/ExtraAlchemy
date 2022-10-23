@@ -25,7 +25,7 @@ public abstract class MixinStatusEffectSpriteManager extends SpriteAtlasHolder  
 	
 	@Inject(at = @At("HEAD"), cancellable = true, method = "getSprite")
 	public void injectGetSprite(StatusEffect statusEffect, CallbackInfoReturnable<Sprite> cbinfo) {
-		if (statusEffect == ModEffectRegistry.magnetism && !((PlayerProperties) MinecraftClient.getInstance().player).isMagnetismEnabled()) {
+		if (statusEffect == ModEffectRegistry.magnetism && !PlayerProperties.of(MinecraftClient.getInstance().player).isMagnetismEnabled()) {
 			cbinfo.setReturnValue(this.getSprite(Registry.STATUS_EFFECT.getId(ModEffectRegistry.Utils.magnetism_disabled)));
 		}
 	}
