@@ -1,0 +1,18 @@
+{
+    "name": "Potion of Detection",
+    "icon": "extraalchemy:textures/mob_effect/detection.png",
+    "category": "extraalchemy:potions",
+    "pages": [
+        {
+            "type": "extraalchemy:potion",
+            "item": "minecraft:kelp",
+            "base": "minecraft:potion{Potion:\"minecraft:mundane\"}",
+            "result": "minecraft:potion{Potion:\"extraalchemy:detection\"}",
+            "name": "Detection",
+            "text": "The potion of Detection enhances your sight and hearing to allow you to sense entities nearby. These entities manifest in the same way they would when you hit them with a spectral arrow, except they will only be revealed to you."
+        }, {
+            "type": "patchouli:text",
+            "text": "Other players revealed in this manner won't know they can be seen, as it does not apply any effect to them."
+        }
+    ]
+}

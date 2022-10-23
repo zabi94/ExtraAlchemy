@@ -1,0 +1,18 @@
+{
+    "name": "Potion of the Piper",
+    "icon": "extraalchemy:textures/mob_effect/piper.png",
+    "category": "extraalchemy:potions",
+    "pages": [
+        {
+            "type": "extraalchemy:potion",
+            "item": "minecraft:wheat",
+            "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
+            "result": "minecraft:potion{Potion:\"extraalchemy:piper\"}",
+            "name": "Piper",
+            "text": "The potion of Pacifism spreads an aura that discourages attacking the creature it affects. While it will not prevent them from getting hurt, it will apply a strong slowing effect on any attacker."
+        }, {
+            "type": "patchouli:text",
+            "text": "A stronger potion will cause a stronger slowing effect on attackers."
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "name": "Potion of Gravity",
+    "icon": "extraalchemy:textures/mob_effect/gravity.png",
+    "category": "extraalchemy:potions",
+    "pages": [
+        {
+            "type": "extraalchemy:potion",
+            "item": "minecraft:nether_bricks",
+            "base": "minecraft:potion{Potion:\"minecraft:thick\"}",
+            "result": "minecraft:potion{Potion:\"extraalchemy:gravity\"}",
+            "name": "Gravity",
+            "text": "The potion of Gravity will increase the force with which the world drags the creatures downwards. Floating creatures like ghasts and blazes will feel the effect, but fast moving entities such as players with elytras will not."
+        }, {
+            "type": "patchouli:text",
+            "text": "This effect won't work on $(t:Looking at you, creative players)other players that possess the ability of standing still in mid air.$(/t)$(br2)A stronger effect will increase the speed at which the fall occurs."
+        }
+    ]
+}
