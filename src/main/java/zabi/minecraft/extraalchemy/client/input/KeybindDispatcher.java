@@ -21,20 +21,20 @@ public class KeybindDispatcher {
 
 	public static final KeyBinding MAGNETISM_TOGGLE = new KeyBinding("key.extraalchemy.magnetism_toggle", Type.KEYSYM, InputUtil.fromTranslationKey("key.keyboard.n").getCode(), LibMod.MOD_NAME);
 	public static final KeyBinding POTION_BAG_MODE = new KeyBinding("key.extraalchemy.potion_bag_mode", Type.KEYSYM, InputUtil.fromTranslationKey("key.keyboard.k").getCode(), LibMod.MOD_NAME);
-	 public static final KeyBinding EXTRA_INVENTORY_RING_TOGGLE = new KeyBinding("key.extraalchemy.toggle_extra_inv_rings", Type.KEYSYM, InputUtil.fromTranslationKey("key.keyboard.y").getCode(), LibMod.MOD_NAME);
+	public static final KeyBinding EXTRA_INVENTORY_RING_TOGGLE = new KeyBinding("key.extraalchemy.toggle_extra_inv_rings", Type.KEYSYM, InputUtil.fromTranslationKey("key.keyboard.y").getCode(), LibMod.MOD_NAME);
 
 	private static boolean wasMagnetismPressedLastTick = false; 
-	 private static boolean wasExtraInvRingTogglePressedLastTick = false;
-	
-	 private static boolean areExtraInventoryModsInstalled;
+	private static boolean wasExtraInvRingTogglePressedLastTick = false;
+
+	private static boolean areExtraInventoryModsInstalled;
 
 	public static void initKeybinds() {
-		 areExtraInventoryModsInstalled = FabricLoader.getInstance().isModLoaded("trinkets");
+		areExtraInventoryModsInstalled = FabricLoader.getInstance().isModLoaded("trinkets");
 		KeyBindingHelper.registerKeyBinding(MAGNETISM_TOGGLE);
 		KeyBindingHelper.registerKeyBinding(POTION_BAG_MODE);
-		 if (areExtraInventoryModsInstalled) {
-		 	KeyBindingHelper.registerKeyBinding(EXTRA_INVENTORY_RING_TOGGLE);
-		 }
+		if (areExtraInventoryModsInstalled) {
+			KeyBindingHelper.registerKeyBinding(EXTRA_INVENTORY_RING_TOGGLE);
+		}
 	}
 
 	@SuppressWarnings("resource")
@@ -59,15 +59,15 @@ public class KeybindDispatcher {
 					ClientPlayNetworking.send(C2S_Channels.CYCLE_BAG_MODES, SimplePacketBufs.ofBool(mainHand));
 				}
 			}
-			
-			 if (areExtraInventoryModsInstalled && EXTRA_INVENTORY_RING_TOGGLE.isPressed()) {
-			 	if (!wasExtraInvRingTogglePressedLastTick) {
-			 		ClientPlayNetworking.send(C2S_Channels.TOGGLE_RINGS_IN_EXTRA_INVENTORIES, PacketByteBufs.empty());
-			 	}
-			 	wasExtraInvRingTogglePressedLastTick = true;
-			 } else {
-			 	wasExtraInvRingTogglePressedLastTick = false;
-			 }
+
+			if (areExtraInventoryModsInstalled && EXTRA_INVENTORY_RING_TOGGLE.isPressed()) {
+				if (!wasExtraInvRingTogglePressedLastTick) {
+					ClientPlayNetworking.send(C2S_Channels.TOGGLE_RINGS_IN_EXTRA_INVENTORIES, PacketByteBufs.empty());
+				}
+				wasExtraInvRingTogglePressedLastTick = true;
+			} else {
+				wasExtraInvRingTogglePressedLastTick = false;
+			}
 		});
 	}
 }
