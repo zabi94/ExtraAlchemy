@@ -9,10 +9,10 @@
             "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
             "result": "minecraft:potion{Potion:\"extraalchemy:piper\"}",
             "name": "Piper",
-            "text": "The potion of Pacifism spreads an aura that discourages attacking the creature it affects. While it will not prevent them from getting hurt, it will apply a strong slowing effect on any attacker."
+            "text": "The potion of the Piper makes animals attracted to you in the same way they would if you were to hold their favourite food by making you smell like it. Animal tempted in this way will keep on following you until the effect runs out. "
         }, {
             "type": "patchouli:text",
-            "text": "A stronger potion will cause a stronger slowing effect on attackers."
+            "text": "Having a bucket of milk ready for when you arrive at your destination is advised."
         }
     ]
 }

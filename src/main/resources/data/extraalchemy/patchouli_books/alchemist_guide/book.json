@@ -2,7 +2,7 @@
 	"name": "extraalchemy.guide.title",
 	"landing_text": "extraalchemy.guide.description",
 	"subtitle": "extraalchemy.guide.subtitle",
-	"pamphlet": true,
+	"pamphlet": false,
 	"show_progress": false,
 	"creative_tab": "extraalchemy.all"
 }
