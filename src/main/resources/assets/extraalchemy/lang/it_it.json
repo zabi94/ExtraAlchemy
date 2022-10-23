@@ -152,15 +152,15 @@
 	
 	"extraalchemy.config.general.enable_brewing_stand_fire": "Abilita fuoco sotto gli alambicchi",
 	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "Abilitare questa opzione fa si che gli alambicchi vengano", 
-	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "scaldati ogni 2 secondi se c'è una fonte di calore sotto.",
+	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "scaldati periodicamente se c'è una fonte di calore sotto.",
 	
-	"extraalchemy.config.general.brewing_stand_heat_increment_delay": "Brewing stand heat accumulation speed",
-	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip1": "Specify the number of seconds that need to pass", 
-	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip2": "for the brewing speed to get heat from a heat source.",
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay": "Velocità di accumulazione del calore nell'alambicco",
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip1": "Il numero di secondi impiegati dall'alambicco per", 
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip2": "accumulare una singola unità di calore.",
 
-	"extraalchemy.config.general.brewing_stand_fire_max_capacity": "Brewing stand heat limit",
-	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip1": "Specify the maximum capacity (1-20) that the Brewing stand", 
-	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip2": "can accumulate from a heat source underneath.",
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity": "Calore massimo dell'alambicco",
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip1": "La capacità massima (1-20) di unità di calore che un", 
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip2": "alambicco può accumulare attraverso fonti di calore.",
 
 	"extraalchemy.config.general.anchor_depletes": "Consuma le àncore",
 	"extraalchemy.config.general.anchor_depletes.tooltip1": "Abilitare questa opzione fa si che le àncore consumino una carica", 

@@ -153,14 +153,6 @@
 	"extraalchemy.config.general.enable_brewing_stand_fire": "Habilitar ajuste no combustível do alambique",
 	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "Habilitar isto faz com que o alambique seja reabastecido a cada", 
 	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "2 segundos quando uma fonte de calor for colocada abaixo dele.",
-	
-	"extraalchemy.config.general.brewing_stand_heat_increment_delay": "Brewing stand heat accumulation speed",
-	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip1": "Specify the number of seconds that need to pass", 
-	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip2": "for the brewing speed to get heat from a heat source.",
-
-	"extraalchemy.config.general.brewing_stand_fire_max_capacity": "Brewing stand heat limit",
-	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip1": "Specify the maximum capacity (1-20) that the Brewing stand", 
-	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip2": "can accumulate from a heat source underneath.",
 
 	"extraalchemy.config.general.anchor_depletes": "Esvaziar âncora ao retonar",
 	"extraalchemy.config.general.anchor_depletes.tooltip1": "Habilitar isto faz com que a âncora de renascimento perca as cargas quando", 
