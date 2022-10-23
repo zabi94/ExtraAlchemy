@@ -54,6 +54,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
+	modRuntimeOnly "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
 
 	// Deps
 	modApi("com.terraformersmc:modmenu:${project.modmenu_version}")  {
@@ -91,11 +92,11 @@ dependencies {
     //  exclude module: 'roughlyenoughitems-api'
 	//}
 
-/*
+
 	modImplementation("curse.maven:inventorio-491073:${project.inventorio_version}") {
 	  exclude group: "net.fabricmc.fabric-api"
 	}
-	*/
+	
 
 	modRuntimeOnly("curse.maven:nomoreglowingpots-286348:${project.nmgp_version}") {
 	  exclude module: 'fabric-api'
