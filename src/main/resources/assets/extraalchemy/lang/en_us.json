@@ -185,4 +185,19 @@
 	"extraalchemy.guide.title": "Alchemist's Pamphlet",
 	"extraalchemy.guide.subtitle": "A guide to unusual brews",
 	"extraalchemy.guide.description": "A quick guide to the use of innovative potions and their related trinkets."
+
+	"effect.extraalchemy.crumbling.description": "Erodes mundane materials from under the feet; higher levels destroys harder materials.",
+	"effect.extraalchemy.detection.description": "Allow you to see entities nearby.",
+	"effect.extraalchemy.combustion.description": "Makes user set on fire nearby blocks and smelt items in user's hands.",
+	"effect.extraalchemy.concentration.description": "Removes potion particles.",
+	"effect.extraalchemy.fuse.description": "Creates explosion centered on the creature; higher levels creates bigger explosion.",
+	"effect.extraalchemy.gravity.description": "Increases the gravity force that pulls creature down.",
+	"effect.extraalchemy.learning.description": "Makes xp orbs attract from further and makes them instant to pick up.",
+	"effect.extraalchemy.magnetism.description": "Attracts items from further distance.; higher levels attract further.",
+	"effect.extraalchemy.pacifism.description": "Applies slowing effect on any attacker.",
+	"effect.extraalchemy.piper.description": "Makes animals attracted to you, making them follow you.",
+	"effect.extraalchemy.photosynthesis.description": "Provides food through the sun, but without heal and saturation.",
+	"effect.extraalchemy.sails.description": "Makes boat travel faster in water.",
+	"effect.extraalchemy.returning.description": "Teleports you near your bed or respawn anchor.",
+	"effect.extraalchemy.recall.description": "After some time teleports the user back to where effect was triggered."
 }
