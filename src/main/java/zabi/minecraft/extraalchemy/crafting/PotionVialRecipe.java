@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.PotionUtil;
+import net.minecraft.recipe.book.CraftingRecipeCategory;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
 import net.minecraft.util.Identifier;
@@ -14,8 +15,8 @@ import zabi.minecraft.extraalchemy.items.ModItems;
 
 public class PotionVialRecipe extends SpecialCraftingRecipe {
 	
-	public PotionVialRecipe(Identifier id) {
-		super(id);
+	public PotionVialRecipe(Identifier id, CraftingRecipeCategory category) {
+		super(id, category);
 	}
 
 	@Override

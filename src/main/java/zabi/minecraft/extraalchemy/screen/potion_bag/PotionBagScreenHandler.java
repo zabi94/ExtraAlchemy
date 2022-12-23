@@ -79,7 +79,16 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		player.getInventory().onClose(player);
 		super.close(player);
 	}
-	
+
+	@Override
+	public ItemStack quickMove(PlayerEntity player, int index) {
+		if (index > 18) {
+			return transferToBag(player, index);
+		} else {
+			return transferToPlayer(player, index);
+		}
+	}
+
 	@Override
 	public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
 		return stack.getItem() != ModItems.POTION_BAG && slot.getStack().getItem() != ModItems.POTION_BAG && slot.canInsert(stack);
@@ -120,15 +129,6 @@ public class PotionBagScreenHandler extends ScreenHandler {
 			}
 		} else {
 			((Slot) slots.get(slotId)).setStack(ItemStack.EMPTY);
-		}
-	}
-	
-	@Override
-	public ItemStack transferSlot(PlayerEntity player, int index) {
-		if (index > 18) {
-			return transferToBag(player, index);
-		} else {
-			return transferToPlayer(player, index);
 		}
 	}
 

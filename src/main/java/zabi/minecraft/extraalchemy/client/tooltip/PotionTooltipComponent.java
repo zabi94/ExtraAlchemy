@@ -68,8 +68,8 @@ public class PotionTooltipComponent implements TooltipComponent {
 	}
 	
     private void draw(MatrixStack matrices, int x, int y, int z, Sprite icon) {
-        RenderSystem.setShaderTexture(0, icon.getAtlas().getId());
-        DrawableHelper.drawSprite(matrices, x, y, z, icon.getWidth(), icon.getHeight(), icon);
+        RenderSystem.setShaderTexture(0, icon.getAtlasId());
+        DrawableHelper.drawSprite(matrices, x, y, z, TEXTURE_SIZE, TEXTURE_SIZE, icon);
     }
 
 }

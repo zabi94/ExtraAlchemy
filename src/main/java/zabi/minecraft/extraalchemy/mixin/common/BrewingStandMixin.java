@@ -12,9 +12,10 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.BrewingStandBlockEntity;
 import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.inventory.SidedInventory;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.utils.LibMod;
@@ -24,8 +25,8 @@ public abstract class BrewingStandMixin extends LockableContainerBlockEntity imp
 
 	@Shadow private int fuel;
 	
-	private static final TagKey<Block> HEAT_SOURCE_TAG = TagKey.of(Registry.BLOCK_KEY, LibMod.id("heat_source"));
-	private static final TagKey<Block> HEAT_CONDUCTOR_TAG = TagKey.of(Registry.BLOCK_KEY, LibMod.id("heat_conductor"));
+	private static final TagKey<Block> HEAT_SOURCE_TAG = TagKey.of(RegistryKeys.BLOCK, LibMod.id("heat_source"));
+	private static final TagKey<Block> HEAT_CONDUCTOR_TAG = TagKey.of(RegistryKeys.BLOCK, LibMod.id("heat_conductor"));
 	
 	protected BrewingStandMixin(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
 		super(blockEntityType, blockPos, blockState);

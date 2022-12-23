@@ -17,6 +17,7 @@ import net.minecraft.item.PotionItem;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -24,14 +25,13 @@ import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.mixin.access.InvokerLivingEntity;
 
 public class VialPotionItem extends PotionItem {
 
 	public VialPotionItem() {
-		super(new Settings().group(ItemSettings.EXTRA_ALCHEMY_GROUP).maxCount(16));
+		super(new Settings().maxCount(16));
 	}
 
 	public ItemStack getDefaultStack() {
@@ -88,18 +88,4 @@ public class VialPotionItem extends PotionItem {
 	public void appendTooltip(ItemStack stack,World world, List<Text> tooltip, TooltipContext context) {
 		PotionUtil.buildTooltip(stack, tooltip, 1.0F);
 	}
-
-	public void appendStacks(ItemGroup group, DefaultedList<ItemStack> stacks) {
-		if (this.isIn(group)) {
-			Iterator<Potion> iterator = Registry.POTION.iterator();
-			while(iterator.hasNext()) {
-				Potion potion = iterator.next();
-				if (potion != Potions.EMPTY) {
-					stacks.add(PotionUtil.setPotion(new ItemStack(this), potion));
-				}
-			}
-		}
-
-	}
-
 }

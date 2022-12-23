@@ -31,29 +31,7 @@ import zabi.minecraft.extraalchemy.utils.proxy.SidedProxy;
 public class PotionRingItem extends Item {
 
 	public PotionRingItem() {
-		super(new Item.Settings().group(ItemSettings.EXTRA_ALCHEMY_GROUP).maxCount(1));
-	}
-
-	@Override
-	public void appendStacks(ItemGroup group, DefaultedList<ItemStack> stacks) {
-		try{
-			if (this.isIn(group) && ModConfig.INSTANCE.enableRings) {
-				
-				RecipeManager rm = SidedProxy.getProxy().getRecipeManager().orElseThrow();
-				
-				for (Recipe<?> r:rm.values()) {
-					if (r.getOutput().getItem().equals(ModItems.POTION_RING)) {
-						if (r.getOutput() != null && r.getOutput().getItem() != null) {
-							stacks.add(r.getOutput());
-						} else {
-							Log.w("Ring recipe has an invalid output: "+r.getId().toString());
-						}
-					}
-				}
-			}
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
+		super(new Item.Settings().maxCount(1));
 	}
 
 	@Override

@@ -3,8 +3,9 @@ package zabi.minecraft.extraalchemy.compat.pehkui;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.potion.ModPotion;
 import zabi.minecraft.extraalchemy.recipes.BrewingRecipeRegistrar;
@@ -23,9 +24,9 @@ public class PehkuiPotions {
 	public static int registerEffects() {
 		Log.i("Registering pehkui effects");
 		Identifier id_grow = new Identifier(LibMod.MOD_ID, "growing");
-		Registry.register(Registry.STATUS_EFFECT, id_grow, growing.onRegister());
+		Registry.register(Registries.STATUS_EFFECT, id_grow, growing.onRegister());
 		Identifier id_shrink = new Identifier(LibMod.MOD_ID, "shrinking");
-		Registry.register(Registry.STATUS_EFFECT, id_shrink, shrinking.onRegister());
+		Registry.register(Registries.STATUS_EFFECT, id_shrink, shrinking.onRegister());
 		return 2;
 	}
 	
