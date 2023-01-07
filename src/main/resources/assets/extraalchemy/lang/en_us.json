@@ -184,5 +184,21 @@
 	
 	"extraalchemy.guide.title": "Alchemist's Pamphlet",
 	"extraalchemy.guide.subtitle": "A guide to unusual brews",
-	"extraalchemy.guide.description": "A quick guide to the use of innovative potions and their related trinkets."
+	"extraalchemy.guide.description": "A quick guide to the use of innovative potions and their related trinkets.",
+	
+	"effect.extraalchemy.crumbling.description": "Erodes mundane materials from under the entity.",
+	"effect.extraalchemy.detection.description": "Allows you to see entities nearby.",
+	"effect.extraalchemy.combustion.description": "Makes the entity set nearby blocks on fire and smelt items in their hands.",
+	"effect.extraalchemy.concentration.description": "Removes existing potions' particles.",
+	"effect.extraalchemy.fuse.description": "Creates an explosion around the creature when depleted.",
+	"effect.extraalchemy.gravity.description": "Increases the gravity force that pulls the creature down.",
+	"effect.extraalchemy.learning.description": "Increases XP orbs' value, pickup frequency and value.",
+	"effect.extraalchemy.magnetism.description": "Attracts items from further away.",
+	"effect.extraalchemy.pacifism.description": "Applies slowing effect on any attacker.",
+	"effect.extraalchemy.piper.description": "Makes animals attracted to you, making them follow you.",
+	"effect.extraalchemy.photosynthesis.description": "Provides food through the sun, but without saturation.",
+	"effect.extraalchemy.sails.description": "Makes boat travel faster in water.",
+	"effect.extraalchemy.returning.description": "Teleports you near your bed or respawn anchor.",
+	"effect.extraalchemy.recall.description": "At depletion teleports the entity back to where the effect was applied."
+	
 }

@@ -181,5 +181,20 @@
 	
 	"key.extraalchemy.magnetism_toggle": "(Dis)abilita la Pozione del magnete",
 	"key.extraalchemy.toggle_extra_inv_rings": "(Dis)abilita gli anelli equipaggiati negli equipaggiamenti tipo Baubles",
-	"key.extraalchemy.potion_bag_mode": "Cicla la modalità di selezione della borsa"
+	"key.extraalchemy.potion_bag_mode": "Cicla la modalità di selezione della borsa",
+	
+	"effect.extraalchemy.crumbling.description": "Scava i materiali meno resistenti da sotto i piedi.",
+	"effect.extraalchemy.detection.description": "Rivela le entità vicine.",
+	"effect.extraalchemy.combustion.description": "Incendia l'entità e i blocchi attorno, cuoce quello che ha in mano.",
+	"effect.extraalchemy.concentration.description": "Rimuove le particelle delle altre pozioni.",
+	"effect.extraalchemy.fuse.description": "Crea un esplosione attorno alla creatura al termine dell'effetto.",
+	"effect.extraalchemy.gravity.description": "Aumenta la forza di gravità per la creatura.",
+	"effect.extraalchemy.learning.description": "Aumenta raggio di raccolta, dimensione e frequenza di raccolta degli XP.",
+	"effect.extraalchemy.magnetism.description": "Attrae gli oggetti da più lontano.",
+	"effect.extraalchemy.pacifism.description": "Rallenta le creature che attaccano l'entità.",
+	"effect.extraalchemy.piper.description": "Rende gli animali attorno attratti da te come se tenessi il loro cibo preferito.",
+	"effect.extraalchemy.photosynthesis.description": "Fornisce nutrienti quando al sole, ma non riempie la pancia.",
+	"effect.extraalchemy.sails.description": "Rende la navigazione più veloce.",
+	"effect.extraalchemy.returning.description": "Ti teletrasporta al tuo letto o alla tua ancora.",
+	"effect.extraalchemy.recall.description": "Al termine dell'effetto, riportà l'entità nel punto in cui era iniziato."
 }
