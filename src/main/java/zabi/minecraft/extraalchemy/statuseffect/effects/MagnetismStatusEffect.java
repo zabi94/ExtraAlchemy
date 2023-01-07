@@ -20,7 +20,7 @@ public class MagnetismStatusEffect extends ModStatusEffect {
 		if (!entity.world.isClient) {
 			if (entity instanceof PlayerEntity player) {
 				if (PlayerProperties.of(player).isMagnetismEnabled()) {
-					entity.world.getEntitiesByClass(ItemEntity.class, entity.getBoundingBox().expand((level + 1) * 3), Predicates.alwaysTrue())
+					entity.world.getEntitiesByClass(ItemEntity.class, entity.getBoundingBox().expand((level + 1) * 5), Predicates.alwaysTrue())
 					.stream()
 					.map(e -> (ItemEntity) e)
 					.filter(e -> e.isAlive() && !e.isRemoved())
