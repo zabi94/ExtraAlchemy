@@ -18,14 +18,14 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.client.tooltip.StatusEffectContainer;
 import zabi.minecraft.extraalchemy.screen.potion_bag.PotionBagScreenhandlerFactory;
@@ -38,10 +38,10 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 	public static final String TAG_INVENTORY = "ea_inventory";
 	public static final String TAG_SELECTED = "ea_selected";
 
-	private static final TagKey<Item> TAG_POTION = TagKey.of(Registry.ITEM_KEY, LibMod.id("potion_for_bag"));
+	private static final TagKey<Item> TAG_POTION = TagKey.of(Registries.ITEM.getKey(), LibMod.id("potion_for_bag"));
 
 	public PotionBagItem() {
-		super(new Item.Settings().maxCount(1).group(ItemSettings.EXTRA_ALCHEMY_GROUP));
+		super(new Item.Settings().maxCount(1));
 	}
 
 	@Override
@@ -112,7 +112,7 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 			bag.getOrCreateNbt().remove(TAG_SELECTED);
 		} else {
 			NbtCompound potionTag = new NbtCompound();
-			potionTag.putString("Potion", Registry.POTION.getId(PotionUtil.getPotion(potionStack)).toString());
+			potionTag.putString("Potion", Registries.POTION.getId(PotionUtil.getPotion(potionStack)).toString());
 			bag.getOrCreateNbt().put(TAG_SELECTED, potionTag);
 		}
 	}

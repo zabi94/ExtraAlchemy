@@ -24,7 +24,7 @@ import zabi.minecraft.extraalchemy.config.ModConfig;
 public class EmptyVialItem extends Item {
 
 	public EmptyVialItem() {
-		super(new Settings().maxCount(16).group(ItemSettings.EXTRA_ALCHEMY_GROUP));
+		super(new Settings().maxCount(16));
 	}
 	
 	@Override

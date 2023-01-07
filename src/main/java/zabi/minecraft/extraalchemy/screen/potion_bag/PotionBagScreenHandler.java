@@ -124,7 +124,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 	}
 	
 	@Override
-	public ItemStack transferSlot(PlayerEntity player, int index) {
+	public ItemStack quickMove(PlayerEntity player, int index) {
 		if (index > 18) {
 			return transferToBag(player, index);
 		} else {

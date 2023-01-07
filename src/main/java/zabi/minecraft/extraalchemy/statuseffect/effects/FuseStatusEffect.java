@@ -2,7 +2,7 @@ package zabi.minecraft.extraalchemy.statuseffect.effects;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.world.explosion.Explosion.DestructionType;
+import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class FuseStatusEffect extends ModStatusEffect {
@@ -19,7 +19,7 @@ public class FuseStatusEffect extends ModStatusEffect {
 	@Override
 	public void applyUpdateEffect(LivingEntity entity, int level) {
 		if (!entity.world.isClient) {
-			entity.world.createExplosion(null, entity.getX(), entity.getY() + 1, entity.getZ(), 0.5f+level, false, DestructionType.BREAK);
+			entity.world.createExplosion(null, entity.getX(), entity.getY() + 1, entity.getZ(), 0.5f+level, false, World.ExplosionSourceType.MOB);
 		}
 	}
 

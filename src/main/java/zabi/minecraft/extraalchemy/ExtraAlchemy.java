@@ -8,6 +8,7 @@ import zabi.minecraft.extraalchemy.compat.pehkui.PehkuiCompatBridge;
 import zabi.minecraft.extraalchemy.compat.trinkets.TrinketsCompatBridge;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.crafting.CraftingRecipes;
+import zabi.minecraft.extraalchemy.items.ItemSettings;
 import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.network.ServerPacketRegistry;
 import zabi.minecraft.extraalchemy.potion.ModPotionRegistry;
@@ -43,6 +44,7 @@ public class ExtraAlchemy implements ModInitializer {
 			InventorioCompatBridge.init();
 		}
 		ServerLifecycleEvents.SERVER_STARTING.register(server -> new ServerProxy(server).registerProxy());
+		ItemSettings.init();
 	}
 
 	public static boolean areRingModsInstalled() {

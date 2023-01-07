@@ -5,8 +5,9 @@ import java.lang.reflect.Field;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import zabi.minecraft.extraalchemy.compat.pehkui.PehkuiCompatBridge;
 import zabi.minecraft.extraalchemy.statuseffect.effects.CombustionStatusEffect;
 import zabi.minecraft.extraalchemy.statuseffect.effects.ConcentrationStatusEffect;
@@ -52,7 +53,7 @@ public class ModEffectRegistry {
 			for (Field field:ModEffectRegistry.class.getDeclaredFields()) {
 				if (ModStatusEffect.class.isAssignableFrom(field.getType())) {
 					Identifier id = new Identifier(LibMod.MOD_ID, field.getName());
-					Registry.register(Registry.STATUS_EFFECT, id, ((ModStatusEffect) field.get(null)).onRegister());
+					Registry.register(Registries.STATUS_EFFECT, id, ((ModStatusEffect) field.get(null)).onRegister());
 					Log.d("Registered potion "+id);
 					registered++;
 				}
@@ -74,7 +75,7 @@ public class ModEffectRegistry {
 		public static StatusEffect magnetism_disabled = null;
 		
 		public static void register() {
-			magnetism_disabled = Registry.register(Registry.STATUS_EFFECT, new Identifier(LibMod.MOD_ID, "magnetism_disabled"), new ModStatusEffect(StatusEffectCategory.BENEFICIAL, MAGNETISM_COLOR, magnetism.isInstant()).onRegister());
+			magnetism_disabled = Registry.register(Registries.STATUS_EFFECT, new Identifier(LibMod.MOD_ID, "magnetism_disabled"), new ModStatusEffect(StatusEffectCategory.BENEFICIAL, MAGNETISM_COLOR, magnetism.isInstant()).onRegister());
 			Log.i("Registered dummy effects");
 		}
 	}

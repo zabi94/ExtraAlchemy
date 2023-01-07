@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "extraalchemy:items/potion_bag_leather",
-        "layer1": "extraalchemy:items/potion_bag_contents"
+        "layer0": "extraalchemy:item/potion_bag_leather",
+        "layer1": "extraalchemy:item/potion_bag_contents"
     }
 }

@@ -15,8 +15,9 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
+import net.minecraft.recipe.book.CraftingRecipeCategory;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.items.ModItems;
@@ -31,7 +32,7 @@ public class AlternativePotionRingRecipe extends SpecialCraftingRecipe {
 	private StatusEffect effect;
 
 	public AlternativePotionRingRecipe(Identifier id, int cost, int length, int level, int renew, StatusEffect potion) {
-		super(id);
+		super(id, CraftingRecipeCategory.EQUIPMENT);
 		this.cost = cost;
 		this.length = length;
 		this.effect = potion;
@@ -115,7 +116,7 @@ public class AlternativePotionRingRecipe extends SpecialCraftingRecipe {
 			int level = json.get("level").getAsInt();
 			int renewTime = json.has("renew") ? json.get("renew").getAsInt() : 1;
 			String effect_name = json.get("effect").getAsString();
-			StatusEffect effect = Registry.STATUS_EFFECT.get(new Identifier(effect_name));
+			StatusEffect effect = Registries.STATUS_EFFECT.get(new Identifier(effect_name));
 			if (effect.isInstant()) {
 				Log.w("The ring recipe %s has an instant effect associated with %s, this functionality is meant for long lasting effects.", id, effect_name);
 			}
@@ -129,7 +130,7 @@ public class AlternativePotionRingRecipe extends SpecialCraftingRecipe {
 			int renew = buf.readInt();
 			int level = buf.readInt();
 			String potion_name = buf.readString();
-			StatusEffect pot = Registry.STATUS_EFFECT.get(new Identifier(potion_name));
+			StatusEffect pot = Registries.STATUS_EFFECT.get(new Identifier(potion_name));
 			return new AlternativePotionRingRecipe(id, cost, length, level, renew, pot);
 		}
 
@@ -139,7 +140,7 @@ public class AlternativePotionRingRecipe extends SpecialCraftingRecipe {
 			buf.writeInt(recipe.length);
 			buf.writeInt(recipe.renew);
 			buf.writeInt(recipe.level);
-			buf.writeString(Registry.STATUS_EFFECT.getId(recipe.effect).toString());
+			buf.writeString(Registries.STATUS_EFFECT.getId(recipe.effect).toString());
 		}
 
 	}

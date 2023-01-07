@@ -14,7 +14,7 @@ import zabi.minecraft.extraalchemy.config.ModConfig;
 public class EmptyRingItem extends Item {
 
 	public EmptyRingItem() {
-		super(new Settings().maxCount(1).group(ItemSettings.EXTRA_ALCHEMY_GROUP));
+		super(new Settings().maxCount(1));
 	}
 	
 	@Environment(EnvType.CLIENT)

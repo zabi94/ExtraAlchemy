@@ -12,8 +12,9 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
+import net.minecraft.recipe.book.CraftingRecipeCategory;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.items.ModItems;
@@ -27,7 +28,7 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 	private Potion potion;
 
 	public PotionRingRecipe(Identifier id, int cost, int length, int renew, Potion potion) {
-		super(id);
+		super(id, CraftingRecipeCategory.EQUIPMENT);
 		this.cost = cost;
 		this.length = length;
 		this.potion = potion;
@@ -111,7 +112,7 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 			int length = json.get("length").getAsInt();
 			int renewTime = json.has("renew") ? json.get("renew").getAsInt() : 1;
 			String potion_name = json.get("potion").getAsString();
-			Potion pot = Registry.POTION.get(new Identifier(potion_name));
+			Potion pot = Registries.POTION.get(new Identifier(potion_name));
 			if (pot.getEffects().size() > 1) {
 				Log.w("The ring recipe %s has more than 1 effect associated with it, this functionality is meant for 1-effect potions.");
 			} 
@@ -127,7 +128,7 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 			int length = buf.readInt();
 			int renew = buf.readInt();
 			String potion_name = buf.readString();
-			Potion pot = Registry.POTION.get(new Identifier(potion_name));
+			Potion pot = Registries.POTION.get(new Identifier(potion_name));
 			return new PotionRingRecipe(id, cost, length, renew, pot);
 		}
 
@@ -136,7 +137,7 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 			buf.writeInt(recipe.cost);
 			buf.writeInt(recipe.length);
 			buf.writeInt(recipe.renew);
-			buf.writeString(Registry.POTION.getId(recipe.potion).toString());
+			buf.writeString(Registries.POTION.getId(recipe.potion).toString());
 		}
 
 	}

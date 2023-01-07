@@ -7,6 +7,7 @@ import net.minecraft.item.Items;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
+import net.minecraft.recipe.book.CraftingRecipeCategory;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
@@ -14,10 +15,10 @@ import zabi.minecraft.extraalchemy.items.ModItems;
 
 public class PotionVialRecipe extends SpecialCraftingRecipe {
 	
-	public PotionVialRecipe(Identifier id) {
-		super(id);
+	public PotionVialRecipe(Identifier id, CraftingRecipeCategory category) {
+		super(id, CraftingRecipeCategory.MISC);
 	}
-
+	
 	@Override
 	public boolean matches(CraftingInventory inv, World world) {
 		if (!ModConfig.INSTANCE.enableVials) {
