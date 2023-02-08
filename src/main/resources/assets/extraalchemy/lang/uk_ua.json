@@ -1,0 +1,204 @@
+{
+	"itemGroup.extraalchemy.all": "Extra Alchemy",
+	
+	"item.extraalchemy.breakable_potion": "Крихке %s",
+	
+	"item.extraalchemy.empty_ring": "Пусте кільце для зілля",
+	"item.extraalchemy.empty_ring.tooltip1": "Об'єднайте з зіллям, щоб заправити.",
+	"item.extraalchemy.empty_ring.tooltip2": "Не всі ефекти можуть бути доступними.",
+	
+	"item.extraalchemy.potion_ring": "Кільце для зілля",
+	"item.extraalchemy.potion_ring.potion": "Містить: %s %s",
+	"item.extraalchemy.potion_ring.cost": "Необхідний досвід: %s",
+	"item.extraalchemy.potion_ring.creative": "Креативна версія",
+	"item.extraalchemy.potion_ring.length": "Тривалість: %s",
+	"item.extraalchemy.potion_ring.disabled": "Неактивно. Натисніть 'Shift + Застосувати', щоб активувати.",
+	"item.extraalchemy.potion_ring.enabled": "Активно. Натисніть 'Shift + Застосувати', щоб деактивувати.",
+	
+	"item.extraalchemy.potion_bag": "Сумка для зілля",
+	"item.extraalchemy.potion_bag.selected.potion": "Обрано: %s (%s)",
+	"item.extraalchemy.potion_bag.selected.none": "Зілля не обрано",
+	"item.extraalchemy.potion_bag.autoselect": "Коли недоступно: %s",
+	"item.extraalchemy.potion_bag.autoselect.option.next": "Обрати наступне зілля",
+	"item.extraalchemy.potion_bag.autoselect.option.deselect": "Прибрати зілля",
+	"item.extraalchemy.potion_bag.autoselect.option.hold": "Залишити вибір",
+	"item.extraalchemy.potion_bag.autoselect.change": "Перемикайте авто-вибір зілля за допомогою [%s]",
+	
+	"item.extraalchemy.empty_vial": "Пустий флакон",
+	"item.extraalchemy.empty_vial.tootlip1": "Об'єднайте з вибуховим зіллям або натисніть",
+	"item.extraalchemy.empty_vial.tootlip2": "'Застосувати' з вибуховим зіллям у хотбарі, щоб заправити.",
+	"item.extraalchemy.empty_vial.tootlip.disabled": "Флакони недоступні. Приберіть цей рецепт.",
+	
+	"effect.extraalchemy.magnetism": "Магнетизм",
+	"item.minecraft.potion.effect.magnetism": "Зілля магентизму",
+	"item.minecraft.splash_potion.effect.magnetism": "Вибухове зілля магнетизму",
+	"item.minecraft.lingering_potion.effect.magnetism": "Осідаюче зілля магнетизму",
+	"item.minecraft.tipped_arrow.effect.magnetism": "Стріла магнетизму",
+	
+	"effect.extraalchemy.photosynthesis": "Фотосинтез",
+	"item.minecraft.potion.effect.photosynthesis": "Зілля фотосинтезу",
+	"item.minecraft.splash_potion.effect.photosynthesis": "Вибухове зілля фотосинтезу",
+	"item.minecraft.lingering_potion.effect.photosynthesis": "Осідаюче зілля фотосинтезу",
+	"item.minecraft.tipped_arrow.effect.photosynthesis": "Стріла фотосинтезу",
+	
+	"effect.extraalchemy.crumbling": "Подрібнення",
+	"item.minecraft.potion.effect.crumbling": "Зілля подрібнення",
+	"item.minecraft.splash_potion.effect.crumbling": "Вибухове зілля подрібнення",
+	"item.minecraft.lingering_potion.effect.crumbling": "Осідаюче зілля подрібнення",
+	"item.minecraft.tipped_arrow.effect.crumbling": "Стріла подрібнення",
+	
+	"effect.extraalchemy.sails": "Вітрила",
+	"item.minecraft.potion.effect.sails": "Зілля вітрил",
+	"item.minecraft.splash_potion.effect.sails": "Вибухове зілля вітрил",
+	"item.minecraft.lingering_potion.effect.sails": "Осідаюче зілля вітрил",
+	"item.minecraft.tipped_arrow.effect.sails": "Стріла вітрил",
+	
+	"effect.extraalchemy.fuse": "Вибух!",
+	"item.minecraft.potion.effect.fuse": "Зілля запалу",
+	"item.minecraft.splash_potion.effect.fuse": "Вибухове зілля запалу",
+	"item.minecraft.lingering_potion.effect.fuse": "Осідаюче зілля запалу",
+	"item.minecraft.tipped_arrow.effect.fuse": "Стріла запалу",
+	
+	"effect.extraalchemy.recall": "Відгук",
+	"item.minecraft.potion.effect.recall": "Зілля відгуку",
+	"item.minecraft.splash_potion.effect.recall": "Вибухове зілля відгуку",
+	"item.minecraft.lingering_potion.effect.recall": "Осідаюче зілля відгуку",
+	"item.minecraft.tipped_arrow.effect.recall": "Стріла відгуку",
+	
+	"effect.extraalchemy.returning": "Повернення",
+	"item.minecraft.potion.effect.returning": "Зілля повернення",
+	"item.minecraft.splash_potion.effect.returning": "Вибухове зілля повернення",
+	"item.minecraft.lingering_potion.effect.returning": "Осідаюче зілля повернення",
+	"item.minecraft.tipped_arrow.effect.returning": "Стріла повернення",
+	
+	"effect.extraalchemy.piper": "Чари",
+	"item.minecraft.potion.effect.piper": "Зілля привабливості",
+	"item.minecraft.splash_potion.effect.piper": "Вибухове зілля привабливості",
+	"item.minecraft.lingering_potion.effect.piper": "Осідаюче зілля привабливості",
+	"item.minecraft.tipped_arrow.effect.piper": "Стріла привабливості",
+	
+	"effect.extraalchemy.learning": "Вивчення",
+	"item.minecraft.potion.effect.learning": "Зілля навчання",
+	"item.minecraft.splash_potion.effect.learning": "Вибухове зілля навчання",
+	"item.minecraft.lingering_potion.effect.learning": "Осідаюче зілля навчання",
+	"item.minecraft.tipped_arrow.effect.learning": "Стріла навчання",
+	
+	"effect.extraalchemy.concentration": "Зосередження",
+	"item.minecraft.potion.effect.concentration": "ЗІлля зосередження",
+	"item.minecraft.splash_potion.effect.concentration": "Вибухове зілля зосередження",
+	"item.minecraft.lingering_potion.effect.concentration": "Осідаюче зілля зосередження",
+	"item.minecraft.tipped_arrow.effect.concentration": "Стріла зосередження",
+	
+	"effect.extraalchemy.gravity": "Гравітація",
+	"item.minecraft.potion.effect.gravity": "Зілля гравітації",
+	"item.minecraft.splash_potion.effect.gravity": "Вибухове зілля гравітації",
+	"item.minecraft.lingering_potion.effect.gravity": "Осідаюче зілля гравітації",
+	"item.minecraft.tipped_arrow.effect.gravity": "Стріла гравітації",
+	
+	"effect.extraalchemy.combustion": "Підпал",
+	"item.minecraft.potion.effect.combustion": "Зілля палання",
+	"item.minecraft.splash_potion.effect.combustion": "Вибухове зілля палання",
+	"item.minecraft.lingering_potion.effect.combustion": "Осідаюче зілля палання",
+	"item.minecraft.tipped_arrow.effect.combustion": "Стріла палання",
+	
+	"effect.extraalchemy.pacifism": "Пацифізм",
+	"item.minecraft.potion.effect.pacifism": "Зілля примирення",
+	"item.minecraft.splash_potion.effect.pacifism": "Вибухове зілля примирення",
+	"item.minecraft.lingering_potion.effect.pacifism": "Осідаюче зілля примирення",
+	"item.minecraft.tipped_arrow.effect.pacifism": "Стріла примирення",
+	
+	"effect.extraalchemy.shrinking": "Зменшення",
+	"item.minecraft.potion.effect.shrinking": "Зілля зменшення",
+	"item.minecraft.splash_potion.effect.shrinking": "Вибухове зілля зменшення",
+	"item.minecraft.lingering_potion.effect.shrinking": "Осідаюче зілля зменшення",
+	"item.minecraft.tipped_arrow.effect.shrinking": "Стріла зменшення",
+	
+	"effect.extraalchemy.growing": "Ріст",
+	"item.minecraft.potion.effect.growing": "Зілля росту",
+	"item.minecraft.splash_potion.effect.growing": "Вибухове зілля росту",
+	"item.minecraft.lingering_potion.effect.growing": "Осідаюче зілля росту",
+	"item.minecraft.tipped_arrow.effect.growing": "Стріла росту",
+	
+	"effect.extraalchemy.detection": "Спостережливість",
+	"item.minecraft.potion.effect.detection": "Зілля спостережливості",
+	"item.minecraft.splash_potion.effect.detection": "Вибухове зілля спостережливості",
+	"item.minecraft.lingering_potion.effect.detection": "Осідаюче зілля спостережливості",
+	"item.minecraft.tipped_arrow.effect.detection": "Стріла спостережливості",
+	
+	"extraalchemy.mod_name": "Extra Alchemy",
+	
+	"extraalchemy.config.general": "Загальне",
+	"extraalchemy.config.potions": "Рецепти зілля",
+	
+	"extraalchemy.config.general.enable_learning_boost": "Зібльшення досвіду",
+	"extraalchemy.config.general.enable_learning_boost.tooltip1": "При увімкненні цієї опції, кількість зібраного",
+	"extraalchemy.config.general.enable_learning_boost.tooltip2": "досвіду з сфер досвіду збільшується на 10%%.",
+	
+	"extraalchemy.config.general.enable_vials": "Увімкнути флакони",
+	"extraalchemy.config.general.enable_vials.tooltip1": "При увімкненні цієї опції, ви зможете",
+	"extraalchemy.config.general.enable_vials.tooltip2": "створювати флакони з ефектами.",
+	
+	"extraalchemy.config.potion": "%s",
+	"extraalchemy.config.potion.tooltip1": "Додає рецепт %s.",
+	"extraalchemy.config.potion.tooltip2": "Статус-ефект реєструється незалежно від налаштуваннь.",
+	
+	"extraalchemy.config.general.disable_inventory_shift": "Вимкнути зміщення інвентарів",
+	"extraalchemy.config.general.disable_inventory_shift.tooltip1": "Запобігає зміщенню вікон інвентарю,", 
+	"extraalchemy.config.general.disable_inventory_shift.tooltip2": "якщо є якийсь ефект.",
+	
+	"extraalchemy.config.general.enable_rings": "Увімкнути кільця для зілля",
+	"extraalchemy.config.general.enable_rings.tooltip1": "При увімкненні цієї опції, ви зможете", 
+	"extraalchemy.config.general.enable_rings.tooltip2": "заправляти пусті кільця для зілля.",
+	
+	"extraalchemy.config.general.enable_brewing_stand_fire": "Дозволити стійкам працювати від тепла",
+	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip1": "При увімкненні цієї опції, варильні стійки зможуть", 
+	"extraalchemy.config.general.enable_brewing_stand_fire.tooltip2": "працювати від джерела тепла знизу.",
+	
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay": "Час накопичення тепла",
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip1": "Укажіть скільки часу має пройти, щоб", 
+	"extraalchemy.config.general.brewing_stand_heat_increment_delay.tooltip2": "варильні стійки накопичили достатньо тепла.",
+
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity": "Макс. кількість теплоти",
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip1": "Укажіть кількість теплоти (1-20), що", 
+	"extraalchemy.config.general.brewing_stand_fire_max_capacity.tooltip2": "можуть накопичувати варильні стійки.",
+
+	"extraalchemy.config.general.anchor_depletes": "Розряджати Якір при Поверненні",
+	"extraalchemy.config.general.anchor_depletes.tooltip1": "При увімкненні цієї опції, Якір відродження буде", 
+	"extraalchemy.config.general.anchor_depletes.tooltip2": "втрачати один заряд при телепортації за допомогою Повернення.",
+	
+	"extraalchemy.config.general.ignore_ring_mods": "Дозволити кільцям працювати з інвентарю",
+	"extraalchemy.config.general.ignore_ring_mods.tooltip1": "При увімкненні цієї опції, кільця для зілля зможуть працювати з інвентарю,",
+	"extraalchemy.config.general.ignore_ring_mods.tooltip2": "навіть якщо присутні моди, що додають слоти для кілець.",
+	
+	"extraalchemy.config.general.show_icons_in_tooltips": "Показувати іконку ефекту",
+	"extraalchemy.config.general.show_icons_in_tooltips.tooltip1": "При увімкненні цієї опції, усі предмети з ефектами",
+	"extraalchemy.config.general.show_icons_in_tooltips.tooltip2": "будуть показувати іконку і потужність ефекту в описі..",
+	
+	"extraalchemy.config.clientside": "Клієнт-сайд",
+	"extraalchemy.config.must_sync": "Має бути синхронізовано з сервером вручну.",
+	"extraalchemy.config.serveronly": "Значення на сервер-сайді має пріоритет.",
+	
+	"key.extraalchemy.magnetism_toggle": "Переключити зілля магнетизму",
+	"key.extraalchemy.toggle_extra_inv_rings": "Дозволити розміщати кільця у спеціальні слоти (як в Baubles)",
+	"key.extraalchemy.potion_bag_mode": "Переключити авто-вибір зілля",
+	
+	"extraalchemy.guide.title": "Памфлет алхіміка",
+	"extraalchemy.guide.subtitle": "Довідник по незвичним варевам",
+	"extraalchemy.guide.description": "Довідник по новим зіллям і пов'язаним дрібницям.",
+	
+	"effect.extraalchemy.crumbling.description": "Розмиває м'які блоки під сутністю з ефектом.",
+	"effect.extraalchemy.detection.description": "Дозволяє бачити мобів поряд.",
+	"effect.extraalchemy.combustion.description": "Підпалює усе навколо і плавить речі у руках.",
+	"effect.extraalchemy.concentration.description": "Прибирає частинки ефектів з екрану.",
+	"effect.extraalchemy.fuse.description": "Створює вибух під кінець дії ефекту.",
+	"effect.extraalchemy.gravity.description": "Збільшує силу гравітації.",
+	"effect.extraalchemy.learning.description": "Збільшує кількість і частоту підіймання сфер досвіду.",
+	"effect.extraalchemy.magnetism.description": "Притягує предмети.",
+	"effect.extraalchemy.pacifism.description": "Сповільнює атакуючого.",
+	"effect.extraalchemy.piper.description": "Змушує тваринок слідкувати за вами.",
+	"effect.extraalchemy.photosynthesis.description": "Підкормлює Вас від сонця, але без насичення.",
+	"effect.extraalchemy.sails.description": "Дозволяє швидше пересуватися на човнах.",
+	"effect.extraalchemy.returning.description": "Телепортує Вас до ліжка чи Якорю відродження.",
+	"effect.extraalchemy.recall.description": "Повертає сутність до місця накладання ефекту під кінець його дії."
+	
+}
