@@ -8,8 +8,9 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
 import zabi.minecraft.extraalchemy.entitydata.PlayerProperties;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
+import zabi.minecraft.extraalchemy.statuseffect.ToggleableEffect;
 
-public class MagnetismStatusEffect extends ModStatusEffect {
+public class MagnetismStatusEffect extends ModStatusEffect implements ToggleableEffect {
 
 	public MagnetismStatusEffect(StatusEffectCategory type, int color, boolean isInstant) {
 		super(type, color, isInstant);
@@ -36,6 +37,14 @@ public class MagnetismStatusEffect extends ModStatusEffect {
 	@Override
 	protected boolean canApplyEffect(int remainingTicks, int level) {
 		return true;
+	}
+
+	@Override
+	public boolean isActive(LivingEntity e) {
+		if (e instanceof PlayerEntity p) {
+			return PlayerProperties.of(p).isMagnetismEnabled();
+		}
+		return false;
 	}
 	
 }

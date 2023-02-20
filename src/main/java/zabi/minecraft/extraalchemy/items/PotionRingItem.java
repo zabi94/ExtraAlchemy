@@ -20,7 +20,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.ExtraAlchemy;
 import zabi.minecraft.extraalchemy.config.ModConfig;
-import zabi.minecraft.extraalchemy.utils.PlayerLevelUtil;
+import zabi.minecraft.extraalchemy.statuseffect.ToggleableEffect;
 
 public class PotionRingItem extends Item {
 
@@ -103,7 +103,7 @@ public class PotionRingItem extends Item {
 				StatusEffect statusEffect = sei.getEffectType();
 				StatusEffectInstance onEntity = e.getStatusEffect(statusEffect);
 				if (onEntity == null || onEntity.getDuration() <= stack.getNbt().getInt("renew")*20) {
-					if (drainXP(e, stack.getNbt().getInt("cost"))) {
+					if (drainXP(e, stack.getNbt().getInt("cost"), statusEffect)) {
 						int length = stack.getNbt().getInt("length");
 						e.addStatusEffect(new StatusEffectInstance(statusEffect, length*20, sei.getAmplifier(), false, false, true));
 					}
@@ -113,61 +113,28 @@ public class PotionRingItem extends Item {
 	}
 	
 
-	private static boolean drainXP(LivingEntity e, int cost) {
-		if (cost <= 0 || !(e instanceof PlayerEntity)) { //TODO check if effect is disabled
+	private static boolean drainXP(LivingEntity e, int cost, StatusEffect effect) {
+		if (cost <= 0) {
 			return true;
 		}
-
-		PlayerEntity p = (PlayerEntity) e;
-		if (p.isCreative()) return true;
-		if (PlayerLevelUtil.getPlayerXP(p) < cost) {
-			return false;
+		
+		if (effect instanceof ToggleableEffect te) {
+			if (!te.isActive(e)) {
+				return false;
+			}
 		}
-		PlayerLevelUtil.addPlayerXP(p, -cost);
 
+		if (e instanceof PlayerEntity p) {
+			if (p.isCreative()) {
+				return true;
+			}
+			if (p.totalExperience < cost && p.experienceLevel == 0) {
+				return false;
+			}
+			p.addExperience(-cost);
+		}
+		
 		return true;
 	}
-
-//	public static Predicate<Potion> ignoreLongVersions() {
-//		Set<KeyProperty> seen = new HashSet<>();
-//		return t -> seen.add(new KeyProperty(t.getEffects().get(0).getAmplifier(), t.getEffects().get(0).getEffectType()));
-//	}
-//
-//	public static class KeyProperty extends Pair<Integer, StatusEffect> {
-//		public KeyProperty(Integer left, StatusEffect right) {
-//			super(left, right);
-//		}
-//
-//		@Override
-//		public int hashCode() {
-//			final int prime = 31;
-//			int result = 1;
-//			result = prime * result + getLeft();
-//			result = prime * result + ((getRight() == null) ? 0 : getRight().hashCode());
-//			return result;
-//		}
-//
-//		@Override
-//		public boolean equals(Object obj) {
-//			if (this == obj)
-//				return true;
-//			if (obj == null)
-//				return false;
-//			if (getClass() != obj.getClass())
-//				return false;
-//			KeyProperty other = (KeyProperty) obj;
-//			if (getLeft() != other.getLeft())
-//				return false;
-//			if (getRight() == null) {
-//				if (other.getRight() != null)
-//					return false;
-//			} else if (!getRight().equals(other.getRight()))
-//				return false;
-//			return true;
-//		}
-//
-//
-//
-//	}
 
 }
