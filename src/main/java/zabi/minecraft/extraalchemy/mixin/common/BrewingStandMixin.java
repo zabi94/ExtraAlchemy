@@ -33,22 +33,20 @@ public abstract class BrewingStandMixin extends LockableContainerBlockEntity imp
 	
 	@Inject(method = "tick", at = @At("HEAD"))
 	private static void checkFireUnderneath(World world, BlockPos pos, BlockState state, BrewingStandBlockEntity blockEntity, CallbackInfo ci) {
-		((BrewingStandMixin) (Object) blockEntity).mixinLogicProxy();
-	}
-
-	public void mixinLogicProxy() {
 		if (!world.isClient && ModConfig.INSTANCE.enableBrewingStandFire) {
+			
+			BrewingStandMixin brewingStand = (BrewingStandMixin) (Object) blockEntity;
 
-			int maxFuelCapacity = Math.min(20, ModConfig.INSTANCE.brewingStandFireMaxCapacity);
+			int maxFuelCapacity = Math.min(BrewingStandBlockEntity.MAX_FUEL_USES, ModConfig.INSTANCE.brewingStandFireMaxCapacity);
 			int delayTicks = 20 * ModConfig.INSTANCE.brewingStandHeatIncrementDelay;
-			if (fuel < maxFuelCapacity && world.getTime() % delayTicks == 0 && isHeated(world, pos)) {
-				fuel++;
-				this.markDirty();
+			if (brewingStand.fuel < maxFuelCapacity && world.getTime() % delayTicks == 0 && isHeated(world, pos)) {
+				brewingStand.fuel++;
+				brewingStand.markDirty();
 			}
 		}
 	}
-	
-	public boolean isHeated(World world, BlockPos pos) {
+
+	private static boolean isHeated(World world, BlockPos pos) {
 		BlockState oneBelow = world.getBlockState(pos.down());
 		BlockState twoBelow = world.getBlockState(pos.down(2));
 		return oneBelow.isIn(HEAT_SOURCE_TAG) || (oneBelow.isIn(HEAT_CONDUCTOR_TAG) && twoBelow.isIn(HEAT_SOURCE_TAG));
