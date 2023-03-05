@@ -12,8 +12,8 @@
 	"item.extraalchemy.potion_ring.cost": "XP Cost: %s",
 	"item.extraalchemy.potion_ring.creative": "Creative Version",
 	"item.extraalchemy.potion_ring.length": "Duration in seconds: %s",
-	"item.extraalchemy.potion_ring.disabled": "Inactive. Shift-right click to enable",
-	"item.extraalchemy.potion_ring.enabled": "Active. Shift-right click to disable",
+	"item.extraalchemy.potion_ring.disabled": "Inactive. Sneak-right click to enable",
+	"item.extraalchemy.potion_ring.enabled": "Active. Sneak-right click to disable",
 	
 	"item.extraalchemy.potion_bag": "Potion Bag",
 	"item.extraalchemy.potion_bag.selected.potion": "Selected: %s (%s)",
@@ -141,10 +141,6 @@
 	"extraalchemy.config.potion": "%s",
 	"extraalchemy.config.potion.tooltip1": "Registers the brewing recipe of the %s.",
 	"extraalchemy.config.potion.tooltip2": "The status effect will be registered regardless.",
-	
-	"extraalchemy.config.general.disable_inventory_shift": "Disable inventory drift",
-	"extraalchemy.config.general.disable_inventory_shift.tooltip1": "Prevents the inventory screen from moving to", 
-	"extraalchemy.config.general.disable_inventory_shift.tooltip2": "the right when a status effect is applied.",
 	
 	"extraalchemy.config.general.enable_rings": "Enable Potion Rings",
 	"extraalchemy.config.general.enable_rings.tooltip1": "Enabling this makes the Empty Potion Ring craftable", 
