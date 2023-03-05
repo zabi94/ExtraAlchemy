@@ -62,5 +62,10 @@
     "fabric": "*",
     "minecraft": ">=1.19",
     "java": ">=16"
+  },
+  "custom": {
+	  "lithium:options": {
+	  	"mixin.world.block_entity_ticking.sleeping.brewing_stand": false
+	  }
   }
 }
