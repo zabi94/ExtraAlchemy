@@ -44,7 +44,7 @@ public class ItemSettings {
 				
 				for (Recipe<?> r:rm.values()) {
 					if (r.getOutput().getItem().equals(ModItems.POTION_RING)) {
-						if (r.getOutput() != null && r.getOutput().getItem() != null) {
+						if (r.getOutput() != null && r.getOutput().getItem() != null && PotionUtil.getPotionEffects(r.getOutput()).size() == 1) {
 							entries.add(r.getOutput());
 						} else {
 							Log.w("Ring recipe has an invalid output: "+r.getId().toString());
