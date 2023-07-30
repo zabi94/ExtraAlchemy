@@ -8,7 +8,6 @@ import zabi.minecraft.extraalchemy.utils.Log;
 
 public class ClientProxy extends SidedProxy {
 	
-	@SuppressWarnings("resource")
 	@Override
 	public Optional<RecipeManager> getRecipeManager() {
 		if (MinecraftClient.getInstance().world != null) {

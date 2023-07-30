@@ -37,7 +37,6 @@ public class KeybindDispatcher {
 		}
 	}
 
-	@SuppressWarnings("resource")
 	public static void registerListeners() {
 		ClientTickEvents.END_CLIENT_TICK.register(evt -> {
 			if (MAGNETISM_TOGGLE.isPressed()) {
