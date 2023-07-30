@@ -40,23 +40,23 @@ public class ItemSettings {
 		entries.add(ModItems.POTION_BAG);
 		
 		//Adding filled ring recipes
-		try{
-			if (ModConfig.INSTANCE.enableRings) {
-				
-				RecipeManager rm = SidedProxy.getProxy().getRecipeManager().orElseThrow();
-				
-				for (Recipe<?> r:rm.values()) {
-					if (r instanceof PotionRingRecipe) {
-						if (r.getOutput(null) != null && r.getOutput(null).getItem() != null && PotionUtil.getPotionEffects(r.getOutput(null)).size() == 1) {
-							entries.add(r.getOutput(null));
-						} else {
-							Log.w("Ring recipe has an invalid output: "+r.getId().toString());
+		if (ModConfig.INSTANCE.enableRings) {
+			
+			SidedProxy.getProxy().getRecipeManager().ifPresent(rm -> {
+				try{
+					for (Recipe<?> r:rm.values()) {
+						if (r instanceof PotionRingRecipe) {
+							if (r.getOutput(null) != null && r.getOutput(null).getItem() != null && PotionUtil.getPotionEffects(r.getOutput(null)).size() == 1) {
+								entries.add(r.getOutput(null));
+							} else {
+								Log.w("Ring recipe has an invalid output: "+r.getId().toString());
+							}
 						}
 					}
+				} catch (Throwable e) {
+					e.printStackTrace();
 				}
-			}
-		} catch (Throwable e) {
-			e.printStackTrace();
+			});
 		}
 		
 		
