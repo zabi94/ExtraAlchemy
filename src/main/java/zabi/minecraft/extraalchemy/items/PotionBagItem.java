@@ -138,7 +138,7 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 			ItemStack currentStack = inv.getStack(i);
 			Potion isp = PotionUtil.getPotion(currentStack);
 			if (isp.equals(target) && currentStack.getItem() != Items.AIR) {
-				currentStack.getItem().finishUsing(currentStack, user.world, user);
+				currentStack.getItem().finishUsing(currentStack, user.getEntityWorld(), user);
 				break;
 			}
 		}
@@ -286,7 +286,7 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 			if (openedWith != null) {
 				player.getStackInHand(openedWith).getOrCreateNbt().put(TAG_INVENTORY, serialize(inventory));
 			} else {
-				if (!player.world.isClient) {
+				if (!player.getEntityWorld().isClient) {
 					Log.w("Server did not have any hand info associated with the inventory");
 				}
 			}

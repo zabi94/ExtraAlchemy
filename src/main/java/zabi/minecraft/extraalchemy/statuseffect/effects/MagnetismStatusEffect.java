@@ -18,10 +18,10 @@ public class MagnetismStatusEffect extends ModStatusEffect implements Toggleable
 
 	@Override
 	public void applyUpdateEffect(LivingEntity entity, int level) {
-		if (!entity.world.isClient) {
+		if (!entity.getEntityWorld().isClient) {
 			if (entity instanceof PlayerEntity player) {
 				if (PlayerProperties.of(player).isMagnetismEnabled()) {
-					entity.world.getEntitiesByClass(ItemEntity.class, entity.getBoundingBox().expand((level + 1) * 5), Predicates.alwaysTrue())
+					entity.getEntityWorld().getEntitiesByClass(ItemEntity.class, entity.getBoundingBox().expand((level + 1) * 5), Predicates.alwaysTrue())
 					.stream()
 					.map(e -> (ItemEntity) e)
 					.filter(e -> e.isAlive() && !e.isRemoved())

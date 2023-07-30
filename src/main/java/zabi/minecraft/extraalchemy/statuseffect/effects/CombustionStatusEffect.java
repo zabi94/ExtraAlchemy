@@ -31,12 +31,12 @@ public class CombustionStatusEffect extends ModStatusEffect {
 				int x = (int) Math.round(e.getX()) - 5 + rnd.nextInt(12);
 				int y = (int) Math.round(e.getY()) - 5 + rnd.nextInt(12);
 				int z = (int) Math.round(e.getZ()) - 5 + rnd.nextInt(12);
-				if (y < 1) y = 1;
+				if (y < w.getBottomY()) y = w.getBottomY();
 				if (y > w.getHeight()) {
 					y = w.getHeight() - 1;
 				}
 				BlockPos pos = new BlockPos(x, y, z);
-				if (w.getBlockState(pos).getMaterial().isReplaceable() && Blocks.FIRE.getDefaultState().canPlaceAt(w, pos)) {
+				if (w.getBlockState(pos).isReplaceable() && Blocks.FIRE.getDefaultState().canPlaceAt(w, pos)) {
 					w.setBlockState(pos, FireBlock.getState(w, pos), 3);
 					break;
 				}

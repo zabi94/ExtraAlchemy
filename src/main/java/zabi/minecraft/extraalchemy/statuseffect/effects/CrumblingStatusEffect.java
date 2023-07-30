@@ -23,15 +23,15 @@ public class CrumblingStatusEffect extends ModStatusEffect {
 
 	@Override
 	public void applyUpdateEffect(LivingEntity entity, int level) {
-		if (!entity.world.isClient) {
+		if (!entity.getEntityWorld().isClient) {
 			ArrayList<BlockPos> blocks = Lists.newArrayList();
 			int radius = level + 1;
 			for (int dx = -radius; dx <= radius; dx++) {
 				for (int dz = -radius; dz <= radius; dz++) {
 					BlockPos pos = entity.getBlockPos().add(dx, -1, dz);
-					BlockState state = entity.world.getBlockState(pos);
+					BlockState state = entity.getEntityWorld().getBlockState(pos);
 					if (!state.isAir()) {
-						float hardness = state.getHardness(entity.world, pos);
+						float hardness = state.getHardness(entity.getEntityWorld(), pos);
 						if (hardness >= 0 && hardness <= level + 1) {
 							blocks.add(pos);
 						}
@@ -40,7 +40,7 @@ public class CrumblingStatusEffect extends ModStatusEffect {
 			}
 			if (blocks.size() > 0) {
 				BlockPos r = blocks.get(entity.getRandom().nextInt(blocks.size()));
-				entity.world.breakBlock(r, true);
+				entity.getEntityWorld().breakBlock(r, true);
 			}
 		}
 	}

@@ -24,7 +24,7 @@ public class GrowthStatusEffect extends ModStatusEffect {
 	@Override
 	public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
 		super.onApplied(entity, attributes, amplifier);
-		if (!entity.world.isClient) {
+		if (!entity.getEntityWorld().isClient) {
 			ScaleData data = ModSizeModifiers.GROWING.getScaleData(entity);
 			data.setScale(getScale(amplifier));
 			ScaleTypesAdapter.BASE.getScaleData(entity).markForSync(true);
@@ -35,7 +35,7 @@ public class GrowthStatusEffect extends ModStatusEffect {
 	@Override
 	public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
 		super.onRemoved(entity, attributes, amplifier);
-		if (!entity.world.isClient) {
+		if (!entity.getEntityWorld().isClient) {
 			ScaleData data = ModSizeModifiers.GROWING.getScaleData(entity);
 			data.resetScale(true);
 			ScaleTypesAdapter.BASE.getScaleData(entity).markForSync(true);

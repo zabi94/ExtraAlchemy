@@ -1,6 +1,6 @@
 package zabi.minecraft.extraalchemy.crafting;
 
-import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -8,6 +8,7 @@ import net.minecraft.potion.PotionUtil;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
 import net.minecraft.recipe.book.CraftingRecipeCategory;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
@@ -20,7 +21,7 @@ public class PotionVialRecipe extends SpecialCraftingRecipe {
 	}
 	
 	@Override
-	public boolean matches(CraftingInventory inv, World world) {
+	public boolean matches(RecipeInputInventory inv, World world) {
 		if (!ModConfig.INSTANCE.enableVials) {
 			return false;
 		}
@@ -50,7 +51,7 @@ public class PotionVialRecipe extends SpecialCraftingRecipe {
 	}
 
 	@Override
-	public ItemStack craft(CraftingInventory inv) {
+	public ItemStack craft(RecipeInputInventory inv, DynamicRegistryManager regMan) {
 		for (int i = 0; i < inv.size(); i++) {
 			ItemStack is = inv.getStack(i);
 			if (is.getItem().equals(Items.SPLASH_POTION)) {

@@ -66,18 +66,18 @@ public class PotionBagScreenHandler extends ScreenHandler {
 			}
 		}
 	}
-
+	
 	@Override
 	public boolean canUse(PlayerEntity player) {
 		return true;
 	}
 	
 	@Override
-	public void close(PlayerEntity player) {
+	public void onClosed(PlayerEntity player) {
 		bagInventory.onClose(player);
 		player.getInventory().markDirty();
 		player.getInventory().onClose(player);
-		super.close(player);
+		super.onClosed(player);
 	}
 	
 	@Override
@@ -116,10 +116,10 @@ public class PotionBagScreenHandler extends ScreenHandler {
 			if (!PotionUtil.getPotion(iso).getEffects().isEmpty()) {
 				ItemStack nis = iso.copy();
 				nis.setCount(1);
-				((Slot) slots.get(slotId)).setStack(nis);
+				((Slot) slots.get(slotId)).setStackNoCallbacks(nis);
 			}
 		} else {
-			((Slot) slots.get(slotId)).setStack(ItemStack.EMPTY);
+			((Slot) slots.get(slotId)).setStackNoCallbacks(ItemStack.EMPTY);
 		}
 	}
 	
@@ -148,7 +148,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		}
 		slot.onQuickTransfer(origStack, copyStack);
 		if (origStack.isEmpty()) {
-			slot.setStack(ItemStack.EMPTY);
+			slot.setStackNoCallbacks(ItemStack.EMPTY);
 		} else {
 			slot.markDirty();
 		}
@@ -206,7 +206,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		}
 
 		@Override
-		public void setStack(ItemStack stack) {
+		public void setStackNoCallbacks(ItemStack stack) {
 			bagStack.getOrCreateNbt().put(PotionBagItem.TAG_SELECTED, stack.getOrCreateNbt());
 			markInventoryDirty();
 		}
@@ -253,7 +253,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		}
 		
 		@Override
-		public void setStack(ItemStack stack) {
+		public void setStackNoCallbacks(ItemStack stack) {
 			//NO-OP
 		}
 		

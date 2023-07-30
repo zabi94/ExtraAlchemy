@@ -3,7 +3,7 @@ package zabi.minecraft.extraalchemy.crafting;
 import com.google.gson.JsonObject;
 
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -13,6 +13,7 @@ import net.minecraft.potion.PotionUtil;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
 import net.minecraft.recipe.book.CraftingRecipeCategory;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
@@ -36,7 +37,7 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 	}
 
 	@Override
-	public boolean matches(CraftingInventory inv, World world) {
+	public boolean matches(RecipeInputInventory inv, World world) {
 		if (!ModConfig.INSTANCE.enableRings || potion.getEffects().size() != 1) { //Globally disabled and specifically disabled
 			return false;
 		}
@@ -69,7 +70,7 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 	}
 
 	@Override
-	public ItemStack craft(CraftingInventory inv) {
+	public ItemStack craft(RecipeInputInventory inv, DynamicRegistryManager var2) {
 		ItemStack result = new ItemStack(ModItems.POTION_RING);
 		PotionUtil.setPotion(result, potion);
 		result.getOrCreateNbt();
@@ -81,8 +82,8 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 	}
 	
 	@Override
-	public ItemStack getOutput() {
-		return craft(null);
+	public ItemStack getOutput(DynamicRegistryManager regMan) {
+		return craft(null, regMan);
 	}
 	
 	@Override

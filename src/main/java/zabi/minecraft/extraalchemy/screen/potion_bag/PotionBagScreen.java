@@ -3,9 +3,9 @@ package zabi.minecraft.extraalchemy.screen.potion_bag;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
@@ -39,21 +39,19 @@ public class PotionBagScreen extends HandledScreen<PotionBagScreenHandler> {
 	}
 
 	@Override
-	protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
-		this.renderBackground(matrices);
+	protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
+		this.renderBackground(context);
 		RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.setShaderTexture(0, TEXTURE);
-		this.client.getTextureManager().bindTexture(TEXTURE);
 		int i = (this.width - this.backgroundWidth) / 2;
 		int j = (this.height - this.backgroundHeight) / 2;
-		this.drawTexture(matrices, i, j, 0, 0, this.backgroundWidth, this.backgroundHeight);
+		context.drawTexture(TEXTURE, i, j, 0, 0, this.backgroundWidth, this.backgroundHeight);
 	}
 	
 	@Override
-	protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {
-		this.textRenderer.draw(matrices, this.title, (float)this.titleX, (float)this.titleY, 4210752);
-		this.drawMouseoverTooltip(matrices, mouseX-this.x, mouseY-this.y);
+	protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
+		context.drawText(this.textRenderer, this.title, this.titleX, this.titleY, 4210752, false);
+		this.drawMouseoverTooltip(context, mouseX-this.x, mouseY-this.y);
 	}
 	
 	@Override

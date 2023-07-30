@@ -17,8 +17,8 @@ public class InventorioCompat {
 		InventorioAPI.registerInventoryTickHandler(LibMod.id("potion_ring_ticker"), new InventorioTickHandler() {
 			@Override
 			public void tick(@NotNull PlayerInventoryAddon invAddon, @NotNull InventorioAddonSection section, @NotNull ItemStack stack, int index) {
-				if (!invAddon.getPlayer().world.isClient && stack.getItem().equals(ModItems.POTION_RING)) {
-					ModItems.POTION_RING.inventoryTick(stack, invAddon.getPlayer().world, invAddon.getPlayer(), -1, false);
+				if (!invAddon.getPlayer().getEntityWorld().isClient && stack.getItem().equals(ModItems.POTION_RING)) {
+					ModItems.POTION_RING.inventoryTick(stack, invAddon.getPlayer().getEntityWorld(), invAddon.getPlayer(), -1, false);
 				}
 			}
 		});

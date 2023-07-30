@@ -19,7 +19,7 @@ public class EntityDamaged {
 	@Shadow LivingEntity entity;
 	
 	@Inject(method = "onDamage", at = @At(value = "TAIL"))
-	public void onDamageDealt(DamageSource damageSource, float originalHealth, float f, CallbackInfo ci) {
+	public void onDamageDealt(DamageSource damageSource, float damage, CallbackInfo ci) {
 		StatusEffectInstance sei = entity.getStatusEffect(ModEffectRegistry.pacifism);
 		if (sei != null && damageSource.getAttacker() instanceof LivingEntity && !damageSource.isSourceCreativePlayer()) {
 			StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 200, sei.getAmplifier(), false, true, true);

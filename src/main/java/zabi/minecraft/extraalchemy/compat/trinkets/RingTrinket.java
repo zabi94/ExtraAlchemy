@@ -10,7 +10,7 @@ public class RingTrinket implements Trinket {
 
 	@Override
 	public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
-		if (!entity.world.isClient) {
+		if (!entity.getEntityWorld().isClient) {
 			PotionRingItem.onTick(stack, entity);
 		}
 	}

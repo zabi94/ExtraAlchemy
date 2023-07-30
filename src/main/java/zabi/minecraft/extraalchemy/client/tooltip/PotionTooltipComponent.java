@@ -6,12 +6,10 @@ import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.DrawableHelper;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.tooltip.TooltipComponent;
-import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.texture.StatusEffectSpriteManager;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -42,9 +40,10 @@ public class PotionTooltipComponent implements TooltipComponent {
 	}
 	
 	@Override
-	public void drawItems(TextRenderer textRenderer, int x, int y, MatrixStack matrices, ItemRenderer itemRenderer, int z) {
+	public void drawItems(TextRenderer textRenderer, int x, int y, DrawContext context) {
 		if (!ModConfig.INSTANCE.showIconsInTooltips) return;
 		MinecraftClient mc = MinecraftClient.getInstance();
+		context.getMatrices().push();
 		StatusEffectSpriteManager statusEffectSpriteManager = mc.getStatusEffectSpriteManager();
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
 		for (int i = 0; i < effects.size(); i++) {
@@ -55,21 +54,22 @@ public class PotionTooltipComponent implements TooltipComponent {
 			int row = i / ICONS_PER_ROW;
 			int dx = x + (column * (TEXTURE_SIZE + TEXTURE_SPACING));
 			int dy = y + (row * (TEXTURE_SIZE + TEXTURE_SPACING));
-			this.draw(matrices, dx, dy, z, icon);
+			this.draw(context, dx, dy, 0, icon);
 			if (level > 1) {
 				Text txt = Text.translatable("enchantment.level."+level).formatted(eff.getEffectType().getCategory().getFormatting());
-				float tx = dx + TEXTURE_SIZE - textRenderer.getWidth(txt)/2;
-				float ty = dy + TEXTURE_SIZE - textRenderer.fontHeight/2;
-				matrices.translate(0, 0, 400);
-				textRenderer.drawWithShadow(matrices, txt, tx, ty, 0xFFFFFFFF);
-				matrices.translate(0, 0, -400);
+				int tx = dx + TEXTURE_SIZE - textRenderer.getWidth(txt)/2;
+				int ty = dy + TEXTURE_SIZE - textRenderer.fontHeight/2;
+				context.getMatrices().translate(0, 0, 400);
+				context.drawTextWithShadow(textRenderer, txt, tx, ty, 0xFFFFFFFF);
+				context.getMatrices().translate(0, 0, -400);
 			}
 		}
+		context.getMatrices().pop();
 	}
 	
-    private void draw(MatrixStack matrices, int x, int y, int z, Sprite icon) {
+    private void draw(DrawContext context, int x, int y, int z, Sprite icon) {
         RenderSystem.setShaderTexture(0, icon.getAtlasId());
-        DrawableHelper.drawSprite(matrices, x, y, z, 18, 18, icon);
+        context.drawSprite(x, y, z, 18, 18, icon);
     }
 
 }

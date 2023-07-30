@@ -4,12 +4,10 @@ public class PehkuiCompatBridge {
 
 	public static int registerEffects() {
 		return PehkuiPotions.registerEffects();
-//		return 0;
 	}
 	
 	public static int registerPotions() {
 		return PehkuiPotions.registerPotions();
-//		return 0;
 	}
 	
 	public static void registerRecipes() {

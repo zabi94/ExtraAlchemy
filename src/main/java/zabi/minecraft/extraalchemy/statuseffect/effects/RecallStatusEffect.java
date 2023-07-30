@@ -2,7 +2,6 @@ package zabi.minecraft.extraalchemy.statuseffect.effects;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import zabi.minecraft.extraalchemy.entitydata.EntityProperties;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
@@ -29,7 +28,7 @@ public class RecallStatusEffect extends ModStatusEffect {
 
 	@Override
 	public void applyUpdateEffect(LivingEntity entity, int i) {
-		if (!entity.world.isClient) {
+		if (!entity.getEntityWorld().isClient) {
 			LivingEntity ent = entity; //Since the teleport method might clone the entity, this holds the most recent instance of the entity
 			DimensionalPosition pos = ((EntityProperties) ent).getRecallPosition();
 			try {
@@ -40,7 +39,7 @@ public class RecallStatusEffect extends ModStatusEffect {
 //							ent = FabricDimensions.teleport(entity, (ServerWorld) pos.getWorld(entity.getServer()), (e, server_world, portDir, h, v) -> new PlaceAt(pos));
 							return; //TODO remove this and restore teleportation capability once fabric dimension API is available again
 						} else {
-							ent.damage(DamageSource.MAGIC, 1f);
+							ent.damage(entity.getEntityWorld().getDamageSources().magic(), 1f);
 							return;
 						}
 					} else {

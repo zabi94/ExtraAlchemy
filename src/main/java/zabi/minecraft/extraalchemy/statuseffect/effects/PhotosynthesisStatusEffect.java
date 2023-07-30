@@ -19,17 +19,17 @@ public class PhotosynthesisStatusEffect extends ModStatusEffect {
 
 	@Override
 	public void applyUpdateEffect(LivingEntity entity, int level) {
-		if (!entity.world.isClient && entity instanceof PlayerEntity player && isInDaylight(entity)) {
+		if (!entity.getEntityWorld().isClient && entity instanceof PlayerEntity player && isInDaylight(entity)) {
 			player.getHungerManager().add(level, 0f);
 		}
 	}
 
 	private static boolean isInDaylight(LivingEntity entity) {
-		if (entity.world.isDay() && !entity.world.isRaining()) {
+		if (entity.getEntityWorld().isDay() && !entity.getEntityWorld().isRaining()) {
 
 			BlockPos position = entity.getBlockPos();
 
-			if (entity.world.isSkyVisible(position)) {
+			if (entity.getEntityWorld().isSkyVisible(position)) {
 				return true;
 			}
 		}
