@@ -9,15 +9,14 @@ import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
 import net.minecraft.recipe.book.CraftingRecipeCategory;
 import net.minecraft.registry.DynamicRegistryManager;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.items.ModItems;
 
 public class PotionVialRecipe extends SpecialCraftingRecipe {
 	
-	public PotionVialRecipe(Identifier id, CraftingRecipeCategory category) {
-		super(id, CraftingRecipeCategory.MISC);
+	public PotionVialRecipe(CraftingRecipeCategory category) {
+		super(CraftingRecipeCategory.MISC);
 	}
 	
 	@Override

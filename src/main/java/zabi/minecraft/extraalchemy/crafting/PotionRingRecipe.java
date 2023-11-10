@@ -1,6 +1,7 @@
 package zabi.minecraft.extraalchemy.crafting;
 
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.inventory.RecipeInputInventory;
@@ -19,7 +20,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.items.ModItems;
-import zabi.minecraft.extraalchemy.utils.Log;
 
 public class PotionRingRecipe extends SpecialCraftingRecipe {
 
@@ -28,8 +28,8 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 	private int renew;
 	private Potion potion;
 
-	public PotionRingRecipe(Identifier id, int cost, int length, int renew, Potion potion) {
-		super(id, CraftingRecipeCategory.EQUIPMENT);
+	public PotionRingRecipe(int cost, int length, int renew, Potion potion) {
+		super(CraftingRecipeCategory.EQUIPMENT);
 		this.cost = cost;
 		this.length = length;
 		this.potion = potion;
@@ -82,7 +82,7 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 	}
 	
 	@Override
-	public ItemStack getOutput(DynamicRegistryManager regMan) {
+	public ItemStack getResult(DynamicRegistryManager regMan) {
 		return craft(null, regMan);
 	}
 	
@@ -107,30 +107,21 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 	
 	public static class Serializer implements RecipeSerializer<PotionRingRecipe> {
 
+		private final Codec<PotionRingRecipe> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+				Codec.INT.fieldOf("cost").forGetter(a -> a.cost),
+				Codec.INT.fieldOf("length").forGetter(a -> a.length),
+				Codec.INT.fieldOf("renew").forGetter(a -> a.renew),
+				Registries.POTION.getCodec().fieldOf("potion").forGetter(a -> a.potion)
+		).apply(instance, PotionRingRecipe::new));
+		
 		@Override
-		public PotionRingRecipe read(Identifier id, JsonObject json) {
-			int cost = json.get("cost").getAsInt();
-			int length = json.get("length").getAsInt();
-			int renewTime = json.has("renew") ? json.get("renew").getAsInt() : 1;
-			String potion_name = json.get("potion").getAsString();
-			Potion pot = Registries.POTION.get(new Identifier(potion_name));
-			if (pot.getEffects().size() > 1) {
-				Log.w("The ring recipe %s has more than 1 effect associated with it, this functionality is meant for 1-effect potions.");
-			} 
-			if (pot.getEffects().stream().allMatch(sei -> sei.getEffectType().isInstant())) {
-				Log.w("The ring recipe %s has no non-instant effects associated with %s, this functionality is meant for long lasting effects.", id, potion_name);
-			}
-			return new PotionRingRecipe(id, cost, length, renewTime, pot);
-		}
-
-		@Override
-		public PotionRingRecipe read(Identifier id, PacketByteBuf buf) {
+		public PotionRingRecipe read(PacketByteBuf buf) {
 			int cost = buf.readInt();
 			int length = buf.readInt();
 			int renew = buf.readInt();
 			String potion_name = buf.readString();
 			Potion pot = Registries.POTION.get(new Identifier(potion_name));
-			return new PotionRingRecipe(id, cost, length, renew, pot);
+			return new PotionRingRecipe(cost, length, renew, pot);
 		}
 
 		@Override
@@ -139,6 +130,11 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 			buf.writeInt(recipe.length);
 			buf.writeInt(recipe.renew);
 			buf.writeString(Registries.POTION.getId(recipe.potion).toString());
+		}
+
+		@Override
+		public Codec<PotionRingRecipe> codec() {
+			return CODEC;
 		}
 
 	}

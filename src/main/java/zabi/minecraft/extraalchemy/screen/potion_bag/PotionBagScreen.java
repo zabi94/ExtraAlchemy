@@ -40,7 +40,7 @@ public class PotionBagScreen extends HandledScreen<PotionBagScreenHandler> {
 
 	@Override
 	protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-		this.renderBackground(context);
+//		this.renderBackground(context);
 		RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 		int i = (this.width - this.backgroundWidth) / 2;

@@ -3,7 +3,8 @@ package zabi.minecraft.extraalchemy.crafting;
 import java.util.Collections;
 import java.util.List;
 
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -22,7 +23,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.items.ModItems;
-import zabi.minecraft.extraalchemy.utils.Log;
 
 public class AlternativePotionRingRecipe extends SpecialCraftingRecipe {
 
@@ -32,8 +32,8 @@ public class AlternativePotionRingRecipe extends SpecialCraftingRecipe {
 	private int level;
 	private StatusEffect effect;
 
-	public AlternativePotionRingRecipe(Identifier id, int cost, int length, int level, int renew, StatusEffect potion) {
-		super(id, CraftingRecipeCategory.EQUIPMENT);
+	public AlternativePotionRingRecipe(int cost, int length, int level, int renew, StatusEffect potion) {
+		super(CraftingRecipeCategory.EQUIPMENT);
 		this.cost = cost;
 		this.length = length;
 		this.effect = potion;
@@ -86,7 +86,7 @@ public class AlternativePotionRingRecipe extends SpecialCraftingRecipe {
 	}
 	
 	@Override
-	public ItemStack getOutput(DynamicRegistryManager registryManager) {
+	public ItemStack getResult(DynamicRegistryManager registryManager) {
 		return craft(null, registryManager);
 	}
 	
@@ -109,30 +109,24 @@ public class AlternativePotionRingRecipe extends SpecialCraftingRecipe {
 	}
 	
 	public static class Serializer implements RecipeSerializer<AlternativePotionRingRecipe> {
-
+		
+		private final Codec<AlternativePotionRingRecipe> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+				Codec.INT.fieldOf("cost").forGetter(a -> a.cost),
+				Codec.INT.fieldOf("length").forGetter(a -> a.length),
+				Codec.INT.fieldOf("level").forGetter(a -> a.level),
+				Codec.INT.fieldOf("renew").forGetter(a -> a.renew),
+				Registries.STATUS_EFFECT.getCodec().fieldOf("effect").forGetter(a -> a.effect)
+		).apply(instance, AlternativePotionRingRecipe::new));
+		
 		@Override
-		public AlternativePotionRingRecipe read(Identifier id, JsonObject json) {
-			int cost = json.get("cost").getAsInt();
-			int length = json.get("length").getAsInt();
-			int level = json.get("level").getAsInt();
-			int renewTime = json.has("renew") ? json.get("renew").getAsInt() : 1;
-			String effect_name = json.get("effect").getAsString();
-			StatusEffect effect = Registries.STATUS_EFFECT.get(new Identifier(effect_name));
-			if (effect.isInstant()) {
-				Log.w("The ring recipe %s has an instant effect associated with %s, this functionality is meant for long lasting effects.", id, effect_name);
-			}
-			return new AlternativePotionRingRecipe(id, cost, length, level, renewTime, effect);
-		}
-
-		@Override
-		public AlternativePotionRingRecipe read(Identifier id, PacketByteBuf buf) {
+		public AlternativePotionRingRecipe read(PacketByteBuf buf) {
 			int cost = buf.readInt();
 			int length = buf.readInt();
 			int renew = buf.readInt();
 			int level = buf.readInt();
 			String potion_name = buf.readString();
 			StatusEffect pot = Registries.STATUS_EFFECT.get(new Identifier(potion_name));
-			return new AlternativePotionRingRecipe(id, cost, length, level, renew, pot);
+			return new AlternativePotionRingRecipe(cost, length, level, renew, pot);
 		}
 
 		@Override
@@ -142,6 +136,11 @@ public class AlternativePotionRingRecipe extends SpecialCraftingRecipe {
 			buf.writeInt(recipe.renew);
 			buf.writeInt(recipe.level);
 			buf.writeString(Registries.STATUS_EFFECT.getId(recipe.effect).toString());
+		}
+
+		@Override
+		public Codec<AlternativePotionRingRecipe> codec() {
+			return CODEC;
 		}
 
 	}

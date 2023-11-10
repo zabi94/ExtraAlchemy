@@ -52,4 +52,8 @@ public class ModStatusEffect extends StatusEffect {
 		return isRegistered;
 	}
 	
+	public void onEffectRemoved(LivingEntity entity) {
+		
+	}
+	
 }

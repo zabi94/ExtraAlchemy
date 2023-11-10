@@ -10,6 +10,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
 import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
@@ -43,12 +44,13 @@ public class ItemSettings {
 			
 			SidedProxy.getProxy().getRecipeManager().ifPresent(rm -> {
 				try{
-					for (Recipe<?> r:rm.values()) {
+					for (RecipeEntry<?> re:rm.values()) {
+						Recipe<?> r = re.value();
 						if (r instanceof PotionRingRecipe) {
-							if (r.getOutput(null) != null && r.getOutput(null).getItem() != null && PotionUtil.getPotionEffects(r.getOutput(null)).size() == 1) {
-								entries.add(r.getOutput(null));
+							if (r.getResult(null) != null && r.getResult(null).getItem() != null && PotionUtil.getPotionEffects(r.getResult(null)).size() == 1) {
+								entries.add(r.getResult(null));
 							} else {
-								Log.w("Ring recipe has an invalid output: "+r.getId().toString());
+								Log.w("Ring recipe has an invalid output: "+re.id().toString());
 							}
 						}
 					}

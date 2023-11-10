@@ -1,7 +1,6 @@
 package zabi.minecraft.extraalchemy.statuseffect.effects;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import zabi.minecraft.extraalchemy.entitydata.EntityProperties;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
@@ -14,7 +13,7 @@ public class RecallStatusEffect extends ModStatusEffect {
 	}
 
 	@Override
-	public void onApplied(LivingEntity livingEntity, AttributeContainer abstractEntityAttributeContainer, int i) {
+	public void onApplied(LivingEntity livingEntity, int amplifier) {
 		EntityProperties ep = (EntityProperties) livingEntity;
 		if (ep.getRecallPosition() == null) {
 			ep.setRecallData(new DimensionalPosition(livingEntity));
@@ -53,7 +52,7 @@ public class RecallStatusEffect extends ModStatusEffect {
 	}
 
 	@Override
-	public void onRemoved(LivingEntity livingEntity, AttributeContainer abstractEntityAttributeContainer, int i) {
+	public void onEffectRemoved(LivingEntity livingEntity) {
 		((EntityProperties) livingEntity).setRecallData(null);
 	}
 
