@@ -12,7 +12,7 @@
             "text": "The potion of Rewinding binds a creature in the place where the effect was triggered, and starts a countdown. Once the time is over, a small rift in space opens up and teleports the creature to the starting spot."
         }, {
             "type": "patchouli:text",
-            "text": "Interdimensional barriers (such as portals to the nether and the end) prevent this effect from working, and the user is hurt by the rift instead.$(br2)Future research on this potion might allow such a jump with stronger versions of the brew, but for now the potion cannot be empowered through glowstone. Redstone will work as usual, producing a longer version of the Recall effect."
+            "text": "Interdimensional barriers (such as portals to the nether and the end) prevent this effect from working, and the user is hurt by the rift instead.$(br2)Stronger versions of this potion might allow such a jump."
         }
     ]
 }

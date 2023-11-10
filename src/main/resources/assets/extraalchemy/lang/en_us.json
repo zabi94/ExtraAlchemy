@@ -64,6 +64,7 @@
 	"item.minecraft.splash_potion.effect.recall": "Splash Potion of Rewinding",
 	"item.minecraft.lingering_potion.effect.recall": "Lingering Potion of Rewinding",
 	"item.minecraft.tipped_arrow.effect.recall": "Arrow of Rewinding",
+	"message.extraalchemy.recall_damage": "You feel a dimensional pull from the potion, but nothing happens",
 	
 	"effect.extraalchemy.returning": "Returning",
 	"item.minecraft.potion.effect.returning": "Potion of Returning",

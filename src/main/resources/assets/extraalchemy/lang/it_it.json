@@ -64,6 +64,7 @@
 	"item.minecraft.splash_potion.effect.recall": "Pozione da lancio del richiamo",
 	"item.minecraft.lingering_potion.effect.recall": "Pozione persistente del richiamo",
 	"item.minecraft.tipped_arrow.effect.recall": "Freccia del richiamo",
+	"message.extraalchemy.recall_damage": "Senti la pozione che cerca di farti tornare alla tua dimensione, ma non succede nulla",
 	
 	"effect.extraalchemy.returning": "Ritorno",
 	"item.minecraft.potion.effect.returning": "Pozione del ritorno",
