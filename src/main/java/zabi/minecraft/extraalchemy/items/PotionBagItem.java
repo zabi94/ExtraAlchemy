@@ -32,6 +32,7 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 
 	private static final String TAG_MODE = "ea_select_mode";
 	public static final String TAG_INVENTORY = "ea_inventory";
+	public static final String TAG_LAST_CHANGE = "ea_changed";
 	private static final String TAG_SELECTED = "ea_selected_potion";
 
 	private static final TagKey<Item> TAG_POTION = TagKey.of(Registries.ITEM.getKey(), LibMod.id("potion_for_bag"));

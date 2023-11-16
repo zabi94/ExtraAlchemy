@@ -37,7 +37,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		this.bagStack = player.getStackInHand(hand);
 		this.playerInventory = playerInventory;
 		bagInventory = new BagInventory(bagStack, hand);
-		fakeInventory = new FakeSelectionInventory();
+		fakeInventory = new FakeSelectionInventory(hand);
 		
 		addSlot(new SelectorSlot(fakeInventory, bagStack, 80, 36));
 		for (int j=0;j<2;j++) for (int i=0;i<9;i++) {
