@@ -180,7 +180,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		
 		@Override
 		public void onTakeItem(PlayerEntity player, ItemStack stack) {
-			ModItems.POTION_BAG.selectPotion(bagStack, null);
+			PotionBagItem.selectPotion(bagStack, null);
 			this.markDirty();
 		}
 		
@@ -206,13 +206,13 @@ public class PotionBagScreenHandler extends ScreenHandler {
 
 		@Override
 		public void setStackNoCallbacks(ItemStack stack) {
-			ModItems.POTION_BAG.selectPotion(bagStack, stack);
+			PotionBagItem.selectPotion(bagStack, stack);
 			this.markDirty();
 		}
 
 		@Override
 		public ItemStack takeStack(int amount) {
-			ModItems.POTION_BAG.selectPotion(bagStack, null);
+			PotionBagItem.selectPotion(bagStack, null);
 			this.markDirty();
 			return ItemStack.EMPTY;
 		}

@@ -102,7 +102,7 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 		}
 	}
 
-	public void selectPotion(ItemStack bag, ItemStack potionStack) {
+	public static void selectPotion(ItemStack bag, ItemStack potionStack) {
 		if (potionStack == null) {
 			bag.getOrCreateNbt().remove(TAG_SELECTED);
 		} else {
