@@ -139,7 +139,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 	}
 
 	private ItemStack transferToBag(PlayerEntity player, int index) {
-		return mergeAndUpdate(player, this.slots.get(index), index, 1, 18, false);
+		return mergeAndUpdate(player, this.slots.get(index), index, 1, 19, false);
 	}
 
 	private ItemStack transferToPlayer(PlayerEntity player, int index) {
