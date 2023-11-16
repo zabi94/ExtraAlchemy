@@ -8,15 +8,10 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.DyeableItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.TagKey;
@@ -25,18 +20,19 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.client.tooltip.StatusEffectContainer;
+import zabi.minecraft.extraalchemy.screen.potion_bag.BagInventory;
 import zabi.minecraft.extraalchemy.screen.potion_bag.PotionBagScreenhandlerFactory;
 import zabi.minecraft.extraalchemy.utils.LibMod;
 import zabi.minecraft.extraalchemy.utils.Log;
+import zabi.minecraft.extraalchemy.utils.PotionDelegate;
 
 public class PotionBagItem extends Item implements DyeableItem, StatusEffectContainer {
 
-	public static final String TAG_MODE = "ea_select_mode";
+	private static final String TAG_MODE = "ea_select_mode";
 	public static final String TAG_INVENTORY = "ea_inventory";
-	public static final String TAG_SELECTED = "ea_selected";
+	private static final String TAG_SELECTED = "ea_selected_potion";
 
 	private static final TagKey<Item> TAG_POTION = TagKey.of(Registries.ITEM.getKey(), LibMod.id("potion_for_bag"));
 
@@ -48,11 +44,11 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
 		super.appendTooltip(stack, world, tooltip, context);
 
-		Optional<Potion> optpot = getSelectedPotion(stack);
+		Optional<PotionDelegate> optpot = getSelectedPotion(stack);
 
 		if (optpot.isPresent()) {
 			int avail = getSelectedPotionAmount(stack).get();
-			Text potion = Text.translatable(optpot.get().finishTranslationKey("item.minecraft.potion.effect.")).formatted(Formatting.DARK_PURPLE, Formatting.BOLD);
+			Text potion = Text.translatable(optpot.get().getTranslationKey()).formatted(Formatting.DARK_PURPLE, Formatting.BOLD);
 			Text amount = Text.literal(""+avail).formatted(Formatting.BLUE);
 			tooltip.add(Text.translatable("item.extraalchemy.potion_bag.selected.potion", potion, amount));
 			
@@ -65,7 +61,7 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 
 		if (optpot.isPresent()) {
 			tooltip.add(Text.empty());
-			PotionUtil.buildTooltip(PotionUtil.setPotion(new ItemStack(Items.POTION), optpot.get()), tooltip, 1f);
+			optpot.get().addToTooltip(tooltip);
 		}
 	}
 
@@ -78,7 +74,7 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 				user.openHandledScreen(factory);
 			} else {
 				handleRefill(stack); 
-				Optional<Potion> optpot = getSelectedPotion(stack);
+				Optional<PotionDelegate> optpot = getSelectedPotion(stack);
 				if (getSelectedPotionAmount(stack).get() > 0 && optpot.isPresent()) {
 					user.setCurrentHand(hand);
 				} 
@@ -106,14 +102,12 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 		}
 	}
 
-
-	private void selectPotion(ItemStack bag, ItemStack potionStack) {
+	public void selectPotion(ItemStack bag, ItemStack potionStack) {
 		if (potionStack == null) {
 			bag.getOrCreateNbt().remove(TAG_SELECTED);
 		} else {
-			NbtCompound potionTag = new NbtCompound();
-			potionTag.putString("Potion", Registries.POTION.getId(PotionUtil.getPotion(potionStack)).toString());
-			bag.getOrCreateNbt().put(TAG_SELECTED, potionTag);
+			PotionDelegate pd = new PotionDelegate(potionStack); 
+			bag.getOrCreateNbt().put(TAG_SELECTED, pd.serialize());
 		}
 	}
 
@@ -121,9 +115,9 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 	public ItemStack finishUsing(ItemStack bag, World world, LivingEntity user) {
 		if (!world.isClient) {
 			if (user instanceof PlayerEntity) {
-				Optional<Potion> potopt = getSelectedPotion(bag);
+				Optional<PotionDelegate> potopt = getSelectedPotion(bag);
 				if (potopt.isPresent()) {
-					Potion target = potopt.get();
+					PotionDelegate target = potopt.get();
 					BagInventory inv = new BagInventory(bag, user.getActiveHand());
 					findPotionAndApply(user, target, inv);
 				}
@@ -133,11 +127,10 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 		return super.finishUsing(bag, world, user);
 	}
 
-	private void findPotionAndApply(LivingEntity user, Potion target, BagInventory inv) {
+	private void findPotionAndApply(LivingEntity user, PotionDelegate target, BagInventory inv) {
 		for (int i = 0; i < inv.size(); i++) {
 			ItemStack currentStack = inv.getStack(i);
-			Potion isp = PotionUtil.getPotion(currentStack);
-			if (isp.equals(target) && currentStack.getItem() != Items.AIR) {
+			if (target.match(currentStack)) {
 				currentStack.getItem().finishUsing(currentStack, user.getEntityWorld(), user);
 				break;
 			}
@@ -169,23 +162,23 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 		return getSelectedPotion(stack).isPresent();
 	}
 
-	public Optional<Potion> getSelectedPotion(ItemStack bag) {
-		Potion pot = PotionUtil.getPotion(bag.getOrCreateNbt().getCompound(TAG_SELECTED));
-		if (pot.getEffects().isEmpty()) return Optional.empty();
-		return Optional.of(pot);
+	public Optional<PotionDelegate> getSelectedPotion(ItemStack bag) {
+		NbtCompound selectedTag = bag.getOrCreateNbt().getCompound(TAG_SELECTED);
+		if (selectedTag.isEmpty()) return Optional.empty();
+		return PotionDelegate.deserialize(selectedTag);
 	}
 
 	public Optional<Integer> getSelectedPotionAmount(ItemStack bag) {
 		int count = 0;
-		Optional<Potion> potopt = getSelectedPotion(bag);
+		Optional<PotionDelegate> potopt = getSelectedPotion(bag);
 		if (potopt.isPresent()) {
 			BagInventory inv = new BagInventory(bag, null);
 			for (int i = 0; i < inv.size(); i++) {
-				Potion isp = PotionUtil.getPotion(inv.getStack(i));
-				if (isp.equals(potopt.get()) && inv.getStack(i).getItem() != Items.AIR) count++;
+				if (potopt.get().match(inv.getStack(i))) count++;
 			}
+			return Optional.of(count);
 		}
-		return Optional.of(count);
+		return Optional.empty();
 	}
 
 	public SelectionMode getSelectionMode(ItemStack bag) {
@@ -207,8 +200,8 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 		BagInventory inv = new BagInventory(stack, null);
 		for (int i = 0; i < inv.size(); i++) {
 			ItemStack currentStack = inv.getStack(i);
-			Potion isp = PotionUtil.getPotion(currentStack);
-			if (!isp.getEffects().isEmpty() && currentStack.getItem() != Items.AIR) {
+			PotionDelegate potion = new PotionDelegate(currentStack);
+			if (!potion.isEmpty()) {
 				return Optional.of(currentStack.copy());
 			}
 		}
@@ -221,105 +214,13 @@ public class PotionBagItem extends Item implements DyeableItem, StatusEffectCont
 		return compoundTag != null && compoundTag.contains("color", 99) ? compoundTag.getInt("color") : 0xce7720;
 	}
 
-	public static class BagInventory implements Inventory {
-
-		private static final int SLOT_AMOUNT = 18;
-
-		private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(SLOT_AMOUNT, ItemStack.EMPTY);
-		private Hand openedWith;
-
-		public BagInventory(ItemStack bag, Hand hand) {
-			openedWith = hand;
-			deserialize(bag.getOrCreateNbt().getCompound(TAG_INVENTORY));
-		}
-
-		@Override
-		public void clear() {
-			inventory.clear();
-		}
-
-		@Override
-		public int size() {
-			return SLOT_AMOUNT;
-		}
-
-		@Override
-		public boolean isEmpty() {
-			return inventory.stream().allMatch(ItemStack::isEmpty);
-		}
-
-		@Override
-		public ItemStack getStack(int slot) {
-			return inventory.get(slot);
-		}
-
-		@Override
-		public ItemStack removeStack(int slot, int amount) {
-			return Inventories.splitStack(inventory, slot, amount);
-		}
-
-		@Override
-		public ItemStack removeStack(int slot) {
-			return Inventories.removeStack(inventory, slot);
-		}
-
-		@Override
-		public void setStack(int slot, ItemStack stack) {
-			inventory.set(slot, stack);
-		}
-
-		@Override
-		public void markDirty() {
-			//NO-OP
-		}
-
-		@Override
-		public boolean canPlayerUse(PlayerEntity player) {
-			if (openedWith == null) {
-				return true; //Client
-			}
-			return player.getStackInHand(openedWith).getItem() instanceof PotionBagItem;
-		}
-
-		@Override
-		public void onClose(PlayerEntity player) {
-			if (openedWith != null) {
-				player.getStackInHand(openedWith).getOrCreateNbt().put(TAG_INVENTORY, serialize(inventory));
-			} else {
-				if (!player.getEntityWorld().isClient) {
-					Log.w("Server did not have any hand info associated with the inventory");
-				}
-			}
-		}
-
-		private NbtElement serialize(DefaultedList<ItemStack> items) {
-			NbtCompound tag = new NbtCompound();
-			for (int i = 0; i < items.size(); i++) {
-				tag.put("inv"+i, items.get(i).writeNbt(new NbtCompound()));
-			}
-			return tag;
-		}
-
-		private void deserialize(NbtCompound tag) {
-			for (int i = 0; i < inventory.size(); i++) {
-				inventory.set(i, ItemStack.fromNbt(tag.getCompound("inv"+i)));
-			}
-		}
-
-		@Override
-		public boolean isValid(int slot, ItemStack stack) {
-			return PotionBagItem.isValidPotionItem(stack);
-		}
-
-	}
-
 	public static enum SelectionMode {
 		HOLD, NEXT, DESELECT
 	}
 
 	@Override
 	public List<StatusEffectInstance> getContainedEffects(ItemStack stack) {
-		Optional<Potion> optpot = getSelectedPotion(stack);
+		Optional<PotionDelegate> optpot = getSelectedPotion(stack);
 		if (optpot.isEmpty()) {
 			return List.of();
 		}

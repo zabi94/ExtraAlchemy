@@ -1,6 +1,5 @@
 package zabi.minecraft.extraalchemy.screen.potion_bag;
 
-import java.lang.ref.WeakReference;
 import java.util.Optional;
 
 import net.minecraft.entity.player.PlayerEntity;
@@ -8,9 +7,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionUtil;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
@@ -18,12 +14,15 @@ import net.minecraft.util.Hand;
 import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.items.PotionBagItem;
 import zabi.minecraft.extraalchemy.screen.ModScreenHandlerTypes;
+import zabi.minecraft.extraalchemy.utils.PotionDelegate;
 
 public class PotionBagScreenHandler extends ScreenHandler {
 
-	protected PotionBagItem.BagInventory bagInventory;
+	protected BagInventory bagInventory;
+	protected FakeSelectionInventory fakeInventory;
+	protected PlayerInventory playerInventory;
 	protected ItemStack bagStack;
-
+	
 	public PotionBagScreenHandler(int syncId, PlayerInventory playerInventory, PlayerEntity player, Hand hand) {
 		super(ModScreenHandlerTypes.POTION_BAG, syncId);
 		if (hand == null) {
@@ -36,8 +35,11 @@ public class PotionBagScreenHandler extends ScreenHandler {
 			}
 		}
 		this.bagStack = player.getStackInHand(hand);
-		bagInventory = new PotionBagItem.BagInventory(bagStack, hand);
-		addSlot(new SelectorSlot(bagStack, 80, 36, player));
+		this.playerInventory = playerInventory;
+		bagInventory = new BagInventory(bagStack, hand);
+		fakeInventory = new FakeSelectionInventory();
+		
+		addSlot(new SelectorSlot(fakeInventory, bagStack, 80, 36));
 		for (int j=0;j<2;j++) for (int i=0;i<9;i++) {
 			this.addSlot(new PotionOnlySlot(bagInventory, i+9*j, 18*i + 8, 18*j+90));
 		}
@@ -75,6 +77,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 	@Override
 	public void onClosed(PlayerEntity player) {
 		bagInventory.onClose(player);
+		fakeInventory.onClose(player);
 		player.getInventory().markDirty();
 		player.getInventory().onClose(player);
 		super.onClosed(player);
@@ -113,7 +116,8 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		//slotId = 0, actionType = PICKUP
 		ItemStack iso = this.getCursorStack();
 		if (!iso.isEmpty()) {
-			if (!PotionUtil.getPotion(iso).getEffects().isEmpty()) {
+			PotionDelegate pd = new PotionDelegate(iso);
+			if (!pd.isEmpty()) {
 				ItemStack nis = iso.copy();
 				nis.setCount(1);
 				((Slot) slots.get(slotId)).setStackNoCallbacks(nis);
@@ -121,6 +125,8 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		} else {
 			((Slot) slots.get(slotId)).setStackNoCallbacks(ItemStack.EMPTY);
 		}
+		
+		this.playerInventory.markDirty();
 	}
 	
 	@Override
@@ -162,27 +168,25 @@ public class PotionBagScreenHandler extends ScreenHandler {
 	public static class SelectorSlot extends Slot {
 
 		private ItemStack bagStack;
-		private WeakReference<PlayerEntity> player;
 
-		public SelectorSlot(ItemStack stack, int x, int y, PlayerEntity player) {
-			super(new FakeSelectionInventory(), 0, x, y);
+		public SelectorSlot(Inventory inventory, ItemStack stack, int x, int y) {
+			super(inventory, 0, x, y);
 			bagStack = stack;
-			this.player = new WeakReference<PlayerEntity>(player);
 		}
 
 		@Override
 		public void onQuickTransfer(ItemStack originalItem, ItemStack itemStack) {
 		}
-
+		
 		@Override
 		public void onTakeItem(PlayerEntity player, ItemStack stack) {
-			bagStack.getOrCreateNbt().remove(PotionBagItem.TAG_SELECTED);
-			markInventoryDirty();
+			ModItems.POTION_BAG.selectPotion(bagStack, null);
+			this.markDirty();
 		}
-
+		
 		@Override
 		public boolean canInsert(ItemStack stack) {
-			return !PotionUtil.getPotion(stack).getEffects().isEmpty();
+			return !(new PotionDelegate(stack).isEmpty());
 		}
 
 		@Override
@@ -192,38 +196,25 @@ public class PotionBagScreenHandler extends ScreenHandler {
 
 		@Override
 		public ItemStack getStack() {
-			Optional<Potion> selectedOpt = ModItems.POTION_BAG.getSelectedPotion(bagStack);
+			Optional<PotionDelegate> selectedOpt = ModItems.POTION_BAG.getSelectedPotion(bagStack);
 			if (selectedOpt.isPresent()) {
-				return PotionUtil.setPotion(new ItemStack(Items.POTION), selectedOpt.get());
+				return selectedOpt.get().getStack();
 			} else {
 				return ItemStack.EMPTY;
 			}
 		}
 
 		@Override
-		public boolean hasStack() {
-			return ModItems.POTION_BAG.getSelectedPotion(bagStack).isPresent();
-		}
-
-		@Override
 		public void setStackNoCallbacks(ItemStack stack) {
-			bagStack.getOrCreateNbt().put(PotionBagItem.TAG_SELECTED, stack.getOrCreateNbt());
-			markInventoryDirty();
+			ModItems.POTION_BAG.selectPotion(bagStack, stack);
+			this.markDirty();
 		}
 
 		@Override
 		public ItemStack takeStack(int amount) {
-			bagStack.getOrCreateNbt().remove(PotionBagItem.TAG_SELECTED);
-			markInventoryDirty();
-			return ItemStack.EMPTY;
-		}
-		
-		private void markInventoryDirty() {
-			PlayerEntity p = player.get();
-			if (p != null) {
-				p.getInventory().markDirty();
-			}
+			ModItems.POTION_BAG.selectPotion(bagStack, null);
 			this.markDirty();
+			return ItemStack.EMPTY;
 		}
 
 	}
