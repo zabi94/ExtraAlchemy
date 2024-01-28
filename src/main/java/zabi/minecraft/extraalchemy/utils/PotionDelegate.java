@@ -26,7 +26,7 @@ public class PotionDelegate {
 	}
 	
 	public void addToTooltip(List<Text> tooltip) {
-		PotionUtil.buildTooltip(getEffects(), tooltip, 1);
+		PotionUtil.buildTooltip(getEffects(), tooltip, 1, 20);
 	}
 	
 	public NbtCompound serialize() {
