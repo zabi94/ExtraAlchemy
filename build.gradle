@@ -62,7 +62,7 @@ dependencies {
 	modRuntimeOnly("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}")
 	modApi("com.github.Virtuoel:Pehkui:${project.pehkui_version}")
 	//modRuntimeOnly("curse.maven:nbt-tooltip-274816:${project.nbttt_version}")
-	//modImplementation("curse.maven:inventorio-491073:${project.inventorio_version}")
+	modImplementation("curse.maven:inventorio-491073:${project.inventorio_version}")
 	//modRuntimeOnly("curse.maven:nomoreglowingpots-286348:${project.nmgp_version}")
 	modImplementation("dev.emi:trinkets:${project.trinkets_version}")
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-api:${project.cardinal_components_version}"
