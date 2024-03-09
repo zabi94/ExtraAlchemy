@@ -4,5 +4,6 @@
 	"subtitle": "extraalchemy.guide.subtitle",
 	"pamphlet": false,
 	"show_progress": false,
-	"creative_tab": "extraalchemy.all"
+	"creative_tab": "extraalchemy.all",
+	"use_resource_pack": true
 }
