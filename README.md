@@ -22,7 +22,7 @@ Heated blocks and Heat conductors can all be configured through Minecraft datapa
 Rings can be configured through datapack recipes similar to the ones included in this mod. Cost, length and reapplication time are all defined there. Ring recipes are automatically synchronized to the clients. Setting a ring to produce a potion without status effects (eg: awkward, water, mundane, thick) will disable the recipe instead. [Example](https://github.com/zabi94/ExtraAlchemy/tree/1.16-fabric/src/main/resources/data/extraalchemy/recipes/ring_recipes)
 
 ## Support
-The main development focus is now 1.15 and 1.16, with version 1.12 only updated to fix bugs and version 1.14 discontinued due to low interest and the high effort required.
+Development will only be done on the latest version of the modloader/minecraft, with older versions being discontinued.
 A version for the forge mod loader is NOT available and will probably never be. **Ports to the forge mod loader are not allowed**, and I don't want to get in touch with people asking me for permissions, wishing to discuss, asking my reasons or any other 1.13+ forge related topic.
 
 ## Dependencies
