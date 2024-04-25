@@ -12,7 +12,7 @@ import zabi.minecraft.extraalchemy.items.ItemSettings;
 import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.network.ServerPacketRegistry;
 import zabi.minecraft.extraalchemy.potion.ModPotionRegistry;
-import zabi.minecraft.extraalchemy.recipes.BrewingRecipeRegistrar;
+import zabi.minecraft.extraalchemy.recipes.BrewingRecipes;
 import zabi.minecraft.extraalchemy.screen.ModScreenHandlerTypes;
 import zabi.minecraft.extraalchemy.statuseffect.ModEffectRegistry;
 import zabi.minecraft.extraalchemy.utils.proxy.ServerProxy;
@@ -30,7 +30,7 @@ public class ExtraAlchemy implements ModInitializer {
 		ModItems.registerItems();
 		ModEffectRegistry.registerAll();
 		ModPotionRegistry.registerAll();
-		BrewingRecipeRegistrar.init();
+		BrewingRecipes.init();
 		ServerPacketRegistry.init();
 		CraftingRecipes.init();
 		ModScreenHandlerTypes.init();

@@ -12,7 +12,7 @@ import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.potion.ModPotion;
 import zabi.minecraft.extraalchemy.potion.ModPotionRegistry;
 
-public class BrewingRecipeRegistrar {
+public class BrewingRecipes {
 
 	public static void init() {
 		registerPotion(ModConfig.INSTANCE.potions.fuse, ModPotionRegistry.fuse, Items.FIREWORK_STAR, Potions.AWKWARD);

@@ -8,7 +8,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.potion.ModPotion;
-import zabi.minecraft.extraalchemy.recipes.BrewingRecipeRegistrar;
+import zabi.minecraft.extraalchemy.recipes.BrewingRecipes;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 import zabi.minecraft.extraalchemy.utils.LibMod;
 import zabi.minecraft.extraalchemy.utils.Log;
@@ -46,8 +46,8 @@ public class PehkuiPotions {
 	
 	public static void registerRecipes() {
 		Log.i("Registering pehkui recipes");
-		BrewingRecipeRegistrar.registerPotion(ModConfig.INSTANCE.potions.shrinking, shrinking_, Items.BROWN_MUSHROOM, Potions.AWKWARD);
-		BrewingRecipeRegistrar.registerPotion(ModConfig.INSTANCE.potions.growing, growing_, Items.RED_MUSHROOM, Potions.AWKWARD);
+		BrewingRecipes.registerPotion(ModConfig.INSTANCE.potions.shrinking, shrinking_, Items.BROWN_MUSHROOM, Potions.AWKWARD);
+		BrewingRecipes.registerPotion(ModConfig.INSTANCE.potions.growing, growing_, Items.RED_MUSHROOM, Potions.AWKWARD);
 	}
 	
 }
