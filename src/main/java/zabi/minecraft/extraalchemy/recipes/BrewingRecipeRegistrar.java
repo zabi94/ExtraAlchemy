@@ -1,21 +1,19 @@
 package zabi.minecraft.extraalchemy.recipes;
 
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.Potions;
+import net.minecraft.recipe.Ingredient;
 import zabi.minecraft.extraalchemy.compat.pehkui.PehkuiCompatBridge;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.potion.ModPotion;
 import zabi.minecraft.extraalchemy.potion.ModPotionRegistry;
-import zabi.minecraft.extraalchemy.recipes.BrewingRecipeRegistrar.Registar;
-import zabi.minecraft.extraalchemy.utils.DelayedConsumer;
 
-public class BrewingRecipeRegistrar extends DelayedConsumer<Registar> {
+public class BrewingRecipeRegistrar {
 
-	private static final BrewingRecipeRegistrar INSTANCE = new BrewingRecipeRegistrar();
-	
 	public static void init() {
 		registerPotion(ModConfig.INSTANCE.potions.fuse, ModPotionRegistry.fuse, Items.FIREWORK_STAR, Potions.AWKWARD);
 		registerPotion(ModConfig.INSTANCE.potions.crumbling, ModPotionRegistry.crumbling, Items.DIRT, Potions.AWKWARD);
@@ -40,24 +38,14 @@ public class BrewingRecipeRegistrar extends DelayedConsumer<Registar> {
 	
 	public static void registerPotion(boolean active, ModPotion potion, Item ingredient, Potion base) {
 		if (active) {
-			INSTANCE.consumeWhenReady(reg -> {
-				reg.register(base, ingredient, potion);
-				if (potion.getEmpowered() != null) {
-					reg.register(potion, Items.GLOWSTONE_DUST, potion.getEmpowered());
-				}
-				if (potion.getExtended() != null) {
-					reg.register(potion, Items.REDSTONE, potion.getExtended());
-				}
-			});
+			FabricBrewingRecipeRegistry.registerPotionRecipe(base, Ingredient.ofItems(ingredient), potion);
+			if (potion.getEmpowered() != null) {
+				FabricBrewingRecipeRegistry.registerPotionRecipe(potion, Ingredient.ofItems(Items.GLOWSTONE_DUST), potion.getEmpowered());
+			}
+			if (potion.getExtended() != null) {
+				FabricBrewingRecipeRegistry.registerPotionRecipe(potion, Ingredient.ofItems(Items.REDSTONE), potion.getExtended());
+			}
 		}
 	}
 	
-	public static void onKeyReady(Registar r) {
-		INSTANCE.keyReady(r);
-	}
-	
-	@FunctionalInterface
-	public static interface Registar {
-		void register(Potion input, Item item, Potion output);
-	}
 }

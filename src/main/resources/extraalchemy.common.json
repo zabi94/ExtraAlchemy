@@ -5,7 +5,6 @@
   "mixins": [
     "MixinPlayerEntity", 
     "MixinLivingEntity",
-    "MixinBrewRegistry",
     "EntityDamaged",
     "TemptGoalMixin",
     "BrewingStandMixin"
