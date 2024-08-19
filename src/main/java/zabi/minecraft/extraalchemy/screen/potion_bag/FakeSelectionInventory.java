@@ -3,17 +3,8 @@ package zabi.minecraft.extraalchemy.screen.potion_bag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtInt;
-import net.minecraft.util.Hand;
-import zabi.minecraft.extraalchemy.items.PotionBagItem;
 
 public class FakeSelectionInventory implements Inventory {
-
-	private Hand openedWith;
-	
-	public FakeSelectionInventory(Hand hand) {
-		openedWith = hand;
-	}
 
 	@Override
 	public void clear() {
@@ -62,9 +53,6 @@ public class FakeSelectionInventory implements Inventory {
 	
 	@Override
 	public void onClose(PlayerEntity player) {
-		if (openedWith != null) {
-			player.getStackInHand(openedWith).getOrCreateNbt().put(PotionBagItem.TAG_LAST_CHANGE, NbtInt.of(player.getRandom().nextInt()));
-		}
 	}
 	
 }

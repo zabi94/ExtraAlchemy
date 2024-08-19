@@ -18,10 +18,12 @@ public class PhotosynthesisStatusEffect extends ModStatusEffect {
 	}
 
 	@Override
-	public void applyUpdateEffect(LivingEntity entity, int level) {
+	public boolean applyUpdateEffect(LivingEntity entity, int level) {
 		if (!entity.getEntityWorld().isClient && entity instanceof PlayerEntity player && isInDaylight(entity)) {
 			player.getHungerManager().add(level, 0f);
 		}
+		
+		return true;
 	}
 
 	private static boolean isInDaylight(LivingEntity entity) {

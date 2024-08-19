@@ -4,11 +4,11 @@ import java.util.List;
 
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionUtil;
+import zabi.minecraft.extraalchemy.utils.PotionUtilities;
 
 public interface StatusEffectContainer {
 	
-	static final StatusEffectContainer DEFAULT_CONTAINER = s -> PotionUtil.getPotionEffects(s);
+	static final StatusEffectContainer DEFAULT_CONTAINER = s -> PotionUtilities.getEffects(s);
 	
 	public List<StatusEffectInstance> getContainedEffects(ItemStack stack);
 	

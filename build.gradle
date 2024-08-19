@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.5-SNAPSHOT'
+	id 'fabric-loom' version '1.7-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -53,22 +53,24 @@ dependencies {
 	//Fabric
 	modImplementation("net.fabricmc:fabric-loader:${project.loader_version}")
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
-	modRuntimeOnly("net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}")
+	//modRuntimeOnly("net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}")
+
 
 
 	// Deps
-	modApi("com.terraformersmc:modmenu:${project.modmenu_version}")
-	modApi("me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}")
-	modRuntimeOnly("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}")
-	modApi("com.github.Virtuoel:Pehkui:${project.pehkui_version}")
+	//modApi("com.terraformersmc:modmenu:${project.modmenu_version}")
+	//modApi("me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}")
+	//modRuntimeOnly("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}")
+	//modApi("com.github.Virtuoel:Pehkui:${project.pehkui_version}")
 	//modRuntimeOnly("curse.maven:nbt-tooltip-274816:${project.nbttt_version}")
-	modImplementation("curse.maven:inventorio-491073:${project.inventorio_version}")
+	// modImplementation("curse.maven:inventorio-491073:${project.inventorio_version}")
 	//modRuntimeOnly("curse.maven:nomoreglowingpots-286348:${project.nmgp_version}")
-	modImplementation("dev.emi:trinkets:${project.trinkets_version}")
-    modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-api:${project.cardinal_components_version}"
+	// modImplementation("dev.emi:trinkets:${project.trinkets_version}")
+    // modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-api:${project.cardinal_components_version}"
 	// modImplementation("vazkii.patchouli:Patchouli:${project.patchouli_version}")
-	include("me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}")
+	//include("me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}")
 	
+
 }
 
 configurations.implementation {

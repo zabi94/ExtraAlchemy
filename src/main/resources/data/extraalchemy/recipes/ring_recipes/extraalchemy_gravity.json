@@ -1,7 +1,8 @@
 {
-  "type": "extraalchemy:potion_ring",
-  "cost": 1,
-  "length": 12,
-  "renew": 1,
-  "potion": "extraalchemy:gravity"
+  "type":"extraalchemy:potion_ring",
+  "renew":1,
+  "effect":"extraalchemy:gravity",
+  "level":0,
+  "cost":1,
+  "length":12
 }

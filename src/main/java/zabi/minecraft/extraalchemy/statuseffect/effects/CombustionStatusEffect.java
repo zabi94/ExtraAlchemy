@@ -22,7 +22,7 @@ public class CombustionStatusEffect extends ModStatusEffect {
 	}
 
 	@Override
-	public void applyUpdateEffect(LivingEntity e, int level) {
+	public boolean applyUpdateEffect(LivingEntity e, int level) {
 		e.setFireTicks(20);
 		World w = e.getEntityWorld();
 		if (!w.isClient && w.getGameRules().getBoolean(GameRules.DO_FIRE_TICK)) {
@@ -42,6 +42,7 @@ public class CombustionStatusEffect extends ModStatusEffect {
 				}
 			}
 		}
+		return true;
 	}
 
 

@@ -11,6 +11,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTracker;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.registry.Registries;
 import zabi.minecraft.extraalchemy.statuseffect.ModEffectRegistry;
 
 @Mixin(DamageTracker.class)
@@ -20,7 +21,7 @@ public class EntityDamaged {
 	
 	@Inject(method = "onDamage", at = @At(value = "TAIL"))
 	public void onDamageDealt(DamageSource damageSource, float damage, CallbackInfo ci) {
-		StatusEffectInstance sei = entity.getStatusEffect(ModEffectRegistry.pacifism);
+		StatusEffectInstance sei = entity.getStatusEffect(Registries.STATUS_EFFECT.getEntry(ModEffectRegistry.pacifism));
 		if (sei != null && damageSource.getAttacker() instanceof LivingEntity && !damageSource.isSourceCreativePlayer()) {
 			StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 200, sei.getAmplifier(), false, true, true);
 			StatusEffectInstance weakness = new StatusEffectInstance(StatusEffects.WEAKNESS, 200, sei.getAmplifier(), false, true, true);

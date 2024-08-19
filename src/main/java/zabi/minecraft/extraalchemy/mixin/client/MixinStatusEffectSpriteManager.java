@@ -12,6 +12,7 @@ import net.minecraft.client.texture.StatusEffectSpriteManager;
 import net.minecraft.client.texture.TextureManager;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import zabi.minecraft.extraalchemy.entitydata.PlayerProperties;
 import zabi.minecraft.extraalchemy.statuseffect.ModEffectRegistry;
@@ -24,8 +25,8 @@ public abstract class MixinStatusEffectSpriteManager extends SpriteAtlasHolder  
 	}
 	
 	@Inject(at = @At("HEAD"), cancellable = true, method = "getSprite")
-	public void injectGetSprite(StatusEffect statusEffect, CallbackInfoReturnable<Sprite> cbinfo) {
-		if (statusEffect == ModEffectRegistry.magnetism && MinecraftClient.getInstance().player != null && !PlayerProperties.of(MinecraftClient.getInstance().player).isMagnetismEnabled()) {
+	public void injectGetSprite(RegistryEntry<StatusEffect> statusEffect, CallbackInfoReturnable<Sprite> cbinfo) {
+		if (statusEffect.value().equals(ModEffectRegistry.magnetism) && MinecraftClient.getInstance().player != null && !PlayerProperties.of(MinecraftClient.getInstance().player).isMagnetismEnabled()) {
 			cbinfo.setReturnValue(this.getSprite(Registries.STATUS_EFFECT.getId(ModEffectRegistry.Utils.magnetism_disabled)));
 		}
 	}

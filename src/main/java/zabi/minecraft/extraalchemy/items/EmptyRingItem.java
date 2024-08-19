@@ -4,11 +4,10 @@ import java.util.List;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.item.TooltipType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 
 public class EmptyRingItem extends Item {
@@ -19,7 +18,7 @@ public class EmptyRingItem extends Item {
 	
 	@Environment(EnvType.CLIENT)
 	@Override
-	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
+	public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
 		if (ModConfig.INSTANCE.enableVials) {
 			tooltip.add(Text.translatable("item.extraalchemy.empty_ring.tooltip1"));
 			tooltip.add(Text.translatable("item.extraalchemy.empty_ring.tooltip2"));

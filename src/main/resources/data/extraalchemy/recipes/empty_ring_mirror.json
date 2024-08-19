@@ -1,20 +1,21 @@
-    {
-      "type": "minecraft:crafting_shaped",
-      "pattern": [
-        " GB",
-        "G G",
-        " G "
-      ],
-      "key": {
-        "B": {
-          "item": "minecraft:glass_bottle"
-        },
-        "G": {
-          "item": "minecraft:gold_ingot"
-        }
-      },
-      "result": {
-        "item": "extraalchemy:empty_ring"
-      }
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " GB",
+    "G G",
+    " G "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:glass_bottle"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
     }
+  },
+  "result": {
+    "id": "extraalchemy:empty_ring",
+    "count": 1
+  }
+}
 

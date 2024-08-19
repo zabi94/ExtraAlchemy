@@ -5,6 +5,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.potion.Potion;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 
 public class ModPotion extends Potion {
 	
@@ -50,7 +51,7 @@ public class ModPotion extends Potion {
 	
 	public static class ModPotionInstant extends ModPotion {
 		
-		public ModPotionInstant(String name, StatusEffect statusEffect, int amplifier) {
+		public ModPotionInstant(String name, RegistryEntry<StatusEffect> statusEffect, int amplifier) {
 			super(name, new StatusEffectInstance(statusEffect, 0, amplifier, false, true));
 		}
 
@@ -59,7 +60,7 @@ public class ModPotion extends Potion {
 			return true;
 		}
 		
-		public static ModPotionInstant generateAll(String name, StatusEffect statusEffect) {
+		public static ModPotionInstant generateAll(String name, RegistryEntry<StatusEffect> statusEffect) {
 			ModPotionInstant base = new ModPotionInstant(name, statusEffect, 0);
 			base.setEmpowered(new ModPotionInstant(name, statusEffect, 1));
 			return base;
@@ -69,7 +70,7 @@ public class ModPotion extends Potion {
 	
 	public static class ModPotionTimed extends ModPotion {
 		
-		protected ModPotionTimed(String name, StatusEffect statusEffect, int length, int amplifier) {
+		protected ModPotionTimed(String name, RegistryEntry<StatusEffect> statusEffect, int length, int amplifier) {
 			super(name, new StatusEffectInstance(statusEffect, length, amplifier, false, true));
 		}
 
@@ -78,14 +79,14 @@ public class ModPotion extends Potion {
 			return false;
 		}
 		
-		public static ModPotionTimed generateAll(String name, StatusEffect statusEffect, int lengthNormal, int lengthExtended, int lengthEmpowered) {
+		public static ModPotionTimed generateAll(String name, RegistryEntry<StatusEffect> statusEffect, int lengthNormal, int lengthExtended, int lengthEmpowered) {
 			ModPotionTimed base = new ModPotionTimed(name, statusEffect, lengthNormal, 0);
 			base.setEmpowered(new ModPotionTimed(name, statusEffect, lengthEmpowered, 1));
 			base.setExtended(new ModPotionTimed(name, statusEffect, lengthExtended, 0));
 			return base;
 		}
 		
-		public static ModPotionTimed generateWithLengthened(String name, StatusEffect statusEffect, int lengthNormal, int lengthExtended) {
+		public static ModPotionTimed generateWithLengthened(String name, RegistryEntry<StatusEffect> statusEffect, int lengthNormal, int lengthExtended) {
 			ModPotionTimed base = new ModPotionTimed(name, statusEffect, lengthNormal, 0);
 			base.setEmpowered(null);
 			base.setExtended(new ModPotionTimed(name, statusEffect, lengthExtended, 0));

@@ -1,19 +1,16 @@
 package zabi.minecraft.extraalchemy.items;
 
-import java.util.List;
 import java.util.Random;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PotionItem;
-import net.minecraft.potion.PotionUtil;
-import net.minecraft.potion.Potions;
+import net.minecraft.potion.Potion;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -22,6 +19,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.mixin.access.InvokerLivingEntity;
+import zabi.minecraft.extraalchemy.utils.PotionUtilities;
 
 public class VialPotionItem extends PotionItem {
 
@@ -29,10 +27,6 @@ public class VialPotionItem extends PotionItem {
 		super(new Settings().maxCount(16));
 	}
 
-	public ItemStack getDefaultStack() {
-		return PotionUtil.setPotion(super.getDefaultStack(), Potions.WATER);
-	}
-	
 	@Override
 	public UseAction getUseAction(ItemStack stack) {
 		return UseAction.BOW;
@@ -45,9 +39,10 @@ public class VialPotionItem extends PotionItem {
 		}
 
 		if (!world.isClient) {
-			PotionUtil.getPotionEffects(stack).forEach(statusEffectInstance -> {
-				if (statusEffectInstance.getEffectType().isInstant()) {
-					statusEffectInstance.getEffectType().applyInstantEffect(playerEntity, playerEntity, user, statusEffectInstance.getAmplifier(), 1.0D);
+			PotionUtilities.getEffects(stack).stream()
+			.forEach(statusEffectInstance -> {
+				if (statusEffectInstance.getEffectType().value().isInstant()) {
+					statusEffectInstance.getEffectType().value().applyInstantEffect(playerEntity, playerEntity, user, statusEffectInstance.getAmplifier(), 1.0D);
 				} else {
 					user.addStatusEffect(new StatusEffectInstance(statusEffectInstance));
 				}
@@ -69,19 +64,11 @@ public class VialPotionItem extends PotionItem {
 	public int getMaxUseTime(ItemStack stack) {
 		return 10;
 	}
-
-	public String getTranslationKey(ItemStack stack) {
-		return PotionUtil.getPotion(stack).finishTranslationKey(this.getTranslationKey() + ".effect.");
-	}
 	
 	@Override
 	public Text getName(ItemStack stack) {
-		return Text.translatable(getTranslationKey(), Text.translatable(PotionUtil.getPotion(stack).finishTranslationKey("item.minecraft.potion.effect.")));
-	}
-
-	@Environment(EnvType.CLIENT)
-	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
-		PotionUtil.buildTooltip(stack, tooltip, 1.0F, 20);
+		PotionContentsComponent pcc = stack.get(DataComponentTypes.POTION_CONTENTS);
+		return Text.translatable(getTranslationKey(), Text.translatable(Potion.finishTranslationKey(pcc.potion(), "item.minecraft.potion.effect.")));
 	}
 
 }

@@ -12,6 +12,7 @@ import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.texture.StatusEffectSpriteManager;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 
@@ -56,7 +57,7 @@ public class PotionTooltipComponent implements TooltipComponent {
 			int dy = y + (row * (TEXTURE_SIZE + TEXTURE_SPACING));
 			this.draw(context, dx, dy, 0, icon);
 			if (level > 1) {
-				Text txt = Text.translatable("enchantment.level."+level).formatted(eff.getEffectType().getCategory().getFormatting());
+				Text txt = Text.translatable("enchantment.level."+level).formatted(Registries.STATUS_EFFECT.get(eff.getEffectType().getKey().get()).getCategory().getFormatting());
 				int tx = dx + TEXTURE_SIZE - textRenderer.getWidth(txt)/2;
 				int ty = dy + TEXTURE_SIZE - textRenderer.fontHeight/2;
 				context.getMatrices().translate(0, 0, 400);

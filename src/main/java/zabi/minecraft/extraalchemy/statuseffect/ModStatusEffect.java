@@ -37,10 +37,13 @@ public class ModStatusEffect extends StatusEffect {
 	}
 	
 	@Override
-	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+	public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
 		if (isInstant()) {
 			applyInstantEffect(null, null, entity, amplifier, 1.0d);
+			return false;
 		}
+		
+		return super.applyUpdateEffect(entity, amplifier);
 	}
 	
 	public ModStatusEffect onRegister() {

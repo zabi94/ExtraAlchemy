@@ -1,21 +1,21 @@
-    {
-      "type": "minecraft:crafting_shaped",
-      "pattern": [
-        " F ",
-        "G G",
-        " G "
-      ],
-      "key": {
-        "F": {
-          "item": "minecraft:flint"
-        },
-        "G": {
-          "item": "minecraft:glass"
-        }
-      },
-      "result": {
-        "item": "extraalchemy:empty_vial",
-        "count": 3
-      }
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " F ",
+    "G G",
+    " G "
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:flint"
+    },
+    "G": {
+      "item": "minecraft:glass"
     }
+  },
+  "result": {
+    "id": "extraalchemy:empty_vial",
+    "count": 3
+  }
+}
 

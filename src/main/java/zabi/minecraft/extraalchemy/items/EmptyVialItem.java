@@ -4,22 +4,20 @@ import java.util.List;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.item.TooltipType;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionUtil;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
+import zabi.minecraft.extraalchemy.utils.PotionUtilities;
 
 public class EmptyVialItem extends Item {
 
@@ -36,11 +34,8 @@ public class EmptyVialItem extends Item {
 			for (int i = 0; i < PlayerInventory.getHotbarSize(); i++) {
 				ItemStack potion = user.getInventory().main.get(i);
 				if (potion.getItem() == Items.SPLASH_POTION) {
-					Potion main = PotionUtil.getPotion(potion);
-					List<StatusEffectInstance> custom = PotionUtil.getCustomPotionEffects(potion);
 					ItemStack vial = new ItemStack(ModItems.POTION_VIAL);
-					PotionUtil.setPotion(vial, main);
-					PotionUtil.setCustomPotionEffects(vial, custom);
+					PotionUtilities.cloneEffectsToStack(potion, vial);
 					user.getStackInHand(hand).decrement(1);
 					potion.decrement(1);
 					if (!user.giveItemStack(vial)) {
@@ -58,7 +53,7 @@ public class EmptyVialItem extends Item {
 	
 	@Environment(EnvType.CLIENT)
 	@Override
-	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
+	public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
 		if (ModConfig.INSTANCE.enableVials) {
 			tooltip.add(Text.translatable("item.extraalchemy.empty_vial.tootlip1"));
 			tooltip.add(Text.translatable("item.extraalchemy.empty_vial.tootlip2"));

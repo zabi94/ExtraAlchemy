@@ -17,9 +17,9 @@ public class MagnetismStatusEffect extends ModStatusEffect implements Toggleable
 	}
 
 	@Override
-	public void applyUpdateEffect(LivingEntity entity, int level) {
-		if (!entity.getEntityWorld().isClient) {
-			if (entity instanceof PlayerEntity player) {
+	public boolean applyUpdateEffect(LivingEntity entity, int level) {
+		if (entity instanceof PlayerEntity player) {
+			if (!entity.getEntityWorld().isClient) {
 				if (PlayerProperties.of(player).isMagnetismEnabled()) {
 					entity.getEntityWorld().getEntitiesByClass(ItemEntity.class, entity.getBoundingBox().expand((level + 1) * 5), Predicates.alwaysTrue())
 					.stream()
@@ -28,9 +28,10 @@ public class MagnetismStatusEffect extends ModStatusEffect implements Toggleable
 					.filter(e -> e.cannotPickup() == entity.isSneaking())
 					.forEach(e -> e.onPlayerCollision((PlayerEntity) entity));
 				}
-			} else {
-				entity.removeStatusEffectInternal(this);
-			}
+			} 
+			return true;
+		} else {
+			return false;
 		}
 	}
 
@@ -46,5 +47,5 @@ public class MagnetismStatusEffect extends ModStatusEffect implements Toggleable
 		}
 		return false;
 	}
-	
+
 }

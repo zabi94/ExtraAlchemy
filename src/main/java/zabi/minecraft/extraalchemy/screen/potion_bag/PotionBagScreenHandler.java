@@ -2,11 +2,16 @@ package zabi.minecraft.extraalchemy.screen.potion_bag;
 
 import java.util.Optional;
 
+import net.minecraft.component.ComponentChanges;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
@@ -14,7 +19,7 @@ import net.minecraft.util.Hand;
 import zabi.minecraft.extraalchemy.items.ModItems;
 import zabi.minecraft.extraalchemy.items.PotionBagItem;
 import zabi.minecraft.extraalchemy.screen.ModScreenHandlerTypes;
-import zabi.minecraft.extraalchemy.utils.PotionDelegate;
+import zabi.minecraft.extraalchemy.utils.PotionUtilities;
 
 public class PotionBagScreenHandler extends ScreenHandler {
 
@@ -37,7 +42,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		this.bagStack = player.getStackInHand(hand);
 		this.playerInventory = playerInventory;
 		bagInventory = new BagInventory(bagStack, hand);
-		fakeInventory = new FakeSelectionInventory(hand);
+		fakeInventory = new FakeSelectionInventory();
 		
 		addSlot(new SelectorSlot(fakeInventory, bagStack, 80, 36));
 		for (int j=0;j<2;j++) for (int i=0;i<9;i++) {
@@ -116,8 +121,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		//slotId = 0, actionType = PICKUP
 		ItemStack iso = this.getCursorStack();
 		if (!iso.isEmpty()) {
-			PotionDelegate pd = new PotionDelegate(iso);
-			if (!pd.isEmpty()) {
+			if (PotionUtilities.hasPotionEffects(iso)) {
 				ItemStack nis = iso.copy();
 				nis.setCount(1);
 				((Slot) slots.get(slotId)).setStackNoCallbacks(nis);
@@ -186,7 +190,7 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		
 		@Override
 		public boolean canInsert(ItemStack stack) {
-			return !(new PotionDelegate(stack).isEmpty());
+			return PotionUtilities.hasPotionEffects(stack);
 		}
 
 		@Override
@@ -196,9 +200,10 @@ public class PotionBagScreenHandler extends ScreenHandler {
 
 		@Override
 		public ItemStack getStack() {
-			Optional<PotionDelegate> selectedOpt = ModItems.POTION_BAG.getSelectedPotion(bagStack);
+			Optional<PotionContentsComponent> selectedOpt = ModItems.POTION_BAG.getSelectedPotion(bagStack);
 			if (selectedOpt.isPresent()) {
-				return selectedOpt.get().getStack();
+				ItemStack stack = new ItemStack(Registries.ITEM.getEntry(Items.POTION), 1, ComponentChanges.builder().add(DataComponentTypes.POTION_CONTENTS, selectedOpt.get()).build());
+				return stack;
 			} else {
 				return ItemStack.EMPTY;
 			}

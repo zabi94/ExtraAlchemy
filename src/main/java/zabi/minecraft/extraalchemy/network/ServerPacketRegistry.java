@@ -1,6 +1,5 @@
 package zabi.minecraft.extraalchemy.network;
 
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,33 +13,30 @@ import zabi.minecraft.extraalchemy.items.PotionBagItem;
 public class ServerPacketRegistry {
 
 	public static void init() {
-		ServerPlayNetworking.registerGlobalReceiver(C2S_Channels.MAGNETISM_ENABLE, (server, player, handler, buf, response) -> {
-			boolean magnetismActive = buf.readBoolean();
-			server.execute(() -> {
-				PlayerProperties.of(player).setMagnetismEnabled(magnetismActive);
-				response.sendPacket(S2C_Channels.PLAY_CLICK_SOUND, PacketByteBufs.empty());
+		ServerPlayNetworking.registerGlobalReceiver(ClientToServerPackets.MAGNETISM_ENABLE.id(), (p,c) -> {
+			boolean magnetismActive = p.getState();
+			c.player().getServerWorld().getServer().execute(() -> {
+				PlayerProperties.of(c.player()).setMagnetismEnabled(magnetismActive);
+	 			c.responseSender().sendPacket(ServerToClientPackets.PLAY_CLICK_SOUND.payload());
 			});
 		});
 		
-		ServerPlayNetworking.registerGlobalReceiver(C2S_Channels.CYCLE_BAG_MODES, (server, player, handler, buf, response) -> {
-			boolean hand = buf.readBoolean();
-			server.execute(() -> {
-				PotionBagItem.toggleStatusForPlayer(player, hand?Hand.MAIN_HAND:Hand.OFF_HAND);
-				ItemCooldownManager icm = player.getItemCooldownManager();
+		ServerPlayNetworking.registerGlobalReceiver(ClientToServerPackets.CYCLE_BAG_MODES.id(), (p,c) -> {
+			boolean hand = p.getState();
+			c.player().getServerWorld().getServer().execute(() -> {
+				PotionBagItem.toggleStatusForPlayer(c.player(), hand?Hand.MAIN_HAND:Hand.OFF_HAND);
+				ItemCooldownManager icm = c.player().getItemCooldownManager();
 				icm.set(ModItems.POTION_BAG, 10);
-				response.sendPacket(S2C_Channels.PLAY_CLICK_SOUND, PacketByteBufs.empty());
+	 			c.responseSender().sendPacket(ServerToClientPackets.PLAY_CLICK_SOUND.payload());
 			});
 		});
 		
-		 ServerPlayNetworking.registerGlobalReceiver(C2S_Channels.TOGGLE_RINGS_IN_EXTRA_INVENTORIES, (server, player, handler, buf, response) -> {
-			
-		 	server.execute(() -> {
-		 		if (toggleRings(player)) {
-		 			response.sendPacket(S2C_Channels.PLAY_CLICK_SOUND, PacketByteBufs.empty());
+		 ServerPlayNetworking.registerGlobalReceiver(ClientToServerPackets.TOGGLE_RINGS_IN_EXTRA_INVENTORIES.id(), (p,c) -> {
+		 	c.player().getServerWorld().getServer().execute(() -> {
+		 		if (toggleRings(c.player())) {
+		 			c.responseSender().sendPacket(ServerToClientPackets.PLAY_CLICK_SOUND.payload());
 		 		}
 		 	});
-			
-			
 		 });
 	}
 	

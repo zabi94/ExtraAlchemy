@@ -4,14 +4,14 @@ import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.potion.PotionUtil;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
 import net.minecraft.recipe.book.CraftingRecipeCategory;
-import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.registry.RegistryWrapper.WrapperLookup;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.items.ModItems;
+import zabi.minecraft.extraalchemy.utils.PotionUtilities;
 
 public class PotionVialRecipe extends SpecialCraftingRecipe {
 	
@@ -50,17 +50,6 @@ public class PotionVialRecipe extends SpecialCraftingRecipe {
 	}
 
 	@Override
-	public ItemStack craft(RecipeInputInventory inv, DynamicRegistryManager regMan) {
-		for (int i = 0; i < inv.size(); i++) {
-			ItemStack is = inv.getStack(i);
-			if (is.getItem().equals(Items.SPLASH_POTION)) {
-				return PotionUtil.setCustomPotionEffects(PotionUtil.setPotion(new ItemStack(ModItems.POTION_VIAL), PotionUtil.getPotion(is)), PotionUtil.getCustomPotionEffects(is));
-			}
-		}
-		return ItemStack.EMPTY;
-	}
-
-	@Override
 	public boolean fits(int width, int height) {
 		return width > 1 || height > 1;
 	}
@@ -68,6 +57,19 @@ public class PotionVialRecipe extends SpecialCraftingRecipe {
 	@Override
 	public RecipeSerializer<?> getSerializer() {
 		return CraftingRecipes.FILL_VIAL_SERIALIZER;
+	}
+
+	@Override
+	public ItemStack craft(RecipeInputInventory inv, WrapperLookup wl) {
+		for (int i = 0; i < inv.size(); i++) {
+			ItemStack is = inv.getStack(i);
+			if (is.getItem().equals(Items.SPLASH_POTION)) {
+				ItemStack result = new ItemStack(ModItems.POTION_VIAL);
+				PotionUtilities.cloneEffectsToStack(is, result);
+				return result;
+			}
+		}
+		return ItemStack.EMPTY;
 	}
 	
 }

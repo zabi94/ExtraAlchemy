@@ -7,7 +7,6 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroup.DisplayContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeEntry;
@@ -18,6 +17,7 @@ import zabi.minecraft.extraalchemy.config.ModConfig;
 import zabi.minecraft.extraalchemy.crafting.PotionRingRecipe;
 import zabi.minecraft.extraalchemy.utils.LibMod;
 import zabi.minecraft.extraalchemy.utils.Log;
+import zabi.minecraft.extraalchemy.utils.PotionUtilities;
 import zabi.minecraft.extraalchemy.utils.proxy.SidedProxy;
 
 public class ItemSettings {
@@ -47,8 +47,9 @@ public class ItemSettings {
 					for (RecipeEntry<?> re:rm.values()) {
 						Recipe<?> r = re.value();
 						if (r instanceof PotionRingRecipe) {
-							if (r.getResult(null) != null && r.getResult(null).getItem() != null && PotionUtil.getPotionEffects(r.getResult(null)).size() == 1) {
-								entries.add(r.getResult(null));
+							ItemStack result = r.getResult(null);
+							if (result != null && result.getItem() != null) {
+								entries.add(result);
 							} else {
 								Log.w("Ring recipe has an invalid output: "+re.id().toString());
 							}
@@ -65,8 +66,10 @@ public class ItemSettings {
 		Iterator<Potion> iterator = Registries.POTION.iterator();
 		while(iterator.hasNext()) {
 			Potion potion = iterator.next();
-			if (potion != Potions.EMPTY) {
-				entries.add(PotionUtil.setPotion(new ItemStack(ModItems.POTION_VIAL), potion));
+			if (potion != Potions.AWKWARD) {
+				ItemStack vial = new ItemStack(ModItems.POTION_VIAL);
+				PotionUtilities.setStackPotion(vial, potion);
+				entries.add(vial);
 			}
 		}
 	}

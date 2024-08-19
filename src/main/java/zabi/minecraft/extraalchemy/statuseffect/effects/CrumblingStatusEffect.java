@@ -22,7 +22,7 @@ public class CrumblingStatusEffect extends ModStatusEffect {
 	}
 
 	@Override
-	public void applyUpdateEffect(LivingEntity entity, int level) {
+	public boolean applyUpdateEffect(LivingEntity entity, int level) {
 		if (!entity.getEntityWorld().isClient) {
 			ArrayList<BlockPos> blocks = Lists.newArrayList();
 			int radius = level + 1;
@@ -43,6 +43,7 @@ public class CrumblingStatusEffect extends ModStatusEffect {
 				entity.getEntityWorld().breakBlock(r, true);
 			}
 		}
+		return true;
 	}
 
 }

@@ -1,11 +1,11 @@
 package zabi.minecraft.extraalchemy.screen.potion_bag;
 
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.ContainerComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.util.Hand;
 import net.minecraft.util.collection.DefaultedList;
 import zabi.minecraft.extraalchemy.items.PotionBagItem;
@@ -15,12 +15,13 @@ public class BagInventory implements Inventory {
 
 	private static final int SLOT_AMOUNT = 18;
 
-	private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(SLOT_AMOUNT, ItemStack.EMPTY);
+	private DefaultedList<ItemStack> inventory;
 	private Hand openedWith;
 
 	public BagInventory(ItemStack bag, Hand hand) {
 		openedWith = hand;
-		deserialize(bag.getOrCreateNbt().getCompound(PotionBagItem.TAG_INVENTORY));
+		ContainerComponent cc = bag.getOrDefault(DataComponentTypes.CONTAINER, ContainerComponent.fromStacks(DefaultedList.ofSize(SLOT_AMOUNT, ItemStack.EMPTY)));
+		cc.copyTo(inventory);
 	}
 
 	@Override
@@ -74,25 +75,11 @@ public class BagInventory implements Inventory {
 	@Override
 	public void onClose(PlayerEntity player) {
 		if (openedWith != null) {
-			player.getStackInHand(openedWith).getOrCreateNbt().put(PotionBagItem.TAG_INVENTORY, serialize(inventory));
+			player.getStackInHand(openedWith).set(DataComponentTypes.CONTAINER, ContainerComponent.fromStacks(inventory));
 		} else {
 			if (!player.getEntityWorld().isClient) {
 				Log.w("Server did not have any hand info associated with the inventory");
 			}
-		}
-	}
-
-	private NbtElement serialize(DefaultedList<ItemStack> items) {
-		NbtCompound tag = new NbtCompound();
-		for (int i = 0; i < items.size(); i++) {
-			tag.put("inv"+i, items.get(i).writeNbt(new NbtCompound()));
-		}
-		return tag;
-	}
-
-	private void deserialize(NbtCompound tag) {
-		for (int i = 0; i < inventory.size(); i++) {
-			inventory.set(i, ItemStack.fromNbt(tag.getCompound("inv"+i)));
 		}
 	}
 

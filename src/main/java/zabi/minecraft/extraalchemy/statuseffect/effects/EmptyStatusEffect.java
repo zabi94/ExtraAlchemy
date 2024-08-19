@@ -11,8 +11,9 @@ public class EmptyStatusEffect extends ModStatusEffect {
 	}
 	
 	@Override
-	public void applyUpdateEffect(LivingEntity e, int amp) {
+	public boolean applyUpdateEffect(LivingEntity e, int amp) {
 		//Logic handled in the TemptGoalMixin class
+		return true;
 	}
 
 	@Override

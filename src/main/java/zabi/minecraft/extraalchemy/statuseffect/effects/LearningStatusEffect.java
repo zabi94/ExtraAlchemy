@@ -23,7 +23,7 @@ public class LearningStatusEffect extends ModStatusEffect {
 	}
 	
 	@Override
-	public void applyUpdateEffect(LivingEntity entity, int i) {
+	public boolean applyUpdateEffect(LivingEntity entity, int i) {
 		if (entity instanceof PlayerEntity) {
 			PlayerEntity p = (PlayerEntity) entity;
 			if (!p.getEntityWorld().isClient && !p.isSpectator()) {
@@ -41,5 +41,6 @@ public class LearningStatusEffect extends ModStatusEffect {
 				});
 			}
 		}
+		return true;
 	}
 }

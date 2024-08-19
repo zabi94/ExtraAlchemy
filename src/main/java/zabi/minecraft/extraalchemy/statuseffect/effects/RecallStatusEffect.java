@@ -8,7 +8,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.TeleportTarget;
-import zabi.minecraft.extraalchemy.entitydata.EntityProperties;
+import zabi.minecraft.extraalchemy.entitydata.ModEntityData;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 import zabi.minecraft.extraalchemy.utils.DimensionalPosition;
 
@@ -20,10 +20,7 @@ public class RecallStatusEffect extends ModStatusEffect {
 
 	@Override
 	public void onApplied(LivingEntity livingEntity, int amplifier) {
-		EntityProperties ep = (EntityProperties) livingEntity;
-		if (ep.getRecallPosition() == null) {
-			ep.setRecallData(new DimensionalPosition(livingEntity));
-		}
+		livingEntity.setAttached(ModEntityData.RECALL_POSITION, new DimensionalPosition(livingEntity));
 	}
 
 	@Override
@@ -32,11 +29,10 @@ public class RecallStatusEffect extends ModStatusEffect {
 	}
 
 	@Override
-	public void applyUpdateEffect(LivingEntity entity, int i) {
+	public boolean applyUpdateEffect(LivingEntity entity, int i) {
 		if (!entity.getEntityWorld().isClient) {
 			LivingEntity ent = entity; //Since the teleport method might clone the entity, this holds the most recent instance of the entity
-			EntityProperties properties = (EntityProperties) ent;
-			DimensionalPosition pos = properties.getRecallPosition();
+			DimensionalPosition pos = ent.getAttachedOrElse(ModEntityData.RECALL_POSITION, null);
 			try {
 				if (pos != null) {
 					entity.stopRiding();
@@ -49,21 +45,21 @@ public class RecallStatusEffect extends ModStatusEffect {
 							if (ent instanceof PlayerEntity player) {
 								player.sendMessage(Text.translatable("message.extraalchemy.recall_damage"), true);
 							}
-							return;
 						}
 					} else {
 						ent.teleport(pos.getX(), pos.getY(), pos.getZ());
 					}
 				}
 			} finally {
-				((EntityProperties) ent).setRecallData(null);
+				ent.removeAttached(ModEntityData.RECALL_POSITION);
 			}
 		}
+		return false;
 	}
 
 	@Override
-	public void onEffectRemoved(LivingEntity livingEntity) {
-		((EntityProperties) livingEntity).setRecallData(null);
+	public void onEffectRemoved(LivingEntity ent) {
+		ent.removeAttached(ModEntityData.RECALL_POSITION);
 	}
 
 //	public static class PlaceAt extends BlockPattern.TeleportTarget {

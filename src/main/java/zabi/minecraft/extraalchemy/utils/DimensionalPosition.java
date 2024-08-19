@@ -1,22 +1,33 @@
 package zabi.minecraft.extraalchemy.utils;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+
 import net.minecraft.entity.Entity;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class DimensionalPosition {
 	
-	private final double x, y, z;
+	public static final Codec<DimensionalPosition> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+			Vec3d.CODEC.fieldOf("pos").forGetter(DimensionalPosition::getPos),
+			Identifier.CODEC.fieldOf("world").forGetter(DimensionalPosition::getWorldId)
+		).apply(instance, DimensionalPosition::new));
+	
+	private final Vec3d pos;
 	private final Identifier world;
 	
+	public DimensionalPosition(Vec3d pos, Identifier world) {
+		this.pos = pos;
+		this.world = world;
+	}
+	
 	public DimensionalPosition(double x, double y, double z, Identifier world) {
-		this.x = x;
-		this.y = y;
-		this.z = z;
+		this.pos = new Vec3d(x,y,z);
 		this.world = world;
 	}
 	
@@ -29,15 +40,19 @@ public class DimensionalPosition {
 	}
 
 	public double getX() {
-		return x;
+		return pos.x;
 	}
 
 	public double getY() {
-		return y;
+		return pos.y;
 	}
 
 	public double getZ() {
-		return z;
+		return pos.z;
+	}
+	
+	public Vec3d getPos() {
+		return pos;
 	}
 
 	public Identifier getWorldId() {
@@ -46,32 +61,5 @@ public class DimensionalPosition {
 	
 	public World getWorld(MinecraftServer server) {
 		return server.getWorld(RegistryKey.of(RegistryKeys.WORLD, world));
-	}
-	
-	public static DimensionalPosition fromTag(NbtCompound tag) {
-		return new DimensionalPosition(tag.getDouble("x"), tag.getDouble("y"), tag.getDouble("z"), new Identifier(tag.getString("world")));
-	}
-	
-	public NbtCompound toTag() {
-		NbtCompound tag = new NbtCompound();
-		tag.putDouble("x", x);
-		tag.putDouble("y", y);
-		tag.putDouble("z", z);
-		tag.putString("world", world.toString());
-		return tag;
-	}
-	
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder("DPos[");
-		sb.append(x);
-		sb.append(", ");
-		sb.append(y);
-		sb.append(", ");
-		sb.append(z);
-		sb.append(" @ ");
-		sb.append(world);
-		sb.append("]");
-		return sb.toString();
 	}
 }
