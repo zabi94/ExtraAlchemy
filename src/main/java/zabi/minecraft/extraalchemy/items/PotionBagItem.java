@@ -7,6 +7,7 @@ import com.mojang.serialization.Codec;
 
 import net.minecraft.client.item.TooltipType;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.ContainerComponent;
 import net.minecraft.component.type.DyedColorComponent;
 import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.LivingEntity;
@@ -23,6 +24,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.client.tooltip.StatusEffectContainer;
 import zabi.minecraft.extraalchemy.screen.potion_bag.BagInventory;
@@ -34,15 +36,13 @@ import zabi.minecraft.extraalchemy.utils.PotionUtilities;
 
 public class PotionBagItem extends Item implements StatusEffectContainer {
 
-	public static final String TAG_INVENTORY = "ea_inventory";
-//	public static final String TAG_LAST_CHANGE = "ea_changed";
-
 	private static final TagKey<Item> TAG_POTION = TagKey.of(Registries.ITEM.getKey(), LibMod.id("potion_for_bag"));
 	
 	public PotionBagItem() {
 		super(new Item.Settings().maxCount(1)
 				.component(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT)
 				.component(ModComponents.SELECTION_MODE, SelectionMode.DESELECT)
+				.component(DataComponentTypes.CONTAINER, ContainerComponent.fromStacks(DefaultedList.ofSize(BagInventory.SLOT_AMOUNT, ItemStack.EMPTY)))
 		);
 	}
 
@@ -80,7 +80,8 @@ public class PotionBagItem extends Item implements StatusEffectContainer {
 			} else {
 				handleRefill(stack); 
 				PotionContentsComponent selectedPotion = stack.get(DataComponentTypes.POTION_CONTENTS);
-				if (getSelectedPotionAmount(stack).get() > 0 && selectedPotion.hasEffects() && selectedPotion.potion().isPresent()) {
+				Optional<Integer> optPotAmount = getSelectedPotionAmount(stack);
+				if (optPotAmount.isPresent() && optPotAmount.get() > 0 && selectedPotion.hasEffects() && selectedPotion.potion().isPresent()) {
 					user.setCurrentHand(hand);
 				} 
 				user.getInventory().markDirty();
@@ -90,7 +91,10 @@ public class PotionBagItem extends Item implements StatusEffectContainer {
 	}
 
 	private void handleRefill(ItemStack stack) {
-		if (getSelectedPotionAmount(stack).get() == 0) {
+		
+		Optional<Integer> optPotAmount = getSelectedPotionAmount(stack);
+		
+		if (optPotAmount.isEmpty() || optPotAmount.get() == 0) {
 			switch (getSelectionMode(stack)) {
 				case DESELECT:
 					selectPotion(stack, null);
@@ -108,11 +112,20 @@ public class PotionBagItem extends Item implements StatusEffectContainer {
 	}
 
 	public static void selectPotion(ItemStack bag, ItemStack potionStack) {
+		
 		if (potionStack == null) {
 			bag.set(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT);
-		} else {
-			bag.set(DataComponentTypes.POTION_CONTENTS, potionStack.get(DataComponentTypes.POTION_CONTENTS));
+			return;
 		}
+		
+		PotionContentsComponent pcc = potionStack.get(DataComponentTypes.POTION_CONTENTS);
+		if (pcc == null) {
+			bag.set(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT);
+			return;
+		}
+		
+		bag.set(DataComponentTypes.POTION_CONTENTS, potionStack.get(DataComponentTypes.POTION_CONTENTS));
+		
 	}
 
 	@Override
@@ -168,7 +181,7 @@ public class PotionBagItem extends Item implements StatusEffectContainer {
 
 	public Optional<PotionContentsComponent> getSelectedPotion(ItemStack bag) {
 		PotionContentsComponent selectedPotion = bag.get(DataComponentTypes.POTION_CONTENTS);
-		if (selectedPotion.hasEffects() && selectedPotion.potion().isPresent()) return Optional.empty();
+		if (!selectedPotion.hasEffects() || selectedPotion.potion().isEmpty()) return Optional.empty();
 		return Optional.of(selectedPotion);
 	}
 
@@ -179,7 +192,7 @@ public class PotionBagItem extends Item implements StatusEffectContainer {
 			PotionContentsComponent target = potopt.get();
 			BagInventory inv = new BagInventory(bag, null);
 			for (int i = 0; i < inv.size(); i++) {
-				PotionContentsComponent currentPotion = inv.getStack(i).get(DataComponentTypes.POTION_CONTENTS);
+				PotionContentsComponent currentPotion = inv.getStack(i).getOrDefault(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT);
 				if (currentPotion.potion().isPresent() && target.matches(currentPotion.potion().get())) count++;
 			}
 			return Optional.of(count);
@@ -211,7 +224,7 @@ public class PotionBagItem extends Item implements StatusEffectContainer {
 		for (int i = 0; i < inv.size(); i++) {
 			ItemStack currentStack = inv.getStack(i);
 			PotionContentsComponent currentPotion = currentStack.get(DataComponentTypes.POTION_CONTENTS);
-			if (currentPotion.hasEffects() && currentPotion.potion().isPresent()) {
+			if (currentPotion != null && currentPotion.hasEffects() && currentPotion.potion().isPresent()) {
 				return Optional.of(currentStack.copy());
 			}
 		}

@@ -13,14 +13,14 @@ import zabi.minecraft.extraalchemy.utils.Log;
 
 public class BagInventory implements Inventory {
 
-	private static final int SLOT_AMOUNT = 18;
+	public static final int SLOT_AMOUNT = 18;
 
-	private DefaultedList<ItemStack> inventory;
+	private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(SLOT_AMOUNT, ItemStack.EMPTY);
 	private Hand openedWith;
 
 	public BagInventory(ItemStack bag, Hand hand) {
 		openedWith = hand;
-		ContainerComponent cc = bag.getOrDefault(DataComponentTypes.CONTAINER, ContainerComponent.fromStacks(DefaultedList.ofSize(SLOT_AMOUNT, ItemStack.EMPTY)));
+		ContainerComponent cc = bag.get(DataComponentTypes.CONTAINER);
 		cc.copyTo(inventory);
 	}
 

@@ -124,10 +124,10 @@ public class PotionBagScreenHandler extends ScreenHandler {
 			if (PotionUtilities.hasPotionEffects(iso)) {
 				ItemStack nis = iso.copy();
 				nis.setCount(1);
-				((Slot) slots.get(slotId)).setStackNoCallbacks(nis);
+				slots.get(slotId).setStackNoCallbacks(nis);
 			}
 		} else {
-			((Slot) slots.get(slotId)).setStackNoCallbacks(ItemStack.EMPTY);
+			slots.get(slotId).setStackNoCallbacks(ItemStack.EMPTY);
 		}
 		
 		this.playerInventory.markDirty();
@@ -201,12 +201,15 @@ public class PotionBagScreenHandler extends ScreenHandler {
 		@Override
 		public ItemStack getStack() {
 			Optional<PotionContentsComponent> selectedOpt = ModItems.POTION_BAG.getSelectedPotion(bagStack);
-			if (selectedOpt.isPresent()) {
-				ItemStack stack = new ItemStack(Registries.ITEM.getEntry(Items.POTION), 1, ComponentChanges.builder().add(DataComponentTypes.POTION_CONTENTS, selectedOpt.get()).build());
-				return stack;
-			} else {
+			if (selectedOpt.isEmpty()) {
 				return ItemStack.EMPTY;
 			}
+			PotionContentsComponent pcc = selectedOpt.get();
+			if (!pcc.hasEffects()) {
+				return ItemStack.EMPTY;
+			}
+			ItemStack stack = new ItemStack(Registries.ITEM.getEntry(Items.POTION), 1, ComponentChanges.builder().add(DataComponentTypes.POTION_CONTENTS, pcc).build());
+			return stack;
 		}
 
 		@Override
