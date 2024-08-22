@@ -2,6 +2,7 @@ package zabi.minecraft.extraalchemy.client.rendering;
 
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.item.ItemStack;
 import zabi.minecraft.extraalchemy.items.ModComponents;
 import zabi.minecraft.extraalchemy.items.ModItems;
@@ -19,7 +20,9 @@ public class ColorsRegistration {
 	
 	private static int potionColor(ItemStack stack, int tintIndex) {
 		if (tintIndex != 0) return -1;
-		return stack.get(DataComponentTypes.POTION_CONTENTS).getColor();
+		PotionContentsComponent pcc = stack.get(DataComponentTypes.POTION_CONTENTS); 
+		if (pcc != null) return pcc.getColor();
+		return -1;
 	}
 	
 	private static int ringColor(ItemStack stack, int tintIndex) {
