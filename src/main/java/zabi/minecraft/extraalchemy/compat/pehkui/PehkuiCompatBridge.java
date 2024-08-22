@@ -5,25 +5,19 @@ import net.minecraft.recipe.BrewingRecipeRegistry.Builder;
 public class PehkuiCompatBridge {
 
 	public static int registerEffects() {
-//		return PehkuiPotions.registerEffects();
-		return 0;
+		return PehkuiPotions.registerEffects();
 	}
 	
 	public static int registerPotions() {
-//		return PehkuiPotions.registerPotions();
-		return 0;
+		return PehkuiPotions.registerPotions();
 	}
 	
 	public static void registerRecipes(Builder builder) {
-//		PehkuiPotions.registerRecipes(builder);
+		PehkuiPotions.registerRecipes(builder);
 	}
 	
 	public static void init() {
-//		ModSizeModifiers.registerModifiers();
-	}
-	
-	public static void preInit() {
-//		ScaleTypesAdapter.load();
+		ModSizeModifiers.registerModifiers();
 	}
 	
 }

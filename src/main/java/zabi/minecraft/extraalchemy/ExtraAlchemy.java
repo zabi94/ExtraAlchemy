@@ -29,9 +29,6 @@ public class ExtraAlchemy implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModConfig.init();
-		if (FabricLoader.getInstance().isModLoaded("pehkui")) {
-			PehkuiCompatBridge.preInit();
-		}
 		ModComponents.register();
 		ModItems.registerItems();
 		ModEffectRegistry.registerAll();
