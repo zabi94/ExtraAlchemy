@@ -1,6 +1,7 @@
 package zabi.minecraft.extraalchemy.client.tooltip;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
@@ -10,9 +11,11 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.tooltip.TooltipComponent;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.texture.StatusEffectSpriteManager;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import zabi.minecraft.extraalchemy.config.ModConfig;
 
@@ -56,8 +59,9 @@ public class PotionTooltipComponent implements TooltipComponent {
 			int dx = x + (column * (TEXTURE_SIZE + TEXTURE_SPACING));
 			int dy = y + (row * (TEXTURE_SIZE + TEXTURE_SPACING));
 			this.draw(context, dx, dy, 0, icon);
-			if (level > 1) {
-				Text txt = Text.translatable("enchantment.level."+level).formatted(Registries.STATUS_EFFECT.get(eff.getEffectType().getKey().get()).getCategory().getFormatting());
+			Optional<RegistryKey<StatusEffect>> optEffect = eff.getEffectType().getKey();
+			if (level > 1 && optEffect.isPresent()) {
+				Text txt = Text.translatable("enchantment.level."+level).formatted(Registries.STATUS_EFFECT.get(optEffect.get()).getCategory().getFormatting());
 				int tx = dx + TEXTURE_SIZE - textRenderer.getWidth(txt)/2;
 				int ty = dy + TEXTURE_SIZE - textRenderer.fontHeight/2;
 				context.getMatrices().translate(0, 0, 400);
