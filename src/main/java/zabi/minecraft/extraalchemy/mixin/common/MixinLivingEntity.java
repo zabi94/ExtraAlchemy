@@ -25,7 +25,7 @@ public abstract class MixinLivingEntity extends Entity implements EntityProperti
 	
 	@Inject(at = @At("TAIL"), method = "onStatusEffectRemoved")
 	public void ea_onStatusEffectRemoved(StatusEffectInstance effect, CallbackInfo cb) {
-		if (effect.getEffectType() instanceof ModStatusEffect mse) {
+		if (effect.getEffectType().value() instanceof ModStatusEffect mse) {
 			mse.onEffectRemoved((LivingEntity) (Object) this);
 		}
 	}
