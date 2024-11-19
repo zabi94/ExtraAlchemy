@@ -9,7 +9,6 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -19,6 +18,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
 import net.minecraft.recipe.book.CraftingRecipeCategory;
+import net.minecraft.recipe.input.CraftingRecipeInput;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper.WrapperLookup;
 import net.minecraft.util.Identifier;
@@ -66,16 +66,18 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 	}
 
 	@Override
-	public boolean matches(RecipeInputInventory inv, World world) {
+	public boolean matches(CraftingRecipeInput input, World world) {
 		if (!ModConfig.INSTANCE.enableRings) { //Globally disabled and specifically disabled
 			return false;
 		}
 		
 		boolean foundEffect = false;
 		boolean foundRing = false;
+		
+		List<ItemStack> inv = input.getStacks();
 
 		for (int i = 0; i < inv.size(); i++) {
-			ItemStack is = inv.getStack(i); 
+			ItemStack is = input.getStackInSlot(i); 
 			Item s = is.getItem();
 			if (s.equals(Items.POTION)) {
 				if (foundEffect || !doesPotionMatch(PotionUtilities.getEffects(is))) {
@@ -97,8 +99,8 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 	}
 
 	@Override
-	public ItemStack craft(RecipeInputInventory inv, WrapperLookup wl) {
-		return getResult(wl);
+	public ItemStack craft(CraftingRecipeInput input, WrapperLookup lookup) {
+		return getResult(lookup);
 	}
 	
 	@Override
@@ -157,7 +159,7 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 					int renew = buf.readInt();
 					int level = buf.readInt();
 					String potion_name = buf.readString();
-					StatusEffect effect = Registries.STATUS_EFFECT.get(new Identifier(potion_name));
+					StatusEffect effect = Registries.STATUS_EFFECT.get(Identifier.of(potion_name));
 					return new PotionRingRecipe(Optional.of(level), cost, length, renew, Optional.of(effect), Optional.empty());
 				}
 
@@ -179,4 +181,5 @@ public class PotionRingRecipe extends SpecialCraftingRecipe {
 		}
 
 	}
+
 }

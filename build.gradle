@@ -7,6 +7,10 @@ archivesBaseName = project.archives_base_name+"-"+project.minecraft_version
 version = project.mod_version
 group = project.maven_group
 
+loom {
+	accessWidenerPath = file("src/main/resources/extraalchemy.accesswidener")
+}
+
 repositories {
     mavenLocal()
     maven {

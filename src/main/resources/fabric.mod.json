@@ -63,6 +63,7 @@
     "minecraft": ">=1.20.5",
     "java": ">=21"
   },
+  "accessWidener": "extraalchemy.accesswidener",
   "custom": {
 	  "lithium:options": {
 	  	"mixin.world.block_entity_ticking.sleeping.brewing_stand": false

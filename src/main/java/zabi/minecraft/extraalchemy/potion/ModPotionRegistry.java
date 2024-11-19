@@ -33,7 +33,7 @@ public class ModPotionRegistry {
 			int registered = 0;
 			for (Field field:ModPotionRegistry.class.getDeclaredFields()) {
 				if (ModPotion.class.isAssignableFrom(field.getType())) {
-					Identifier id = new Identifier(LibMod.MOD_ID, field.getName());
+					Identifier id = LibMod.id(field.getName());
 					Log.d("Registering potion "+id);
 					registered += ((ModPotion) field.get(null)).registerTree(LibMod.MOD_ID, field.getName());
 				}

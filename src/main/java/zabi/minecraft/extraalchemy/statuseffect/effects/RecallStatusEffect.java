@@ -1,6 +1,5 @@
 package zabi.minecraft.extraalchemy.statuseffect.effects;
 
-import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
@@ -39,7 +38,8 @@ public class RecallStatusEffect extends ModStatusEffect {
 					if (!pos.getWorldId().equals(entity.getEntityWorld().getRegistryKey().getValue())) {
 						if (i > 0) {
 							ServerWorld destinationWorld = (ServerWorld) pos.getWorld(entity.getServer());
-							ent = FabricDimensions.teleport(entity, destinationWorld, new TeleportTarget(new Vec3d(pos.getX(), pos.getY(), pos.getZ()), Vec3d.ZERO, ent.getYaw(), ent.getPitch()));	
+							TeleportTarget destination = new TeleportTarget(destinationWorld, new Vec3d(pos.getX(), pos.getY(), pos.getZ()), Vec3d.ZERO, ent.getYaw(), ent.getPitch(), TeleportTarget.NO_OP);
+							ent = (LivingEntity) entity.teleportTo(destination);
 						} else {
 							ent.damage(entity.getEntityWorld().getDamageSources().magic(), 1f);
 							if (ent instanceof PlayerEntity player) {
@@ -47,7 +47,7 @@ public class RecallStatusEffect extends ModStatusEffect {
 							}
 						}
 					} else {
-						ent.teleport(pos.getX(), pos.getY(), pos.getZ());
+						ent.teleport(pos.getX(), pos.getY(), pos.getZ(), true);
 					}
 				}
 			} finally {

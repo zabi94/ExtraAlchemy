@@ -8,7 +8,7 @@ public class LibMod {
 	public static final String MOD_ID = "extraalchemy";
 
 	public static Identifier id(String name) {
-		return new Identifier(MOD_ID, name);
+		return Identifier.of(MOD_ID, name);
 	}
 	
 }

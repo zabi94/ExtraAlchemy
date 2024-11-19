@@ -1,7 +1,7 @@
 package zabi.minecraft.extraalchemy.client.tooltip;
 
-import net.minecraft.client.item.TooltipData;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipData;
 
 public class PotionTooltipData implements TooltipData {
 	

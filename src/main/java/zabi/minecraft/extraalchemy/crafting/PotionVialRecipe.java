@@ -1,12 +1,12 @@
 package zabi.minecraft.extraalchemy.crafting;
 
-import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
 import net.minecraft.recipe.book.CraftingRecipeCategory;
+import net.minecraft.recipe.input.CraftingRecipeInput;
 import net.minecraft.registry.RegistryWrapper.WrapperLookup;
 import net.minecraft.world.World;
 import zabi.minecraft.extraalchemy.config.ModConfig;
@@ -20,7 +20,17 @@ public class PotionVialRecipe extends SpecialCraftingRecipe {
 	}
 	
 	@Override
-	public boolean matches(RecipeInputInventory inv, World world) {
+	public boolean fits(int width, int height) {
+		return width > 1 || height > 1;
+	}
+
+	@Override
+	public RecipeSerializer<?> getSerializer() {
+		return CraftingRecipes.FILL_VIAL_SERIALIZER;
+	}
+
+	@Override
+	public boolean matches(CraftingRecipeInput input, World world) {
 		if (!ModConfig.INSTANCE.enableVials) {
 			return false;
 		}
@@ -28,8 +38,8 @@ public class PotionVialRecipe extends SpecialCraftingRecipe {
 		boolean splash = false;
 		boolean vial = false;
 		
-		for (int i = 0; i < inv.size(); i++) {
-			Item s = inv.getStack(i).getItem();
+		for (int i = 0; i < input.getSize(); i++) {
+			Item s = input.getStackInSlot(i).getItem();
 			if (s.equals(Items.SPLASH_POTION)) {
 				if (splash) {
 					return false;
@@ -50,19 +60,9 @@ public class PotionVialRecipe extends SpecialCraftingRecipe {
 	}
 
 	@Override
-	public boolean fits(int width, int height) {
-		return width > 1 || height > 1;
-	}
-
-	@Override
-	public RecipeSerializer<?> getSerializer() {
-		return CraftingRecipes.FILL_VIAL_SERIALIZER;
-	}
-
-	@Override
-	public ItemStack craft(RecipeInputInventory inv, WrapperLookup wl) {
-		for (int i = 0; i < inv.size(); i++) {
-			ItemStack is = inv.getStack(i);
+	public ItemStack craft(CraftingRecipeInput input, WrapperLookup lookup) {
+		for (int i = 0; i < input.getSize(); i++) {
+			ItemStack is = input.getStackInSlot(i);
 			if (is.getItem().equals(Items.SPLASH_POTION)) {
 				ItemStack result = new ItemStack(ModItems.POTION_VIAL);
 				PotionUtilities.cloneEffectsToStack(is, result);

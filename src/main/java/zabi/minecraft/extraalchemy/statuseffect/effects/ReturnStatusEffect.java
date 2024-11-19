@@ -1,13 +1,14 @@
 package zabi.minecraft.extraalchemy.statuseffect.effects;
 
+import java.util.Optional;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import zabi.minecraft.extraalchemy.config.ModConfig;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.TeleportTarget;
 import zabi.minecraft.extraalchemy.statuseffect.ModStatusEffect;
 
 public class ReturnStatusEffect extends ModStatusEffect {
@@ -18,13 +19,13 @@ public class ReturnStatusEffect extends ModStatusEffect {
 
 	@Override
 	public void applyInstantEffect(Entity source, Entity attacker, LivingEntity target, int amplifier, double d) {
-		if (target instanceof ServerPlayerEntity) {
-			ServerPlayerEntity player = (ServerPlayerEntity) target;
+		if (target instanceof ServerPlayerEntity player) {
 			BlockPos respawnPos = player.getSpawnPointPosition();
-			if (respawnPos != null) {
-				PlayerEntity.findRespawnPosition((ServerWorld) target.getEntityWorld(), respawnPos, player.getYaw(), player.isSpawnForced(), !ModConfig.INSTANCE.useAnchorChargesWithReturnPotion).ifPresent(v3d -> {
-					player.requestTeleport(v3d.x, v3d.y, v3d.z);
-				});
+			Optional<ServerPlayerEntity.RespawnPos> pos = ServerPlayerEntity.findRespawnPosition(player.getServerWorld(), respawnPos, 0, false, true);
+			if (pos.isPresent()) {
+				target.getWorldSpawnPos(player.getServerWorld(), respawnPos);
+				TeleportTarget teleportTarget = new TeleportTarget(player.getServerWorld(), Vec3d.of(respawnPos), Vec3d.ZERO, player.getYaw(), player.getPitch(), TeleportTarget.NO_OP);
+				player.teleportTo(teleportTarget);
 			}
 		}
 	}

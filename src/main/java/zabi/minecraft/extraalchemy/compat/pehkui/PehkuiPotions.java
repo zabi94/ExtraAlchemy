@@ -24,9 +24,9 @@ public class PehkuiPotions {
 	
 	public static int registerEffects() {
 		Log.i("Registering pehkui effects");
-		Identifier id_grow = new Identifier(LibMod.MOD_ID, "growing");
+		Identifier id_grow = LibMod.id("growing");
 		Registry.register(Registries.STATUS_EFFECT, id_grow, growing.onRegister());
-		Identifier id_shrink = new Identifier(LibMod.MOD_ID, "shrinking");
+		Identifier id_shrink = LibMod.id("shrinking");
 		Registry.register(Registries.STATUS_EFFECT, id_shrink, shrinking.onRegister());
 		return 2;
 	}

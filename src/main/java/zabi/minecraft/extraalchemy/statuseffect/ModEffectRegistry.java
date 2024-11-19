@@ -52,7 +52,7 @@ public class ModEffectRegistry {
 			int registered = 0;
 			for (Field field:ModEffectRegistry.class.getDeclaredFields()) {
 				if (ModStatusEffect.class.isAssignableFrom(field.getType())) {
-					Identifier id = new Identifier(LibMod.MOD_ID, field.getName());
+					Identifier id = LibMod.id(field.getName());
 					Registry.register(Registries.STATUS_EFFECT, id, ((ModStatusEffect) field.get(null)).onRegister());
 					Log.d("Registered potion "+id);
 					registered++;
@@ -75,7 +75,7 @@ public class ModEffectRegistry {
 		public static StatusEffect magnetism_disabled = null;
 		
 		public static void register() {
-			magnetism_disabled = Registry.register(Registries.STATUS_EFFECT, new Identifier(LibMod.MOD_ID, "magnetism_disabled"), new ModStatusEffect(StatusEffectCategory.BENEFICIAL, MAGNETISM_COLOR, magnetism.isInstant()).onRegister());
+			magnetism_disabled = Registry.register(Registries.STATUS_EFFECT, LibMod.id("magnetism_disabled"), new ModStatusEffect(StatusEffectCategory.BENEFICIAL, MAGNETISM_COLOR, magnetism.isInstant()).onRegister());
 			Log.i("Registered dummy effects");
 		}
 	}

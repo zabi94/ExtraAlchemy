@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import com.mojang.serialization.Codec;
 
-import net.minecraft.client.item.TooltipType;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.ContainerComponent;
 import net.minecraft.component.type.DyedColorComponent;
@@ -16,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.potion.Potion;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.TagKey;
@@ -170,10 +170,10 @@ public class PotionBagItem extends Item implements StatusEffectContainer {
 	}
 
 	@Override
-	public int getMaxUseTime(ItemStack stack) {
+	public int getMaxUseTime(ItemStack stack, LivingEntity user) {
 		return 20;
 	}
-
+	
 	@Override
 	public boolean hasGlint(ItemStack stack) {
 		return getSelectedPotion(stack).isPresent();
