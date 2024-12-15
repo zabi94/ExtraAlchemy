@@ -7,6 +7,10 @@
 	"item.extraalchemy.empty_ring.tooltip1": "Piazzalo su una griglia con una pozione.",
 	"item.extraalchemy.empty_ring.tooltip2": "Non tutte le pozioni funzionano.",
 	
+	"tag.item.extraalchemy.potion_for_bag": "Oggetti per borsa delle pozioni",
+	"tag.block.extraalchemy.heat_conductor": "Conduttore di calore",
+	"tag.block.extraalchemy.heat_source": "Fonte di calore",
+	
 	"item.extraalchemy.potion_ring": "Anello per pozioni",
 	"item.extraalchemy.potion_ring.potion": "Contiene: %s %s",
 	"item.extraalchemy.potion_ring.cost": "Costo in xp: %s",
