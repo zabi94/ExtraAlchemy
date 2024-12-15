@@ -9,6 +9,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.item.PotionItem;
 import net.minecraft.potion.Potion;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -68,6 +69,9 @@ public class VialPotionItem extends PotionItem {
 	@Override
 	public Text getName(ItemStack stack) {
 		PotionContentsComponent pcc = stack.get(DataComponentTypes.POTION_CONTENTS);
+		if (pcc == null || pcc.potion().isEmpty()) {
+			return Text.translatable(getTranslationKey(), Text.translatable(Items.POTION.getTranslationKey()));
+		}
 		return Text.translatable(getTranslationKey(), Text.translatable(Potion.finishTranslationKey(pcc.potion(), "item.minecraft.potion.effect.")));
 	}
 
