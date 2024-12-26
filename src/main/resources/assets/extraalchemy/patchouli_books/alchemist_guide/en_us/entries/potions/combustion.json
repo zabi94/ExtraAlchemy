@@ -6,8 +6,8 @@
         {
             "type": "extraalchemy:potion",
             "item": "minecraft:coal_block",
-            "base": "minecraft:potion{Potion:\"minecraft:mundane\"}",
-            "result": "minecraft:potion{Potion:\"extraalchemy:combustion\"}",
+            "base": "minecraft:potion[potion_contents={potion: \"minecraft:mundane\"}]",
+            "result": "minecraft:potion[potion_contents={potion: \"extraalchemy:combustion\"}]",
             "name": "Combustion",
             "text": "The potion of Combustion makes the user extremely warm from the inside, so much that fires start around and on them. The fire can and will spread to other blocks nearby, so use maximum caution when tinkering with this concoction. "
         }, {

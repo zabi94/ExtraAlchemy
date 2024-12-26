@@ -6,8 +6,8 @@
         {
             "type": "extraalchemy:potion",
             "item": "minecraft:dirt",
-            "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
-            "result": "minecraft:potion{Potion:\"extraalchemy:crumbling\"}",
+            "base": "minecraft:potion[potion_contents={potion: \"minecraft:awkward\"}]",
+            "result": "minecraft:potion[potion_contents={potion: \"extraalchemy:crumbling\"}]",
             "name": "Crumbling",
             "text": "The potion of Crumbling erodes the more mundane materials from under the feet of the afflicted. A higher potency version could theoretically destroy slightly harder materials."
         }, {

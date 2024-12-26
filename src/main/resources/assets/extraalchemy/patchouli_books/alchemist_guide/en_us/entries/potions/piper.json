@@ -6,8 +6,8 @@
         {
             "type": "extraalchemy:potion",
             "item": "minecraft:wheat",
-            "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
-            "result": "minecraft:potion{Potion:\"extraalchemy:piper\"}",
+            "base": "minecraft:potion[potion_contents={potion: \"minecraft:awkward\"}]",
+            "result": "minecraft:potion[potion_contents={potion: \"extraalchemy:piper\"}]",
             "name": "Piper",
             "text": "The potion of the Piper makes animals attracted to you in the same way they would if you were to hold their favourite food by making you smell like it. Animal tempted in this way will keep on following you until the effect runs out. "
         }, {

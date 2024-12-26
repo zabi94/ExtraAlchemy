@@ -6,8 +6,8 @@
         {
             "type": "extraalchemy:potion",
             "item": "minecraft:nether_bricks",
-            "base": "minecraft:potion{Potion:\"minecraft:thick\"}",
-            "result": "minecraft:potion{Potion:\"extraalchemy:gravity\"}",
+            "base": "minecraft:potion[potion_contents={potion: \"minecraft:thick\"}]",
+            "result": "minecraft:potion[potion_contents={potion: \"extraalchemy:gravity\"}]",
             "name": "Gravity",
             "text": "The potion of Gravity will increase the force with which the world drags the creatures downwards. Floating creatures like ghasts and blazes will feel the effect, but fast moving entities such as players with elytras will not."
         }, {

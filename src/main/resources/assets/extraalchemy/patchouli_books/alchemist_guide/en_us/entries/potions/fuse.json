@@ -6,8 +6,8 @@
         {
             "type": "extraalchemy:potion",
             "item": "minecraft:firework_star",
-            "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
-            "result": "minecraft:potion{Potion:\"extraalchemy:fuse\"}",
+            "base": "minecraft:potion[potion_contents={potion: \"minecraft:awkward\"}]",
+            "result": "minecraft:potion[potion_contents={potion: \"extraalchemy:fuse\"}]",
             "name": "Fuse",
             "text": "The potion of Fuse creates a small explosion centered on the creature when the effect expires, damaging entities and blocks around it. Differently from normal potions, modifying this with redstone results in a shorter lifespan of the effect,"
         }, {

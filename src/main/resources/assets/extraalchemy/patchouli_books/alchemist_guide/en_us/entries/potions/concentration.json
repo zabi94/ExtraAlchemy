@@ -6,8 +6,8 @@
         {
             "type": "extraalchemy:potion",
             "item": "minecraft:egg",
-            "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
-            "result": "minecraft:potion{Potion:\"extraalchemy:concentration\"}",
+            "base": "minecraft:potion[potion_contents={potion: \"minecraft:awkward\"}]",
+            "result": "minecraft:potion[potion_contents={potion: \"extraalchemy:concentration\"}]",
             "name": "Concentration",
             "text": "The potion of Concentration removes those annoying fumes that a body emanates after drinking a magical concoction. This has two main uses: one is to avoid getting your vision constantly disturbed by those swirling puffs of smoke, the second is to better conceal "
         }, {

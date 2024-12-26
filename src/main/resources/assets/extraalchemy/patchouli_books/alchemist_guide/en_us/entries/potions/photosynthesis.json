@@ -6,8 +6,8 @@
         {
             "type": "extraalchemy:potion",
             "item": "minecraft:beetroot_seeds",
-            "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
-            "result": "minecraft:potion{Potion:\"extraalchemy:photosynthesis\"}",
+            "base": "minecraft:potion[potion_contents={potion: \"minecraft:awkward\"}]",
+            "result": "minecraft:potion[potion_contents={potion: \"extraalchemy:photosynthesis\"}]",
             "name": "Photosynthesis",
             "text": "The potion of Photosynthesis creates a sense of fullness in the stomach and prevents the user from starving to death. To do so it will leverage the power of the sun, which must be visible for it to work."
         }, {

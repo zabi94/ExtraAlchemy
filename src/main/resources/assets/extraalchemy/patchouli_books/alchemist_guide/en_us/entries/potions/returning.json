@@ -6,8 +6,8 @@
         {
             "type": "extraalchemy:potion",
             "item": "minecraft:prismarine_shard",
-            "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
-            "result": "minecraft:potion{Potion:\"extraalchemy:returning\"}",
+            "base": "minecraft:potion[potion_contents={potion: \"minecraft:awkward\"}]",
+            "result": "minecraft:potion[potion_contents={potion: \"extraalchemy:returning\"}]",
             "name": "Returning",
             "text": "The potion of Returning immediately teleports you to your home, near your bed. A respawn anchor may also be used to redirect the effect of this potion, $(t:Check your configuration!)if the current rules of magic allow for that$(/t). In this case, sufficient charge may be required."
         }, {

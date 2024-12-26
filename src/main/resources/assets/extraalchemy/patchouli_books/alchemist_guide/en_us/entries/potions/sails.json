@@ -6,8 +6,8 @@
         {
             "type": "extraalchemy:potion",
             "item": "minecraft:salmon",
-            "base": "minecraft:potion{Potion:\"minecraft:awkward\"}",
-            "result": "minecraft:potion{Potion:\"extraalchemy:sails\"}",
+            "base": "minecraft:potion[potion_contents={potion: \"minecraft:awkward\"}]",
+            "result": "minecraft:potion[potion_contents={potion: \"extraalchemy:sails\"}]",
             "name": "Sailing",
             "text": "The potion of Sailing is elegant in its simplicity: it simply causes the water around the oars of a boat to flow more intensly, aiding travel by boat by making it faster.$(br2)A more powerful effect simply"
         }, {

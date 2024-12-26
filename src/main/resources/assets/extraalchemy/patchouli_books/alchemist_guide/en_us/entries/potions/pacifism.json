@@ -6,8 +6,8 @@
         {
             "type": "extraalchemy:potion",
             "item": "minecraft:golden_apple",
-            "base": "minecraft:potion{Potion:\"minecraft:strong_harming\"}",
-            "result": "minecraft:potion{Potion:\"extraalchemy:pacifism\"}",
+            "base": "minecraft:potion[potion_contents={potion: \"minecraft:strong_harming\"}]",
+            "result": "minecraft:potion[potion_contents={potion: \"extraalchemy:pacifism\"}]",
             "name": "Pacifism",
             "text": "The potion of Pacifism spreads an aura that discourages attacking the creature it affects. While it will not prevent them from getting hurt, it will apply a strong slowing effect on any attacker."
         }, {

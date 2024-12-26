@@ -6,8 +6,8 @@
         {
             "type": "extraalchemy:potion",
             "item": "minecraft:ender_eye",
-            "base": "minecraft:potion{Potion:\"minecraft:mundane\"}",
-            "result": "minecraft:potion{Potion:\"extraalchemy:recall\"}",
+            "base": "minecraft:potion[potion_contents={potion: \"minecraft:mundane\"}]",
+            "result": "minecraft:potion[potion_contents={potion: \"extraalchemy:recall\"}]",
             "name": "Rewinding",
             "text": "The potion of Rewinding binds a creature in the place where the effect was triggered, and starts a countdown. Once the time is over, a small rift in space opens up and teleports the creature to the starting spot."
         }, {

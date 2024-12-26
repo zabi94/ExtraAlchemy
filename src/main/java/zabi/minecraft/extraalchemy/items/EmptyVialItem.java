@@ -22,7 +22,7 @@ import zabi.minecraft.extraalchemy.utils.PotionUtilities;
 public class EmptyVialItem extends Item {
 
 	public EmptyVialItem() {
-		super(new Settings().maxCount(16));
+		super(new net.minecraft.item.Item.Settings().maxCount(16));
 	}
 	
 	@Override

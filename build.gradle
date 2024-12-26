@@ -65,8 +65,8 @@ dependencies {
 	modApi("com.github.Virtuoel:Pehkui:${project.pehkui_version}")
 	// modImplementation("curse.maven:inventorio-491073:${project.inventorio_version}")
 	modImplementation("dev.emi:trinkets:${project.trinkets_version}")
-    //modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-api:${project.cardinal_components_version}"
-	//modImplementation("vazkii.patchouli:Patchouli:${project.patchouli_version}")
+    modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-api:${project.cardinal_components_version}"
+	modImplementation("vazkii.patchouli:Patchouli:${project.patchouli_version}")
 	include("me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}")
 	
 
