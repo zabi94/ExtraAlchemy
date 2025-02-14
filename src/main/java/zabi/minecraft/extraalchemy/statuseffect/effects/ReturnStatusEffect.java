@@ -21,6 +21,9 @@ public class ReturnStatusEffect extends ModStatusEffect {
 	public void applyInstantEffect(Entity source, Entity attacker, LivingEntity target, int amplifier, double d) {
 		if (target instanceof ServerPlayerEntity player) {
 			BlockPos respawnPos = player.getSpawnPointPosition();
+			
+			if (respawnPos == null) return;
+			
 			Optional<ServerPlayerEntity.RespawnPos> pos = ServerPlayerEntity.findRespawnPosition(player.getServerWorld(), respawnPos, 0, false, true);
 			if (pos.isPresent()) {
 				target.getWorldSpawnPos(player.getServerWorld(), respawnPos);
