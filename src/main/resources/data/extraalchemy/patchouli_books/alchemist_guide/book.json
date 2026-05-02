@@ -3,7 +3,7 @@
 	"landing_text": "extraalchemy.guide.description",
 	"subtitle": "extraalchemy.guide.subtitle",
 	"pamphlet": false,
-	"show_progress": false,
-	"creative_tab": "extraalchemy.all",
-	"use_resource_pack": true
+	"creative_tab": "extraalchemy:all",
+  	"use_resource_pack": true,
+  	"show_progress": false
 }
