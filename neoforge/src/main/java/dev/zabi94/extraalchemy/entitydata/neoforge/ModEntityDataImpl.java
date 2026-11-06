@@ -1,7 +1,6 @@
 package dev.zabi94.extraalchemy.entitydata.neoforge;
 
 import dev.architectury.platform.hooks.EventBusesHooks;
-import dev.zabi94.extraalchemy.entitydata.ModEntityDataNeoforge;
 import dev.zabi94.extraalchemy.entitydata.PlayerProperties;
 import dev.zabi94.extraalchemy.utils.DimensionalPosition;
 import dev.zabi94.extraalchemy.utils.LibMod;

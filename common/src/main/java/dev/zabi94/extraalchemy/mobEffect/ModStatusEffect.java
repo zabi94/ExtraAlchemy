@@ -51,7 +51,10 @@ public class ModStatusEffect extends MobEffect {
 
 
 
-	public ModStatusEffect onRegister() {
+	public ModStatusEffect setRegistered() {
+		if (!isRegistered) {
+			Log.d("Registered potion " + this.getClass().getName());
+		}
 		isRegistered = true;
 		return this;
 	}

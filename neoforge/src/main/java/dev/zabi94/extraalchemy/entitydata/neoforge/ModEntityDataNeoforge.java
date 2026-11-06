@@ -1,7 +1,8 @@
-package dev.zabi94.extraalchemy.entitydata;
+package dev.zabi94.extraalchemy.entitydata.neoforge;
 
 import java.util.function.Supplier;
 
+import dev.zabi94.extraalchemy.entitydata.PlayerProperties;
 import dev.zabi94.extraalchemy.utils.DimensionalPosition;
 import net.neoforged.neoforge.attachment.AttachmentType;
 

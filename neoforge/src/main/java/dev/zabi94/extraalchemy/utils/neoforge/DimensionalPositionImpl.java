@@ -1,6 +1,6 @@
 package dev.zabi94.extraalchemy.utils.neoforge;
 
-import dev.zabi94.extraalchemy.entitydata.ModEntityDataNeoforge;
+import dev.zabi94.extraalchemy.entitydata.neoforge.ModEntityDataNeoforge;
 import dev.zabi94.extraalchemy.utils.DimensionalPosition;
 import net.minecraft.world.entity.Entity;
 
