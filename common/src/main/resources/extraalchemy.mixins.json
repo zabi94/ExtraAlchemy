@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "dev.zabi94.extraalchemy.mixin.common",
+  "compatibilityLevel": "JAVA_25",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "MixinLivingEntity",
+    "AccessorExperienceOrbEntity",
+    "AccessorBoatEntity"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

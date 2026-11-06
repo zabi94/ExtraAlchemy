@@ -1,7 +1,0 @@
-{
-  "type": "extraalchemy:potion_ring",
-  "cost": 4,
-  "length": 12,
-  "renew": 1,
-  "potion": "extraalchemy:learning_strong"
-}

@@ -1,7 +1,0 @@
-{
-  "type": "extraalchemy:potion_ring",
-  "cost": 2,
-  "length": 30,
-  "renew": 1,
-  "potion": "minecraft:luck"
-}
