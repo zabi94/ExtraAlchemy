@@ -46,7 +46,7 @@ public class ModPotion extends Potion {
 		}
 		
 		public static RegistrySupplier<Potion> generateAll(DeferredRegister<Potion> registry, String name, RegistrySupplier<ModStatusEffect> statusEffect) {
-			RegistrySupplier<Potion> empowered = registry.register(name+"_strong", () -> new ModPotionInstant(name+"_strong", statusEffect, 1));
+			RegistrySupplier<Potion> empowered = registry.register(name+"_strong", () -> new ModPotionInstant(name, statusEffect, 1));
 			return registry.register(name, () -> new ModPotionInstant(name, statusEffect, 0).setEmpowered(empowered));
 		}
 		
@@ -64,13 +64,13 @@ public class ModPotion extends Potion {
 		}
 		
 		public static RegistrySupplier<Potion> generateAll(DeferredRegister<Potion> registry, String name, RegistrySupplier<ModStatusEffect> statusEffect, int lengthNormal, int lengthExtended, int lengthEmpowered) {
-			RegistrySupplier<Potion> empowered = registry.register(name+"_strong", () -> new ModPotionTimed(name+"_strong", statusEffect, lengthEmpowered, 1));
-			RegistrySupplier<Potion> extended = registry.register(name+"_long", () -> new ModPotionTimed(name + "_long", statusEffect, lengthExtended, 0));
+			RegistrySupplier<Potion> empowered = registry.register(name+"_strong", () -> new ModPotionTimed(name, statusEffect, lengthEmpowered, 1));
+			RegistrySupplier<Potion> extended = registry.register(name+"_long", () -> new ModPotionTimed(name, statusEffect, lengthExtended, 0));
 			return registry.register(name, () -> new ModPotionTimed(name, statusEffect, lengthNormal, 0).setEmpowered(empowered).setExtended(extended));
 		}
 		
 		public static RegistrySupplier<Potion> generateWithLengthened(DeferredRegister<Potion> registry, String name, RegistrySupplier<ModStatusEffect> statusEffect, int lengthNormal, int lengthExtended) {
-			RegistrySupplier<Potion> extended = registry.register(name+"_long", () -> new ModPotionTimed(name + "_long", statusEffect, lengthExtended, 0));
+			RegistrySupplier<Potion> extended = registry.register(name+"_long", () -> new ModPotionTimed(name, statusEffect, lengthExtended, 0));
 			return registry.register(name, () -> new ModPotionTimed(name, statusEffect, lengthNormal, 0).setExtended(extended));
 		}
 		
