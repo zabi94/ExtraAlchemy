@@ -45,8 +45,8 @@ public class ModPotion extends Potion {
 		
 		public static RegistrySupplier<Potion> generateAll(DeferredRegister<Potion> registry, String name, RegistrySupplier<ModStatusEffect> statusEffect, int lengthNormal, int lengthExtended, int lengthEmpowered) {
 			RegistrySupplier<Potion> base = registry.register(name, () -> new ModPotionTimed(name, statusEffect, lengthNormal, 0));
-			registry.register(name+"_strong", () -> new ModPotionTimed(name, statusEffect, lengthEmpowered, 1));
 			registry.register(name+"_long", () -> new ModPotionTimed(name, statusEffect, lengthExtended, 0));
+			registry.register(name+"_strong", () -> new ModPotionTimed(name, statusEffect, lengthEmpowered, 1));
 			return base;
 		}
 		
