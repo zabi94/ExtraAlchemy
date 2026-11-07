@@ -1,15 +1,15 @@
 modLoader = "javafml"
 loaderVersion = "[1,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "ARR"
 
 [[mods]]
 modId = "extraalchemy"
 version = "${version}"
 displayName = "Extra Alchemy"
-authors = "Me!"
+authors = "zabi94"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+Adds new potions to Minecraft!
 '''
 #logoFile = ""
 

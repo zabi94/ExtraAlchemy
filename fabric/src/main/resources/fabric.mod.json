@@ -3,15 +3,33 @@
   "id": "extraalchemy",
   "version": "${version}",
   "name": "Extra Alchemy",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Adds new potions to Minecraft!",
   "authors": [
-    "Me!"
+    {
+      "name": "zabi94",
+      "contact": {
+      	"twitter": "https://twitter.com/zabi94",
+      	"discord": "https://discord.gg/njMA9kv"
+      }
+    }
+  ],
+  "contributors": [
+  	{
+  	    "name": "she_is_long",
+  	    "contact": {
+  	        "homepage": "https://www.planetminecraft.com/member/she_is_long",
+  	    	"contribution": "texture and item icons",
+  	        "discord": "She's_long#7283"
+  	    }
+  	}
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  	"homepage": "https://github.com/zabi94/ExtraAlchemy/wiki",
+    "sources": "https://github.com/zabi94/ExtraAlchemy",
+    "issues": "https://github.com/zabi94/ExtraAlchemy/issues"
   },
-  "license": "CC0-1.0",
+
+  "license": "ARR",
   "icon": "assets/extraalchemy/icon.png",
   "environment": "*",
   "entrypoints": {
