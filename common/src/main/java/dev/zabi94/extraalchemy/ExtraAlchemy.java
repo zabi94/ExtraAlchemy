@@ -2,6 +2,7 @@ package dev.zabi94.extraalchemy;
 
 import dev.zabi94.extraalchemy.config.ModConfig;
 import dev.zabi94.extraalchemy.entitydata.ModEntityData;
+import dev.zabi94.extraalchemy.mobEffect.EventHandler;
 import dev.zabi94.extraalchemy.mobEffect.ModEffectRegistry;
 import dev.zabi94.extraalchemy.potion.ModPotionRegistry;
 
@@ -12,5 +13,6 @@ public final class ExtraAlchemy {
         ModEffectRegistry.registerAll();
         ModPotionRegistry.registerAll();
         ModEntityData.init();
+        EventHandler.register();
     }
 }
