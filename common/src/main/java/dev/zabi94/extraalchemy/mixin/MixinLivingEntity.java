@@ -1,4 +1,4 @@
-package dev.zabi94.extraalchemy.mixin.common;
+package dev.zabi94.extraalchemy.mixin;
 
 import java.util.Collection;
 

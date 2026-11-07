@@ -1,6 +1,6 @@
 package dev.zabi94.extraalchemy.mobEffect.effects;
 
-import dev.zabi94.extraalchemy.mixin.common.AccessorBoatEntity;
+import dev.zabi94.extraalchemy.mixin.AccessorBoatEntity;
 import dev.zabi94.extraalchemy.mobEffect.ModStatusEffect;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;

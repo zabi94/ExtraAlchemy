@@ -1,9 +1,10 @@
 {
   "required": true,
-  "package": "dev.zabi94.extraalchemy.mixin.common",
+  "package": "dev.zabi94.extraalchemy.mixin",
   "compatibilityLevel": "JAVA_25",
   "minVersion": "0.8",
   "client": [
+    "MixinEntityOutline"
   ],
   "mixins": [
     "MixinLivingEntity",

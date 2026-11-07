@@ -4,7 +4,7 @@ import com.google.common.base.Predicates;
 
 import dev.zabi94.extraalchemy.config.ModConfig;
 import dev.zabi94.extraalchemy.entitydata.PlayerProperties;
-import dev.zabi94.extraalchemy.mixin.common.AccessorExperienceOrbEntity;
+import dev.zabi94.extraalchemy.mixin.AccessorExperienceOrbEntity;
 import dev.zabi94.extraalchemy.mobEffect.ModStatusEffect;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectCategory;
