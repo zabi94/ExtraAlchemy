@@ -2,8 +2,8 @@ package dev.zabi94.extraalchemy.potion;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import dev.zabi94.extraalchemy.mobEffect.ModStatusEffect;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.alchemy.Potion;
 
@@ -15,7 +15,7 @@ public class ModPotion extends Potion {
 	
 	public static class ModPotionInstant extends ModPotion {
 		
-		public ModPotionInstant(String name, RegistrySupplier<ModStatusEffect> statusEffect, int amplifier) {
+		public ModPotionInstant(String name, RegistrySupplier<MobEffect> statusEffect, int amplifier) {
 			super(name, new MobEffectInstance(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(statusEffect.get()), 0, amplifier, false, true));
 		}
 
@@ -24,7 +24,7 @@ public class ModPotion extends Potion {
 			return true;
 		}
 		
-		public static RegistrySupplier<Potion> generateAll(DeferredRegister<Potion> registry, String name, RegistrySupplier<ModStatusEffect> statusEffect) {
+		public static RegistrySupplier<Potion> generateAll(DeferredRegister<Potion> registry, String name, RegistrySupplier<MobEffect> statusEffect) {
 			RegistrySupplier<Potion> base = registry.register(name, () -> new ModPotionInstant(name, statusEffect, 0));
 			registry.register(name+"_strong", () -> new ModPotionInstant(name, statusEffect, 1));
 			return base;
@@ -34,7 +34,7 @@ public class ModPotion extends Potion {
 	
 	public static class ModPotionTimed extends ModPotion {
 		
-		protected ModPotionTimed(String name, RegistrySupplier<ModStatusEffect> statusEffect, int length, int amplifier) {
+		protected ModPotionTimed(String name, RegistrySupplier<MobEffect> statusEffect, int length, int amplifier) {
 			super(name, new MobEffectInstance(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(statusEffect.get()), length, amplifier, false, true));
 		}
 
@@ -43,14 +43,14 @@ public class ModPotion extends Potion {
 			return false;
 		}
 		
-		public static RegistrySupplier<Potion> generateAll(DeferredRegister<Potion> registry, String name, RegistrySupplier<ModStatusEffect> statusEffect, int lengthNormal, int lengthExtended, int lengthEmpowered) {
+		public static RegistrySupplier<Potion> generateAll(DeferredRegister<Potion> registry, String name, RegistrySupplier<MobEffect> statusEffect, int lengthNormal, int lengthExtended, int lengthEmpowered) {
 			RegistrySupplier<Potion> base = registry.register(name, () -> new ModPotionTimed(name, statusEffect, lengthNormal, 0));
 			registry.register(name+"_long", () -> new ModPotionTimed(name, statusEffect, lengthExtended, 0));
 			registry.register(name+"_strong", () -> new ModPotionTimed(name, statusEffect, lengthEmpowered, 1));
 			return base;
 		}
 		
-		public static RegistrySupplier<Potion> generateWithLengthened(DeferredRegister<Potion> registry, String name, RegistrySupplier<ModStatusEffect> statusEffect, int lengthNormal, int lengthExtended) {
+		public static RegistrySupplier<Potion> generateWithLengthened(DeferredRegister<Potion> registry, String name, RegistrySupplier<MobEffect> statusEffect, int lengthNormal, int lengthExtended) {
 			RegistrySupplier<Potion> base = registry.register(name, () -> new ModPotionTimed(name, statusEffect, lengthNormal, 0));;
 			registry.register(name+"_long", () -> new ModPotionTimed(name, statusEffect, lengthExtended, 0));
 			return base;

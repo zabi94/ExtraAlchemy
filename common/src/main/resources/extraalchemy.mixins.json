@@ -8,7 +8,8 @@
   "mixins": [
     "MixinLivingEntity",
     "AccessorExperienceOrbEntity",
-    "AccessorBoatEntity"
+    "AccessorBoatEntity",
+    "TemptGoalMixin"
   ],
   "injectors": {
     "defaultRequire": 1
