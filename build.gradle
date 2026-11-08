@@ -25,10 +25,6 @@ subprojects {
     }
 
     repositories {
-        maven {
-            name = "ModMenu"
-            url = "https://maven.terraformersmc.com/releases/"
-        }
     }
 
     dependencies {

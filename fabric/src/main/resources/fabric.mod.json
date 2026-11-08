@@ -4,6 +4,7 @@
   "version": "${version}",
   "name": "Extra Alchemy",
   "description": "Adds new potions to Minecraft!",
+  "icon": "assets/extraalchemy/icon.png",
   "authors": [
     {
       "name": "zabi94",
@@ -18,7 +19,7 @@
   	    "name": "she_is_long",
   	    "contact": {
   	        "homepage": "https://www.planetminecraft.com/member/she_is_long",
-  	    	"contribution": "texture and item icons",
+  	    	  "contribution": "texture and item icons",
   	        "discord": "She's_long#7283"
   	    }
   	}
@@ -28,9 +29,7 @@
     "sources": "https://github.com/zabi94/ExtraAlchemy",
     "issues": "https://github.com/zabi94/ExtraAlchemy/issues"
   },
-
   "license": "ARR",
-  "icon": "assets/extraalchemy/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -48,8 +47,5 @@
     "java": ">=25",
     "architectury": ">=22.0.3",
     "fabric-api": "*"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }
