@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:brewing",
+    "input": {
+        "item": "minecraft:potion",
+        "potion_contents": {
+            "potions": ["extraalchemy:fuse_long"]
+        }
+    },
+    "reagent": {
+        "item": "minecraft:dragon_breath"
+    },
+    "output": {
+        "id": "minecraft:lingering_potion",
+        "components": {
+            "minecraft:potion_contents": {
+                "potion": "extraalchemy:fuse_long"
+            }
+        }
+    }
+}
